@@ -22,7 +22,9 @@ import { formatCurrency, formatDateTime, relativeTime } from "@/lib/utils";
 
 export default async function OperatorOverview() {
   const user = (await getCurrentUser())!;
-  const inReview = residencies.filter((r) => r.status === "in_review");
+  const inReview = residencies.filter(
+    (r) => r.status === "in_review" || r.status === "applied",
+  );
   const activeResidencies = residencies.filter((r) => r.status === "active");
   const todays = bookings.slice(0, 5);
   const deniedAccess = accessEvents.filter((e) => e.outcome === "denied");

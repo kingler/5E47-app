@@ -39,6 +39,15 @@ const config: Config = {
           "Inter",
           "sans-serif",
         ],
+        serif: [
+          "Iowan Old Style",
+          "Apple Garamond",
+          "Baskerville",
+          "Source Serif Pro",
+          "Cambria",
+          "Georgia",
+          "serif",
+        ],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       boxShadow: {

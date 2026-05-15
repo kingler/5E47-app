@@ -82,7 +82,7 @@ export default async function ResidenciesPage() {
                     </Badge>
                   </TD>
                   <TD className="text-right">
-                    {canApprove && r.status === "in_review" ? (
+                    {canApprove && (r.status === "in_review" || r.status === "applied") ? (
                       <div className="flex justify-end gap-2">
                         <form action={updateStatus}>
                           <input type="hidden" name="id" value={r.id} />
