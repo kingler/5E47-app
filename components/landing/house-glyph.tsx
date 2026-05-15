@@ -1,7 +1,33 @@
 // Small editorial vignettes for each house — keyboard, clapper, lectern,
 // notebook. Pure SVG, deeply cropped so they read as detail photography.
+//
+// When `src` is supplied the real photograph renders instead.
 
-export function HouseGlyph({ kind }: { kind: "music" | "video" | "masterclass" | "founders" }) {
+export function HouseGlyph({
+  kind,
+  src,
+}: {
+  kind: "music" | "video" | "masterclass" | "founders";
+  src?: string;
+}) {
+  if (src) {
+    return (
+      <div className="relative w-full h-full overflow-hidden">
+        <img
+          src={src}
+          alt=""
+          decoding="async"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[0.3] contrast-110"
+        />
+        <div className="absolute inset-0 [background:radial-gradient(70%_70%_at_30%_30%,transparent,rgba(0,0,0,0.55))]" />
+      </div>
+    );
+  }
+  return <HouseGlyphSvg kind={kind} />;
+}
+
+function HouseGlyphSvg({ kind }: { kind: "music" | "video" | "masterclass" | "founders" }) {
   return (
     <svg viewBox="0 0 320 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
       <defs>

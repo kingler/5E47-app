@@ -1,8 +1,29 @@
 // A film-still composition: dark interior, tall arched window with a single
 // shaft of morning light, a still chair in silhouette, dust motes in the
 // beam. All vector — composes with the page's grain + grading layers.
+//
+// When `src` is supplied the real photograph renders instead, with the
+// same grade applied via CSS.
 
-export function FilmStill({ className }: { className?: string }) {
+export function FilmStill({ className, src }: { className?: string; src?: string }) {
+  if (src) {
+    return (
+      <div className={`relative overflow-hidden ${className ?? ""}`}>
+        <img
+          src={src}
+          alt=""
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[0.4] contrast-110"
+        />
+        {/* Vignette grade — matches the SVG version's mood */}
+        <div className="absolute inset-0 [background:radial-gradient(80%_60%_at_70%_40%,rgba(255,242,192,0.18),transparent_60%),radial-gradient(100%_80%_at_50%_120%,#000_0%,transparent_60%)]" />
+      </div>
+    );
+  }
+  return <FilmStillSvg className={className} />;
+}
+
+function FilmStillSvg({ className }: { className?: string }) {
   return (
     <svg
       className={className}

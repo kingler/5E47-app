@@ -18,6 +18,12 @@ npm run dev
 
 Open http://localhost:3000 and sign in as any seeded persona.
 
+## Landing imagery
+
+The landing page renders self-contained SVG art by default. To use real
+photography, drop files into `/public/landing/` (see the README there for
+exact filenames) and set `NEXT_PUBLIC_USE_LANDING_PHOTOS=true`.
+
 ## Architecture
 
 ```

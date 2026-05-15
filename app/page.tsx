@@ -7,6 +7,15 @@ import { Portrait } from "@/components/landing/portrait";
 import { BuildingElevation } from "@/components/landing/building-elevation";
 import { HouseGlyph } from "@/components/landing/house-glyph";
 
+// Set USE_PHOTOS=true once /public/landing/ is populated. See the README
+// there for the exact filenames expected.
+const USE_PHOTOS = process.env.NEXT_PUBLIC_USE_LANDING_PHOTOS === "true";
+const heroSrc = USE_PHOTOS ? "/landing/hero.jpg" : undefined;
+const portraitSrc = (i: number) =>
+  USE_PHOTOS ? `/landing/portraits/${String((i % 32) + 1).padStart(2, "0")}.jpg` : undefined;
+const houseSrc = (k: "music" | "video" | "masterclass" | "founders") =>
+  USE_PHOTOS ? `/landing/houses/${k}.jpg` : undefined;
+
 const HOUSES = [
   {
     tag: "I",
@@ -86,7 +95,7 @@ export default function Landing() {
       <section className="relative min-h-[100svh] overflow-hidden flex items-end isolate">
         {/* Film-still backdrop with Ken Burns */}
         <div className="absolute inset-0 -z-20">
-          <FilmStill className="w-full h-full animate-kenburns" />
+          <FilmStill className="w-full h-full animate-kenburns" src={heroSrc} />
         </div>
         {/* Color grade + grain over the still */}
         <div className="absolute inset-0 -z-10">
@@ -180,7 +189,7 @@ export default function Landing() {
                 <div className="grid grid-cols-1 sm:grid-cols-5">
                   <div className="sm:col-span-2 aspect-[5/4] sm:aspect-auto overflow-hidden">
                     <div className="w-full h-full transition-transform duration-1000 group-hover:scale-[1.04]">
-                      <HouseGlyph kind={h.glyph} />
+                      <HouseGlyph kind={h.glyph} src={houseSrc(h.glyph)} />
                     </div>
                   </div>
                   <div className="sm:col-span-3 p-10 md:p-12 flex flex-col justify-between">
@@ -293,7 +302,7 @@ export default function Landing() {
                 delay={(i % 8) * 60}
                 className="aspect-square bg-bg-elev relative overflow-hidden group"
               >
-                <Portrait index={i} />
+                <Portrait index={i} src={portraitSrc(i)} />
                 {/* Member ID overlay */}
                 <div className="absolute inset-0 flex items-end justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/70 to-transparent">
                   <span className="font-mono text-[9px] text-ink-soft tracking-widest">
