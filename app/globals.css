@@ -53,3 +53,47 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #2e2e38;
 }
+
+/* Cinematic hero motion */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1.5%, -1.2%, 0);
+  }
+}
+.animate-kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(-12px, -16px, 0);
+    opacity: 0.4;
+  }
+}
+.animate-drift {
+  animation: drift 9s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns,
+  .animate-drift {
+    animation: none;
+  }
+}
+
+/* Editorial type defaults for serif display */
+.font-serif {
+  font-feature-settings: "kern", "liga", "calt", "onum";
+  letter-spacing: -0.015em;
+}

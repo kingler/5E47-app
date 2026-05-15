@@ -1,41 +1,46 @@
 import Link from "next/link";
 import { ArrowRight, Lock } from "lucide-react";
 import { Logo } from "@/components/shell/logo";
+import { Reveal } from "@/components/landing/reveal";
+import { FilmStill } from "@/components/landing/film-still";
+import { Portrait } from "@/components/landing/portrait";
+import { BuildingElevation } from "@/components/landing/building-elevation";
+import { HouseGlyph } from "@/components/landing/house-glyph";
 
 const HOUSES = [
   {
     tag: "I",
     name: "Music",
     body: "Mixing rooms, vocal booths, and quiet nights for artists building catalogs that will outlive the cycle.",
-    accent: "from-[#7c5cff]/30 to-transparent",
+    glyph: "music" as const,
   },
   {
     tag: "II",
     name: "Video Production",
     body: "An LED volume, edit bays, and a stage configured for short-form, long-form, and the thing in between.",
-    accent: "from-[#fb923c]/30 to-transparent",
+    glyph: "video" as const,
   },
   {
     tag: "III",
     name: "Masterclass",
     body: "Closed-door instruction from operators who would rather teach a room of seven than a room of seven hundred.",
-    accent: "from-[#e6ff3d]/25 to-transparent",
+    glyph: "masterclass" as const,
   },
   {
     tag: "IV",
     name: "Founders",
     body: "Writers' rooms for entrepreneurs — quiet floors, sharp peers, a kitchen, and a door that closes.",
-    accent: "from-[#60a5fa]/30 to-transparent",
+    glyph: "founders" as const,
   },
 ];
 
 const FLOORS = [
-  { n: 1, name: "Lobby & Lounge", note: "Members and invited guests" },
-  { n: 2, name: "Audio Rooms", note: "Two control rooms · vocal booth" },
-  { n: 3, name: "Podcast & Writers' Floor", note: "Quiet — phones face-down" },
-  { n: 4, name: "Edit Bays & Founders' Wing", note: "Resident keys only" },
-  { n: 5, name: "Stage · LED Volume", note: "Closed shoots & premieres" },
   { n: 6, name: "Salons & Events", note: "Programming nights only" },
+  { n: 5, name: "Stage · LED Volume", note: "Closed shoots & premieres" },
+  { n: 4, name: "Edit Bays & Founders' Wing", note: "Resident keys only" },
+  { n: 3, name: "Podcast & Writers' Floor", note: "Quiet — phones face-down" },
+  { n: 2, name: "Audio Rooms", note: "Two control rooms · vocal booth" },
+  { n: 1, name: "Lobby & Lounge", note: "Members and invited guests" },
 ];
 
 const PROGRAMMING = [
@@ -51,10 +56,10 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-bg text-ink">
       {/* Nav */}
-      <header className="fixed top-0 inset-x-0 z-40 backdrop-blur bg-bg/70 border-b border-bg-border/60">
+      <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-bg/60 border-b border-bg-border/50">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <Logo />
-          <nav className="hidden md:flex items-center gap-7 text-[13px] text-ink-muted">
+          <nav className="hidden md:flex items-center gap-7 text-[12.5px] tracking-wide text-ink-muted">
             <a href="#houses" className="hover:text-ink transition-colors">The Houses</a>
             <a href="#building" className="hover:text-ink transition-colors">The Building</a>
             <a href="#programming" className="hover:text-ink transition-colors">Programming</a>
@@ -63,13 +68,13 @@ export default function Landing() {
           <div className="flex items-center gap-3">
             <Link
               href="/login"
-              className="text-[13px] text-ink-muted hover:text-ink transition-colors hidden sm:inline"
+              className="text-[12.5px] text-ink-muted hover:text-ink transition-colors hidden sm:inline"
             >
               Member sign-in
             </Link>
             <Link
               href="/apply"
-              className="rounded-full bg-accent text-accent-ink px-4 py-1.5 text-[13px] font-medium hover:bg-accent-muted transition-colors"
+              className="rounded-full bg-accent text-accent-ink px-4 py-1.5 text-[12.5px] font-medium hover:bg-accent-muted transition-colors"
             >
               Request membership
             </Link>
@@ -78,243 +83,298 @@ export default function Landing() {
       </header>
 
       {/* Hero */}
-      <section className="relative min-h-[100svh] overflow-hidden flex items-end">
-        {/* Cinematic backdrop: layered gradients + grain */}
+      <section className="relative min-h-[100svh] overflow-hidden flex items-end isolate">
+        {/* Film-still backdrop with Ken Burns */}
+        <div className="absolute inset-0 -z-20">
+          <FilmStill className="w-full h-full animate-kenburns" />
+        </div>
+        {/* Color grade + grain over the still */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 [background:radial-gradient(70%_60%_at_20%_30%,rgba(230,255,61,0.10),transparent_60%),radial-gradient(60%_60%_at_85%_70%,rgba(124,92,255,0.18),transparent_60%),linear-gradient(180deg,#0a0a0b_0%,#06060a_60%,#000_100%)]" />
-          <svg className="absolute inset-0 w-full h-full opacity-[0.08] mix-blend-overlay" aria-hidden>
-            <filter id="grain">
+          <div className="absolute inset-0 [background:radial-gradient(70%_60%_at_18%_30%,rgba(230,255,61,0.10),transparent_60%),radial-gradient(60%_60%_at_85%_70%,rgba(124,92,255,0.16),transparent_60%),linear-gradient(180deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.65)_60%,rgba(0,0,0,0.92)_100%)]" />
+          <svg className="absolute inset-0 w-full h-full opacity-[0.10] mix-blend-overlay" aria-hidden>
+            <filter id="grain-h">
               <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
               <feColorMatrix type="saturate" values="0" />
             </filter>
-            <rect width="100%" height="100%" filter="url(#grain)" />
-          </svg>
-          {/* faint geometric room sketches */}
-          <svg className="absolute right-[-10%] bottom-[-5%] w-[70%] h-[70%] opacity-[0.07]" viewBox="0 0 600 600" aria-hidden>
-            <g fill="none" stroke="currentColor" strokeWidth="0.6">
-              <rect x="60" y="60" width="480" height="480" />
-              <rect x="120" y="120" width="360" height="360" />
-              <rect x="200" y="60" width="200" height="200" />
-              <line x1="60" y1="300" x2="540" y2="300" />
-              <line x1="300" y1="60" x2="300" y2="540" />
-              <circle cx="300" cy="300" r="180" />
-              <circle cx="300" cy="300" r="80" />
-            </g>
+            <rect width="100%" height="100%" filter="url(#grain-h)" />
           </svg>
         </div>
 
         <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pt-40 pb-20 md:pb-28">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-ink-soft mb-8">
-            <Lock className="size-3" />
-            <span>By invitation · New York</span>
-            <span className="text-bg-border">—</span>
-            <span>Est. MMXXVI</span>
-          </div>
+          <Reveal>
+            <div className="flex items-center gap-2 text-[10.5px] uppercase tracking-[0.28em] text-ink-soft mb-10">
+              <Lock className="size-3" />
+              <span>By invitation</span>
+              <span className="text-bg-border">·</span>
+              <span>New York</span>
+              <span className="text-bg-border">·</span>
+              <span>Est. MMXXVI</span>
+            </div>
+          </Reveal>
 
-          <h1 className="font-serif font-normal tracking-tight text-[clamp(2.8rem,7vw,6rem)] leading-[0.95] max-w-5xl">
-            A members-only home
-            <br />
-            for music, film, mastery,
-            <br />
-            <span className="text-ink-muted italic">and the people building</span>
-            <br />
-            <span className="text-ink-muted italic">what's next.</span>
-          </h1>
+          <Reveal delay={120}>
+            <h1 className="font-serif font-normal text-[clamp(2.6rem,7.6vw,6.5rem)] leading-[0.94] max-w-5xl text-balance">
+              A members-only home
+              <br />
+              for music, film, mastery,
+              <br />
+              <span className="text-ink-muted italic">and the people building</span>
+              <br />
+              <span className="text-ink-muted italic">what's next.</span>
+            </h1>
+          </Reveal>
 
-          <p className="mt-10 max-w-xl text-ink-muted text-base md:text-lg leading-relaxed">
-            Six floors in lower Manhattan. Closed studios, closed salons, a closed room of peers.
-            Membership is by invitation or referral.
-          </p>
+          <Reveal delay={240}>
+            <p className="mt-12 max-w-xl text-ink-muted text-[15px] md:text-[17px] leading-[1.7]">
+              Six floors in lower Manhattan. Closed studios, closed salons,
+              a closed room of peers. Membership is by invitation or referral.
+            </p>
+          </Reveal>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/apply"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-ink px-6 py-3 text-sm font-medium hover:bg-accent-muted transition-colors shadow-glow"
-            >
-              Request membership
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              href="/login"
-              className="inline-flex items-center gap-2 rounded-full border border-bg-border bg-bg-elev/50 px-6 py-3 text-sm text-ink hover:border-ink-soft transition-colors backdrop-blur"
-            >
-              Member sign-in
-            </Link>
+          <Reveal delay={360}>
+            <div className="mt-12 flex flex-wrap gap-3">
+              <Link
+                href="/apply"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-ink px-6 py-3 text-sm font-medium hover:bg-accent-muted transition-colors shadow-glow"
+              >
+                Request membership
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-2 rounded-full border border-bg-border bg-bg-elev/50 backdrop-blur px-6 py-3 text-sm text-ink hover:border-ink-soft transition-colors"
+              >
+                Member sign-in
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* Frame markers — bottom */}
+          <div className="absolute left-6 md:left-10 right-6 md:right-10 bottom-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-ink-soft/70 font-mono">
+            <span>5E47 · A · 47°FIFTH</span>
+            <span className="hidden sm:inline">f/2.0 · 1/60 · ISO 800</span>
+            <span>SCROLL ↓</span>
           </div>
         </div>
       </section>
 
       {/* Houses */}
-      <section id="houses" className="border-t border-bg-border/60 bg-bg">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-          <div className="grid md:grid-cols-12 gap-10 mb-16">
-            <div className="md:col-span-4">
+      <section id="houses" className="relative border-t border-bg-border/60 bg-bg">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36">
+          <div className="grid md:grid-cols-12 gap-10 mb-20">
+            <Reveal className="md:col-span-4">
               <div className="label mb-4">§ 01 · The Houses</div>
-            </div>
-            <div className="md:col-span-8">
-              <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-8">
+              <h2 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance">
                 Four houses, one address.
                 <br />
                 <span className="text-ink-muted italic">You belong to one — and to all of them.</span>
               </h2>
-            </div>
+            </Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-bg-border">
-            {HOUSES.map((h) => (
-              <article
-                key={h.name}
-                className="relative bg-bg p-10 md:p-12 overflow-hidden group"
-              >
-                <div className={`absolute inset-0 -z-10 bg-gradient-to-br ${h.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
-                <div className="font-mono text-[11px] text-ink-soft tracking-widest mb-6">
-                  HOUSE · {h.tag}
+            {HOUSES.map((h, i) => (
+              <Reveal as="article" key={h.name} delay={i * 120} className="bg-bg group">
+                <div className="grid grid-cols-1 sm:grid-cols-5">
+                  <div className="sm:col-span-2 aspect-[5/4] sm:aspect-auto overflow-hidden">
+                    <div className="w-full h-full transition-transform duration-1000 group-hover:scale-[1.04]">
+                      <HouseGlyph kind={h.glyph} />
+                    </div>
+                  </div>
+                  <div className="sm:col-span-3 p-10 md:p-12 flex flex-col justify-between">
+                    <div>
+                      <div className="font-mono text-[10.5px] text-ink-soft tracking-[0.28em] mb-6">
+                        HOUSE · {h.tag}
+                      </div>
+                      <h3 className="font-serif text-3xl md:text-4xl leading-[1.05]">
+                        {h.name}
+                      </h3>
+                      <p className="mt-6 text-ink-muted text-[14.5px] leading-[1.75] max-w-md">
+                        {h.body}
+                      </p>
+                    </div>
+                    <div className="mt-10 flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-ink-soft">
+                      <span className="h-px w-8 bg-bg-border" />
+                      Capped per cohort
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-serif text-3xl md:text-4xl tracking-tight">{h.name}</h3>
-                <p className="mt-6 text-ink-muted text-[15px] leading-relaxed max-w-md">
-                  {h.body}
-                </p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Building */}
-      <section id="building" className="border-t border-bg-border/60 bg-[#06060a]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-          <div className="grid md:grid-cols-12 gap-10 mb-16">
-            <div className="md:col-span-4">
+      <section id="building" className="relative border-t border-bg-border/60 bg-[#06060a]">
+        <div className="absolute inset-0 -z-10 [background:radial-gradient(60%_50%_at_85%_30%,rgba(230,255,61,0.06),transparent_60%)]" />
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36">
+          <div className="grid md:grid-cols-12 gap-10 mb-20">
+            <Reveal className="md:col-span-4">
               <div className="label mb-4">§ 02 · The Building</div>
-            </div>
-            <div className="md:col-span-8">
-              <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-8">
+              <h2 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance">
                 Six floors.
                 <br />
                 <span className="text-ink-muted italic">Each one earns its quiet.</span>
               </h2>
-            </div>
+            </Reveal>
           </div>
 
-          <div className="border border-bg-border rounded-2xl overflow-hidden">
-            {FLOORS.slice().reverse().map((f, i) => (
-              <div
-                key={f.n}
-                className={`grid grid-cols-12 gap-4 items-center px-6 md:px-10 py-7 md:py-8 ${i !== 0 ? "border-t border-bg-border" : ""} hover:bg-bg-elev/40 transition-colors`}
-              >
-                <div className="col-span-2 md:col-span-1 font-serif text-3xl md:text-5xl text-ink-soft tabular-nums">
-                  {f.n}
-                </div>
-                <div className="col-span-10 md:col-span-5">
-                  <div className="font-serif text-xl md:text-2xl tracking-tight">{f.name}</div>
-                </div>
-                <div className="hidden md:block md:col-span-5 text-ink-muted text-sm">
-                  {f.note}
-                </div>
-                <div className="col-span-12 md:col-span-1 text-right">
-                  <span className="font-mono text-[10px] text-ink-soft tracking-widest">FL/{String(f.n).padStart(2, "0")}</span>
+          <div className="grid md:grid-cols-12 gap-10 items-start">
+            <Reveal className="md:col-span-3 hidden md:block">
+              <div className="surface-soft p-6 sticky top-28">
+                <BuildingElevation className="w-full h-auto" highlightFloor={5} />
+                <div className="mt-4 text-[11px] text-ink-soft text-center font-mono tracking-widest">
+                  47°FIFTH · ELEV. 01
                 </div>
               </div>
-            ))}
+            </Reveal>
+            <div className="md:col-span-9">
+              <div className="border border-bg-border rounded-2xl overflow-hidden">
+                {FLOORS.map((f, i) => (
+                  <Reveal
+                    key={f.n}
+                    delay={i * 80}
+                    className={`grid grid-cols-12 gap-4 items-center px-6 md:px-10 py-7 md:py-8 ${
+                      i !== 0 ? "border-t border-bg-border" : ""
+                    } hover:bg-bg-elev/40 transition-colors group cursor-default`}
+                  >
+                    <div className="col-span-2 md:col-span-1 font-serif text-3xl md:text-5xl text-ink-soft tabular-nums group-hover:text-ink transition-colors">
+                      {f.n}
+                    </div>
+                    <div className="col-span-10 md:col-span-5">
+                      <div className="font-serif text-xl md:text-2xl">{f.name}</div>
+                    </div>
+                    <div className="hidden md:block md:col-span-5 text-ink-muted text-sm">
+                      {f.note}
+                    </div>
+                    <div className="col-span-12 md:col-span-1 text-right">
+                      <span className="font-mono text-[10px] text-ink-soft tracking-widest">
+                        FL/{String(f.n).padStart(2, "0")}
+                      </span>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* In Residence */}
-      <section id="residence" className="border-t border-bg-border/60 bg-bg">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-          <div className="grid md:grid-cols-12 gap-10 mb-16">
-            <div className="md:col-span-4">
+      <section id="residence" className="relative border-t border-bg-border/60 bg-bg">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36">
+          <div className="grid md:grid-cols-12 gap-10 mb-20">
+            <Reveal className="md:col-span-4">
               <div className="label mb-4">§ 03 · In Residence</div>
-            </div>
-            <div className="md:col-span-8">
-              <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-8">
+              <h2 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance">
                 A small room of peers.
                 <br />
                 <span className="text-ink-muted italic">Names withheld at the door.</span>
               </h2>
-              <p className="mt-6 text-ink-muted max-w-2xl">
+              <p className="mt-8 text-ink-muted text-[15px] leading-[1.75] max-w-2xl">
                 Grammy nominees, festival directors, founders mid-raise, and the engineers, editors,
                 and writers who quietly make their work possible. Membership is capped per house.
               </p>
-            </div>
+            </Reveal>
           </div>
 
-          {/* Silhouette grid */}
+          {/* Editorial portrait wall */}
           <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-px bg-bg-border rounded-2xl overflow-hidden">
             {Array.from({ length: 32 }).map((_, i) => (
-              <div
+              <Reveal
                 key={i}
-                className="aspect-square bg-bg-elev flex items-center justify-center relative overflow-hidden"
+                delay={(i % 8) * 60}
+                className="aspect-square bg-bg-elev relative overflow-hidden group"
               >
-                <div
-                  className="absolute inset-0 opacity-60"
-                  style={{
-                    background: `radial-gradient(circle at 50% 35%, rgba(255,255,255,0.${(i % 7) + 2}) 0%, transparent 30%), linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6))`,
-                  }}
-                />
-                <span className="relative font-mono text-[10px] text-ink-soft">
-                  M·{String(i + 1).padStart(3, "0")}
-                </span>
-              </div>
+                <Portrait index={i} />
+                {/* Member ID overlay */}
+                <div className="absolute inset-0 flex items-end justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/70 to-transparent">
+                  <span className="font-mono text-[9px] text-ink-soft tracking-widest">
+                    M·{String(i + 1).padStart(3, "0")}
+                  </span>
+                  <span className="font-mono text-[9px] text-accent tracking-widest">
+                    {["MUS", "VID", "MAS", "FND"][i % 4]}
+                  </span>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              ["210", "Active members"],
-              ["4", "Houses"],
-              ["38", "Rooms & stages"],
-              ["1", "Door"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <div className="font-serif text-4xl md:text-5xl tracking-tight">{v}</div>
-                <div className="mt-2 text-[11px] uppercase tracking-[0.18em] text-ink-soft">{l}</div>
-              </div>
-            ))}
-          </div>
+          <Reveal delay={200}>
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                ["210", "Active members"],
+                ["4", "Houses"],
+                ["38", "Rooms & stages"],
+                ["1", "Door"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <div className="font-serif text-[clamp(2.2rem,5vw,3.4rem)] tabular-nums">{v}</div>
+                  <div className="mt-2 text-[10.5px] uppercase tracking-[0.22em] text-ink-soft">{l}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Programming */}
-      <section id="programming" className="border-t border-bg-border/60 bg-[#06060a]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
-          <div className="flex items-end justify-between mb-12 gap-4 flex-wrap">
+      <section id="programming" className="relative border-t border-bg-border/60 bg-[#06060a]">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36">
+          <div className="flex items-end justify-between mb-16 gap-6 flex-wrap">
             <div>
-              <div className="label mb-4">§ 04 · This Month</div>
-              <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05]">
-                Programming.
-                <br />
-                <span className="text-ink-muted italic">Closed-door, open ears.</span>
-              </h2>
+              <Reveal>
+                <div className="label mb-4">§ 04 · This Month</div>
+              </Reveal>
+              <Reveal delay={120}>
+                <h2 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance">
+                  Programming.
+                  <br />
+                  <span className="text-ink-muted italic">Closed-door, open ears.</span>
+                </h2>
+              </Reveal>
             </div>
-            <Link
-              href="/login"
-              className="text-sm text-ink-muted hover:text-ink inline-flex items-center gap-2"
-            >
-              Members see the full calendar
-              <ArrowRight className="size-3.5" />
-            </Link>
+            <Reveal delay={200}>
+              <Link
+                href="/login"
+                className="text-sm text-ink-muted hover:text-ink inline-flex items-center gap-2 group"
+              >
+                Members see the full calendar
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </Reveal>
           </div>
 
           <div className="border-t border-bg-border">
-            {PROGRAMMING.map((p) => (
-              <div
+            {PROGRAMMING.map((p, i) => (
+              <Reveal
                 key={p.title}
-                className="grid grid-cols-12 gap-4 items-baseline border-b border-bg-border py-6 md:py-7 hover:bg-bg-elev/30 transition-colors px-2"
+                delay={i * 100}
+                className="grid grid-cols-12 gap-4 items-baseline border-b border-bg-border py-7 md:py-8 hover:bg-bg-elev/30 transition-colors px-2 group"
               >
                 <div className="col-span-3 md:col-span-2">
-                  <div className="font-serif text-2xl md:text-3xl tracking-tight">{p.date}</div>
-                  <div className="text-[11px] uppercase tracking-widest text-ink-soft">{p.month}</div>
+                  <div className="font-serif text-2xl md:text-3xl">{p.date}</div>
+                  <div className="text-[10.5px] uppercase tracking-[0.22em] text-ink-soft mt-1">
+                    {p.month}
+                  </div>
                 </div>
                 <div className="col-span-9 md:col-span-7">
-                  <div className="font-serif text-xl md:text-2xl tracking-tight">{p.title}</div>
-                  <div className="text-sm text-ink-muted mt-1">{p.host}</div>
+                  <div className="font-serif text-xl md:text-2xl group-hover:text-ink transition-colors">
+                    {p.title}
+                  </div>
+                  <div className="text-sm text-ink-muted mt-1.5">{p.host}</div>
                 </div>
                 <div className="hidden md:flex col-span-3 justify-end">
                   <span className="pill">{p.tag}</span>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -323,73 +383,97 @@ export default function Landing() {
       {/* Partners */}
       <section className="border-t border-bg-border/60 bg-bg">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-          <div className="text-center">
-            <div className="label mb-8">In quiet partnership with</div>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-              {PARTNERS.map((p) => (
-                <span
-                  key={p}
-                  className="font-serif text-lg md:text-xl text-ink-muted/70 hover:text-ink-muted transition-colors tracking-wide"
-                >
-                  {p}
-                </span>
-              ))}
+          <Reveal>
+            <div className="text-center">
+              <div className="label mb-10">In quiet partnership with</div>
+              <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
+                {PARTNERS.map((p) => (
+                  <span
+                    key={p}
+                    className="font-serif text-lg md:text-xl text-ink-muted/60 hover:text-ink-muted transition-colors tracking-wide"
+                  >
+                    {p}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Apply CTA */}
-      <section className="border-t border-bg-border/60 bg-[#06060a] relative overflow-hidden">
+      <section className="relative border-t border-bg-border/60 bg-[#06060a] overflow-hidden">
         <div className="absolute inset-0 -z-10 [background:radial-gradient(60%_80%_at_50%_120%,rgba(230,255,61,0.10),transparent_60%)]" />
-        <div className="max-w-4xl mx-auto px-6 md:px-10 py-28 md:py-36 text-center">
-          <div className="label mb-6">§ 05 · Apply</div>
-          <h2 className="font-serif text-4xl md:text-6xl tracking-tight leading-[1.0]">
-            Membership is by
-            <br />
-            <span className="italic text-ink-muted">invitation or referral.</span>
-          </h2>
-          <p className="mt-8 text-ink-muted max-w-xl mx-auto">
-            Tell us who you are and what you're making. We read every application —
-            and reply within ten days.
-          </p>
-          <div className="mt-10">
-            <Link
-              href="/apply"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-ink px-7 py-3.5 font-medium hover:bg-accent-muted shadow-glow"
-            >
-              Begin your application
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
+        {/* Drifting dust motes */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          {[15, 32, 55, 70, 88].map((left, i) => (
+            <span
+              key={i}
+              className="absolute size-1 rounded-full bg-accent/40 animate-drift"
+              style={{
+                left: `${left}%`,
+                top: `${20 + i * 15}%`,
+                animationDelay: `${i * 1.2}s`,
+              }}
+            />
+          ))}
+        </div>
+        <div className="max-w-4xl mx-auto px-6 md:px-10 py-32 md:py-40 text-center">
+          <Reveal>
+            <div className="label mb-8">§ 05 · Apply</div>
+          </Reveal>
+          <Reveal delay={120}>
+            <h2 className="font-serif text-[clamp(2.4rem,6vw,4.8rem)] leading-[1.0] text-balance">
+              Membership is by
+              <br />
+              <span className="italic text-ink-muted">invitation or referral.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={240}>
+            <p className="mt-10 text-ink-muted text-[15px] md:text-[17px] leading-[1.7] max-w-xl mx-auto">
+              Tell us who you are and what you're making. We read every
+              application — and reply within ten days.
+            </p>
+          </Reveal>
+          <Reveal delay={360}>
+            <div className="mt-12">
+              <Link
+                href="/apply"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-ink px-7 py-3.5 font-medium hover:bg-accent-muted shadow-glow"
+              >
+                Begin your application
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-bg-border/60 bg-bg">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
-          <div className="flex flex-wrap items-end justify-between gap-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-14">
+          <div className="flex flex-wrap items-end justify-between gap-10">
             <div>
               <Logo />
-              <div className="mt-4 text-xs text-ink-soft max-w-xs leading-relaxed">
+              <div className="mt-5 text-xs text-ink-soft max-w-xs leading-[1.7]">
                 5E47 · A members-only creative residency. 47 Fifth, New York.
                 Music · Film · Mastery · Founders.
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-x-10 gap-y-4 text-xs">
+            <div className="flex flex-wrap gap-x-12 gap-y-4 text-xs">
               <div>
-                <div className="label mb-2">Members</div>
+                <div className="label mb-3">Members</div>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Sign in</Link>
                 <Link href="/apply" className="block text-ink-muted hover:text-ink py-0.5">Apply</Link>
               </div>
               <div>
-                <div className="label mb-2">Visit</div>
-                <a className="block text-ink-muted py-0.5">47 Fifth Avenue</a>
-                <a className="block text-ink-muted py-0.5">New York · NY</a>
+                <div className="label mb-3">Visit</div>
+                <span className="block text-ink-muted py-0.5">47 Fifth Avenue</span>
+                <span className="block text-ink-muted py-0.5">New York · NY</span>
               </div>
               <div>
-                <div className="label mb-2">Network</div>
+                <div className="label mb-3">Network</div>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Sponsor portal</Link>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Investor portal</Link>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Operate this network →</Link>
@@ -397,9 +481,9 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="mt-12 pt-6 border-t border-bg-border/60 flex flex-wrap justify-between gap-3 text-[11px] text-ink-soft">
+          <div className="mt-14 pt-6 border-t border-bg-border/60 flex flex-wrap justify-between gap-3 text-[10.5px] text-ink-soft tracking-wider">
             <span>© MMXXVI · 5E47 Holdings</span>
-            <span className="font-mono tracking-wider">v0.1 · est. 2026</span>
+            <span className="font-mono">v0.1 · est. 2026</span>
           </div>
         </div>
       </footer>
