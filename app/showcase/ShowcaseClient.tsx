@@ -34,23 +34,141 @@ import {
   Video,
 } from "lucide-react";
 
-const SCREENS: { id: string; title: string; tag: string; render: () => React.ReactNode }[] = [
-  { id: "01", title: "Home", tag: "Today", render: ScreenHome },
-  { id: "02", title: "Residency", tag: "Identity", render: ScreenResidency },
-  { id: "03", title: "Book a studio", tag: "Bookings", render: ScreenBook },
-  { id: "04", title: "Studio detail", tag: "Bookings", render: ScreenStudio },
-  { id: "05", title: "My bookings", tag: "Schedule", render: ScreenMyBookings },
-  { id: "06", title: "Door access", tag: "Access", render: ScreenAccess },
-  { id: "07", title: "Projects", tag: "Work", render: ScreenProjects },
-  { id: "08", title: "Project detail", tag: "Work", render: ScreenProjectDetail },
-  { id: "09", title: "Payments", tag: "Wallet", render: ScreenPayments },
-  { id: "10", title: "Programming", tag: "Events", render: ScreenProgramming },
-  { id: "11", title: "Event RSVP", tag: "Events", render: ScreenEventRSVP },
-  { id: "12", title: "Discover", tag: "Network", render: ScreenDiscover },
-  { id: "13", title: "Messages", tag: "Network", render: ScreenMessages },
-  { id: "14", title: "Member directory", tag: "Network", render: ScreenDirectory },
-  { id: "15", title: "Profile", tag: "Account", render: ScreenProfile },
-  { id: "16", title: "Settings", tag: "Account", render: ScreenSettings },
+const SCREENS: {
+  id: string;
+  title: string;
+  tag: string;
+  desc: string;
+  render: () => React.ReactNode;
+}[] = [
+  {
+    id: "01",
+    title: "Home",
+    tag: "The Volume · Today",
+    desc:
+      "The resident's day inside the 90-day Volume. Routes them through the vertical engine — Pressure Chamber, Force Multiplier, Social Heart, War Room. Output is expected; the day is structured against it.",
+    render: ScreenHome,
+  },
+  {
+    id: "02",
+    title: "Resident identity",
+    tag: "Cohort credential",
+    desc:
+      "The credential inside a cohort of 100. Scarcity is the mechanism, not the constraint. Carries floor permissions, Pressure Chamber hours, and a Spirit Locker assignment on Floor 05.",
+    render: ScreenResidency,
+  },
+  {
+    id: "03",
+    title: "Reserve a room",
+    tag: "Vertical engine",
+    desc:
+      "Reservation surface for the four floors of the machine — Botanical Recording Lab (07), Generative Media Factory (06), Japanese Archival Sanctuary (05), Professional Commons (04). One Volume clock; one queue.",
+    render: ScreenBook,
+  },
+  {
+    id: "04",
+    title: "The Superman Booth",
+    tag: "Floor 07 · Pressure Chamber",
+    desc:
+      "Danish-engineered HEPA-filtered isolation, controlled acoustics, biological environment design. This is where sound becomes IP — and the booking flow that puts a resident inside it.",
+    render: ScreenStudio,
+  },
+  {
+    id: "05",
+    title: "Production schedule",
+    tag: "Volume cadence",
+    desc:
+      "A resident's bookings across the vertical engine. The Volume has a defined start, a defined close, and a defined output — the schedule is how that contract is enforced.",
+    render: ScreenMyBookings,
+  },
+  {
+    id: "06",
+    title: "Sovereignty Protocol",
+    tag: "Controlled access",
+    desc:
+      "Identity-shielded ingress and audited credentials at the threshold. Private-bank-grade access control — engineered to the discretion of a private bank, not the noise of a creative venue.",
+    render: ScreenAccess,
+  },
+  {
+    id: "07",
+    title: "Asset pipeline",
+    tag: "Output · measured",
+    desc:
+      "The resident's work as the factory sees it. State A — 100% creator ownership by default. State B — projects elected into the 47 Slate. Either way, output is the unit of account.",
+    render: ScreenProjects,
+  },
+  {
+    id: "08",
+    title: "47 Slate · Equity Pact",
+    tag: "Greenlight surface",
+    desc:
+      "Where a project opts in: 70% creator · 20% House · 10% sponsor royalty pool. Chain of title, milestones, and distribution registered through the War Room on Floor 04.",
+    render: ScreenProjectDetail,
+  },
+  {
+    id: "09",
+    title: "Volume terms",
+    tag: "Financial filter",
+    desc:
+      "$3,500 per resident per Volume — non-negotiable, non-refundable, 24-hour acceptance window. Production charges and 47 Slate royalty distributions clear through the same surface.",
+    render: ScreenPayments,
+  },
+  {
+    id: "10",
+    title: "The Sanctuary calendar",
+    tag: "Floor 05 · Social Heart",
+    desc:
+      "Audio Altar listening sessions, cultural salons, sponsor receptions. Sparse, controlled, by invitation only. Access becomes trust — this is the calendar where that conversion happens.",
+    render: ScreenProgramming,
+  },
+  {
+    id: "11",
+    title: "Audio Altar invitation",
+    tag: "One artifact at a time",
+    desc:
+      "Reference listening, archival lighting, closed doors. Where deals are softened and unreleased work is previewed — and the RSVP that gates the room.",
+    render: ScreenEventRSVP,
+  },
+  {
+    id: "12",
+    title: "Cohort matching",
+    tag: "40 / 30 / 20 / 10",
+    desc:
+      "Inter-floor collaboration across the resident mix — Music, Content/AI, Film/TV, Ops. The infrastructure manufactures collaboration; the data compounds into the archive.",
+    render: ScreenDiscover,
+  },
+  {
+    id: "13",
+    title: "Circle of Trust",
+    tag: "Discretion · contractual",
+    desc:
+      "Resident comms inside a binding legal instrument — not a courtesy. Liquidated damages per verified breach. Phones are governed under the Dark Floor Policy from this surface up.",
+    render: ScreenMessages,
+  },
+  {
+    id: "14",
+    title: "The cohort",
+    tag: "Capped per Volume",
+    desc:
+      "100 residents, identity-shielded by default. Not everyone gets in. Not everyone stays. No one gets to spectate. The room only works if the room is protected.",
+    render: ScreenDirectory,
+  },
+  {
+    id: "15",
+    title: "Resident dossier",
+    tag: "Output measured",
+    desc:
+      "Volume-by-Volume record of structured creative output. Every cycle closes with measurable deliverables — the dossier is the receipt the House holds against the Pact.",
+    render: ScreenProfile,
+  },
+  {
+    id: "16",
+    title: "The Rules",
+    tag: "Protect the product",
+    desc:
+      "Dark Floor Policy, identity shielding, Spirit Locker, Circle of Trust, data sovereignty. The six rules that protect the product — surfaced as a single control panel.",
+    render: ScreenSettings,
+  },
 ];
 
 export default function MemberScreensShowcase() {
@@ -105,33 +223,41 @@ export default function MemberScreensShowcase() {
 
       {/* Heading */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
-        <div className="label mb-5">§ Showcase · Mobile</div>
+        <div className="label mb-5">§ Resident interface · v0.1</div>
         <h1 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance max-w-3xl">
-          The member app, sixteen rooms deep.
+          The operating surface of a 90-day Volume.
         </h1>
         <p className="mt-6 text-ink-muted text-[15px] leading-[1.75] max-w-2xl">
-          Every screen a member touches between the lobby and the late listen.
-          Bookings, doors, projects, payments, and the room of peers — rendered
-          at phone scale, on one page.
+          Sixteen screens carry a resident through the vertical engine — Pressure Chamber,
+          Force Multiplier, Social Heart, War Room. The app is the membrane between
+          structured creative output and the rules that protect the product.
         </p>
+        <div className="mt-6 font-mono text-[10.5px] text-ink-soft tracking-widest uppercase">
+          5 East 47th Street · NYC · Hasenpfeffer Ventures · v5.2
+        </div>
       </section>
 
       {/* 4×4 grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-14">
           {SCREENS.map((s) => (
-            <figure key={s.id} className="group">
+            <figure key={s.id} className="group flex flex-col">
               <PhoneFrame>{s.render()}</PhoneFrame>
-              <figcaption className="mt-4 flex items-baseline justify-between gap-3">
-                <div>
-                  <div className="font-serif text-base leading-tight">{s.title}</div>
-                  <div className="text-[10.5px] uppercase tracking-[0.22em] text-ink-soft mt-1">
+              <figcaption className="mt-5">
+                <div className="flex items-baseline justify-between gap-3">
+                  <div className="font-mono text-[10px] text-ink-soft tracking-widest">
+                    § {s.id}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-ink-soft">
                     {s.tag}
                   </div>
                 </div>
-                <div className="font-mono text-[10px] text-ink-soft tracking-widest">
-                  M·{s.id}
+                <div className="font-serif text-[17px] leading-tight mt-2 text-balance">
+                  {s.title}
                 </div>
+                <p className="mt-2.5 text-[11.5px] leading-[1.65] text-ink-muted">
+                  {s.desc}
+                </p>
               </figcaption>
             </figure>
           ))}
@@ -140,8 +266,8 @@ export default function MemberScreensShowcase() {
 
       <footer className="border-t border-bg-border/60">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 flex flex-wrap justify-between gap-3 text-[10.5px] text-ink-soft tracking-wider">
-          <span>© MMXXVI · 5E47 Holdings</span>
-          <span className="font-mono">Showcase · member views · 16/16</span>
+          <span>© MMXXVI · Hasenpfeffer Ventures LLC · Confidential</span>
+          <span className="font-mono">Resident interface · 16/16 · Genesis Node</span>
         </div>
       </footer>
     </div>
