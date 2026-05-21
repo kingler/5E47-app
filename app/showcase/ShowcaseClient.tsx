@@ -3,26 +3,35 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
+  Archive,
   ArrowLeft,
   ArrowRight,
   Bell,
+  Briefcase,
+  Building2,
   CalendarClock,
   Check,
   ChevronRight,
+  Cpu,
   CreditCard,
   Disc3,
   DoorOpen,
+  EyeOff,
   Film,
   Headphones,
   Home,
   KeyRound,
+  Languages,
   Lock,
   Mic,
   MessagesSquare,
   Moon,
   Plus,
+  Scale,
+  Scan,
   Search,
   Settings,
+  ShieldCheck,
   Signal,
   Sparkles,
   Star,
@@ -32,6 +41,7 @@ import {
   Wifi,
   Wallet,
   Video,
+  Volume2,
 } from "lucide-react";
 
 const SCREENS: {
@@ -371,9 +381,9 @@ function TabBar({
 }
 
 const MEMBER_TABS = [
-  { icon: Home, label: "HOME" },
-  { icon: CalendarClock, label: "BOOK" },
-  { icon: Sparkles, label: "DISCOVER" },
+  { icon: Home, label: "TODAY" },
+  { icon: CalendarClock, label: "RESERVE" },
+  { icon: Users, label: "COHORT" },
   { icon: User, label: "ME" },
 ];
 
@@ -386,46 +396,52 @@ function ScreenHome() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center justify-between">
         <div>
-          <Eyebrow>Thu · May 22</Eyebrow>
-          <div className="font-serif text-[18px] leading-tight mt-0.5">
-            Evening, Mara.
+          <Eyebrow>Volume 01 · Day 24 / 90</Eyebrow>
+          <div className="font-serif text-[16px] leading-tight mt-0.5">
+            Inside the engine.
           </div>
         </div>
         <div className="size-7 rounded-full bg-role-creator/70 border border-bg-border" />
       </div>
 
+      <div className="mt-2 h-1 rounded-full bg-bg-border overflow-hidden">
+        <div className="h-full bg-accent" style={{ width: "26.6%" }} />
+      </div>
+
       <div className="mt-3 rounded-xl border border-accent/30 bg-accent/[0.06] p-2.5">
         <div className="flex items-center justify-between">
-          <Eyebrow>Next up · 19:30</Eyebrow>
-          <span className="text-[8px] font-mono text-accent">FL/02</span>
+          <Eyebrow>Next session · 14:00</Eyebrow>
+          <span className="text-[8px] font-mono text-accent">FL/07</span>
         </div>
         <div className="font-serif text-[13px] mt-1 leading-tight">
-          Studio B · Vocal booth
+          Pressure Chamber · Suite A
         </div>
-        <div className="text-[10px] text-ink-muted mt-0.5">2 hrs · with Soraya</div>
+        <div className="text-[9.5px] text-ink-muted mt-0.5 italic">
+          Sound becomes IP.
+        </div>
       </div>
 
       <div className="mt-3 grid grid-cols-3 gap-1.5">
         <Tile className="text-center">
-          <div className="font-serif text-[14px] tabular-nums">3</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">BOOKINGS</div>
+          <div className="font-serif text-[13px] tabular-nums">16</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">CHAMBER HRS</div>
         </Tile>
         <Tile className="text-center">
-          <div className="font-serif text-[14px] tabular-nums">2</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">PROJECTS</div>
+          <div className="font-serif text-[13px] tabular-nums">2</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">47 SLATE</div>
         </Tile>
         <Tile className="text-center">
-          <div className="font-serif text-[14px] tabular-nums">$0</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">DUE</div>
+          <div className="font-serif text-[13px] tabular-nums">FL/05</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">LOCKER #23</div>
         </Tile>
       </div>
 
-      <Eyebrow>This week</Eyebrow>
+      <Eyebrow>The week ahead</Eyebrow>
       <div className="mt-1.5 space-y-1.5">
         {[
-          { d: "FRI", t: "Mix review · Studio B", h: "14:00" },
-          { d: "SAT", t: "Volume stage open house", h: "17:00" },
-          { d: "TUE", t: "The Quiet Founder · salon", h: "20:00" },
+          { d: "FRI", t: "Virtual Stage · Force Multiplier", h: "10:00", f: "06" },
+          { d: "SAT", t: "Audio Altar · listening", h: "20:00", f: "05" },
+          { d: "MON", t: "War Room · Pact signing", h: "11:00", f: "04" },
         ].map((r) => (
           <div
             key={r.t}
@@ -433,9 +449,9 @@ function ScreenHome() {
           >
             <div className="flex items-center gap-2">
               <span className="font-mono text-[8px] text-ink-soft w-6">{r.d}</span>
-              <span className="text-[10px] truncate">{r.t}</span>
+              <span className="text-[9.5px] truncate">{r.t}</span>
             </div>
-            <span className="text-[9px] font-mono text-ink-soft">{r.h}</span>
+            <span className="text-[8px] font-mono text-accent">FL/{r.f}</span>
           </div>
         ))}
       </div>
@@ -452,58 +468,65 @@ function ScreenHome() {
 function ScreenResidency() {
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>House · I · Music</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Residency</div>
+      <Eyebrow>Volume 01 · Lane · Music</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Resident credential</div>
 
       <div className="mt-3 rounded-xl border border-bg-border bg-[#0f0f14] p-3 overflow-hidden relative">
         <div className="absolute inset-0 -z-0 [background:radial-gradient(60%_60%_at_20%_20%,rgba(230,255,61,0.10),transparent_60%),radial-gradient(60%_60%_at_85%_80%,rgba(124,92,255,0.18),transparent_60%)]" />
         <div className="relative">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[8px] text-ink-soft tracking-[0.24em]">
-              M·047
+              M·047 / V·01
             </span>
-            <Lock className="size-3 text-ink-soft" />
+            <ShieldCheck className="size-3 text-accent" />
           </div>
-          <div className="mt-6 font-serif text-[18px] leading-tight">
+          <div className="mt-5 font-serif text-[17px] leading-tight">
             Mara Iyele
           </div>
-          <div className="text-[10px] text-ink-muted mt-0.5">
-            Music · Founders' wing
+          <div className="text-[9.5px] text-ink-muted mt-0.5">
+            Music lane · 40% cohort mix
           </div>
-          <div className="mt-6 flex items-end justify-between">
+          <div className="mt-5 flex items-end justify-between">
             <div>
-              <Eyebrow>Tier</Eyebrow>
-              <div className="font-serif text-[13px]">Resident · A</div>
+              <Eyebrow>Status</Eyebrow>
+              <div className="font-serif text-[12px]">In residence</div>
             </div>
             <div className="text-right">
-              <Eyebrow>Since</Eyebrow>
-              <div className="font-mono text-[10px] mt-0.5">MMXXVI</div>
+              <Eyebrow>Day</Eyebrow>
+              <div className="font-mono text-[10px] mt-0.5">24 / 90</div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="mt-3 space-y-1.5">
-        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-2">
+        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-1.5">
           <div className="flex items-center gap-2">
             <KeyRound className="size-3 text-accent" />
-            <span className="text-[10px]">Floor access</span>
+            <span className="text-[9.5px]">Floor access</span>
           </div>
-          <span className="text-[9px] text-ink-soft">1 · 2 · 3 · 4</span>
+          <span className="text-[9px] text-ink-soft font-mono">04 · 05 · 06 · 07</span>
         </div>
-        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-2">
+        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-1.5">
           <div className="flex items-center gap-2">
-            <Disc3 className="size-3 text-accent" />
-            <span className="text-[10px]">Studio credits</span>
+            <Mic className="size-3 text-accent" />
+            <span className="text-[9.5px]">Pressure Chamber</span>
           </div>
-          <span className="text-[9px] text-ink-soft font-mono">24 / 40 hrs</span>
+          <span className="text-[9px] text-ink-soft font-mono">16 / 40 hrs</span>
         </div>
-        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-2">
+        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-1.5">
           <div className="flex items-center gap-2">
-            <Users className="size-3 text-accent" />
-            <span className="text-[10px]">Guest list</span>
+            <Archive className="size-3 text-accent" />
+            <span className="text-[9.5px]">Spirit Locker</span>
           </div>
-          <span className="text-[9px] text-ink-soft">2 of 4 left</span>
+          <span className="text-[9px] text-ink-soft font-mono">FL/05 · #23</span>
+        </div>
+        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2.5 py-1.5">
+          <div className="flex items-center gap-2">
+            <Lock className="size-3 text-accent" />
+            <span className="text-[9.5px]">Circle of Trust</span>
+          </div>
+          <span className="text-[9px] text-accent">Signed</span>
         </div>
       </div>
 
@@ -519,48 +542,72 @@ function ScreenResidency() {
 function ScreenBook() {
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>Bookings</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Book a studio</div>
+      <Eyebrow>Vertical engine</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Reserve a room</div>
 
       <div className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-bg-border bg-bg-elev px-2 py-1.5">
         <Search className="size-3 text-ink-soft" />
-        <span className="text-[10px] text-ink-soft">Rooms, stages, gear…</span>
+        <span className="text-[10px] text-ink-soft">Search the four floors…</span>
       </div>
 
-      <div className="mt-2 flex gap-1.5 overflow-hidden">
-        {["All", "Audio", "Video", "Stage", "Edit"].map((c, i) => (
-          <span
-            key={c}
-            className={`text-[9px] rounded-full px-2 py-0.5 border ${i === 0 ? "border-accent/40 bg-accent/10 text-accent" : "border-bg-border text-ink-muted"}`}
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-3 space-y-2">
+      <div className="mt-3 space-y-1.5">
         {[
-          { n: "Studio A · Mix room", f: 2, kind: "Audio", icon: Headphones, status: "Open · tonight" },
-          { n: "Studio B · Vocal booth", f: 2, kind: "Audio", icon: Mic, status: "2 slots today" },
-          { n: "Volume Stage", f: 5, kind: "Stage · LED", icon: Video, status: "Closed shoot" },
-          { n: "Edit Bay · 04", f: 4, kind: "Edit", icon: Film, status: "Open · all day" },
+          {
+            f: "07",
+            id: "Pressure Chamber",
+            sub: "Botanical Recording Lab",
+            op: "Sound becomes IP.",
+            icon: Mic,
+            status: "2 suites · 18 / 24h",
+          },
+          {
+            f: "06",
+            id: "Force Multiplier",
+            sub: "Generative Media Factory",
+            op: "Ideas become visual proof.",
+            icon: Cpu,
+            status: "4 zones · open",
+          },
+          {
+            f: "05",
+            id: "Social Heart",
+            sub: "Archival Sanctuary",
+            op: "Access becomes trust.",
+            icon: Volume2,
+            status: "Audio Altar · 21:00",
+          },
+          {
+            f: "04",
+            id: "War Room",
+            sub: "Professional Commons",
+            op: "Output becomes opportunity.",
+            icon: Briefcase,
+            status: "Boardroom · 2 slots",
+          },
         ].map((s) => (
           <div
-            key={s.n}
-            className="flex items-center gap-2 rounded-lg border border-bg-border bg-bg-elev/80 p-2"
+            key={s.id}
+            className="rounded-lg border border-bg-border bg-bg-elev/80 p-2"
           >
-            <div className="size-8 rounded-md bg-bg-card border border-bg-border flex items-center justify-center">
-              <s.icon className="size-3.5 text-accent" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[10.5px] leading-tight truncate">{s.n}</div>
-              <div className="text-[8.5px] text-ink-soft mt-0.5">
-                FL/{String(s.f).padStart(2, "0")} · {s.kind}
+            <div className="flex items-center gap-2">
+              <div className="size-8 rounded-md bg-bg-card border border-bg-border flex items-center justify-center">
+                <s.icon className="size-3.5 text-accent" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <div className="text-[10.5px] leading-tight truncate">
+                    {s.id}
+                  </div>
+                  <span className="font-mono text-[8.5px] text-accent">
+                    FL/{s.f}
+                  </span>
+                </div>
+                <div className="text-[8.5px] text-ink-soft mt-0.5">{s.sub}</div>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-[8.5px] text-accent">{s.status}</div>
-              <ChevronRight className="size-3 text-ink-soft inline-block mt-0.5" />
+            <div className="mt-1.5 flex items-center justify-between">
+              <span className="text-[8.5px] text-ink-muted italic">{s.op}</span>
+              <span className="text-[8.5px] text-accent">{s.status}</span>
             </div>
           </div>
         ))}
@@ -579,53 +626,61 @@ function ScreenStudio() {
   return (
     <div className="relative h-full pb-12">
       <div className="relative h-28 mx-3.5 rounded-xl overflow-hidden border border-bg-border bg-gradient-to-br from-role-creator/40 via-bg-card to-bg-elev">
-        <div className="absolute inset-0 [background:radial-gradient(60%_60%_at_30%_30%,rgba(230,255,61,0.12),transparent_60%)]" />
-        <div className="absolute bottom-2 left-2 right-2 flex items-end justify-between">
-          <div>
-            <Eyebrow>FL/02 · Audio</Eyebrow>
-            <div className="font-serif text-[15px] leading-tight">Studio B</div>
+        <div className="absolute inset-0 [background:radial-gradient(60%_60%_at_30%_30%,rgba(230,255,61,0.14),transparent_60%),radial-gradient(60%_60%_at_80%_70%,rgba(45,212,191,0.18),transparent_60%)]" />
+        <div className="absolute top-2 left-2 right-2 flex items-center justify-between">
+          <span className="font-mono text-[8px] text-ink-soft tracking-[0.24em]">
+            FL/07 · PRESSURE CHAMBER
+          </span>
+          <span className="font-mono text-[8px] text-accent">3·3·3</span>
+        </div>
+        <div className="absolute bottom-2 left-2 right-2">
+          <div className="font-serif text-[15px] leading-tight">
+            The Superman Booth
           </div>
-          <span className="font-mono text-[8px] text-ink-soft">$80 / hr</span>
+          <div className="text-[8.5px] text-ink-muted italic mt-0.5">
+            Sound becomes IP.
+          </div>
         </div>
       </div>
 
       <div className="px-3.5 mt-3">
-        <Eyebrow>Today</Eyebrow>
-        <div className="mt-1.5 grid grid-cols-6 gap-1">
-          {["10", "12", "14", "16", "18", "20"].map((h, i) => (
-            <div
-              key={h}
-              className={`text-center text-[9px] py-1 rounded ${i === 4 ? "bg-accent text-accent-ink" : i === 1 ? "bg-bg-elev text-ink-soft line-through" : "border border-bg-border text-ink-muted"}`}
-            >
-              {h}
-            </div>
-          ))}
+        <Eyebrow>Mirrored suites · today</Eyebrow>
+        <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+          <div className="rounded-md border border-accent/40 bg-accent/10 px-2 py-1.5">
+            <div className="text-[9.5px] font-medium">Suite A</div>
+            <div className="text-[8px] text-accent mt-0.5">Open · 14:00</div>
+          </div>
+          <div className="rounded-md border border-bg-border bg-bg-elev px-2 py-1.5">
+            <div className="text-[9.5px] text-ink-soft">Suite B</div>
+            <div className="text-[8px] text-ink-soft mt-0.5">Booked · Vol 01</div>
+          </div>
         </div>
 
-        <div className="mt-3 space-y-1.5">
-          <div className="flex items-center justify-between text-[10px]">
-            <span className="text-ink-soft">Vocal booth</span>
+        <Eyebrow>Specifications</Eyebrow>
+        <div className="mt-1 space-y-1">
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="text-ink-soft">Danish HEPA isolation</span>
             <Check className="size-3 text-accent" />
           </div>
-          <div className="flex items-center justify-between text-[10px]">
-            <span className="text-ink-soft">Neumann U87</span>
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="text-ink-soft">Greenhouse-integrated</span>
             <Check className="size-3 text-accent" />
           </div>
-          <div className="flex items-center justify-between text-[10px]">
-            <span className="text-ink-soft">Engineer on call</span>
-            <span className="text-[9px] text-ink-muted">+$40/hr</span>
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="text-ink-soft">Controlled acoustics</span>
+            <Check className="size-3 text-accent" />
           </div>
         </div>
 
-        <div className="mt-3 rounded-lg border border-bg-border bg-bg-elev/80 p-2">
-          <div className="flex items-center justify-between text-[10px]">
-            <span>2 hrs · 18:00 – 20:00</span>
-            <span className="font-mono text-accent">$160</span>
+        <div className="mt-2.5 rounded-lg border border-bg-border bg-bg-elev/80 p-2">
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span>3 hrs · 14:00 – 17:00</span>
+            <span className="font-mono text-accent">Chamber credit</span>
           </div>
         </div>
 
-        <button className="mt-3 w-full rounded-lg bg-accent text-accent-ink text-[11px] font-medium py-2">
-          Reserve studio
+        <button className="mt-2.5 w-full rounded-lg bg-accent text-accent-ink text-[11px] font-medium py-2">
+          Hold Suite A
         </button>
       </div>
 
@@ -643,8 +698,8 @@ function ScreenMyBookings() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center justify-between">
         <div>
-          <Eyebrow>Schedule</Eyebrow>
-          <div className="font-serif text-[16px] mt-0.5">My bookings</div>
+          <Eyebrow>Volume 01 · Day 24 / 90</Eyebrow>
+          <div className="font-serif text-[15px] mt-0.5">Production schedule</div>
         </div>
         <div className="size-6 rounded-full border border-accent/40 bg-accent/10 flex items-center justify-center">
           <Plus className="size-3 text-accent" />
@@ -656,35 +711,39 @@ function ScreenMyBookings() {
           Upcoming
         </span>
         <span className="rounded-full px-2 py-0.5 border border-bg-border text-ink-muted">
-          Past
+          Closed
         </span>
       </div>
 
-      <div className="mt-3 space-y-2">
+      <div className="mt-3 space-y-1.5">
         {[
-          { day: "TODAY", t: "Studio B · Vocal booth", h: "18:00 – 20:00", s: "Confirmed" },
-          { day: "FRI 23", t: "Edit Bay · 04", h: "10:00 – 14:00", s: "Confirmed" },
-          { day: "SAT 24", t: "Volume Stage · walk-thru", h: "17:00 – 18:00", s: "Pending" },
-          { day: "MON 26", t: "Studio A · Mix", h: "13:00 – 17:00", s: "Confirmed" },
-        ].map((b, i) => (
+          { day: "TODAY", t: "Pressure Chamber · Suite A", h: "14:00 – 17:00", f: "07", s: "Held" },
+          { day: "FRI 23", t: "Virtual Stage · Force Multiplier", h: "10:00 – 14:00", f: "06", s: "Held" },
+          { day: "SAT 24", t: "Audio Altar · listening session", h: "20:00 – 22:00", f: "05", s: "RSVP" },
+          { day: "MON 26", t: "War Room · Pact signing", h: "11:00 – 12:00", f: "04", s: "Held" },
+        ].map((b) => (
           <div
             key={b.t}
             className="rounded-lg border border-bg-border bg-bg-elev/80 p-2"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-[8.5px] text-ink-soft tracking-widest">
-                {b.day}
+                {b.day} · FL/{b.f}
               </span>
               <span
-                className={`text-[8.5px] rounded-full px-1.5 py-px ${b.s === "Pending" ? "bg-yellow-500/10 text-yellow-300/90" : "bg-accent/10 text-accent"}`}
+                className={`text-[8.5px] rounded-full px-1.5 py-px ${b.s === "RSVP" ? "bg-yellow-500/10 text-yellow-300/90" : "bg-accent/10 text-accent"}`}
               >
                 {b.s}
               </span>
             </div>
-            <div className="text-[10.5px] mt-1 leading-tight">{b.t}</div>
-            <div className="text-[9px] text-ink-soft mt-0.5 font-mono">{b.h}</div>
+            <div className="text-[10px] mt-1 leading-tight">{b.t}</div>
+            <div className="text-[8.5px] text-ink-soft mt-0.5 font-mono">{b.h}</div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-2 text-center text-[8.5px] text-ink-soft italic">
+        Output is expected by Day 90.
       </div>
 
       <TabBar items={MEMBER_TABS} active={1} />
@@ -699,42 +758,47 @@ function ScreenMyBookings() {
 function ScreenAccess() {
   return (
     <div className="relative h-full px-3.5 pb-12 text-center">
-      <Eyebrow>Access</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Hold to unlock</div>
+      <Eyebrow>Sovereignty Protocol</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Hold to unlock</div>
 
-      <div className="mt-4 relative mx-auto size-32">
+      <div className="mt-3 relative mx-auto size-28">
         <div className="absolute inset-0 rounded-full border border-accent/30 animate-pulse" />
         <div className="absolute inset-3 rounded-full border border-accent/20" />
         <div className="absolute inset-6 rounded-full bg-gradient-to-br from-accent/30 to-role-creator/40 border border-accent/40 flex flex-col items-center justify-center">
-          <DoorOpen className="size-6 text-accent" />
-          <div className="text-[8.5px] text-ink mt-1 font-mono">FL/02</div>
+          <ShieldCheck className="size-5 text-accent" />
+          <div className="text-[8px] text-ink mt-1 font-mono">FL/07</div>
         </div>
       </div>
 
-      <div className="mt-3 text-[10px] text-ink-muted">
-        Studio B · Vocal booth
+      <div className="mt-2 text-[10px] text-ink-muted">
+        Pressure Chamber · Suite A
       </div>
-      <div className="text-[9px] text-ink-soft mt-0.5 font-mono">
-        BLE · KISI · M·047
+      <div className="text-[8.5px] text-ink-soft mt-0.5 font-mono">
+        BLE · NFC · M·047 / V·01
+      </div>
+
+      <div className="mt-2 flex items-center justify-center gap-1.5 text-[8.5px] text-ink-soft">
+        <EyeOff className="size-2.5" />
+        <span>Zero-capture · identity-shielded</span>
       </div>
 
       <Eyebrow>Recent taps</Eyebrow>
       <div className="mt-1.5 space-y-1 text-left">
         {[
-          { d: "Lobby · FL/01", t: "18:02", o: "granted" },
-          { d: "Mixing · FL/02", t: "17:14", o: "granted" },
-          { d: "Stage · FL/05", t: "Yesterday", o: "denied" },
+          { d: "Pressure Chamber · FL/07", t: "11:02", o: "granted" },
+          { d: "Sanctuary · FL/05", t: "Yesterday", o: "granted" },
+          { d: "War Room · FL/04", t: "Day 21", o: "escorted" },
         ].map((a) => (
           <div
             key={a.d + a.t}
             className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5"
           >
             <div>
-              <div className="text-[10px] leading-tight">{a.d}</div>
-              <div className="text-[8.5px] text-ink-soft mt-0.5">{a.t}</div>
+              <div className="text-[9.5px] leading-tight">{a.d}</div>
+              <div className="text-[8px] text-ink-soft mt-0.5">{a.t}</div>
             </div>
             <span
-              className={`text-[8.5px] ${a.o === "denied" ? "text-red-400" : "text-accent"}`}
+              className={`text-[8px] ${a.o === "escorted" ? "text-yellow-300/90" : "text-accent"}`}
             >
               {a.o}
             </span>
@@ -756,50 +820,58 @@ function ScreenProjects() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center justify-between">
         <div>
-          <Eyebrow>Work</Eyebrow>
-          <div className="font-serif text-[16px] mt-0.5">Projects</div>
+          <Eyebrow>Output · measured</Eyebrow>
+          <div className="font-serif text-[15px] mt-0.5">Asset pipeline</div>
         </div>
-        <Film className="size-3.5 text-ink-soft" />
+        <Scan className="size-3.5 text-ink-soft" />
       </div>
 
-      <div className="mt-3 space-y-2">
+      <div className="mt-2 flex gap-1.5 text-[9px]">
+        <span className="rounded-full px-2 py-0.5 border border-accent/40 bg-accent/10 text-accent">
+          All
+        </span>
+        <span className="rounded-full px-2 py-0.5 border border-bg-border text-ink-muted">
+          State A
+        </span>
+        <span className="rounded-full px-2 py-0.5 border border-bg-border text-ink-muted">
+          47 Slate
+        </span>
+      </div>
+
+      <div className="mt-2.5 space-y-1.5">
         {[
-          { t: "Polaroid EP · Vol. II", s: "in production", a: 64, h: "Mix · 4 of 7 done" },
-          { t: "Documentary · Quiet Hours", s: "review", a: 88, h: "Cut review with Devon" },
-          { t: "Live session · May 30", s: "drafting", a: 18, h: "Booking the Volume Stage" },
+          { t: "Polaroid · LP Vol. II", s: "State A", a: 64, h: "Sonic identity · Chamber", own: "100%" },
+          { t: "Bose · 48hr Beta Sprint", s: "47 Slate", a: 88, h: "Pact executed · sponsor", own: "70%" },
+          { t: "Synthetic · 6-market versioning", s: "State A", a: 32, h: "Force Multiplier · pipeline", own: "100%" },
         ].map((p) => (
           <div
             key={p.t}
-            className="rounded-xl border border-bg-border bg-bg-elev/80 p-2.5"
+            className="rounded-xl border border-bg-border bg-bg-elev/80 p-2"
           >
             <div className="flex items-center justify-between">
-              <div className="text-[11px] font-medium leading-tight">{p.t}</div>
+              <div className="text-[10.5px] font-medium leading-tight">
+                {p.t}
+              </div>
               <span
-                className={`text-[8.5px] rounded-full px-1.5 py-px ${p.s === "review" ? "bg-yellow-500/10 text-yellow-300/90" : p.s === "in production" ? "bg-role-creator/10 text-role-creator" : "bg-bg-border/60 text-ink-soft"}`}
+                className={`text-[8px] rounded-full px-1.5 py-px ${p.s === "47 Slate" ? "bg-accent/10 text-accent border border-accent/30" : "bg-bg-border/60 text-ink-soft"}`}
               >
                 {p.s}
               </span>
             </div>
-            <div className="text-[9.5px] text-ink-soft mt-1">{p.h}</div>
-            <div className="mt-2 h-1 rounded-full bg-bg-border overflow-hidden">
-              <div
-                className="h-full bg-accent"
-                style={{ width: `${p.a}%` }}
-              />
+            <div className="text-[9px] text-ink-soft mt-0.5">{p.h}</div>
+            <div className="mt-1.5 h-1 rounded-full bg-bg-border overflow-hidden">
+              <div className="h-full bg-accent" style={{ width: `${p.a}%` }} />
             </div>
-            <div className="mt-1.5 flex items-center justify-between text-[8.5px] text-ink-soft">
-              <div className="flex -space-x-1">
-                {[0, 1, 2].map((i) => (
-                  <span
-                    key={i}
-                    className="size-3.5 rounded-full bg-role-creator/60 border border-bg-card"
-                  />
-                ))}
-              </div>
+            <div className="mt-1 flex items-center justify-between text-[8px] text-ink-soft">
+              <span className="font-mono">Creator · {p.own}</span>
               <span className="font-mono tabular-nums">{p.a}%</span>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-2 text-center text-[8px] text-ink-soft italic">
+        Spectators are not residents.
       </div>
 
       <TabBar items={MEMBER_TABS} active={3} />
@@ -816,43 +888,46 @@ function ScreenProjectDetail() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center gap-1.5 text-ink-soft text-[9px]">
         <ArrowLeft className="size-3" />
-        Projects
+        Asset pipeline
       </div>
-      <Eyebrow>In production</Eyebrow>
-      <div className="font-serif text-[15px] mt-0.5 leading-tight">
-        Polaroid EP · Vol. II
+      <Eyebrow>47 Slate · Pact executed</Eyebrow>
+      <div className="font-serif text-[14px] mt-0.5 leading-tight">
+        Bose · 48hr Beta Sprint
       </div>
 
-      <div className="mt-2 flex items-center gap-1">
+      <div className="mt-1.5 flex items-center gap-1">
         <span className="text-[8.5px] rounded-full px-1.5 py-px bg-accent/10 text-accent border border-accent/30">
           Greenlit
         </span>
         <span className="text-[8.5px] text-ink-soft">·</span>
-        <span className="text-[8.5px] text-ink-soft">House I</span>
+        <span className="text-[8.5px] text-ink-soft">FL/04 War Room</span>
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-1.5">
-        <Tile>
-          <Eyebrow>Budget</Eyebrow>
-          <div className="font-serif text-[13px] mt-0.5">$24.0k</div>
-        </Tile>
-        <Tile>
-          <Eyebrow>Spent</Eyebrow>
-          <div className="font-serif text-[13px] mt-0.5">$15.3k</div>
-        </Tile>
+      <Eyebrow>Equity Pact · split</Eyebrow>
+      <div className="mt-1 rounded-lg border border-bg-border bg-bg-elev/80 p-2">
+        <div className="flex h-2 rounded overflow-hidden">
+          <div className="bg-accent" style={{ width: "70%" }} />
+          <div className="bg-role-creator" style={{ width: "20%" }} />
+          <div className="bg-role-sponsor" style={{ width: "10%" }} />
+        </div>
+        <div className="mt-1.5 flex items-center justify-between text-[8px]">
+          <span className="text-accent">Creator · 70</span>
+          <span className="text-role-creator">House · 20</span>
+          <span className="text-role-sponsor">Sponsor pool · 10</span>
+        </div>
       </div>
 
-      <Eyebrow>Milestones</Eyebrow>
-      <div className="mt-1.5 space-y-1.5">
+      <Eyebrow>Chain of title</Eyebrow>
+      <div className="mt-1 space-y-1">
         {[
-          { t: "Writing", d: "Apr 18", done: true },
-          { t: "Tracking", d: "May 04", done: true },
-          { t: "Mix · 4 of 7", d: "May 24", done: false, active: true },
-          { t: "Master · Sterling", d: "Jun 06", done: false },
+          { t: "Brief · sponsor scope", d: "Day 12", done: true },
+          { t: "48hr Sprint · FL/06", d: "Day 18", done: true },
+          { t: "Pact registered · FL/04", d: "Day 24", done: false, active: true },
+          { t: "Sync placement · 47 Slate", d: "Day 60", done: false },
         ].map((m) => (
           <div
             key={m.t}
-            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5"
+            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1"
           >
             <div className="flex items-center gap-2">
               <span
@@ -860,19 +935,19 @@ function ScreenProjectDetail() {
               >
                 {m.done && <Check className="size-2 text-accent-ink" />}
               </span>
-              <span className="text-[10px]">{m.t}</span>
+              <span className="text-[9.5px]">{m.t}</span>
             </div>
-            <span className="text-[8.5px] text-ink-soft font-mono">{m.d}</span>
+            <span className="text-[8px] text-ink-soft font-mono">{m.d}</span>
           </div>
         ))}
       </div>
 
-      <div className="mt-3 flex items-center gap-1.5">
-        <button className="flex-1 rounded-lg bg-accent text-accent-ink text-[10.5px] font-medium py-1.5">
-          Book session
+      <div className="mt-2 flex items-center gap-1.5">
+        <button className="flex-1 rounded-lg bg-accent text-accent-ink text-[10px] font-medium py-1.5">
+          Open registry
         </button>
-        <button className="rounded-lg border border-bg-border text-ink-muted text-[10.5px] px-3 py-1.5">
-          Share
+        <button className="rounded-lg border border-bg-border text-ink-muted text-[10px] px-3 py-1.5">
+          Pact PDF
         </button>
       </div>
 
@@ -888,47 +963,60 @@ function ScreenProjectDetail() {
 function ScreenPayments() {
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>Wallet</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Payments</div>
+      <Eyebrow>Financial filter</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Volume terms</div>
 
-      <div className="mt-3 rounded-xl border border-bg-border bg-[#0f0f14] p-3 relative overflow-hidden">
-        <div className="absolute inset-0 [background:radial-gradient(50%_80%_at_80%_20%,rgba(230,255,61,0.12),transparent_60%)]" />
+      <div className="mt-2.5 rounded-xl border border-bg-border bg-[#0f0f14] p-3 relative overflow-hidden">
+        <div className="absolute inset-0 [background:radial-gradient(50%_80%_at_80%_20%,rgba(230,255,61,0.14),transparent_60%)]" />
         <div className="relative">
-          <Eyebrow>Due Jun 1</Eyebrow>
-          <div className="mt-1 font-serif text-[22px] tabular-nums">$1,800.00</div>
-          <div className="text-[9.5px] text-ink-muted mt-0.5">
-            June residency · House I · Tier A
+          <Eyebrow>Volume 01 · Tuition</Eyebrow>
+          <div className="mt-1 font-serif text-[22px] tabular-nums">$3,500</div>
+          <div className="text-[9px] text-ink-muted mt-0.5">
+            Non-negotiable · non-refundable · per resident
           </div>
-          <div className="mt-3 flex items-center justify-between">
-            <div className="flex items-center gap-1.5 text-[9px] text-ink-muted">
+          <div className="mt-2.5 flex items-center justify-between">
+            <div className="flex items-center gap-1.5 text-[8.5px] text-ink-muted">
               <CreditCard className="size-3" />
-              Visa · 4242
+              Cleared · Day 0
             </div>
-            <button className="text-[9.5px] rounded-full bg-accent text-accent-ink px-2.5 py-1 font-medium">
-              Pay now
-            </button>
+            <span className="text-[8.5px] rounded-full bg-accent/10 text-accent border border-accent/30 px-2 py-0.5">
+              Paid
+            </span>
           </div>
         </div>
       </div>
 
-      <Eyebrow>Recent</Eyebrow>
-      <div className="mt-1.5 space-y-1.5">
+      <div className="mt-2 grid grid-cols-2 gap-1.5">
+        <Tile>
+          <Eyebrow>47 Slate · YTD</Eyebrow>
+          <div className="font-serif text-[13px] mt-0.5 tabular-nums text-accent">
+            +$4,200
+          </div>
+        </Tile>
+        <Tile>
+          <Eyebrow>Royalty cycle</Eyebrow>
+          <div className="font-mono text-[10px] mt-0.5">Q3 · audited</div>
+        </Tile>
+      </div>
+
+      <Eyebrow>Ledger</Eyebrow>
+      <div className="mt-1.5 space-y-1">
         {[
-          { t: "Studio B · 2 hrs", d: "May 18", a: "-$160.00", s: "paid" },
-          { t: "Edit Bay 04 · 4 hrs", d: "May 14", a: "-$200.00", s: "paid" },
-          { t: "May residency", d: "May 01", a: "-$1,800.00", s: "paid" },
-          { t: "Sponsor brief · Bose", d: "Apr 28", a: "+$4,200.00", s: "earned" },
+          { t: "Sponsor royalty · Bose pool", d: "Day 22", a: "+$4,200.00", s: "earned" },
+          { t: "Chamber credit · Suite A", d: "Day 18", a: "—", s: "credit" },
+          { t: "47 Slate · Pact filing", d: "Day 12", a: "-$0.00", s: "house" },
+          { t: "Volume 01 · Tuition", d: "Day 0", a: "-$3,500.00", s: "paid" },
         ].map((p) => (
           <div
             key={p.t + p.d}
-            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5"
+            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1"
           >
             <div>
-              <div className="text-[10px] leading-tight">{p.t}</div>
-              <div className="text-[8.5px] text-ink-soft mt-0.5">{p.d}</div>
+              <div className="text-[9.5px] leading-tight">{p.t}</div>
+              <div className="text-[8px] text-ink-soft mt-0.5">{p.d}</div>
             </div>
             <div
-              className={`text-[10px] font-mono tabular-nums ${p.s === "earned" ? "text-accent" : "text-ink"}`}
+              className={`text-[9.5px] font-mono tabular-nums ${p.s === "earned" ? "text-accent" : "text-ink"}`}
             >
               {p.a}
             </div>
@@ -948,11 +1036,14 @@ function ScreenPayments() {
 function ScreenProgramming() {
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>This month</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Programming</div>
+      <Eyebrow>FL/05 · Social Heart</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Sanctuary calendar</div>
+      <div className="text-[9px] text-ink-muted italic mt-0.5">
+        Access becomes trust.
+      </div>
 
       <div className="mt-2 flex items-center gap-1.5 text-[9px] overflow-hidden">
-        {["All", "Masterclass", "Salon", "Production"].map((c, i) => (
+        {["All", "Audio Altar", "Salon", "Sponsor"].map((c, i) => (
           <span
             key={c}
             className={`rounded-full px-2 py-0.5 border whitespace-nowrap ${i === 0 ? "border-accent/40 bg-accent/10 text-accent" : "border-bg-border text-ink-muted"}`}
@@ -962,29 +1053,29 @@ function ScreenProgramming() {
         ))}
       </div>
 
-      <div className="mt-3 space-y-2">
+      <div className="mt-2.5 space-y-1.5">
         {[
-          { day: "THU", date: "22", t: "Mixing the Verse", h: "Grammy engineer", tag: "Masterclass" },
-          { day: "SAT", date: "24", t: "Volume Stage Open House", h: "Resident filmmakers", tag: "Production" },
-          { day: "TUE", date: "27", t: "The Quiet Founder", h: "Salon · Founders", tag: "Salon" },
-          { day: "FRI", date: "30", t: "Late Listen · Vol. 03", h: "Unreleased work", tag: "Salon" },
+          { day: "THU", date: "Day 26", t: "Audio Altar · Vol. 03", h: "One artifact · unreleased", tag: "Audio Altar" },
+          { day: "SAT", date: "Day 28", t: "Sponsor reception · Bose", h: "Brand Beta · invitation only", tag: "Sponsor" },
+          { day: "TUE", date: "Day 31", t: "The Quiet Founder · salon", h: "Founders · Ops lane", tag: "Salon" },
+          { day: "FRI", date: "Day 34", t: "Spirit Locker assignment", h: "Volume 02 intake briefing", tag: "House" },
         ].map((e) => (
           <div
             key={e.t}
             className="flex items-start gap-2.5 rounded-lg border border-bg-border bg-bg-elev/80 p-2"
           >
-            <div className="text-center">
-              <div className="font-serif text-[14px] tabular-nums leading-none">
-                {e.date}
+            <div className="text-center w-12 shrink-0">
+              <div className="font-serif text-[11px] tabular-nums leading-none">
+                {e.date.replace("Day ", "")}
               </div>
-              <div className="text-[8px] text-ink-soft tracking-widest mt-0.5">
-                {e.day}
+              <div className="text-[7.5px] text-ink-soft tracking-widest mt-0.5">
+                DAY
               </div>
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[10.5px] leading-tight truncate">{e.t}</div>
+              <div className="text-[10px] leading-tight truncate">{e.t}</div>
               <div className="text-[8.5px] text-ink-soft mt-0.5">{e.h}</div>
-              <div className="text-[8px] mt-1 text-accent tracking-widest uppercase">
+              <div className="text-[7.5px] mt-1 text-accent tracking-widest uppercase">
                 {e.tag}
               </div>
             </div>
@@ -1006,41 +1097,47 @@ function ScreenEventRSVP() {
     <div className="relative h-full pb-12">
       <div className="relative h-24 mx-3.5 rounded-xl overflow-hidden border border-bg-border bg-gradient-to-br from-bg-card to-[#0a0a0d]">
         <div className="absolute inset-0 [background:radial-gradient(60%_60%_at_70%_30%,rgba(230,255,61,0.18),transparent_60%),radial-gradient(60%_60%_at_20%_80%,rgba(124,92,255,0.22),transparent_60%)]" />
+        <div className="absolute top-2 left-2 right-2 flex items-center justify-between">
+          <span className="font-mono text-[8px] text-ink-soft tracking-[0.24em]">
+            FL/05 · AUDIO ALTAR
+          </span>
+          <Volume2 className="size-3 text-accent" />
+        </div>
         <div className="absolute bottom-2 left-2 right-2">
-          <Eyebrow>Fri · May 30 · 21:00</Eyebrow>
-          <div className="font-serif text-[15px] leading-tight mt-0.5">
-            Late Listen · Vol. 03
+          <Eyebrow>Day 26 · 21:00</Eyebrow>
+          <div className="font-serif text-[14px] leading-tight mt-0.5">
+            Audio Altar · Vol. 03
           </div>
         </div>
       </div>
 
-      <div className="px-3.5 mt-3">
-        <p className="text-[10px] text-ink-muted leading-[1.6]">
-          Unreleased work from the residency, played loud and once.
-          Phones face-down. Drinks on the room.
+      <div className="px-3.5 mt-2.5">
+        <p className="text-[9.5px] text-ink-muted leading-[1.55]">
+          One artifact at a time. Reference listening under archival
+          lighting, behind closed doors. By invitation only.
         </p>
 
-        <div className="mt-3 space-y-1.5">
-          <div className="flex items-center justify-between text-[10px]">
+        <div className="mt-2 space-y-1">
+          <div className="flex items-center justify-between text-[9.5px]">
             <span className="text-ink-soft">Where</span>
-            <span>Floor 6 · Salon</span>
+            <span>FL/05 · Sanctuary</span>
           </div>
-          <div className="flex items-center justify-between text-[10px]">
-            <span className="text-ink-soft">Dress</span>
-            <span>No code</span>
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="text-ink-soft">Phones</span>
+            <span className="text-accent">Dark Floor Policy</span>
           </div>
-          <div className="flex items-center justify-between text-[10px]">
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="text-ink-soft">Spirit Locker</span>
+            <span className="font-mono">#23 · assigned</span>
+          </div>
+          <div className="flex items-center justify-between text-[9.5px]">
             <span className="text-ink-soft">Capacity</span>
-            <span className="font-mono">38 of 60</span>
-          </div>
-          <div className="flex items-center justify-between text-[10px]">
-            <span className="text-ink-soft">Guests</span>
-            <span>+1 allowed</span>
+            <span className="font-mono">22 of 30 · governed</span>
           </div>
         </div>
 
-        <Eyebrow>Going</Eyebrow>
-        <div className="mt-1.5 flex items-center gap-1">
+        <Eyebrow>In the room</Eyebrow>
+        <div className="mt-1 flex items-center gap-1">
           <div className="flex -space-x-1.5">
             {[0, 1, 2, 3, 4].map((i) => (
               <span
@@ -1049,15 +1146,15 @@ function ScreenEventRSVP() {
               />
             ))}
           </div>
-          <span className="text-[9px] text-ink-soft ml-1">+33</span>
+          <span className="text-[8.5px] text-ink-soft ml-1">+17 residents</span>
         </div>
 
-        <div className="mt-3 flex items-center gap-1.5">
-          <button className="flex-1 rounded-lg bg-accent text-accent-ink text-[10.5px] font-medium py-2">
-            RSVP · Yes
+        <div className="mt-2.5 flex items-center gap-1.5">
+          <button className="flex-1 rounded-lg bg-accent text-accent-ink text-[10px] font-medium py-1.5">
+            Accept · 24h
           </button>
-          <button className="rounded-lg border border-bg-border text-ink-muted text-[10.5px] px-3 py-2">
-            Maybe
+          <button className="rounded-lg border border-bg-border text-ink-muted text-[10px] px-3 py-1.5">
+            Decline
           </button>
         </div>
       </div>
@@ -1076,36 +1173,52 @@ function ScreenDiscover() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center justify-between">
         <div>
-          <Eyebrow>For you</Eyebrow>
-          <div className="font-serif text-[16px] mt-0.5">Discover</div>
+          <Eyebrow>Cohort · Volume 01</Eyebrow>
+          <div className="font-serif text-[15px] mt-0.5">Lane matching</div>
         </div>
-        <Sparkles className="size-3.5 text-accent" />
+        <Users className="size-3.5 text-accent" />
       </div>
 
-      <div className="mt-3 rounded-xl border border-accent/30 bg-accent/[0.06] p-2.5">
-        <Eyebrow>AI-matched · 94%</Eyebrow>
-        <div className="font-serif text-[13px] leading-tight mt-1">
-          Devon Park · Director
+      <div className="mt-2.5 rounded-lg border border-bg-border bg-bg-elev/80 p-2">
+        <Eyebrow>Resident mix</Eyebrow>
+        <div className="mt-1 flex h-2 rounded overflow-hidden">
+          <div className="bg-accent" style={{ width: "40%" }} />
+          <div className="bg-role-creator" style={{ width: "30%" }} />
+          <div className="bg-role-sponsor" style={{ width: "20%" }} />
+          <div className="bg-role-investor" style={{ width: "10%" }} />
         </div>
-        <div className="text-[9.5px] text-ink-muted mt-0.5">
-          Editing a documentary that overlaps your sound.
+        <div className="mt-1 flex items-center justify-between text-[7.5px] text-ink-soft">
+          <span>40 MUS</span>
+          <span>30 AI</span>
+          <span>20 FILM</span>
+          <span>10 OPS</span>
         </div>
-        <div className="mt-2 flex items-center gap-1.5">
-          <button className="text-[9.5px] rounded-full bg-accent text-accent-ink px-2.5 py-0.5 font-medium">
-            Connect
+      </div>
+
+      <div className="mt-2.5 rounded-xl border border-accent/30 bg-accent/[0.06] p-2">
+        <Eyebrow>Inter-lane match · 94%</Eyebrow>
+        <div className="font-serif text-[12px] leading-tight mt-1">
+          M·112 · Film lane
+        </div>
+        <div className="text-[9px] text-ink-muted mt-0.5">
+          Cutting a doc that overlaps your Chamber output.
+        </div>
+        <div className="mt-1.5 flex items-center gap-1.5">
+          <button className="text-[9px] rounded-full bg-accent text-accent-ink px-2 py-0.5 font-medium">
+            Open thread
           </button>
-          <button className="text-[9.5px] rounded-full border border-bg-border text-ink-muted px-2.5 py-0.5">
+          <button className="text-[9px] rounded-full border border-bg-border text-ink-muted px-2 py-0.5">
             Skip
           </button>
         </div>
       </div>
 
-      <Eyebrow>People near your slate</Eyebrow>
-      <div className="mt-1.5 space-y-1.5">
+      <Eyebrow>Near your asset pipeline</Eyebrow>
+      <div className="mt-1.5 space-y-1">
         {[
-          { n: "Soraya Lin", r: "Editor · 88% match", icon: Film },
-          { n: "Imani Cole", r: "Producer · 81%", icon: Disc3 },
-          { n: "Sony Music X", r: "Sponsor interested", icon: Star },
+          { n: "M·088 · AI lane", r: "Synthetic versioning · 88%", icon: Cpu },
+          { n: "M·203 · Music lane", r: "Producer · 81%", icon: Disc3 },
+          { n: "Bose Pro · sponsor", r: "Brand Beta open · royalty pool", icon: Star },
         ].map((d) => (
           <div
             key={d.n}
@@ -1115,8 +1228,8 @@ function ScreenDiscover() {
               <d.icon className="size-3 text-accent" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] leading-tight truncate">{d.n}</div>
-              <div className="text-[8.5px] text-ink-soft mt-0.5 truncate">
+              <div className="text-[9.5px] leading-tight truncate">{d.n}</div>
+              <div className="text-[8px] text-ink-soft mt-0.5 truncate">
                 {d.r}
               </div>
             </div>
@@ -1139,38 +1252,45 @@ function ScreenMessages() {
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center justify-between">
         <div>
-          <Eyebrow>Inbox</Eyebrow>
-          <div className="font-serif text-[16px] mt-0.5">Messages</div>
+          <Eyebrow>Circle of Trust</Eyebrow>
+          <div className="font-serif text-[15px] mt-0.5">Threads</div>
         </div>
-        <MessagesSquare className="size-3.5 text-ink-soft" />
+        <Lock className="size-3.5 text-accent" />
       </div>
 
-      <div className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-bg-border bg-bg-elev px-2 py-1.5">
+      <div className="mt-2 rounded-lg border border-accent/30 bg-accent/[0.06] px-2 py-1.5">
+        <div className="text-[8.5px] text-accent flex items-center gap-1.5">
+          <ShieldCheck className="size-3" />
+          Binding instrument · liquidated damages per breach.
+        </div>
+      </div>
+
+      <div className="mt-2 flex items-center gap-1.5 rounded-lg border border-bg-border bg-bg-elev px-2 py-1.5">
         <Search className="size-3 text-ink-soft" />
-        <span className="text-[10px] text-ink-soft">Search peers, threads…</span>
+        <span className="text-[10px] text-ink-soft">Search residents, threads…</span>
       </div>
 
-      <div className="mt-2.5 space-y-1.5">
+      <div className="mt-2 space-y-1">
         {[
-          { n: "Devon Park", t: "Pulled a rough cut — listening tonight?", h: "2m", u: true, tone: "creator" as const },
-          { n: "Concierge · 5E47", t: "Studio B confirmed for 18:00.", h: "1h", u: true, tone: "accent" as const },
-          { n: "Soraya Lin", t: "Sending the stems by EOD.", h: "3h", u: false, tone: "soft" as const },
-          { n: "House I · Music", t: "Late Listen · capacity now 60.", h: "1d", u: false, tone: "soft" as const },
-          { n: "Bose Pro", t: "Brief attached. Any availability next wk?", h: "2d", u: false, tone: "soft" as const },
+          { n: "M·112 · Film", t: "Cut overlaps your Chamber session.", h: "2m", u: true, tone: "creator" as const },
+          { n: "Concierge · 5E47", t: "Suite A held · 14:00. FL/07.", h: "1h", u: true, tone: "accent" as const },
+          { n: "War Room · IP Admin", t: "Pact registered. Chain of title clean.", h: "3h", u: false, tone: "soft" as const },
+          { n: "M·047 (you) → M·088", t: "Synthetic versioning · 6 markets?", h: "1d", u: false, tone: "soft" as const },
+          { n: "Bose Pro · sponsor", t: "Royalty pool draft attached.", h: "2d", u: false, tone: "soft" as const },
         ].map((m) => (
           <div
             key={m.n}
             className="flex items-center gap-2 rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5"
           >
-            <div className="size-7 rounded-full bg-role-creator/60 border border-bg-card flex items-center justify-center">
-              <span className="text-[8px]">{m.n.split(" ").map((w) => w[0]).join("")}</span>
+            <div className="size-6 rounded-full bg-role-creator/60 border border-bg-card flex items-center justify-center">
+              <span className="text-[7.5px]">{m.n.split(" ").map((w) => w[0]).slice(0, 2).join("")}</span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2">
-                <div className="text-[10px] truncate font-medium">{m.n}</div>
-                <div className="text-[8.5px] text-ink-soft font-mono">{m.h}</div>
+                <div className="text-[9.5px] truncate font-medium">{m.n}</div>
+                <div className="text-[8px] text-ink-soft font-mono">{m.h}</div>
               </div>
-              <div className="text-[9px] text-ink-soft mt-0.5 truncate">
+              <div className="text-[8.5px] text-ink-soft mt-0.5 truncate">
                 {m.t}
               </div>
             </div>
@@ -1191,11 +1311,14 @@ function ScreenMessages() {
 function ScreenDirectory() {
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>The room</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Members</div>
+      <Eyebrow>Volume 01 · 100 / 100</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">The cohort</div>
+      <div className="text-[8.5px] text-ink-soft mt-0.5 italic">
+        Names withheld at the door.
+      </div>
 
       <div className="mt-2 flex items-center gap-1.5 text-[9px]">
-        {["All", "MUS", "VID", "MAS", "FND"].map((c, i) => (
+        {["All", "MUS", "AI", "FILM", "OPS"].map((c, i) => (
           <span
             key={c}
             className={`rounded-full px-2 py-0.5 border ${i === 0 ? "border-accent/40 bg-accent/10 text-accent" : "border-bg-border text-ink-muted"}`}
@@ -1205,32 +1328,40 @@ function ScreenDirectory() {
         ))}
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-1">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div
-            key={i}
-            className="aspect-square rounded-md bg-bg-elev border border-bg-border relative overflow-hidden"
-          >
+      <div className="mt-2.5 grid grid-cols-4 gap-1">
+        {Array.from({ length: 16 }).map((_, i) => {
+          const lane = ["MUS", "AI", "FILM", "OPS"][i % 4];
+          return (
             <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(${(i * 53) % 360}deg, rgba(124,92,255,0.4), rgba(230,255,61,0.25))`,
-                opacity: 0.5 + ((i * 7) % 10) / 30,
-              }}
-            />
-            <div className="absolute inset-x-0 bottom-0 px-1 py-0.5 flex items-center justify-between text-[7px] text-ink-soft bg-black/40 font-mono tracking-widest">
-              <span>M·{String(i + 12).padStart(3, "0")}</span>
-              <span className="text-accent/90">
-                {["MUS", "VID", "MAS", "FND"][i % 4]}
-              </span>
+              key={i}
+              className="aspect-square rounded-md bg-bg-elev border border-bg-border relative overflow-hidden"
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(${(i * 53) % 360}deg, rgba(124,92,255,0.4), rgba(230,255,61,0.25))`,
+                  opacity: 0.5 + ((i * 7) % 10) / 30,
+                }}
+              />
+              <div className="absolute inset-0 backdrop-blur-[2px] bg-black/10" />
+              <div className="absolute inset-x-0 bottom-0 px-1 py-0.5 flex items-center justify-between text-[6.5px] text-ink-soft bg-black/50 font-mono tracking-widest">
+                <span>M·{String(i + 12).padStart(3, "0")}</span>
+                <span className="text-accent/90">{lane}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      <div className="mt-2 flex items-center justify-between text-[9px] text-ink-soft">
-        <span>210 active members</span>
-        <span className="font-mono">capped per cohort</span>
+      <div className="mt-2 grid grid-cols-2 gap-1.5">
+        <Tile className="text-center">
+          <div className="font-serif text-[12px] tabular-nums">100</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">PER VOLUME</div>
+        </Tile>
+        <Tile className="text-center">
+          <div className="font-serif text-[12px] tabular-nums">04 / yr</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">CADENCE</div>
+        </Tile>
       </div>
 
       <TabBar items={MEMBER_TABS} active={2} />
@@ -1246,57 +1377,61 @@ function ScreenProfile() {
   return (
     <div className="relative h-full px-3.5 pb-12">
       <div className="flex items-center gap-2.5 mt-1">
-        <div className="size-12 rounded-full bg-gradient-to-br from-role-creator to-accent/70 border border-bg-border" />
+        <div className="size-11 rounded-full bg-gradient-to-br from-role-creator to-accent/70 border border-bg-border" />
         <div className="min-w-0">
-          <div className="font-serif text-[15px] leading-tight">Mara Iyele</div>
-          <div className="text-[9.5px] text-ink-soft mt-0.5">
-            M·047 · House I · Music
+          <div className="font-serif text-[14px] leading-tight">M·047</div>
+          <div className="text-[9px] text-ink-soft mt-0.5">
+            Volume 01 · Music lane
           </div>
-          <div className="text-[8.5px] text-accent mt-0.5">Verified resident</div>
+          <div className="text-[8.5px] text-accent mt-0.5 flex items-center gap-1">
+            <ShieldCheck className="size-2.5" /> In Circle of Trust
+          </div>
         </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-1.5 text-center">
+      <Eyebrow>Output · measured</Eyebrow>
+      <div className="mt-1 grid grid-cols-3 gap-1.5 text-center">
         <Tile>
-          <div className="font-serif text-[13px] tabular-nums">12</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">PROJECTS</div>
+          <div className="font-serif text-[13px] tabular-nums">16</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">CHAMBER HRS</div>
         </Tile>
         <Tile>
-          <div className="font-serif text-[13px] tabular-nums">84</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">SESSIONS</div>
+          <div className="font-serif text-[13px] tabular-nums">3</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">IP DELIVERED</div>
         </Tile>
         <Tile>
-          <div className="font-serif text-[13px] tabular-nums">7</div>
-          <div className="text-[8px] text-ink-soft mt-0.5">COLLABS</div>
+          <div className="font-serif text-[13px] tabular-nums">1</div>
+          <div className="text-[7.5px] text-ink-soft mt-0.5">47 SLATE</div>
         </Tile>
       </div>
 
-      <Eyebrow>About</Eyebrow>
-      <p className="text-[10px] text-ink-muted leading-[1.6] mt-1">
-        Singer-producer working between Lagos and New York. Currently mixing
-        Polaroid EP · Vol. II.
-      </p>
+      <Eyebrow>Volume history</Eyebrow>
+      <div className="mt-1 space-y-1">
+        <div className="flex items-center justify-between rounded-lg border border-accent/30 bg-accent/[0.05] px-2 py-1">
+          <span className="text-[9.5px]">Volume 01 · current</span>
+          <span className="font-mono text-[8px] text-accent">Day 24/90</span>
+        </div>
+        <div className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1">
+          <span className="text-[9.5px] text-ink-muted">Volume 00 · intake</span>
+          <span className="font-mono text-[8px] text-ink-soft">archived</span>
+        </div>
+      </div>
 
-      <Eyebrow>Recent work</Eyebrow>
-      <div className="mt-1.5 grid grid-cols-3 gap-1">
-        {[0, 1, 2].map((i) => (
+      <Eyebrow>Dossier · recent assets</Eyebrow>
+      <div className="mt-1 grid grid-cols-3 gap-1">
+        {["LP·II", "BETA", "SYN·6"].map((label, i) => (
           <div
             key={i}
-            className="aspect-square rounded-md border border-bg-border"
+            className="aspect-square rounded-md border border-bg-border relative overflow-hidden"
             style={{
               background: `linear-gradient(${i * 90 + 35}deg, rgba(124,92,255,0.35), rgba(230,255,61,0.18))`,
             }}
-          />
+          >
+            <span className="absolute bottom-0.5 left-1 font-mono text-[7px] text-ink-soft">
+              {label}
+            </span>
+          </div>
         ))}
-      </div>
-
-      <div className="mt-3 flex items-center gap-1.5">
-        <button className="flex-1 rounded-lg border border-bg-border text-[10.5px] text-ink py-1.5">
-          Edit profile
-        </button>
-        <button className="rounded-lg border border-bg-border text-ink-muted text-[10.5px] px-3 py-1.5">
-          Share
-        </button>
       </div>
 
       <TabBar items={MEMBER_TABS} active={3} />
@@ -1309,69 +1444,63 @@ function ScreenProfile() {
 /* -------------------------------------------------------------------------- */
 
 function ScreenSettings() {
-  const groups: { title: string; rows: { icon: React.ComponentType<{ className?: string }>; label: string; v?: string }[] }[] = [
-    {
-      title: "Account",
-      rows: [
-        { icon: User, label: "Profile" },
-        { icon: Wallet, label: "Payment methods", v: "Visa · 4242" },
-        { icon: Bell, label: "Notifications", v: "Quiet hours on" },
-      ],
-    },
-    {
-      title: "Access",
-      rows: [
-        { icon: KeyRound, label: "Door credentials", v: "BLE · NFC" },
-        { icon: Lock, label: "Privacy", v: "Names withheld" },
-      ],
-    },
-    {
-      title: "App",
-      rows: [
-        { icon: Settings, label: "Preferences" },
-        { icon: MessagesSquare, label: "Concierge" },
-      ],
-    },
+  const rules: { icon: React.ComponentType<{ className?: string }>; label: string; v: string }[] = [
+    { icon: ShieldCheck, label: "01 · Access curated", v: "Selection precedes payment" },
+    { icon: EyeOff, label: "02 · Phones governed", v: "Dark Floor Policy" },
+    { icon: Users, label: "03 · Guests limited", v: "Identity shielded" },
+    { icon: Scan, label: "04 · Output expected", v: "Volume-close audit" },
+    { icon: Scale, label: "05 · Discretion contractual", v: "Circle of Trust" },
+    { icon: Cpu, label: "06 · Data sovereign", v: "Weights quarantined" },
   ];
   return (
     <div className="relative h-full px-3.5 pb-12">
-      <Eyebrow>Account</Eyebrow>
-      <div className="font-serif text-[16px] mt-0.5">Settings</div>
+      <Eyebrow>The Rules</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Protect the product</div>
+      <div className="text-[8.5px] text-ink-soft mt-0.5 italic">
+        The culture is the product.
+      </div>
 
-      <div className="mt-3 space-y-3">
-        {groups.map((g) => (
-          <div key={g.title}>
-            <div className="text-[8.5px] uppercase tracking-[0.24em] text-ink-soft mb-1">
-              {g.title}
+      <div className="mt-2.5 rounded-lg border border-bg-border bg-bg-elev/80 divide-y divide-bg-border">
+        {rules.map((r) => (
+          <div
+            key={r.label}
+            className="flex items-center justify-between px-2 py-1.5"
+          >
+            <div className="flex items-center gap-2 min-w-0">
+              <r.icon className="size-3 text-accent shrink-0" />
+              <span className="text-[9.5px] truncate">{r.label}</span>
             </div>
-            <div className="rounded-lg border border-bg-border bg-bg-elev/80 divide-y divide-bg-border">
-              {g.rows.map((r) => (
-                <div
-                  key={r.label}
-                  className="flex items-center justify-between px-2 py-1.5"
-                >
-                  <div className="flex items-center gap-2">
-                    <r.icon className="size-3 text-ink-soft" />
-                    <span className="text-[10px]">{r.label}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {r.v && (
-                      <span className="text-[9px] text-ink-soft">{r.v}</span>
-                    )}
-                    <ChevronRight className="size-3 text-ink-soft" />
-                  </div>
-                </div>
-              ))}
+            <span className="text-[8px] text-ink-soft ml-2 shrink-0">{r.v}</span>
+          </div>
+        ))}
+      </div>
+
+      <Eyebrow>Resident controls</Eyebrow>
+      <div className="mt-1 rounded-lg border border-bg-border bg-bg-elev/80 divide-y divide-bg-border">
+        {[
+          { icon: Archive, label: "Spirit Locker", v: "FL/05 · #23" },
+          { icon: KeyRound, label: "Credentials", v: "BLE · NFC" },
+          { icon: Building2, label: "Genesis Node", v: "5 E 47th · NYC" },
+          { icon: MessagesSquare, label: "Concierge", v: "24h" },
+        ].map((r) => (
+          <div
+            key={r.label}
+            className="flex items-center justify-between px-2 py-1.5"
+          >
+            <div className="flex items-center gap-2">
+              <r.icon className="size-3 text-ink-soft" />
+              <span className="text-[9.5px]">{r.label}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="text-[8px] text-ink-soft">{r.v}</span>
+              <ChevronRight className="size-3 text-ink-soft" />
             </div>
           </div>
         ))}
+      </div>
 
-        <button className="w-full text-[9.5px] text-ink-soft py-1">
-          Sign out
-        </button>
-        <div className="text-center text-[8px] text-ink-soft font-mono tracking-widest">
-          5E47 · v0.1 · est. MMXXVI
-        </div>
+      <div className="mt-2 text-center text-[7.5px] text-ink-soft font-mono tracking-widest">
+        Hasenpfeffer Ventures · v5.2
       </div>
 
       <TabBar items={MEMBER_TABS} active={3} />
