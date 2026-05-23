@@ -2,6 +2,7 @@ import type {
   AccessEvent,
   Booking,
   Campaign,
+  HouseCensus,
   Organization,
   Payment,
   Project,
@@ -372,3 +373,42 @@ export function arrSeries() {
 export function bookingsByDay() {
   return [12, 18, 22, 17, 26, 30, 24];
 }
+
+// Membership roll behind the ~210-member narrative. The seeded users above
+// are demo personas; this census is the operating roll the scarcity engine
+// reasons over. Caps are a business input; active/waitlist/applications are
+// the live signals the Marketing & Predictive agent consumes.
+export const houseCensus: HouseCensus[] = [
+  {
+    house: "music",
+    label: "Music",
+    cap: 64,
+    active: 58,
+    waitlist: 34,
+    applications: [18, 22, 20, 26, 29, 34],
+  },
+  {
+    house: "video",
+    label: "Video Production",
+    cap: 50,
+    active: 45,
+    waitlist: 26,
+    applications: [12, 14, 15, 17, 19, 21],
+  },
+  {
+    house: "masterclass",
+    label: "Masterclass",
+    cap: 54,
+    active: 46,
+    waitlist: 19,
+    applications: [9, 11, 10, 13, 12, 15],
+  },
+  {
+    house: "founders",
+    label: "Founders",
+    cap: 67,
+    active: 61,
+    waitlist: 29,
+    applications: [14, 16, 19, 18, 23, 25],
+  },
+];

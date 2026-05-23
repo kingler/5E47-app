@@ -17,7 +17,9 @@ export type Capability =
   | "investor.report"
   | "operations.oversight"
   | "billing.oversight"
-  | "moderation.act";
+  | "moderation.act"
+  | "agent.converse"
+  | "agent.oversee";
 
 const ROLE_CAPABILITIES: Record<Role, Capability[]> = {
   super_admin: [
@@ -37,6 +39,8 @@ const ROLE_CAPABILITIES: Record<Role, Capability[]> = {
     "operations.oversight",
     "billing.oversight",
     "moderation.act",
+    "agent.converse",
+    "agent.oversee",
   ],
   operator: [
     "residency.review",
@@ -48,21 +52,25 @@ const ROLE_CAPABILITIES: Record<Role, Capability[]> = {
     "billing.oversight",
     "moderation.act",
     "creator.discover",
+    "agent.converse",
+    "agent.oversee",
   ],
   creator: [
     "residency.apply",
     "studio.book",
     "payment.pay",
     "access.use",
+    "agent.converse",
   ],
   sponsor: [
     "campaign.create",
     "campaign.report",
     "creator.discover",
     "payment.pay",
+    "agent.converse",
   ],
-  investor: ["investor.report"],
-  vip_guest: ["access.use"],
+  investor: ["investor.report", "agent.converse"],
+  vip_guest: ["access.use", "agent.converse"],
   vendor: ["access.use"],
 };
 

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   Activity,
   BarChart3,
+  Bot,
   Building2,
   CalendarClock,
   CreditCard,
@@ -14,6 +15,7 @@ import {
   KeyRound,
   LineChart,
   Megaphone,
+  MessagesSquare,
   Network,
   PieChart,
   ScrollText,
@@ -40,6 +42,7 @@ const NAV: Record<"creator" | "operator" | "sponsor" | "investor", Group[]> = {
       label: "Workspace",
       items: [
         { href: "/creator", label: "Overview", icon: Gauge },
+        { href: "/concierge", label: "Concierge · Sam", icon: MessagesSquare },
         { href: "/creator/bookings", label: "Bookings", icon: CalendarClock },
         { href: "/creator/projects", label: "Projects", icon: Film },
         { href: "/creator/access", label: "Access", icon: KeyRound },
@@ -61,6 +64,7 @@ const NAV: Record<"creator" | "operator" | "sponsor" | "investor", Group[]> = {
     {
       label: "Intelligence",
       items: [
+        { href: "/operator/agents", label: "Agents · Sam", icon: Bot },
         { href: "/operator/analytics", label: "Analytics", icon: BarChart3 },
         { href: "/operator/events", label: "Event Stream", icon: Activity },
       ],
