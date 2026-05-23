@@ -92,6 +92,46 @@ body {
   }
 }
 
+/* Showcase lite mode — scoped overrides so the page can flip to light */
+.theme-light {
+  color-scheme: light;
+  background: #f6f5f1;
+  color: #15151a;
+}
+.theme-light.bg-bg,
+.theme-light .bg-bg { background-color: #f6f5f1 !important; }
+.theme-light .bg-bg\/70 { background-color: rgba(246, 245, 241, 0.78) !important; }
+.theme-light .bg-bg\/60 { background-color: rgba(246, 245, 241, 0.7) !important; }
+.theme-light .bg-bg\/95 { background-color: rgba(246, 245, 241, 0.95) !important; }
+.theme-light .bg-bg-elev,
+.theme-light .bg-bg-elev\/80 { background-color: #ffffff !important; }
+.theme-light .bg-bg-elev\/60 { background-color: rgba(255, 255, 255, 0.7) !important; }
+.theme-light .bg-bg-elev\/40,
+.theme-light .bg-bg-elev\/30 { background-color: rgba(255, 255, 255, 0.6) !important; }
+.theme-light .bg-bg-card { background-color: #ffffff !important; }
+.theme-light .bg-bg-border,
+.theme-light .bg-bg-border\/60 { background-color: #e5e3dc !important; }
+.theme-light .border-bg-border,
+.theme-light .border-bg-border\/50,
+.theme-light .border-bg-border\/60 { border-color: #e0ddd4 !important; }
+.theme-light .divide-bg-border > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e0ddd4 !important;
+}
+.theme-light .text-ink { color: #15151a !important; }
+.theme-light .text-ink-muted { color: #4a4a52 !important; }
+.theme-light .text-ink-soft { color: #7a7a82 !important; }
+.theme-light .bg-ink\/50 { background-color: rgba(21, 21, 26, 0.4) !important; }
+
+/* The phone frame keeps its dark bezel; only the inner screen flips */
+.theme-light .bg-\[\#0d0d11\] { background-color: #161620 !important; }
+.theme-light .bg-\[\#0f0f14\] { background-color: #fafaf6 !important; }
+.theme-light .bg-\[\#0a0a0d\] { background-color: #efece3 !important; }
+.theme-light .bg-black\/95 { background-color: #1a1a22 !important; }
+.theme-light .bg-black\/40 { background-color: rgba(255, 255, 255, 0.55) !important; }
+.theme-light .from-bg-card { --tw-gradient-from: #ffffff var(--tw-gradient-from-position) !important; }
+.theme-light .to-bg-elev { --tw-gradient-to: #f6f5f1 var(--tw-gradient-to-position) !important; }
+.theme-light .to-\[\#0a0a0d\] { --tw-gradient-to: #f0ede4 var(--tw-gradient-to-position) !important; }
+
 /* Editorial type defaults for serif display */
 .font-serif {
   font-feature-settings: "kern", "liga", "calt", "onum";

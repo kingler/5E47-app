@@ -1,0 +1,103 @@
+name: Deploy showcase to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - claude/mobile-screen-grid-showcase-Iy6O7
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Strip routes that need a server (server actions / cookies)
+        run: |
+          rm -rf "app/(app)" app/api app/login app/apply
+          # The landing page links to /login and /apply — soften those to anchors so deploy doesn't 404 noisily.
+          sed -i 's|href="/login"|href="#"|g; s|href="/apply"|href="#"|g' app/page.tsx components/landing/*.tsx components/shell/*.tsx 2>/dev/null || true
+
+      - name: Configure static export
+        run: |
+          cat > next.config.mjs <<'EOF'
+          /** @type {import('next').NextConfig} */
+          const nextConfig = {
+            reactStrictMode: true,
+            output: 'export',
+            basePath: '/5E47-app',
+            assetPrefix: '/5E47-app/',
+            images: { unoptimized: true },
+            trailingSlash: true,
+            experimental: { typedRoutes: false },
+          };
+          export default nextConfig;
+          EOF
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Land on /showcase
+        run: |
+          # Redirect repo root → /showcase
+          cat > out/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="refresh" content="0; url=./showcase/" />
+              <link rel="canonical" href="./showcase/" />
+              <title>5E47 · Resident interface</title>
+              <style>
+                body{background:#0a0a0b;color:#f5f5f7;font:14px/1.6 ui-sans-serif,system-ui;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;}
+                a{color:#e6ff3d;text-decoration:none;}
+              </style>
+            </head>
+            <body>
+              <a href="./showcase/">View the resident interface →</a>
+            </body>
+          </html>
+          HTML
+          # Disable Jekyll so _next/ folders aren't filtered out
+          touch out/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
