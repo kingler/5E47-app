@@ -157,11 +157,74 @@ export type EventName =
   | "project.greenlit"
   | "sponsor.asset.generated"
   | "invoice.overdue"
-  | "campaign.launched";
+  | "campaign.launched"
+  | "agent.message"
+  | "agent.delegated"
+  | "agent.action"
+  | "scarcity.recomputed"
+  | "programming.created"
+  | "programming.promoted"
+  | "growth.campaign";
 
 export interface KpiSnapshot {
   label: string;
   value: string;
   delta?: number;
   hint?: string;
+}
+
+// ── Multi-agent system · membership census ──────────────────────────────
+// The four Houses are the unit of scarcity. Each has a hard cap; the
+// predictive layer reads active/waitlist counts and recent application
+// history off this census to keep occupancy inside the brand's target band.
+
+export type HouseId = "music" | "video" | "masterclass" | "founders";
+
+// Programming pillars 5E47 curates masterclasses and special events around.
+export type ProgramTopic =
+  | "content"
+  | "music"
+  | "video"
+  | "marketing"
+  | "operations"
+  | "creativity";
+
+export interface MasterclassEvent {
+  id: string;
+  title: string;
+  topic: ProgramTopic;
+  host: string;
+  house?: HouseId;
+  startsAt: string;
+  capacity: number;
+  rsvps: number;
+  /** Whether the Growth agent has promoted it externally. */
+  promoted: boolean;
+  /** Channels it has been promoted on. */
+  channels: string[];
+}
+
+// Acquisition channels the Growth agent uses to attract members — brand-led
+// social reach plus exclusive luxury networks that feed the curated waitlist.
+export interface AcquisitionChannel {
+  id: string;
+  name: string;
+  kind: "social" | "luxury";
+  audience: string;
+  reach: number;
+  /** Applications attributed to this channel last cycle. */
+  waitlistContribution: number;
+}
+
+export interface HouseCensus {
+  house: HouseId;
+  label: string;
+  /** Hard membership cap — never exceeded. */
+  cap: number;
+  /** Currently active members in this House. */
+  active: number;
+  /** Applicants in committee review / on the waitlist. */
+  waitlist: number;
+  /** Applications received over the last 6 admissions cycles (oldest→newest). */
+  applications: number[];
 }

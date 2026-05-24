@@ -48,9 +48,10 @@ export function relativeTime(iso: string) {
     [86400 * 7, "d"],
     [86400 * 30, "w"],
   ];
-  for (const [sec, label] of units) {
+  for (let i = 0; i < units.length; i++) {
+    const [sec, label] = units[i];
     if (abs < sec) {
-      const div = sec === 60 ? 1 : units[units.indexOf([sec, label]) - 1][0];
+      const div = i === 0 ? 1 : units[i - 1][0];
       const val = Math.round(abs / div);
       return past ? `${val}${label} ago` : `in ${val}${label}`;
     }

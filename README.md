@@ -1,13 +1,54 @@
-# 5E47 · Creator Infrastructure OS
+# 5E47 · Agent-Operated Creator Residency
 
-The 5E47 platform — a multi-tenant creator infrastructure operating system
+The 5E47 platform — an invitation-only luxury creator residency run by a
+**multi-agent system** orchestrated by **Sam, the 5E47 Agent**. Members hold
+one conversation with Sam to become members, book space and services, and
+manage their membership. Sam delegates day-to-day operations to specialist
+subagents and runs predictive models that hold the brand inside its scarcity
+band.
+
+Underneath, it remains a multi-tenant creator infrastructure operating system
 covering identity, residencies, payments, bookings, smart access, sponsor
 analytics, and investor reporting.
 
 This repo is a working Next.js 15 app scaffold that demonstrates the
 architecture end-to-end. Real integrations (Stripe, Clerk/Auth0, Kisi,
-Supabase, Mux, Temporal) are stubbed at the interface boundary and can be
-swapped in without changing call sites.
+Supabase, Mux, Temporal, and the LLM behind Sam) are stubbed at the interface
+boundary and can be swapped in without changing call sites.
+
+## Documentation
+
+Business and product docs live in [`/docs`](./docs) and are published as a
+browsable site at the **`/docs` route** (statically generated, on-brand):
+
+- [DesignThru Studio Proposal](./docs/06-designthru-studio-proposal.md) — SOW & investment to build Sam
+- [Business Model Canvas](./docs/01-business-model-canvas.md)
+- [Business Plan](./docs/02-business-plan.md) (marketing strategy + financials + multi-city)
+- [Business Requirements Document](./docs/03-business-requirements-document.md)
+- [Product Requirements Document](./docs/04-product-requirements-document.md)
+- [Software Development Plan & Cost](./docs/05-software-development-plan.md)
+
+## The agent system
+
+**Sam** (orchestrator) classifies member intent, delegates to a subagent,
+enforces strategic guardrails (scarcity-first, no discounting, discretion,
+human-in-the-loop admissions), and replies in one voice. Subagents:
+
+| Agent | Canvas block | Owns |
+|---|---|---|
+| Concierge | Segments & Relationships | Membership, applications, referrals |
+| Atelier | Key Activities | Studio/stage/equipment bookings |
+| House | Activities / Cost | Day-to-day operations |
+| Oracle | Activities — scarcity | Predictive occupancy, demand, admit/hold/raise |
+| Ledger | Revenue Streams | Balances, dues, dynamic pricing within guardrails |
+| Threshold | Key Resources | Access & credentials |
+| Patron | Key Partnerships | Sponsor activations & ROI |
+| Curator | Channels — programming | Masterclasses & events across six pillars |
+| Herald | Channels — acquisition | Member growth via social & luxury platforms |
+
+Code: `lib/agents/{orchestrator,subagents,registry,predictive,llm,types}`.
+Surfaces: `/concierge` (member chat) · `/operator/agents` (ops console).
+API: `POST /api/agent` (talk to Sam) · `GET /api/agent` (roster + status).
 
 ## Run
 
@@ -27,9 +68,10 @@ exact filenames) and set `NEXT_PUBLIC_USE_LANDING_PHOTOS=true`.
 ## Architecture
 
 ```
-Experience  →  app/(app)/{creator,operator,sponsor,investor}
+Experience  →  app/(app)/{concierge,creator,operator,sponsor,investor}
+Agents      →  lib/agents/{orchestrator,subagents,registry,predictive,llm,types}
 Application →  lib/{auth,rbac,events,types}
-Operations  →  app/api/{bookings,access,events}
+Operations  →  app/api/{agent,bookings,access,events}
 Data & AI   →  lib/data.ts (mock) → swap for Supabase/pgvector
 Infra       →  Next.js 15 · Tailwind · edge-ready
 ```
