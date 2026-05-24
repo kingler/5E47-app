@@ -46,7 +46,8 @@ The operating thesis for this version of the business: **the club is run by an a
 
 - **Referral & invitation** — the primary and intentionally narrow funnel (`/apply`, member referrals).
 - **Sam (conversational concierge)** — the day-to-day channel for every member interaction.
-- **Programming** — masterclasses, salons, premieres, and "Late Listen" nights as the discovery surface for prospects.
+- **Programming** — masterclasses, salons, premieres, and "Late Listen" nights across six pillars (content, music, video, marketing & branding, business operations, creativity), created and promoted by the **Curator** agent. The discovery surface for prospects and the retention engine for members.
+- **Social media & exclusive luxury platforms** — brand-led demand generation run by the **Herald** agent: editorial social (Instagram, TikTok, YouTube, LinkedIn) plus invitation-only luxury networks (A Small World, Quintessentially, Amex Centurion, Sotheby's). Feeds the *waitlist*, never the door.
 - **Sponsor & investor portals** — role-scoped dashboards for partners.
 - **Editorial brand presence** — the landing experience and partner co-marketing (quiet, never performance-marketed).
 
@@ -123,6 +124,8 @@ Every block above maps to a Sam subagent that executes it:
 | Revenue Streams | **Finance Agent** | Fees, invoices, dynamic pricing within guardrails |
 | Key Resources (access) | **Access Agent** | Credentials, door grants, escorting |
 | Key Partnerships (sponsors) | **Sponsorship Agent** | Activations, ROI reporting, slot scarcity |
+| Channels (programming) | **Curator (Programming) Agent** | Creates & promotes masterclasses/events across six pillars |
+| Channels (acquisition) | **Growth (Herald) Agent** | Member acquisition via social + exclusive luxury platforms |
 | Key Activities / Cost (ops) | **Operations Agent** | Day-to-day facility operations, exceptions |
 
 **Sam** is the orchestrator: it classifies member intent, delegates to the right subagent, synthesizes a single luxury-grade response, and runs the predictive layer that keeps the whole canvas in the scarcity band.

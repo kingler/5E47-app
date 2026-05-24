@@ -8,11 +8,17 @@ import { ALL_AGENTS } from "@/lib/agents/registry";
 import { scarcityReport, churnSignals } from "@/lib/agents/predictive";
 import { RecommendationControl } from "@/components/agents/recommendation-control";
 import { bus } from "@/lib/events";
-import { relativeTime } from "@/lib/utils";
+import { acquisitionChannels, masterclasses, PROGRAM_TOPIC_LABEL } from "@/lib/data";
+import { formatCompact, relativeTime } from "@/lib/utils";
 
 export default function AgentConsolePage() {
   const report = scarcityReport();
   const churn = churnSignals();
+  const upcoming = masterclasses
+    .filter((m) => new Date(m.startsAt) > new Date())
+    .sort((a, b) => +new Date(a.startsAt) - +new Date(b.startsAt))
+    .slice(0, 6);
+  const totalWaitlistAdds = acquisitionChannels.reduce((s, c) => s + c.waitlistContribution, 0);
   const recentAgentEvents = bus
     .recent(40)
     .filter((e) => e.type.startsWith("agent.") || e.type === "scarcity.recomputed")
@@ -138,6 +144,69 @@ export default function AgentConsolePage() {
                 <Badge tone={c.risk >= 60 ? "danger" : c.risk >= 40 ? "warning" : "success"}>
                   {c.risk}
                 </Badge>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+
+      {/* Programming & acquisition */}
+      <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <Card>
+          <CardHeader
+            title="Programming"
+            hint="Masterclasses & special events the Curator agent has scheduled"
+            action={<Badge tone="accent">{upcoming.length} upcoming</Badge>}
+          />
+          <div className="flex flex-col gap-2">
+            {upcoming.map((m) => (
+              <div
+                key={m.id}
+                className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev px-3 py-2"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm truncate">{m.title}</div>
+                  <div className="text-[11px] text-ink-soft truncate">
+                    {PROGRAM_TOPIC_LABEL[m.topic]} · {m.host} · {relativeTime(m.startsAt)}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-[11px] text-ink-soft tabular-nums">
+                    {m.rsvps}/{m.capacity}
+                  </span>
+                  <Badge tone={m.promoted ? "success" : "neutral"}>
+                    {m.promoted ? "promoted" : "draft"}
+                  </Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card>
+          <CardHeader
+            title="Acquisition channels"
+            hint="How the Growth agent attracts members — brand-led, feeding the waitlist"
+            action={<Badge tone="accent">+{totalWaitlistAdds} waitlist</Badge>}
+          />
+          <div className="flex flex-col gap-2">
+            {acquisitionChannels.map((c) => (
+              <div
+                key={c.id}
+                className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev px-3 py-2"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm truncate">{c.name}</div>
+                  <div className="text-[11px] text-ink-soft truncate">{c.audience}</div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-[11px] text-ink-soft tabular-nums">
+                    {formatCompact(c.reach)} reach
+                  </span>
+                  <Badge tone={c.kind === "luxury" ? "accent" : "info"}>
+                    +{c.waitlistContribution}
+                  </Badge>
+                </div>
               </div>
             ))}
           </div>

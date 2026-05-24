@@ -5,7 +5,14 @@
 // brand rule they enforce: demand must exceed supply. Occupancy is steered
 // into a target band; pricing rises under scarcity and never discounts.
 
-import { bookings, campaigns, houseCensus, payments, users } from "@/lib/data";
+import {
+  acquisitionChannels,
+  bookings,
+  campaigns,
+  houseCensus,
+  payments,
+  users,
+} from "@/lib/data";
 import type {
   ChurnSignal,
   HouseScarcity,
@@ -22,14 +29,22 @@ const BAND_MID = (TARGET_BAND.low + TARGET_BAND.high) / 2;
 const clamp = (n: number, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, n));
 
 /**
- * Brand-heat index (0..100) — marketing performance momentum derived from
- * live sponsor campaigns (impressions + curated creator reach).
+ * Brand-heat index (0..100) — marketing-performance momentum. Blends sponsor
+ * campaign reach with the waitlist the Growth agent's acquisition channels
+ * (social + exclusive luxury platforms) are feeding into the funnel.
  */
 export function brandHeat(): number {
   const impressions = campaigns.reduce((s, c) => s + c.impressions, 0);
   const reach = campaigns.reduce((s, c) => s + c.creatorReach, 0);
-  const score = (impressions / 5_000_000) * 60 + (reach / 40) * 40;
-  return Math.round(clamp(score, 0, 1) * 100);
+  const channelWaitlist = acquisitionChannels.reduce(
+    (s, c) => s + c.waitlistContribution,
+    0,
+  );
+  const score =
+    40 * clamp(impressions / 5_000_000) +
+    30 * clamp(reach / 40) +
+    30 * clamp(channelWaitlist / 120);
+  return Math.round(clamp(score, 0, 100));
 }
 
 /**

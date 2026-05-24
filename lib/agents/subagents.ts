@@ -3,11 +3,20 @@
 // (orchestrator) selects and composes these. Handlers are capability-aware:
 // they never act outside the requester's RBAC scope.
 
-import { bookings, campaigns, payments, residencies, studios } from "@/lib/data";
+import {
+  acquisitionChannels,
+  bookings,
+  campaigns,
+  masterclasses,
+  payments,
+  PROGRAM_TOPIC_LABEL,
+  residencies,
+  studios,
+} from "@/lib/data";
 import { bus } from "@/lib/events";
 import { can } from "@/lib/rbac";
-import { formatCurrency } from "@/lib/utils";
-import type { Booking } from "@/lib/types";
+import { formatCurrency, relativeTime } from "@/lib/utils";
+import type { Booking, MasterclassEvent, ProgramTopic } from "@/lib/types";
 import { scarcityReport } from "./predictive";
 import type { AgentContext, AgentTurn } from "./types";
 
@@ -273,6 +282,166 @@ export function handleInsight(ctx: AgentContext): AgentTurn {
         status: "info",
         detail: report.recommendation.rationale,
       },
+    ],
+  };
+}
+
+// ── Programming (Curator) ───────────────────────────────────────────────
+const TOPIC_KEYWORDS: Record<ProgramTopic, string[]> = {
+  content: ["content", "short-form", "podcast", "audience-building"],
+  music: ["music", "mixing", "audio", "song", "record", "verse"],
+  video: ["video", "film", "edit", "stage", "volume", "cinema", "directing"],
+  marketing: ["marketing", "brand", "branding", "story", "positioning"],
+  operations: ["business", "operation", "ops", "founder", "scaling", "raise", "finance"],
+  creativity: ["creativity", "creative", "ideation", "art", "design", "idea"],
+};
+
+function detectTopic(msg: string): ProgramTopic {
+  let best: ProgramTopic = "creativity";
+  let bestScore = 0;
+  for (const [topic, words] of Object.entries(TOPIC_KEYWORDS) as [ProgramTopic, string[]][]) {
+    const score = words.reduce((s, w) => (msg.includes(w) ? s + 1 : s), 0);
+    if (score > bestScore) {
+      bestScore = score;
+      best = topic;
+    }
+  }
+  return best;
+}
+
+const day = 24 * 60 * 60 * 1000;
+
+export function handleProgramming(ctx: AgentContext): AgentTurn {
+  const msg = ctx.message.toLowerCase();
+  const isStaff = ctx.user.role === "operator" || ctx.user.role === "super_admin";
+  const wantsCreate = /\b(create|add|schedule|programme?|launch|set up|new)\b/.test(msg);
+
+  if (isStaff && wantsCreate) {
+    const topic = detectTopic(msg);
+    const event: MasterclassEvent = {
+      id: `mc_${Math.random().toString(36).slice(2, 8)}`,
+      title: `New ${PROGRAM_TOPIC_LABEL[topic]} Masterclass`,
+      topic,
+      host: "to be confirmed",
+      startsAt: new Date(Date.now() + 14 * day).toISOString(),
+      capacity: 18,
+      rsvps: 0,
+      promoted: false,
+      channels: [],
+    };
+    masterclasses.unshift(event);
+    bus.emit("programming.created", event, ctx.user.id);
+    return {
+      agentId: "programming",
+      intent: "programming",
+      summary: `Created a ${PROGRAM_TOPIC_LABEL[topic]} masterclass.`,
+      reply: `Programmed a ${PROGRAM_TOPIC_LABEL[topic]} masterclass for two weeks out (capacity ${event.capacity}). I've left the host as "to be confirmed" — tell me who you'd like, and I can have Herald promote it across our social and luxury channels.`,
+      actions: [
+        {
+          type: "info",
+          label: `Masterclass created · ${PROGRAM_TOPIC_LABEL[topic]}`,
+          status: "done",
+          detail: "Ready to promote",
+        },
+      ],
+    };
+  }
+
+  const upcoming = masterclasses
+    .filter((m) => new Date(m.startsAt) > new Date())
+    .sort((a, b) => +new Date(a.startsAt) - +new Date(b.startsAt))
+    .slice(0, 4);
+
+  if (upcoming.length === 0) {
+    return {
+      agentId: "programming",
+      intent: "programming",
+      summary: "No upcoming programming.",
+      reply: "There's nothing on the calendar just now — I'll let you know the moment the next masterclass is set.",
+    };
+  }
+
+  const lines = upcoming
+    .map(
+      (m) =>
+        `· ${m.title} — ${PROGRAM_TOPIC_LABEL[m.topic]}, with ${m.host}, ${relativeTime(
+          m.startsAt,
+        )} (${m.capacity - m.rsvps} place${m.capacity - m.rsvps === 1 ? "" : "s"} left)`,
+    )
+    .join("\n");
+
+  return {
+    agentId: "programming",
+    intent: "programming",
+    summary: `Promoted ${upcoming.length} upcoming masterclass(es).`,
+    reply: `Here's what's coming up at 5E47 — closed-door masterclasses and salons across our pillars:\n${lines}\nWant me to hold a place for you at any of these?`,
+    actions: upcoming
+      .filter((m) => m.capacity - m.rsvps <= 4)
+      .map((m) => ({
+        type: "info" as const,
+        label: `${m.title} — almost full`,
+        status: "pending" as const,
+      })),
+  };
+}
+
+// ── Growth & Acquisition (Herald) ──────────────────────────────────────────
+export function handleGrowth(ctx: AgentContext): AgentTurn {
+  const msg = ctx.message.toLowerCase();
+  const isStaff = ctx.user.role === "operator" || ctx.user.role === "super_admin";
+
+  if (!isStaff) {
+    return {
+      agentId: "growth",
+      intent: "growth",
+      summary: "Framed acquisition as member advocacy.",
+      reply:
+        "The best way into 5E47 is through a member, so the most powerful thing you can do is refer someone whose work you admire — I'll fast-track anyone you put forward. We keep our public presence deliberately quiet; the room sells itself.",
+    };
+  }
+
+  const social = acquisitionChannels.filter((c) => c.kind === "social");
+  const luxury = acquisitionChannels.filter((c) => c.kind === "luxury");
+  const totalWaitlist = acquisitionChannels.reduce((s, c) => s + c.waitlistContribution, 0);
+  const wantsLaunch = /\b(promote|launch|run|push|campaign|amplify)\b/.test(msg);
+
+  if (wantsLaunch) {
+    const toPromote = masterclasses.find((m) => !m.promoted) ?? masterclasses[0];
+    if (toPromote) {
+      toPromote.promoted = true;
+      toPromote.channels = Array.from(
+        new Set([...toPromote.channels, "Instagram", "A Small World"]),
+      );
+      bus.emit("growth.campaign", { eventId: toPromote.id, channels: toPromote.channels }, ctx.user.id);
+    }
+    return {
+      agentId: "growth",
+      intent: "growth",
+      summary: `Launched outreach${toPromote ? ` for "${toPromote.title}"` : ""}.`,
+      reply: `Outreach is live${
+        toPromote ? ` for "${toPromote.title}"` : ""
+      }. I'm running it brand-first across social (${social
+        .map((c) => c.name)
+        .join(", ")}) and our exclusive luxury platforms (${luxury
+        .map((c) => c.name)
+        .join(", ")}) — building desire and feeding the waitlist, never discounting or opening the door wider than the caps allow.`,
+      actions: [
+        { type: "info", label: "Outreach campaign live", status: "done", detail: "Social + luxury platforms" },
+      ],
+    };
+  }
+
+  return {
+    agentId: "growth",
+    intent: "growth",
+    summary: `Reported acquisition: ${totalWaitlist} waitlist adds last cycle.`,
+    reply: `Acquisition is brand-led and feeding the waitlist, not the door. Last cycle our channels added ${totalWaitlist} qualified applicants:\n· Social — ${social
+      .map((c) => `${c.name} (+${c.waitlistContribution})`)
+      .join(", ")}\n· Exclusive luxury — ${luxury
+      .map((c) => `${c.name} (+${c.waitlistContribution})`)
+      .join(", ")}\nI can launch an outreach push for any masterclass or open House on demand.`,
+    actions: [
+      { type: "info", label: `${totalWaitlist} waitlist adds`, status: "info", detail: "Social + luxury platforms" },
     ],
   };
 }

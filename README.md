@@ -41,6 +41,8 @@ human-in-the-loop admissions), and replies in one voice. Subagents:
 | Ledger | Revenue Streams | Balances, dues, dynamic pricing within guardrails |
 | Threshold | Key Resources | Access & credentials |
 | Patron | Key Partnerships | Sponsor activations & ROI |
+| Curator | Channels — programming | Masterclasses & events across six pillars |
+| Herald | Channels — acquisition | Member growth via social & luxury platforms |
 
 Code: `lib/agents/{orchestrator,subagents,registry,predictive,llm,types}`.
 Surfaces: `/concierge` (member chat) · `/operator/agents` (ops console).

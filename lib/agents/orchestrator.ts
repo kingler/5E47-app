@@ -12,9 +12,11 @@ import {
   handleBooking,
   handleFinance,
   handleGeneral,
+  handleGrowth,
   handleInsight,
   handleMembership,
   handleOperations,
+  handleProgramming,
   handleSponsorship,
 } from "./subagents";
 import type {
@@ -31,8 +33,10 @@ const INTENT_KEYWORDS: Record<Exclude<Intent, "general">, string[]> = {
   booking: ["book", "reserve", "studio", "stage", "room", "session", "edit bay", "podcast", "volume", "cyclorama", "hold a"],
   finance: ["balance", "owe", "due", "invoice", "pay", "payment", "bill", "charge", "discount", "refund"],
   access: ["access", "door", "key", "credential", "get in", "let me in", "floor", "badge"],
-  sponsorship: ["sponsor", "brand", "activation", "campaign", "partnership", "roi"],
-  insight: ["occupancy", "scarcity", "forecast", "demand", "how full", "exclusivity", "recommend", "predict", "pricing", "market"],
+  sponsorship: ["sponsor", "activation", "partnership", "roi"],
+  growth: ["promote", "social", "instagram", "tiktok", "youtube", "linkedin", "attract", "audience", "outreach", "amplify", "luxury platform", "acquisition", "grow membership"],
+  programming: ["masterclass", "master class", "workshop", "salon", "class", "lecture", "programming", "program", "event", "learn", "teach", "what's on", "calendar"],
+  insight: ["occupancy", "scarcity", "forecast", "demand", "how full", "exclusivity", "recommend", "predict", "pricing", "performance", "market"],
   operations: ["status", "available", "availability", "facility", "issue", "broken", "hours", "open"],
 };
 
@@ -65,6 +69,10 @@ function runHandler(intent: Intent, ctx: AgentContext): AgentTurn {
       return handleAccess(ctx);
     case "sponsorship":
       return handleSponsorship(ctx);
+    case "programming":
+      return handleProgramming(ctx);
+    case "growth":
+      return handleGrowth(ctx);
     case "insight":
       return handleInsight(ctx);
     default:
@@ -92,8 +100,12 @@ function suggestionsFor(intent: Intent): string[] {
       return ["What's my balance?", "Show my recent payments", "Book a studio"];
     case "insight":
       return ["How full is the Music House?", "Cycle recommendation", "Pricing signal"];
+    case "programming":
+      return ["What masterclasses are coming up?", "Hold me a place", "Tell me about the Music House"];
+    case "growth":
+      return ["How is acquisition performing?", "Promote the next masterclass", "Refer a member"];
     default:
-      return ["How do I become a member?", "Book a studio", "What can you do?"];
+      return ["What masterclasses are coming up?", "Book a studio", "How do I become a member?"];
   }
 }
 

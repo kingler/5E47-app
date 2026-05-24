@@ -161,7 +161,10 @@ export type EventName =
   | "agent.message"
   | "agent.delegated"
   | "agent.action"
-  | "scarcity.recomputed";
+  | "scarcity.recomputed"
+  | "programming.created"
+  | "programming.promoted"
+  | "growth.campaign";
 
 export interface KpiSnapshot {
   label: string;
@@ -176,6 +179,42 @@ export interface KpiSnapshot {
 // history off this census to keep occupancy inside the brand's target band.
 
 export type HouseId = "music" | "video" | "masterclass" | "founders";
+
+// Programming pillars 5E47 curates masterclasses and special events around.
+export type ProgramTopic =
+  | "content"
+  | "music"
+  | "video"
+  | "marketing"
+  | "operations"
+  | "creativity";
+
+export interface MasterclassEvent {
+  id: string;
+  title: string;
+  topic: ProgramTopic;
+  host: string;
+  house?: HouseId;
+  startsAt: string;
+  capacity: number;
+  rsvps: number;
+  /** Whether the Growth agent has promoted it externally. */
+  promoted: boolean;
+  /** Channels it has been promoted on. */
+  channels: string[];
+}
+
+// Acquisition channels the Growth agent uses to attract members — brand-led
+// social reach plus exclusive luxury networks that feed the curated waitlist.
+export interface AcquisitionChannel {
+  id: string;
+  name: string;
+  kind: "social" | "luxury";
+  audience: string;
+  reach: number;
+  /** Applications attributed to this channel last cycle. */
+  waitlistContribution: number;
+}
 
 export interface HouseCensus {
   house: HouseId;

@@ -82,9 +82,29 @@ This model **decouples member growth from headcount growth**, protecting both ma
 
 1. **Scarcity as marketing.** The cap and the waitlist are the campaign. Sam's predictive layer ensures we never over-admit, so the waitlist — and therefore desirability — persists.
 2. **Referral-led growth.** Members refer peers; referrals receive priority review. Growth stays curated and on-brand.
-3. **Programming as funnel.** Masterclasses, salons, and premieres are the discovery surface — prospects experience the room before they apply.
+3. **Programming as the engine.** Masterclasses, salons, and premieres are both the retention engine and the discovery surface — prospects experience the room before they apply. Sam's **Curator** agent creates and promotes a continuous calendar across six pillars (below); the **Herald** agent amplifies it externally.
 4. **Partner co-marketing.** Sponsors (Sony, Nike, A24, Bose, Arri, Universal) lend prestige; activations double as brand reach.
 5. **Editorial presence.** A cinematic, restrained landing experience — no discounts, no urgency tactics, no public pricing pages.
+
+**Programming pillars (Curator agent).** Every masterclass and special event maps to one of six pillars, ensuring the calendar speaks to all four Houses and the brand at large:
+
+| Pillar | Examples |
+|---|---|
+| Content Creation | Short-form, audience-building, podcasting |
+| Music | Mixing, vocal production, songwriting |
+| Video | Directing on the volume, editing for emotion |
+| Marketing & Branding | Brand-as-story, positioning, creative direction |
+| Business Operations | Scaling without noise, the quiet founder, fundraising |
+| Creativity | Ideation, multidisciplinary practice, the shape of an idea |
+
+Programming is member-first (retention, belonging, peer density) and prospect-facing (a curated taste of the room). It is the single most repeatable demand-generation asset the club owns.
+
+**Acquisition channels (Herald agent).** Demand generation is brand-led and feeds the *waitlist*, never the door — consistent with the scarcity model. The Herald agent runs two channel classes:
+
+- **Social media** — Instagram, TikTok, YouTube, LinkedIn. Editorial, cinematic, behind-the-glass (never promotional). Purpose: build desire and a qualified waitlist at scale.
+- **Exclusive luxury platforms** — private members' networks and concierge clienteles (e.g., A Small World, Quintessentially, Amex Centurion, Sotheby's network). Purpose: reach high-fit prospects inside trusted, invitation-only contexts.
+
+Channel performance is measured by *qualified waitlist contribution*, not raw reach, and flows directly into the brand-heat input of the predictive scarcity model — so marketing performance and admissions stay on one feedback loop.
 
 **Funnel & the predictive overlay.**
 
@@ -135,8 +155,8 @@ The platform's analytics surface targets **ARR ≈ $4.9M** at current trajectory
 | 1 | 120 | $2.1M | ~$3.2M | Floors 1–4 active; ramp |
 | 2 | 180 | $3.2M | ~$5.0M | Stage online; sponsorships scale |
 | 3 | 210 | $4.9M | ~$6.9M | Steady-state occupancy band |
-| 4 | 210 + waitlist | $5.3M | ~$7.6M | Pricing rises under scarcity |
-| 5 | Multi-site option | $6.0M+ | ~$9.0M+ | Second location feasibility |
+| 4 | 210 + waitlist | $5.3M | ~$7.6M | Pricing rises under scarcity; Location 2 (LA) build-out begins |
+| 5 | Multi-city | $6.0M+ | ~$9.0M+ | Second location (LA) online; London in planning (see §10) |
 
 ### 9.3 Cost structure (steady state, illustrative)
 
@@ -164,7 +184,32 @@ The agent operating layer is the margin engine: it holds technology + reduced co
 - **Use:** floor build-out & equipment, agent platform, 18-month operating runway, programming launch.
 - **Path to profitability:** reach steady-state occupancy band by Year 3; operating-margin positive as usage and sponsorship layer onto the recurring base.
 
-## 10. Risk Analysis & Mitigation
+## 10. Geographic Expansion — New Locations
+
+5E47 is designed as a **repeatable, multi-city brand**, not a single building. The flagship at 47 Fifth Avenue proves the model; the agent operating layer makes each subsequent location cheaper and faster to launch, because Sam and the subagents (and the entire admissions/booking/finance/programming/growth playbook) are software that travels.
+
+**Expansion thesis.** Each new city is a fresh, capped scarcity market with its own waitlist and its own four Houses, sharing one brand, one membership network, and one operating system. Members gain reciprocal access across locations — a compounding network effect that strengthens the brand globally while each house stays deliberately small locally.
+
+**Why the agent model de-risks expansion.**
+- The operating system (Sam + subagents) deploys as a new tenant — no linear concierge/ops headcount per city.
+- The predictive scarcity engine recalibrates per-city caps and bands automatically from local demand and marketing performance.
+- The Herald agent localizes acquisition (city-specific social + luxury platforms) while the brand voice stays centrally governed.
+- Programming (Curator) and partnerships travel; sponsors gain multi-market reach.
+
+**Site selection criteria.** Density of working creators; presence of music/film/founder ecosystems; luxury-market depth; suitable six-floor (or comparable) real estate; strong programming and sponsor partner availability.
+
+**Roadmap (illustrative).**
+
+| Phase | City | Rationale |
+|---|---|---|
+| Flagship | New York (47 Fifth) | Prove the model; reach steady-state occupancy band |
+| Location 2 (Y3–Y4) | Los Angeles | Music + film + creator density; sponsor overlap |
+| Location 3 (Y4–Y5) | London | Global luxury hub; founders + arts; reciprocal NY/LA network |
+| Location 4+ (Y5+) | Miami / Paris / Tokyo | Brand-led demand; partner-driven site selection |
+
+**Expansion economics.** Each location follows the flagship's blended model (membership + usage + sponsorship) and is underwritten only once local waitlist depth signals durable demand — the same scarcity discipline applied to admissions is applied to *opening doors*. New-city build-out and equipment are the primary capital line; the platform and brand are largely amortized. The Year 5 trajectory in §9.2 assumes the second location is online and contributing; subsequent cities extend the curve.
+
+## 11. Risk Analysis & Mitigation
 
 | Risk | Mitigation |
 |---|---|
@@ -175,15 +220,16 @@ The agent operating layer is the margin engine: it holds technology + reduced co
 | Sponsorship concentration | Cap slots; diversify partner base |
 | Real-estate cost shock | Long lease terms; usage revenue cushions fixed cost |
 | Privacy/discretion breach | Confidentiality by default; least-privilege access; agent action logging |
+| Expansion dilutes brand | Open a new city only on proven local waitlist depth; per-city caps; central brand governance |
 
-## 11. Milestones
+## 12. Milestones
 
-1. **M0–M3:** Agent platform v1 (Sam + subagents), membership & booking flows live.
-2. **M3–M6:** Predictive scarcity + dynamic pricing in production; sponsor portal.
-3. **M6–M12:** Full floor activation; programming cadence; reach 120+ members.
+1. **M0–M3:** Agent platform v1 (Sam + subagents incl. Curator & Herald), membership & booking flows live.
+2. **M3–M6:** Predictive scarcity + dynamic pricing in production; programming calendar + social/luxury acquisition running; sponsor portal.
+3. **M6–M12:** Full floor activation; programming cadence across all six pillars; reach 120+ members.
 4. **Y2:** Stage/LED volume monetized; sponsorships scaled; 180 members.
-5. **Y3:** Steady-state occupancy band; investor-grade reporting; profitability path.
-6. **Y4–Y5:** Pricing power under scarcity; second-location feasibility.
+5. **Y3:** Steady-state occupancy band; investor-grade reporting; profitability path; site selection for Location 2.
+6. **Y4–Y5:** Pricing power under scarcity; Location 2 (LA) online; London in planning (multi-city, §10).
 
 ---
 

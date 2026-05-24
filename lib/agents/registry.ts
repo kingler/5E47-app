@@ -93,6 +93,28 @@ export const SUBAGENTS: AgentDefinition[] = [
     intents: ["sponsorship"],
     tone: "sponsor",
   },
+  {
+    id: "programming",
+    name: "Curator",
+    title: "Programming Agent",
+    kind: "subagent",
+    canvasBlock: "Channels & Relationships — programming",
+    description:
+      "Creates and promotes masterclasses and special events across the six pillars — content, music, video, marketing & branding, business operations and creativity — and matches them to members.",
+    intents: ["programming"],
+    tone: "creator",
+  },
+  {
+    id: "growth",
+    name: "Herald",
+    title: "Growth & Acquisition Agent",
+    kind: "subagent",
+    canvasBlock: "Channels — acquisition",
+    description:
+      "Attracts members through brand-led social reach and exclusive luxury platforms, feeding the curated waitlist without diluting the room, and amplifies programming externally.",
+    intents: ["growth"],
+    tone: "sponsor",
+  },
 ];
 
 export const ALL_AGENTS: AgentDefinition[] = [SAM, ...SUBAGENTS];

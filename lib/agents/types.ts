@@ -14,7 +14,9 @@ export type AgentId =
   | "marketing"
   | "finance"
   | "access"
-  | "sponsorship";
+  | "sponsorship"
+  | "programming"
+  | "growth";
 
 export type Intent =
   | "membership"
@@ -24,6 +26,8 @@ export type Intent =
   | "access"
   | "sponsorship"
   | "insight"
+  | "programming"
+  | "growth"
   | "general";
 
 export type AgentTone =

@@ -63,6 +63,8 @@ Sam is the single face of 5E47. Members talk to Sam to become members, book spac
 | **Finance** | Revenue Streams | Balance, dues, payments, pricing signal within guardrails | "What's my balance?" |
 | **Access** | Key Resources | Access questions, authorized door grants | "Can I get into Floor 5 tonight?" |
 | **Sponsorship** | Partnerships | Activation slots, campaign ROI | (sponsor) "What activation slots are open?" |
+| **Programming (Curator)** | Channels — programming | Create & promote masterclasses/events across six pillars; match to members | "What masterclasses are coming up?" / (operator) "Schedule a marketing masterclass" |
+| **Growth (Herald)** | Channels — acquisition | Attract members via social + exclusive luxury platforms; amplify programming | (operator) "Promote the next masterclass" / "How is acquisition performing?" |
 
 ### 4.3 Orchestration flow
 
@@ -109,6 +111,15 @@ The Marketing & Predictive Agent computes, from the live domain data:
 ### Member — Finance / Access
 - **US-6** As a member, I can ask Sam my balance and what's due.
 - **US-7** As a member, I can ask about access to a floor and get an answer consistent with my tier.
+
+### Member — Programming
+- **US-P1** As a member, I can ask Sam what masterclasses and special events are coming up and get a curated list matched to my House.
+- **US-P2** As a prospect, promoted programming gives me a taste of the room before I apply.
+
+### Operator — Programming & Growth
+- **US-P3** As an operator, I can ask Sam (Curator) to create a masterclass on any of the six pillars (content, music, video, marketing & branding, business operations, creativity).
+- **US-P4** As an operator, I can ask Sam (Herald) to promote a masterclass or open House across social media and exclusive luxury platforms.
+- **US-P5** As an operator, I can see acquisition-channel performance measured by qualified waitlist contribution, and how it feeds the brand-heat input of the scarcity model.
 
 ### Operator — Oversight
 - **US-8** As an operator, I can see the agent roster and what each subagent is doing.
