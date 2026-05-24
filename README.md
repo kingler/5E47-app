@@ -18,10 +18,12 @@ boundary and can be swapped in without changing call sites.
 
 ## Documentation
 
-Business and product docs live in [`/docs`](./docs):
+Business and product docs live in [`/docs`](./docs) and are published as a
+browsable site at the **`/docs` route** (statically generated, on-brand):
 
+- [DesignThru Studio Proposal](./docs/06-designthru-studio-proposal.md) — SOW & investment to build Sam
 - [Business Model Canvas](./docs/01-business-model-canvas.md)
-- [Business Plan](./docs/02-business-plan.md) (marketing strategy + financials)
+- [Business Plan](./docs/02-business-plan.md) (marketing strategy + financials + multi-city)
 - [Business Requirements Document](./docs/03-business-requirements-document.md)
 - [Product Requirements Document](./docs/04-product-requirements-document.md)
 - [Software Development Plan & Cost](./docs/05-software-development-plan.md)

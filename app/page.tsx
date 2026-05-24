@@ -485,6 +485,7 @@ export default function Landing() {
                 <div className="label mb-3">Network</div>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Sponsor portal</Link>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Investor portal</Link>
+                <Link href="/docs" className="block text-ink-muted hover:text-ink py-0.5">Documentation</Link>
                 <Link href="/login" className="block text-ink-muted hover:text-ink py-0.5">Operate this network →</Link>
               </div>
             </div>
