@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
+  Activity,
   Archive,
   ArrowLeft,
   ArrowRight,
   Bell,
+  Bot,
   Briefcase,
   Building2,
   CalendarClock,
@@ -18,6 +20,7 @@ import {
   DoorOpen,
   EyeOff,
   Film,
+  Gauge,
   Headphones,
   Home,
   KeyRound,
@@ -25,6 +28,7 @@ import {
   Lock,
   Mic,
   MessagesSquare,
+  Megaphone,
   Moon,
   Plus,
   Scale,
@@ -36,6 +40,7 @@ import {
   Sparkles,
   Star,
   Sun,
+  TrendingUp,
   User,
   Users,
   Wifi,
@@ -44,20 +49,38 @@ import {
   Volume2,
 } from "lucide-react";
 
-const SCREENS: {
+type Screen = {
   id: string;
   title: string;
   tag: string;
   desc: string;
   render: () => React.ReactNode;
-}[] = [
+};
+
+const MEMBER_SCREENS: Screen[] = [
   {
     id: "01",
     title: "Home",
     tag: "The Volume · Today",
     desc:
-      "The resident's day inside the 90-day Volume. Routes them through the vertical engine — Pressure Chamber, Force Multiplier, Social Heart, War Room. Output is expected; the day is structured against it.",
+      "The resident's day inside the 90-day Volume. Sam opens the day with a single prompt and routes them through the vertical engine — Pressure Chamber, Force Multiplier, Social Heart, War Room.",
     render: ScreenHome,
+  },
+  {
+    id: "sam-chat",
+    title: "Talk to Sam",
+    tag: "Concierge · the 5E47 Agent",
+    desc:
+      "One conversation runs the residency. A member asks in plain language; Sam classifies intent, delegates to a specialist subagent, and confirms — holding the room and charging the Volume in a single turn.",
+    render: ScreenSamChat,
+  },
+  {
+    id: "sam-join",
+    title: "Becoming a member",
+    tag: "Sam · membership",
+    desc:
+      "Sam handles the way in. Tiers, the cap, the waitlist — framed as scarcity, not rejection. Referrals move you up the list. Admissions stay human-in-the-loop; Sam only opens the door the committee allows.",
+    render: ScreenSamJoin,
   },
   {
     id: "02",
@@ -181,6 +204,57 @@ const SCREENS: {
   },
 ];
 
+const OPERATOR_SCREENS: Screen[] = [
+  {
+    id: "op-console",
+    title: "Agent operations",
+    tag: "Sam · orchestrator",
+    desc:
+      "The control plane. Sam orchestrates nine specialist subagents — each owning one block of the Business Model Canvas — and runs the house at software economics, not headcount economics.",
+    render: ScreenAgentConsole,
+  },
+  {
+    id: "op-predict",
+    title: "Predictive scarcity",
+    tag: "Oracle · the engine",
+    desc:
+      "Occupancy steered into the 85–92% band, per House. Exclusivity index and brand-heat read demand and marketing performance so the room is always harder to enter than to want.",
+    render: ScreenPredictive,
+  },
+  {
+    id: "op-reco",
+    title: "Cycle recommendation",
+    tag: "Admit · hold · raise",
+    desc:
+      "Each cycle Sam recommends an action with rationale and a bounded pricing signal that never discounts. The committee ratifies or overrides — admissions and pricing are never applied autonomously.",
+    render: ScreenRecommendation,
+  },
+  {
+    id: "op-curator",
+    title: "Programming",
+    tag: "Curator · six pillars",
+    desc:
+      "Sam's Curator agent schedules and promotes masterclasses across content, music, video, marketing & branding, business operations, and creativity — the retention engine and the discovery surface.",
+    render: ScreenCurator,
+  },
+  {
+    id: "op-herald",
+    title: "Growth & acquisition",
+    tag: "Herald · channels",
+    desc:
+      "The Herald agent attracts members through brand-led social reach and exclusive luxury platforms — measured by qualified waitlist contribution, feeding desire without diluting the room.",
+    render: ScreenHerald,
+  },
+  {
+    id: "op-audit",
+    title: "Delegation trace",
+    tag: "Audit · event log",
+    desc:
+      "Every message, delegation, and action Sam takes is recorded as a domain event. Operators get a live, capability-scoped audit trail — discretion and oversight, by construction.",
+    render: ScreenDelegationTrace,
+  },
+];
+
 export default function MemberScreensShowcase() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const isLight = theme === "light";
@@ -199,7 +273,7 @@ export default function MemberScreensShowcase() {
             <span className="hidden sm:inline">Back to site</span>
           </Link>
           <div className="font-mono text-[10.5px] tracking-[0.28em] text-ink-soft uppercase hidden md:block">
-            5E47 · Member app · v0.1
+            5E47 · Sam · member + operator
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -233,51 +307,50 @@ export default function MemberScreensShowcase() {
 
       {/* Heading */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
-        <div className="label mb-5">§ Resident interface · v0.1</div>
+        <div className="label mb-5">§ Sam · the 5E47 Agent · v0.2</div>
         <h1 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance max-w-3xl">
-          The operating surface of a 90-day Volume.
+          One agent runs the house — for members, and for the people who operate it.
         </h1>
         <p className="mt-6 text-ink-muted text-[15px] leading-[1.75] max-w-2xl">
-          Sixteen screens carry a resident through the vertical engine — Pressure Chamber,
-          Force Multiplier, Social Heart, War Room. The app is the membrane between
-          structured creative output and the rules that protect the product.
+          Sam is the single surface members talk to — to become members, book the
+          vertical engine, and manage access and dues. Behind Sam, nine specialist
+          subagents execute the day-to-day and a predictive layer holds the scarcity
+          band. These screens show both sides: the member's concierge and the
+          operator's control plane.
         </p>
         <div className="mt-6 font-mono text-[10.5px] text-ink-soft tracking-widest uppercase">
           5 East 47th Street · NYC · Hasenpfeffer Ventures · v5.2
         </div>
       </section>
 
-      {/* 4×4 grid */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-14">
-          {SCREENS.map((s) => (
-            <figure key={s.id} className="group flex flex-col">
-              <PhoneFrame>{s.render()}</PhoneFrame>
-              <figcaption className="mt-5">
-                <div className="flex items-baseline justify-between gap-3">
-                  <div className="font-mono text-[10px] text-ink-soft tracking-widest">
-                    § {s.id}
-                  </div>
-                  <div className="text-[10px] uppercase tracking-[0.22em] text-ink-soft">
-                    {s.tag}
-                  </div>
-                </div>
-                <div className="font-serif text-[17px] leading-tight mt-2 text-balance">
-                  {s.title}
-                </div>
-                <p className="mt-2.5 text-[11.5px] leading-[1.65] text-ink-muted">
-                  {s.desc}
-                </p>
-              </figcaption>
-            </figure>
-          ))}
+      {/* Member ↔ Sam */}
+      <section className="max-w-7xl mx-auto px-6 md:px-10 pb-12">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="label">Member ↔ Sam</div>
+          <span className="h-px flex-1 bg-bg-border/60" />
+          <span className="font-mono text-[10px] text-ink-soft tracking-widest">
+            {String(MEMBER_SCREENS.length).padStart(2, "0")} screens
+          </span>
         </div>
+        <ScreenGrid screens={MEMBER_SCREENS} prefix="M" />
+      </section>
+
+      {/* Operator ↔ Sam */}
+      <section className="max-w-7xl mx-auto px-6 md:px-10 pb-24">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="label">Operator &amp; Admin ↔ Sam</div>
+          <span className="h-px flex-1 bg-bg-border/60" />
+          <span className="font-mono text-[10px] text-ink-soft tracking-widest">
+            {String(OPERATOR_SCREENS.length).padStart(2, "0")} screens
+          </span>
+        </div>
+        <ScreenGrid screens={OPERATOR_SCREENS} prefix="O" />
       </section>
 
       <footer className="border-t border-bg-border/60">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 flex flex-wrap justify-between gap-3 text-[10.5px] text-ink-soft tracking-wider">
           <span>© MMXXVI · Hasenpfeffer Ventures LLC · Confidential</span>
-          <span className="font-mono">Resident interface · 16/16 · Genesis Node</span>
+          <span className="font-mono">Sam · member + operator · orchestrated · Genesis Node</span>
         </div>
       </footer>
     </div>
@@ -361,16 +434,19 @@ function Dot({ tone = "soft" }: { tone?: "accent" | "creator" | "soft" }) {
 function TabBar({
   items,
   active,
+  tone = "accent",
 }: {
   items: { icon: React.ComponentType<{ className?: string }>; label: string }[];
   active: number;
+  tone?: "accent" | "operator";
 }) {
+  const activeCls = tone === "operator" ? "text-role-operator" : "text-accent";
   return (
     <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between border-t border-bg-border bg-bg/95 px-3 py-2 backdrop-blur">
       {items.map((it, i) => (
         <div
           key={it.label}
-          className={`flex flex-col items-center gap-0.5 ${i === active ? "text-accent" : "text-ink-soft"}`}
+          className={`flex flex-col items-center gap-0.5 ${i === active ? activeCls : "text-ink-soft"}`}
         >
           <it.icon className="size-3.5" />
           <span className="text-[7.5px] tracking-wider">{it.label}</span>
@@ -385,7 +461,115 @@ const MEMBER_TABS = [
   { icon: CalendarClock, label: "RESERVE" },
   { icon: Users, label: "COHORT" },
   { icon: User, label: "ME" },
+  { icon: Sparkles, label: "SAM" },
 ];
+
+const OPERATOR_TABS = [
+  { icon: Gauge, label: "CONSOLE" },
+  { icon: TrendingUp, label: "PREDICT" },
+  { icon: Megaphone, label: "GROWTH" },
+  { icon: Activity, label: "AUDIT" },
+];
+
+/* Chat bubble shared by Sam screens. */
+function Bubble({
+  from,
+  children,
+}: {
+  from: "sam" | "me";
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={`flex ${from === "me" ? "justify-end" : "justify-start"}`}>
+      <div
+        className={`max-w-[84%] rounded-2xl px-2.5 py-1.5 text-[9px] leading-snug ${
+          from === "sam"
+            ? "bg-bg-elev border border-bg-border text-ink"
+            : "bg-accent text-accent-ink"
+        }`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* Small delegation / action chips inside a Sam bubble. */
+function Chip({
+  tone = "accent",
+  children,
+}: {
+  tone?: "accent" | "done";
+  children: React.ReactNode;
+}) {
+  const cls =
+    tone === "done"
+      ? "bg-emerald-500/10 text-emerald-300 border-emerald-500/30"
+      : "bg-accent/10 text-accent border-accent/30";
+  return (
+    <span
+      className={`inline-flex items-center gap-0.5 rounded-full border px-1.5 py-px text-[7px] ${cls}`}
+    >
+      {children}
+    </span>
+  );
+}
+
+/* Sam screen header (member + operator chat surfaces). */
+function SamHeader({
+  sub,
+  tone = "accent",
+}: {
+  sub: string;
+  tone?: "accent" | "operator";
+}) {
+  const ring =
+    tone === "operator"
+      ? "bg-role-operator/15 border-role-operator/40 text-role-operator"
+      : "bg-accent/15 border-accent/30 text-accent";
+  return (
+    <div className="flex items-center gap-2">
+      <div className={`size-7 rounded-lg border flex items-center justify-center ${ring}`}>
+        <Sparkles className="size-3.5" />
+      </div>
+      <div className="min-w-0">
+        <div className="font-serif text-[14px] leading-none">Sam</div>
+        <div className="text-[8px] text-ink-soft mt-0.5 flex items-center gap-1">
+          <span className="size-1 rounded-full bg-emerald-400 inline-block" /> {sub}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ScreenGrid({ screens, prefix }: { screens: Screen[]; prefix: string }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-14">
+      {screens.map((s, i) => (
+        <figure key={s.id} className="group flex flex-col">
+          <PhoneFrame>{s.render()}</PhoneFrame>
+          <figcaption className="mt-5">
+            <div className="flex items-baseline justify-between gap-3">
+              <div className="font-mono text-[10px] text-ink-soft tracking-widest">
+                § {prefix}
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.22em] text-ink-soft">
+                {s.tag}
+              </div>
+            </div>
+            <div className="font-serif text-[17px] leading-tight mt-2 text-balance">
+              {s.title}
+            </div>
+            <p className="mt-2.5 text-[11.5px] leading-[1.65] text-ink-muted">
+              {s.desc}
+            </p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
 
 /* -------------------------------------------------------------------------- */
 /* 01 · Home                                                                  */
@@ -420,6 +604,14 @@ function ScreenHome() {
           Sound becomes IP.
         </div>
       </div>
+
+      <button className="mt-3 w-full flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/[0.05] px-2.5 py-2 text-left">
+        <Sparkles className="size-3.5 text-accent shrink-0" />
+        <span className="text-[9px] text-ink-muted flex-1 leading-snug">
+          Ask Sam — hold a room, settle dues, make an intro…
+        </span>
+        <ArrowRight className="size-3 text-accent" />
+      </button>
 
       <div className="mt-3 grid grid-cols-3 gap-1.5">
         <Tile className="text-center">
@@ -1273,7 +1465,7 @@ function ScreenMessages() {
       <div className="mt-2 space-y-1">
         {[
           { n: "M·112 · Film", t: "Cut overlaps your Chamber session.", h: "2m", u: true, tone: "creator" as const },
-          { n: "Concierge · 5E47", t: "Suite A held · 14:00. FL/07.", h: "1h", u: true, tone: "accent" as const },
+          { n: "Sam · 5E47 Agent", t: "Atelier held Suite A · 14:00 · FL/07.", h: "1h", u: true, tone: "accent" as const },
           { n: "War Room · IP Admin", t: "Pact registered. Chain of title clean.", h: "3h", u: false, tone: "soft" as const },
           { n: "M·047 (you) → M·088", t: "Synthetic versioning · 6 markets?", h: "1d", u: false, tone: "soft" as const },
           { n: "Bose Pro · sponsor", t: "Royalty pool draft attached.", h: "2d", u: false, tone: "soft" as const },
@@ -1481,7 +1673,7 @@ function ScreenSettings() {
           { icon: Archive, label: "Spirit Locker", v: "FL/05 · #23" },
           { icon: KeyRound, label: "Credentials", v: "BLE · NFC" },
           { icon: Building2, label: "Genesis Node", v: "5 E 47th · NYC" },
-          { icon: MessagesSquare, label: "Concierge", v: "24h" },
+          { icon: Sparkles, label: "Sam · 5E47 Agent", v: "online" },
         ].map((r) => (
           <div
             key={r.label}
@@ -1504,6 +1696,507 @@ function ScreenSettings() {
       </div>
 
       <TabBar items={MEMBER_TABS} active={3} />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* M · Talk to Sam (member concierge chat)                                    */
+/* -------------------------------------------------------------------------- */
+
+function ScreenSamChat() {
+  return (
+    <div className="relative h-full flex flex-col pb-12">
+      <div className="px-3.5">
+        <SamHeader sub="The 5E47 Agent · online" />
+      </div>
+      <div className="flex-1 px-3.5 mt-2.5 space-y-1.5 overflow-hidden">
+        <Bubble from="sam">Evening, Mara. How can I help tonight?</Bubble>
+        <Bubble from="me">Hold the Pressure Chamber, Suite A — 3 hours tomorrow.</Bubble>
+        <Bubble from="sam">
+          Done — Suite A on FL/07 held 14:00–17:00, charged to your Volume. You&apos;ll
+          tap in at the door.
+          <div className="mt-1 flex flex-wrap gap-1">
+            <Chip>
+              <Sparkles className="size-2" /> Atelier · booking
+            </Chip>
+            <Chip tone="done">
+              <Check className="size-2" /> Suite A · FL/07
+            </Chip>
+          </div>
+        </Bubble>
+        <Bubble from="me">And my balance?</Bubble>
+        <Bubble from="sam">
+          All clear — tuition settled, nothing outstanding. (Fees hold at the tier
+          rate; we don&apos;t discount.)
+          <div className="mt-1 flex flex-wrap gap-1">
+            <Chip>
+              <Sparkles className="size-2" /> Ledger · finance
+            </Chip>
+          </div>
+        </Bubble>
+      </div>
+      <div className="px-3.5 pt-1">
+        <div className="flex flex-wrap gap-1 mb-1.5">
+          {["Tonight at the Altar?", "Match a collaborator"].map((c) => (
+            <span
+              key={c}
+              className="rounded-full border border-bg-border bg-bg-elev px-2 py-0.5 text-[8px] text-ink-muted"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5 rounded-full border border-bg-border bg-bg-elev px-2.5 py-1.5">
+          <span className="text-[9px] text-ink-soft flex-1">Message Sam…</span>
+          <span className="size-5 rounded-full bg-accent text-accent-ink flex items-center justify-center">
+            <ArrowRight className="size-3" />
+          </span>
+        </div>
+      </div>
+      <TabBar items={MEMBER_TABS} active={4} />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* M · Becoming a member (Sam · membership)                                   */
+/* -------------------------------------------------------------------------- */
+
+function ScreenSamJoin() {
+  return (
+    <div className="relative h-full flex flex-col pb-12">
+      <div className="px-3.5">
+        <SamHeader sub="Membership · by invitation" />
+      </div>
+      <div className="flex-1 px-3.5 mt-2.5 space-y-1.5 overflow-hidden">
+        <Bubble from="me">How do I become a member?</Bubble>
+        <Bubble from="sam">
+          By invitation or referral, capped per House to keep the room small. Tiers
+          run Explorer, Resident, Anchor — we&apos;re ~89% full, so places are limited.
+          <div className="mt-1 flex flex-wrap gap-1">
+            <Chip>
+              <Sparkles className="size-2" /> Concierge · membership
+            </Chip>
+          </div>
+        </Bubble>
+        <Bubble from="me">Can a member refer me?</Bubble>
+        <Bubble from="sam">
+          Yes — a referral moves you up the waitlist and is read first by the
+          committee. I&apos;ll start your application and note who&apos;s vouching.
+          <div className="mt-1 flex flex-wrap gap-1">
+            <Chip tone="done">
+              <Check className="size-2" /> Application started
+            </Chip>
+          </div>
+        </Bubble>
+      </div>
+      <div className="px-3.5 pt-1">
+        <div className="flex flex-wrap gap-1 mb-1.5">
+          {["What are the tiers?", "Begin application"].map((c) => (
+            <span
+              key={c}
+              className="rounded-full border border-bg-border bg-bg-elev px-2 py-0.5 text-[8px] text-ink-muted"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5 rounded-full border border-bg-border bg-bg-elev px-2.5 py-1.5">
+          <span className="text-[9px] text-ink-soft flex-1">Tell Sam what you&apos;re making…</span>
+          <span className="size-5 rounded-full bg-accent text-accent-ink flex items-center justify-center">
+            <ArrowRight className="size-3" />
+          </span>
+        </div>
+      </div>
+      <TabBar items={MEMBER_TABS} active={4} />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Agent operations console                                               */
+/* -------------------------------------------------------------------------- */
+
+function ScreenAgentConsole() {
+  const subs = [
+    { n: "Concierge", r: "Membership" },
+    { n: "Atelier", r: "Bookings" },
+    { n: "Oracle", r: "Predictive" },
+    { n: "Ledger", r: "Finance" },
+    { n: "Threshold", r: "Access" },
+    { n: "Patron", r: "Sponsors" },
+    { n: "Curator", r: "Programming" },
+    { n: "Herald", r: "Growth" },
+  ];
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Operator · 5E47</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Agent operations</div>
+
+      <div className="mt-2.5 rounded-xl border border-role-operator/30 bg-role-operator/[0.06] p-2.5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <Bot className="size-3.5 text-role-operator" />
+            <span className="text-[11px]">Sam · The 5E47 Agent</span>
+          </div>
+          <span className="text-[8px] rounded-full bg-role-operator/15 text-role-operator border border-role-operator/40 px-1.5 py-px">
+            in band
+          </span>
+        </div>
+        <div className="text-[8.5px] text-ink-soft mt-1">
+          Orchestrating · 9 subagents · all systems nominal
+        </div>
+      </div>
+
+      <Eyebrow>Subagent roster</Eyebrow>
+      <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+        {subs.map((s) => (
+          <div
+            key={s.n}
+            className="rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5 flex items-center justify-between"
+          >
+            <div className="min-w-0">
+              <div className="text-[9.5px] leading-tight truncate">{s.n}</div>
+              <div className="text-[7.5px] text-ink-soft truncate">{s.r}</div>
+            </div>
+            <span className="size-1.5 rounded-full bg-emerald-400 shrink-0" />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-2 grid grid-cols-3 gap-1.5">
+        <Tile className="text-center">
+          <div className="font-serif text-[13px] tabular-nums text-role-operator">214</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">DELEGATIONS·24H</div>
+        </Tile>
+        <Tile className="text-center">
+          <div className="font-serif text-[13px] tabular-nums text-role-operator">92%</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">RESOLVED BY SAM</div>
+        </Tile>
+        <Tile className="text-center">
+          <div className="font-serif text-[13px] tabular-nums text-role-operator">0</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">CAP BREACHES</div>
+        </Tile>
+      </div>
+
+      <TabBar items={OPERATOR_TABS} active={0} tone="operator" />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Predictive scarcity                                                    */
+/* -------------------------------------------------------------------------- */
+
+function ScreenPredictive() {
+  const houses = [
+    { n: "Music", o: 91, w: 34 },
+    { n: "Video Production", o: 90, w: 26 },
+    { n: "Masterclass", o: 85, w: 19 },
+    { n: "Founders", o: 91, w: 29 },
+  ];
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Oracle · predictive</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Scarcity</div>
+
+      <div className="mt-2 grid grid-cols-3 gap-1.5">
+        <Tile className="text-center">
+          <div className="font-serif text-[14px] tabular-nums">89.4%</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">OCCUPANCY</div>
+        </Tile>
+        <Tile className="text-center">
+          <div className="font-serif text-[14px] tabular-nums">88</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">EXCLUSIVITY</div>
+        </Tile>
+        <Tile className="text-center">
+          <div className="font-serif text-[14px] tabular-nums">79</div>
+          <div className="text-[7px] text-ink-soft mt-0.5">BRAND HEAT</div>
+        </Tile>
+      </div>
+
+      <div className="mt-2 rounded-lg border border-role-operator/30 bg-role-operator/[0.05] px-2 py-1.5 flex items-center justify-between">
+        <span className="text-[8.5px] text-ink-muted">Target band</span>
+        <span className="text-[8.5px] text-role-operator font-mono">85–92% · in band</span>
+      </div>
+
+      <Eyebrow>By House</Eyebrow>
+      <div className="mt-1.5 space-y-1.5">
+        {houses.map((h) => (
+          <div key={h.n} className="rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[9.5px] truncate">{h.n}</span>
+              <span className="text-[8px] text-ink-soft font-mono tabular-nums shrink-0">
+                {h.o}% · wl {h.w}
+              </span>
+            </div>
+            <div className="mt-1 h-1 rounded-full bg-bg-border overflow-hidden">
+              <div className="h-full bg-role-operator" style={{ width: `${h.o}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-2 text-center text-[8px] text-ink-soft italic">
+        Demand must exceed supply.
+      </div>
+
+      <TabBar items={OPERATOR_TABS} active={1} tone="operator" />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Cycle recommendation (human-in-the-loop)                               */
+/* -------------------------------------------------------------------------- */
+
+function ScreenRecommendation() {
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Oracle · this cycle</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Recommendation</div>
+
+      <div className="mt-2.5 rounded-xl border border-role-operator/30 bg-role-operator/[0.06] p-3">
+        <div className="flex items-center justify-between">
+          <Eyebrow>Action</Eyebrow>
+          <span className="text-[8px] rounded-full bg-role-operator/15 text-role-operator border border-role-operator/40 px-2 py-0.5 tracking-widest">
+            RAISE
+          </span>
+        </div>
+        <div className="mt-1 text-[9px] text-ink-muted leading-snug">
+          89.4% inside the band with deep waitlists. Hold admissions; raise pricing
+          where demand is deepest. Protect exclusivity over volume.
+        </div>
+        <div className="mt-1.5 flex items-center justify-between text-[8.5px]">
+          <span className="text-ink-soft">Pricing signal</span>
+          <span className="font-mono text-role-operator">×1.156 · ≤ +25%</span>
+        </div>
+        <div className="text-[7.5px] text-ink-soft mt-0.5 italic">
+          Never below the tier floor. No discounting.
+        </div>
+      </div>
+
+      <div className="mt-2 rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5 text-[8.5px] text-ink-soft flex items-center gap-1.5">
+        <ShieldCheck className="size-3 text-role-operator shrink-0" /> Sam recommends · the
+        committee ratifies.
+      </div>
+
+      <div className="mt-2 flex items-center gap-1.5">
+        <button className="flex-1 rounded-lg bg-role-operator text-bg text-[10px] font-medium py-1.5 flex items-center justify-center gap-1">
+          <Check className="size-3" /> Ratify
+        </button>
+        <button className="flex-1 rounded-lg border border-bg-border text-ink-muted text-[10px] py-1.5">
+          Override
+        </button>
+      </div>
+
+      <Eyebrow>Per-House calls</Eyebrow>
+      <div className="mt-1 space-y-1">
+        {[
+          { n: "Music", a: "raise" },
+          { n: "Video Production", a: "raise" },
+          { n: "Masterclass", a: "hold" },
+          { n: "Founders", a: "raise" },
+        ].map((r) => (
+          <div
+            key={r.n}
+            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1"
+          >
+            <span className="text-[9.5px]">{r.n}</span>
+            <span
+              className={`text-[8px] rounded-full px-1.5 py-px border ${
+                r.a === "hold"
+                  ? "border-bg-border text-ink-soft"
+                  : "border-role-operator/40 bg-role-operator/10 text-role-operator"
+              }`}
+            >
+              {r.a}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <TabBar items={OPERATOR_TABS} active={1} tone="operator" />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Curator · programming                                                  */
+/* -------------------------------------------------------------------------- */
+
+function ScreenCurator() {
+  const events = [
+    { t: "Mixing the Verse", p: "Music", r: "11/14", promoted: true },
+    { t: "Directing on the Volume", p: "Video", r: "9/18", promoted: true },
+    { t: "Brand as Story", p: "Marketing", r: "16/24", promoted: true },
+    { t: "The Quiet Founder", p: "Operations", r: "13/20", promoted: false },
+    { t: "The Shape of an Idea", p: "Creativity", r: "7/16", promoted: false },
+  ];
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Curator · programming</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Masterclasses</div>
+
+      <div className="mt-2 flex items-center gap-1 text-[7.5px] overflow-hidden">
+        {["Content", "Music", "Video", "Marketing", "Ops", "Creativity"].map((p, i) => (
+          <span
+            key={p}
+            className={`rounded-full px-1.5 py-0.5 border whitespace-nowrap ${
+              i === 0
+                ? "border-role-operator/40 bg-role-operator/10 text-role-operator"
+                : "border-bg-border text-ink-muted"
+            }`}
+          >
+            {p}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-2 space-y-1.5">
+        {events.map((e) => (
+          <div key={e.t} className="rounded-lg border border-bg-border bg-bg-elev/80 p-2">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[10px] leading-tight truncate">{e.t}</span>
+              <span
+                className={`text-[7.5px] rounded-full px-1.5 py-px shrink-0 ${
+                  e.promoted
+                    ? "bg-emerald-500/10 text-emerald-300 border border-emerald-500/30"
+                    : "bg-bg-border/60 text-ink-soft"
+                }`}
+              >
+                {e.promoted ? "promoted" : "draft"}
+              </span>
+            </div>
+            <div className="mt-0.5 flex items-center justify-between text-[8px] text-ink-soft">
+              <span className="uppercase tracking-widest text-role-operator/90">{e.p}</span>
+              <span className="font-mono tabular-nums">RSVP {e.r}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button className="mt-2 w-full rounded-lg bg-role-operator text-bg text-[10px] font-medium py-1.5 flex items-center justify-center gap-1">
+        <Plus className="size-3" /> New masterclass · Herald promotes
+      </button>
+
+      <TabBar items={OPERATOR_TABS} active={2} tone="operator" />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Herald · growth & acquisition                                          */
+/* -------------------------------------------------------------------------- */
+
+function ScreenHerald() {
+  const social: [string, number][] = [
+    ["Instagram", 38],
+    ["TikTok", 19],
+    ["YouTube", 11],
+    ["LinkedIn", 14],
+  ];
+  const luxury: [string, number][] = [
+    ["A Small World", 22],
+    ["Quintessentially", 17],
+    ["Amex Centurion", 9],
+    ["Sotheby's", 6],
+  ];
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Herald · acquisition</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Channels</div>
+
+      <div className="mt-2 rounded-xl border border-role-operator/30 bg-role-operator/[0.06] p-2.5 flex items-center justify-between">
+        <div>
+          <Eyebrow>Waitlist · last cycle</Eyebrow>
+          <div className="font-serif text-[18px] tabular-nums text-role-operator mt-0.5">
+            +136
+          </div>
+        </div>
+        <div className="text-right text-[8px] text-ink-soft leading-snug">
+          Feeds the waitlist,
+          <br />
+          never the door.
+        </div>
+      </div>
+
+      <Eyebrow>Social</Eyebrow>
+      <div className="mt-1 grid grid-cols-2 gap-1">
+        {social.map(([n, v]) => (
+          <div
+            key={n}
+            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1"
+          >
+            <span className="text-[9px] truncate">{n}</span>
+            <span className="text-[8.5px] font-mono text-role-operator shrink-0">+{v}</span>
+          </div>
+        ))}
+      </div>
+
+      <Eyebrow>Exclusive luxury</Eyebrow>
+      <div className="mt-1 space-y-1">
+        {luxury.map(([n, v]) => (
+          <div
+            key={n}
+            className="flex items-center justify-between rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1"
+          >
+            <span className="text-[9px]">{n}</span>
+            <span className="text-[8.5px] font-mono text-accent">+{v}</span>
+          </div>
+        ))}
+      </div>
+
+      <button className="mt-2 w-full rounded-lg bg-role-operator text-bg text-[10px] font-medium py-1.5 flex items-center justify-center gap-1">
+        <Megaphone className="size-3" /> Launch outreach
+      </button>
+
+      <TabBar items={OPERATOR_TABS} active={2} tone="operator" />
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* O · Live delegation trace (audit)                                          */
+/* -------------------------------------------------------------------------- */
+
+function ScreenDelegationTrace() {
+  const events = [
+    { e: "agent.message", d: "M·047 → Sam · hold Suite A", t: "2m" },
+    { e: "agent.delegated", d: "Sam → Atelier · booking", t: "2m" },
+    { e: "agent.action", d: "Suite A held · FL/07 · $720", t: "2m" },
+    { e: "scarcity.recomputed", d: "Occupancy 89.4% · in band", t: "9m" },
+    { e: "programming.created", d: "Curator · Marketing masterclass", t: "21m" },
+    { e: "growth.campaign", d: "Herald · outreach · social + luxury", t: "34m" },
+    { e: "agent.delegated", d: "Sam → Ledger · balance", t: "1h" },
+  ];
+  return (
+    <div className="relative h-full px-3.5 pb-12">
+      <Eyebrow>Audit · event log</Eyebrow>
+      <div className="font-serif text-[15px] mt-0.5">Delegation trace</div>
+      <div className="mt-0.5 text-[8.5px] text-ink-soft italic">
+        Every action audited · capability-scoped.
+      </div>
+
+      <div className="mt-2 space-y-1">
+        {events.map((ev, i) => (
+          <div key={i} className="rounded-lg border border-bg-border bg-bg-elev/80 px-2 py-1.5">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[7.5px] text-role-operator">{ev.e}</span>
+              <span className="font-mono text-[7.5px] text-ink-soft">{ev.t}</span>
+            </div>
+            <div className="text-[9px] text-ink mt-0.5 leading-snug truncate">{ev.d}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-2 flex items-center gap-1.5 rounded-lg border border-role-operator/30 bg-role-operator/[0.05] px-2 py-1.5 text-[8px] text-ink-muted">
+        <Lock className="size-3 text-role-operator shrink-0" /> Confidential by default · no
+        cross-member leakage.
+      </div>
+
+      <TabBar items={OPERATOR_TABS} active={3} tone="operator" />
     </div>
   );
 }
