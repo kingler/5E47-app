@@ -1,86 +1,105 @@
 # Proposal — Designing & Building Sam
 
-**The 5E47 Multi-Agent System**
+**The 5E47 Multi-Agent Operating System**
 
 **Prepared by:** DesignThru Studio
-**Prepared for:** 5E47 Holdings
-**Date:** 24 May 2026 · **Validity:** 60 days · **Document:** Statement of Work & Investment Proposal · **Version:** 1.0
+**Prepared for:** Hasenpfeffer Ventures LLC (5 East 47th Street · New York City)
+**Date:** 25 May 2026 · **Validity:** 60 days · **Document:** Statement of Work & Investment Proposal · **Version:** 2.1
+**Aligned to:** 5E47 Investor Deck v5.2 (2026); operational vocabulary in plain industry-standard terms
+
+> **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Genesis Node, etc.). This proposal uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA, Flagship Location, etc.). See the canvas (doc 01) for the full glossary.
 
 ---
 
 ## About DesignThru Studio
 
-DesignThru Studio is a design-and-engineering practice that builds AI products for brands where the *experience* is the business. We pair luxury-grade product design with applied AI engineering — orchestration, predictive modeling, and agent systems — and we ship production software, not prototypes.
+DesignThru Studio is a design-and-engineering practice that builds AI products for brands where the *experience* is the business. We pair luxury-grade product design with applied AI engineering — orchestration, predictive modeling, agent systems — and we ship production software, not prototypes.
 
-We were drawn to 5E47 because it is a rare brief: an exclusive, scarcity-led membership brand that wants to be *run* by an agent without ever feeling automated. That tension — high-touch experience, near-zero marginal concierge cost — is exactly the kind of problem we design through.
+We were drawn to 5E47 because it is a rare brief: **Private Cultural Infrastructure** — a four-story vertical engine in Midtown Manhattan that produces institutional-grade luxury IP under enforced scarcity, structured ownership, and private-bank-grade discretion. The operating-layer challenge — *run this building like a private bank that produces culture, at software economics not headcount economics* — is exactly the kind of problem we design through.
 
 > **DesignThru** — *we design through the experience to the system beneath it, and through the system back to the experience.*
 
 ## 1. Executive Summary
 
-DesignThru Studio proposes to design and build **Sam, the 5E47 Agent** — a multi-agent operating system that becomes the single surface members talk to, and the operating layer that runs the club day-to-day.
+DesignThru Studio proposes to design and build **Sam, the Concierge Agent** — a multi-agent operating system that becomes the single surface residents talk to, and the operating layer that runs the Flagship Location day-to-day.
 
-Members hold one conversation with Sam to become members, book space and services, and manage their membership. Behind Sam, specialist subagents execute the nine blocks of 5E47's Business Model Canvas, and a predictive layer continuously protects the brand's scarcity band based on live demand and marketing performance.
+Residents hold one conversation with Sam from the moment they're selected into a Production Cycle through alumni status: accept the selection within 24 hours, pay the $3,500 entry, complete the Mutual NDA, onboard, book Floor-7 Recording Studios and Floor-6 render time, manage monthly residency dues, opt projects into the Project Slate at cycle close, and exit clean. Behind Sam, specialist subagents run the building, the cycle engine, the Project Slate, and the Confidentiality & Security Protocol. A predictive layer continuously protects cycle scarcity and reads brand heat across referrals, partner introductions, and sponsor reach.
 
-We propose a **fixed-scope, phased engagement** delivering a production-hardened v1 in **~4.5 months**, for a total build investment of **~$603K**, with a post-launch run-rate of **~$84K–$243K/year** (primarily LLM inference and infrastructure). A working architecture already exists and is proven end-to-end; this engagement hardens it into production and swaps the stubbed integrations for live services.
+We propose a **fixed-scope, phased engagement** delivering a production-hardened v1 in **~5.5 months**, for a total build investment of **~$928K**, with a post-launch run-rate of **~$186K–$450K/year** (LLM inference, on-prem compute for resident-SLM quarantine, infrastructure). A working architecture already exists end-to-end; this engagement hardens it into production, implements the deck-canonical Project Slate and Confidentiality & Security primitives, and swaps the stubbed integrations for live services. The architecture is **location-ready** — the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
 
 ## 2. Our Understanding of 5E47
 
-- **The product is exclusivity.** The cap, the waitlist, and the discretion *are* what members pay for. Growth that dilutes the room destroys value.
-- **The club should run like a great concierge** — instant, discreet, personal — but at software economics, not headcount economics.
-- **Scarcity must be actively managed**, not assumed. Admissions, pricing, and programming have to be steered into a deliberate occupancy band using real demand and marketing-performance data.
-- **Brand voice is non-negotiable.** Every agent interaction must feel like 5E47: warm, precise, never salesy, never discounting.
+- **The product is the factory.** 5E47 is *Private Cultural Infrastructure* — an asset class, not an amenity. The four floors (Floor 7 Recording Studios, Floor 6 Post-Production & AI, Floor 5 Listening Lounge & Member Salon, Floor 4 Business Operations & Deal Floor) are a vertical engine that turns raw talent into institutional-grade IP.
+- **Output is measured. Scarcity is engineered.** 100 residents per Production Cycle, 4 cycles per year, $3,500 non-refundable entry, 24-hour acceptance window. Selection precedes payment; payment precedes entry. Growth that dilutes the cohort destroys value.
+- **The IP Catalog is the compounding asset.** The Project Slate — projects opted into the structured pipeline under the Project Participation Agreement (70 Resident / 20 House / 10 Sponsor Royalty Pool) — accrues over cycles into a queryable catalog of original cultural IP. Default ownership is 100% resident. The Agreement is opt-in.
+- **Confidentiality is non-negotiable.** Private-bank-grade discretion: no-capture suites, private-entry protocol, Mutual NDA with Liquidated Damages, resident-SLM quarantine. The building's discretion standard is engineered, not promised.
+- **The operating layer must feel like a private bank, not a chatbot.** Instant, discreet, precise. Confidentiality assumed. Never salesy. Sam is the surface; the deck is the artifact; the address is the entry point.
 
-Our solution is built around these truths, and the strategic guardrails they imply are encoded into the system as hard constraints — not left to prompt-time discretion.
+Our solution is built around these truths, and the deck-canonical guardrails are encoded into the system as hard constraints — not left to prompt-time discretion.
 
 ## 3. Proposed Solution — The Multi-Agent System
 
-### 3.1 Sam, the orchestrator
+### 3.1 Sam, the Concierge Agent (orchestrator)
 
-A single conversational agent that classifies member intent, delegates to the right specialist, enforces 5E47's strategic guardrails, and replies in one voice. Sam's reasoning sits behind a swappable `LLMProvider` boundary — deterministic by default, hosted-model (Claude) ready — so the system is testable, auditable, and never locked to a vendor.
+A single conversational agent that classifies resident intent, delegates to the right specialist, enforces the Confidentiality & Security Protocol and scarcity guardrails, and replies in one voice. Sam's reasoning sits behind a swappable `LLMProvider` boundary — deterministic by default, hosted-model (Claude) ready, on-prem SLMs for resident-quarantined workloads — so the system is testable, auditable, and never locked to a vendor.
 
 ### 3.2 The subagents
 
 | Agent | Canvas block | Responsibility |
 |---|---|---|
-| **Concierge** | Segments & Relationships | Membership, applications, referrals, lifecycle |
-| **Atelier** | Key Activities | Studio / stage / equipment bookings |
-| **House** | Activities / Cost | Day-to-day facility operations & exceptions |
-| **Oracle** | Activities — scarcity | Predictive occupancy, demand, admit/hold/raise |
-| **Ledger** | Revenue Streams | Balances, dues, dynamic pricing within guardrails |
-| **Threshold** | Key Resources | Access & credentials |
-| **Patron** | Key Partnerships | Sponsor activations & ROI |
-| **Curator** | Channels — programming | Masterclasses & events across six pillars |
-| **Herald** | Channels — acquisition | Member growth via social & luxury platforms |
+| **Membership Agent** | Segments & Relationships | Selection acceptance, onboarding, Mutual NDA signing, lifecycle, referrals |
+| **Booking Agent** | Key Activities | Suite, render time, Virtual Production Stage, Private Member Locker, listening session reservations |
+| **Operations Agent** | Activities / Cost | Day-to-day facility ops, cycle open/close, exceptions |
+| **Predictive Agent** | Activities — selection / scarcity | Per-slot fill/hold/escalate, oversubscription forecast, brand heat |
+| **Finance Agent** | Revenue Streams | $3,500 entries, monthly dues, Royalty Pool distributions, dues-tier signal within guardrails |
+| **Access Agent** | Key Resources | Floor grants, private-entry protocol, vehicle routing, timed access |
+| **Sponsor Agent** | Key Partnerships | Anchor slots, Royalty Pool reporting, Sponsor Activation Lab sprints |
+| **IP Catalog Agent** | Key Activities — Slate | Opt-in workflow, project-level Participation Agreement, chain-of-title, distribution windows |
+| **Programming Agent** | Channels — programming | Floor-5 salons, listening sessions, sponsor receptions |
+| **Growth Agent** | Channels — acquisition | Referral cultivation, partner-network sourcing, brand-heat amplification |
 
-### 3.3 The predictive scarcity layer
+### 3.3 The predictive layer
 
-Pure, explainable models that compute occupancy vs. cap, an exclusivity index, brand-heat (marketing momentum incl. acquisition-channel waitlist contribution), an EWMA demand forecast, and a rationale-backed **admit / hold / raise** recommendation each cycle — plus a **bounded dynamic-pricing signal that never discounts below the tier floor.**
+Pure, explainable models compute cycle fill per resident-mix slot (Music 40 / Content-AI 30 / Film-TV 20 / Ops 10), a selection-pressure index, oversubscription ratio, brand-heat index, a **per-slot fill / hold / escalate-selection recommendation** with rationale, and a **bounded monthly residency dues signal that never discounts below the tier floor**. Slate-readiness scoring surfaces greenlight candidates between Day 60 and Day 80 of each cycle.
 
-### 3.4 Guardrails encoded into the system
+### 3.4 The Confidentiality & Security Protocol (engineered, not promised)
 
-1. **Scarcity-first** — target occupancy band, never exceed the cap.
-2. **No discounting** — fees only rise under scarcity.
-3. **Discretion always** — confidentiality by default; no cross-member data leakage.
-4. **Human-in-the-loop admissions** — Sam recommends; the committee ratifies.
+- **Closed-Set Policy** — capture restriction in no-capture suites; violation logging; committee review (no warnings).
+- **Private-entry protocol** — non-public vehicle routing, timed access, identity masking for high-profile residents.
+- **Mutual NDA with Liquidated Damages** — binding confidentiality instrument, signed digitally at onboarding by every resident, sponsor, and staff member.
+- **Data sovereignty** — resident model weights and outputs stored on-prem (Floor 6 GPU node), accessed via a quarantine boundary, every cross-boundary call logged.
 
-### 3.5 Experience surfaces
+### 3.5 Guardrails encoded into the system
 
-- **Member concierge** — "Talk to Sam," with promoted programming and one-tap actions.
-- **Operator console** — agent roster, live delegation trace, predictive dashboard, and a ratify/override control.
+1. **Cycle cap = 100.** Immutable. Never exceeded for revenue.
+2. **24-hour acceptance window.** Selection lapses cleanly; no override.
+3. **No public-facing application funnel.** Selection precedes payment; payment precedes entry.
+4. **No discounting below the dues-tier floor.** Dues only rise under selection pressure.
+5. **Default to 100% resident ownership.** The Project Participation Agreement is opt-in, project-level, for Slate-elected work only.
+6. **Confidentiality & Security Protocol is enforced.** Closed-Set, private-entry, Mutual NDA, quarantine.
+7. **Human-in-the-loop selection.** Sam recommends; the committee ratifies.
+
+### 3.6 Experience surfaces
+
+- **Resident concierge** — "Talk to Sam," with prompts contextual to cycle state (Day 5 ≠ Day 85) and one-tap actions for booking, dues, ingress, and Project Slate opt-in.
+- **Operator console** — cycle control panel, agent roster, live delegation trace, predictive dashboard, ratify/override, security audit pane, Slate pipeline kanban.
+- **Sponsor portal** — anchor slot, Royalty Pool reporting, Sponsor Activation Lab calendar.
+- **Capital partner portal** — cycle fill history, Slate pipeline depth, royalty distributions, revenue-floor view.
 
 ## 4. Scope & Deliverables
 
-- Sam orchestrator + all nine subagents, capability-scoped and audited.
-- Predictive scarcity, marketing, pricing, and churn models.
-- Member and operator surfaces (responsive, on-brand).
-- `LLMProvider` boundary with a hosted-model implementation (Claude) and a deterministic fallback.
-- Production integrations swapped in behind existing boundaries: identity (Clerk/Auth0), payments (Stripe), access (Kisi/Openpath), data (Supabase/Postgres + pgvector), media (Mux).
-- Auditability via the event log; full guardrail test suite and agent evals.
+- Sam orchestrator + all ten subagents (including IP Catalog Agent for the Project Slate), capability-scoped and audited.
+- Predictive selection, brand-heat, dues-tier signal, churn, and Slate-readiness models.
+- Project Slate registry: opt-in workflow, project-level Participation Agreement (70/20/10) digital execution, tamper-evident chain-of-title, quarterly Royalty Pool accounting.
+- Confidentiality & Security primitives: Closed-Set enforcement, private-entry protocol orchestration, Mutual NDA digital execution + breach review, resident-SLM quarantine boundary with audit.
+- Resident, operator, sponsor, and capital partner surfaces — responsive, on-brand.
+- `LLMProvider` boundary with hosted-model implementation (Claude) and a deterministic fallback; on-prem SLM support for security-bound workloads.
+- Production integrations swapped in behind existing boundaries: identity (Clerk/Auth0), payments (Stripe — entries, dues, royalties), access (Kisi/Openpath + private-entry orchestration), data (Supabase/Postgres + pgvector), media (Mux + capture restriction).
+- Full guardrail test suite, security test suite, agent evals, and auditable event log.
 - This documentation set, kept current, published as a living docs site.
-- Handover: source, runbooks, and an enablement session for the 5E47 team.
+- Handover: source, runbooks, IP/legal template package, and an enablement session for the Hasenpfeffer team.
 
-**Explicitly out of scope (this engagement):** native mobile apps; multi-city rollout (architecture is multi-tenant-ready; rollout is a follow-on); fully autonomous admissions.
+**Explicitly out of scope (this engagement):** native mobile apps; Phase II Location deployment (LA/London/Tokyo — architecture is location-ready; rollout is a follow-on engagement gated on Flagship stabilization at Production Cycle 03); fully autonomous selection.
 
 ## 5. Approach & Methodology
 
@@ -88,13 +107,14 @@ We work in tight, demonstrable increments. Each phase ends with something real y
 
 | Phase | Focus | Outcome |
 |---|---|---|
-| **0 · Discovery & Design** (2–3 wks) | Brand voice, agent UX, guardrail definition, data model | Signed-off design + agent specs |
-| **1 · Concierge & Booking** (3–4 wks) | Sam + Concierge + Atelier; member chat; audit | Members converse & book end-to-end |
-| **2 · Predictive & Console** (4 wks) | Oracle + operator console; ratify/override | Scarcity steered with human-in-loop |
-| **3 · Finance, Access, Sponsorship, Programming, Growth** (4 wks) | Remaining subagents; live integrations | Full operating layer |
-| **4 · LLM Swap-in & Hardening** (3–4 wks) | Hosted model, evals, security, observability | Production-hardened v1 |
+| **0 · Discovery & Design** (2–3 wks) | Brand voice, agent UX, security primitive specs, Production Cycle lifecycle model | Signed-off design + agent specs |
+| **1 · Concierge & Booking** (3–4 wks) | Sam + Membership + Booking agents; resident chat; 24-hour acceptance state machine; audit | Residents converse, accept, and book end-to-end |
+| **2 · Predictive & Console** (4 wks) | Predictive Agent + operator console; cycle control panel; ratify/override | Selection pressure steered with human-in-loop |
+| **3 · Finance, Access, Confidentiality & Security** (4 wks) | Finance, Access, Closed-Set, Mutual NDA, quarantine | Security enforced in code |
+| **4 · Project Slate & Sponsorship** (3–4 wks) | IP Catalog + Sponsor agents; opt-in workflow; Participation Agreement; chain-of-title; Royalty Pool | Slate live; sponsors participating in upside |
+| **5 · LLM Swap-in & Hardening** (3–4 wks) | Hosted model, on-prem SLM, evals, security, observability | Production-hardened v1 |
 
-Total: **~4.5 months** to production-hardened v1.
+Total: **~5.5 months** to production-hardened v1.
 
 ## 6. Team
 
@@ -102,11 +122,13 @@ Total: **~4.5 months** to production-hardened v1.
 |---|---|
 | Engagement lead / architect (DesignThru) | 1.0 |
 | Full-stack engineers (Next.js / TS) | 2.0 |
-| AI / agent engineer (orchestration, evals) | 1.0 |
-| Product designer (luxury / brand) | 0.5 |
+| AI / agent engineer (orchestration, evals, predictive) | 1.0 |
+| Backend / data engineer (events, Slate registry, compute boundary) | 1.0 |
+| Product designer (luxury / private-bank brand) | 0.5 |
 | Product manager | 0.5 |
 | QA / SDET | 0.5 |
-| DevOps / platform | 0.5 |
+| DevOps / platform (cloud + on-prem GPU node) | 0.5 |
+| IP & legal liaison (Mutual NDA, Participation Agreement templates) | 0.25 |
 
 ## 7. Investment
 
@@ -116,51 +138,55 @@ Total: **~4.5 months** to production-hardened v1.
 
 | Phase | Investment |
 |---|---|
-| 0 · Discovery & Design | $78K |
-| 1 · Concierge & Booking | $128K |
-| 2 · Predictive & Console | $132K |
-| 3 · Finance / Access / Sponsorship / Programming / Growth | $138K |
-| 4 · LLM Swap-in & Hardening | $105K |
-| Security review, evals & contingency | $22K |
-| **Total build** | **~$603K** |
+| 0 · Discovery & Design | $92K |
+| 1 · Concierge & Booking | $148K |
+| 2 · Predictive & Console | $152K |
+| 3 · Finance / Access / Confidentiality & Security | $172K |
+| 4 · Project Slate & Sponsorship | $148K |
+| 5 · LLM Swap-in & Hardening | $128K |
+| Security review (private-bank grade), evals, legal templates & contingency | $88K |
+| **Total build** | **~$928K** |
 
 ### 7.2 Post-launch run-rate (annual)
 
 | Item | Annual |
 |---|---|
-| Hosting, database, observability | $42K–$96K |
-| LLM inference (member-scale) | $24K–$90K |
-| Identity, access, media, payments | $18K–$57K |
-| **Run-rate** | **~$84K–$243K/yr** |
+| Hosting, database, observability | $54K–$114K |
+| LLM inference (resident-scale) | $30K–$108K |
+| On-prem GPU node (Floor 6, depreciation + power) | $60K–$120K |
+| Identity, access (incl. private-entry), media (incl. capture restriction), payments | $30K–$84K |
+| Slate / IP registry & chain-of-title infrastructure | $12K–$24K |
+| **Run-rate** | **~$186K–$450K/yr** |
 
 ### 7.3 Optional retainer
 
-Ongoing product partnership (feature work, model tuning, multi-city readiness): from **$18K/month**.
+Ongoing product partnership (feature work, model tuning, Phase II location-readiness, Slate distribution intelligence): from **$22K/month**.
 
 ## 8. Why DesignThru
 
-- **We've already de-risked it.** A working end-to-end architecture exists and is proven; we're hardening, not exploring.
+- **We've already de-risked it.** A working end-to-end architecture exists and is proven; we're hardening, implementing the Slate and security primitives, and location-readying — not exploring.
 - **Design and AI under one roof.** No handoff gap between the experience and the system beneath it.
-- **Deterministic-first engineering.** Auditable, testable, vendor-neutral — your brand guardrails are enforced in code.
-- **Luxury sensibility.** We protect scarcity and discretion as first principles, not afterthoughts.
+- **Deterministic-first engineering.** Auditable, testable, vendor-neutral — the deck's guardrails are enforced in code.
+- **Private-bank sensibility.** We protect scarcity, security, and chain-of-title as first principles, not afterthoughts.
+- **Built to replicate.** The architecture is location-ready; Phase II is a tenant deployment, not a rewrite.
 
 ## 9. Assumptions & Terms
 
-- 5E47 provides timely access to brand guidelines, committee decision rules, and accounts for the production integrations (Stripe, Clerk/Auth0, Kisi, Mux, Supabase, LLM provider).
-- Per-House caps and the target occupancy band are 5E47 business inputs.
-- Human committee ratification of admissions is retained.
-- IP in the delivered system transfers to 5E47 Holdings on final payment.
+- Hasenpfeffer Ventures LLC provides timely access to deck v5.2 brand guidelines, committee decision rules, IP/legal templates (Mutual NDA, Project Participation Agreement), and accounts for the production integrations (Stripe, Clerk/Auth0, Kisi, Mux, Supabase, LLM provider, on-prem GPU vendor).
+- Cycle cap (100), resident-mix slots (40/30/20/10), 24-hour acceptance window, $3,500 entry, and the Project Participation Agreement split (70/20/10) are deck-canonical business inputs.
+- Selection committee ratification is retained.
+- IP in the delivered system transfers to Hasenpfeffer Ventures LLC on final payment.
 - Pricing valid 60 days from the date above.
 
 ## 10. Next Steps
 
 1. Alignment call and scope confirmation.
 2. Countersign this Statement of Work; Phase 0 begins within two weeks.
-3. Discovery & Design sprint kicks off.
+3. Discovery & Design sprint kicks off; Production Cycle 01 onboarding target window confirmed.
 
 ## Acceptance
 
-| | DesignThru Studio | 5E47 Holdings |
+| | DesignThru Studio | Hasenpfeffer Ventures LLC |
 |---|---|---|
 | Name | | |
 | Title | | |
@@ -169,4 +195,4 @@ Ongoing product partnership (feature work, model tuning, multi-city readiness): 
 
 ---
 
-*Prepared by DesignThru Studio for 5E47 Holdings. Confidential.*
+*Prepared by DesignThru Studio for Hasenpfeffer Ventures LLC. Confidential. Subject to the Mutual NDA upon execution.*

@@ -1,236 +1,255 @@
 # 5E47 — Business Plan
 
-**Company:** 5E47 Holdings · **Property:** 47 Fifth Avenue, New York
-**Plan type:** Operating & growth plan for the agent-operated luxury creator residency
-**Version:** 1.0 · **Horizon:** 5 years · **Prepared for:** Founders, operators, and prospective investors
+**Company:** Hasenpfeffer Ventures LLC · **Property:** 5 East 47th Street, New York City
+**Plan type:** Operating & growth plan for the Flagship Location of a multi-location private cultural infrastructure network
+**Version:** 2.1 · **Horizon:** 5 years · **Aligned to:** 5E47 Investor Deck v5.2 (2026)
+**Prepared for:** Founders, operators, and prospective capital, brand, media, real-estate, and tech partners
 
-> All figures are planning estimates grounded in the platform's seed economics (tiered fees of $800/$1,400/$2,400; studio rates $55–$850/hr; sponsorship campaigns $95K–$250K; ~210 active members). They are illustrative targets, not audited results.
+> **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Genesis Node, etc.). This plan uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA, Flagship Location, etc.) so the document reads cleanly for operators, partners, and outside reviewers. See the canvas (doc 01) for the full glossary.
+
+> All figures are illustrative planning estimates anchored in the deck's operating constants: 100 residents per Production Cycle, 4 cycles per year, $3,500 non-refundable entry per resident per cycle, the Project Participation Agreement (70/20/10) applied only to opt-in Project Slate projects, and monthly residency dues during the 90-day cycle as the operating layer.
 
 ---
 
 ## 1. Executive Summary
 
-5E47 is an invitation-only luxury residency for working creators — musicians, filmmakers, master-instructors, and founders — across four Houses and six floors at 47 Fifth Avenue, New York. The business sells **exclusivity**: membership is capped per House, curated by committee, and intentionally hard to obtain.
+5E47 is **Private Cultural Infrastructure** — a four-story vertical engine in Midtown Manhattan, at 5 East 47th Street, purpose-built for the production of luxury IP. Operated by Hasenpfeffer Ventures LLC, the building runs as a 90-day **Production Cycle** (the deck calls each cycle a *Volume*): 100 residents per cycle, 4 cycles per year, $3,500 non-refundable entry per resident, a 24-hour acceptance window, and measurable creative output at every close.
 
-What is new in this phase is the **operating model**. 5E47 is run by a multi-agent AI system fronted by a single agent, **Sam**. Members hold one ongoing conversation with Sam to apply, book space and services, manage access, and pay. Behind Sam, specialist subagents execute day-to-day operations, and a predictive layer continuously analyzes market demand and marketing performance to keep the club inside a deliberate **85–92% occupancy band** — tight enough to protect the brand, loose enough to monetize.
+The investor thesis is simple: *Culture does not have a talent problem. It has an infrastructure problem.* The world has more talent than ever; what it lacks is the apparatus to turn that talent into structured, ownable, institutional-grade IP. 5E47 is that apparatus.
 
-**The opportunity:** premium creator infrastructure is fragmented, transactional, and un-curated. No one has paired a genuinely exclusive physical club with an agent that runs it at near-zero marginal concierge cost. 5E47 captures the high-margin intersection of *membership*, *usage*, and *brand partnership* revenue.
+**The opportunity.** Generative compute, post-pandemic premium real-estate softness, the collapse of the major-label development pipeline, and the rise of creator-owned IP are converging — once. First-mover physical infrastructure becomes a moat the moment it operates. The factory monetizes output efficiency, not social proximity.
 
-**The ask / use of funds (illustrative):** capital funds the build-out and equipment of the remaining floors, the agent platform, and 18 months of operating runway to reach steady-state occupancy.
+**The operating model.** Beneath the deck's IP-factory narrative sits a multi-agent AI operating system fronted by **Sam, the Concierge Agent** — the single conversational surface every resident interacts with. Sam absorbs selection logistics, booking, access, dues collection, Project Slate administration, and sponsor activations at near-zero marginal concierge cost. Monthly residency dues during the cycle layer on top of the $3,500 entry fee and fund in-cycle service intensity. The agent system is the margin lever; the deck is the public artifact.
 
-**Why it wins:** a fixed, irreplaceable physical footprint + an enforced scarcity model + an AI operating layer that protects margin = a defensible, high-retention, high-margin asset.
+**Why it wins.** Fixed irreplaceable physical footprint × enforced cycle scarcity × Confidentiality & Security Protocol × the compounding Project Slate IP catalog × the Sam-operated agent layer = a defensible, high-retention, high-margin cultural infrastructure asset with multi-location replication engineered into the original design.
+
+**The ask.** Capital funds the four-floor buildout and equipment, the Confidentiality & Security Protocol infrastructure, the Sam operating platform, and the runway to the Flagship Location's first stabilized cycles. Detailed terms available under NDA.
 
 ---
 
 ## 2. Company & Concept
 
-- **Address as brand:** "5E47" is the club's identity — six floors, one door, four Houses.
-- **The Houses:** Music (mixing rooms, vocal booths), Video Production (LED volume, edit bays, stage), Masterclass (closed-door instruction), Founders (writers' rooms for builders).
-- **Membership tiers:** Explorer ($800/mo), Resident ($1,400/mo), Anchor ($2,400/mo).
-- **Operating principle:** demand must always exceed supply. The waitlist is the product.
+- **Entity:** Hasenpfeffer Ventures LLC.
+- **Property & brand:** 5 East 47th Street, New York City. "5E47" is the address and the brand — one identity, one door, four floors.
+- **Category:** Private Cultural Infrastructure / Cultural Infrastructure-as-a-Service. Explicitly **not** a club, coworking space, studio rental, creator house, or social lounge with recording equipment.
+- **The four floors (the vertical engine):**
+  - **07 — Recording Studios** *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*. High-fidelity audio fused with botanical design; 2 mirrored suites; the Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*). *This floor turns sound into IP.*
+  - **06 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*. AI Post-Production Lab (on-prem GPU arrays, resident-trained SLMs), Virtual Production Stage (Unreal Engine + LED volume), Sponsor Activation Lab (deck: *Brand Beta Lab* — sponsor product stress-tests, 48-hour beta sprints), Multi-Format Distribution Pipeline (deck: *Synthetic Media Pipeline* — auto-versioning across languages, formats, markets). *This floor turns ideas into visual proof.*
+  - **05 — Listening Lounge & Member Salon** *(deck: Japanese Archival Sanctuary / "the Social Heart")*. Reference Listening Room (deck: *Audio Altar*), 100 Private Member Lockers (one per resident per cycle), sponsor receptions, cultural salons. *This floor turns access into trust.*
+  - **04 — Business Operations & Deal Floor** *(deck: Professional Commons / "the War Room")*. Boardroom, glass meeting suites, sponsor presentation rooms, asset registry, chain-of-title, legal, IP admin, licensing & sync intelligence, Project Slate deployment. *This floor turns output into opportunity.*
+- **The Production Cycle engine.** 100 residents per cycle; 90-day cycle; 4 cycles per year; $3,500 non-refundable per-cycle entry; 24-hour acceptance window. Resident mix per cycle: **40% Music · 30% Content / AI · 20% Film / TV · 10% Ops.**
+- **The Project Slate.** A structured IP pipeline. Projects produced inside a cycle may **opt into** the Slate to receive material House infrastructure, distribution support, and sponsor participation — at which point the **Project Participation Agreement** (70 Resident / 20 House / 10 Sponsor Royalty Pool) activates. Default position is resident ownership at 100%.
+- **The Confidentiality & Security Protocol.** No-capture environments, private-entry protocol, the Mutual NDA with Liquidated Damages instrument, the Closed-Set Policy, and sovereign data handling (resident model weights and outputs quarantined from third-party APIs).
+- **Operating principle.** *Access is limited. Output is measured. Privacy is enforced. Ownership is structured.*
 
 ## 3. Market Analysis
 
-**Industry context.** Three converging markets: (1) premium co-working/private-club membership; (2) professional creative production facilities (studios, stages); (3) creator-economy brand partnerships. Each is large and growing, but addressed separately by undifferentiated providers (generic co-working, hourly studio rentals, ad agencies).
+**Industry context.** Three converging shifts make 5E47 timely:
 
-**Target market.** The top decile of working creators in a major metro who value privacy, peer density, and production quality over price — plus the brands that want authentic access to them.
+1. **Generative compute** has collapsed the cost of producing finished media — but raised the bar on what counts as institutional-grade IP.
+2. **The major-label / studio development pipeline has weakened**, leaving sophisticated creators without an apparatus that pairs production, rights, distribution, and capital under one roof.
+3. **Creator-owned IP is the new asset class**, but creators lack institutional-grade infrastructure to protect, package, and monetize it.
 
-**Segmentation.**
-- *Creators* — Anchor / Resident / Explorer tiers.
-- *Sponsors* — endemic brands seeking curated creator access.
-- *Investors* — partners in a brand-defensible asset.
+5E47 sits at the intersection: premium production-grade infrastructure + structured IP rights + sponsor royalty participation + a private-bank-grade discretion standard.
+
+**Target customer.** The top decile of working creators who value privacy, peer density, production quality, and ownership over price — plus the brands and capital partners who want authentic, structured exposure to the IP those creators produce.
 
 **Competitive landscape.**
 
 | Competitor type | Examples | 5E47 advantage |
 |---|---|---|
-| Private members' clubs | Soho House, Zero Bond | Production infrastructure + agent operations, not just lounges |
-| Pro studios / stages | Independent rental studios | Membership + community + curation, not transactional rentals |
-| Co-working | WeWork-class | Exclusivity, scarcity, and a curated peer graph |
-| Creator agencies | Talent/MCN | Owned physical asset + recurring membership base |
+| Private members' clubs | Soho House, Zero Bond | We are not a club. Production infrastructure + IP rights + sponsor royalty pool, not lounges. |
+| Pro studios / stages | Independent rental studios | Cycle-based residency + IP pipeline + chain-of-title, not transactional hours. |
+| Creator houses / collectives | Influencer mansions, creator collabs | Institutional discretion, opt-in equity structure, no clout-chasing. |
+| Talent/MCN agencies | Major talent agencies | Owned physical asset + compounding catalog + sponsor participation. |
+| Co-working | WeWork-class | Cycle scarcity, curated cohort, Confidentiality & Security Protocol — opposite end of the market. |
 
-**Moat.** Fixed physical footprint × enforced scarcity × curated network × agent operating layer. The brand strengthens as the waitlist grows — a flywheel competitors can't buy.
+**Moat (compounding).**
+1. **The Address.** Midtown Manhattan — the most expensive square mile of cultural attention on Earth.
+2. **The Network.** 100 residents per cycle × 4 cycles/yr × sponsors × media × capital, all moving through one controlled environment.
+3. **The Data.** Every cycle produces insight into talent, output, collaboration, and market response.
+4. **The Catalog.** The Project Slate compounds cycle after cycle into a queryable IP catalog of original cultural works.
 
 ## 4. Products & Services
 
-1. **Membership** — recurring, tiered, capped.
-2. **Studio & stage bookings** — hourly access to production-grade rooms.
-3. **Equipment rental** — premium gear as add-on.
-4. **Programming & hospitality** — masterclasses, salons, premieres.
-5. **Sponsor activations** — capped, high-value brand partnerships.
-6. **Concierge (Sam)** — the agent that ties it all together; the experiential product.
+1. **The Production Cycle (residency).** 90-day cycle inside the four-floor vertical engine. $3,500 entry per resident per cycle. Selection precedes payment.
+2. **Monthly residency dues (operating layer).** Tiered by floor access and service intensity during the 90-day cycle — funds in-cycle access to suites, render time, Virtual Production Stage, archival convening, and Sam concierge.
+3. **The Project Slate (opt-in IP pipeline).** Projects elected into the Slate receive structured House infrastructure, distribution support, and sponsor participation; governed by a project-level Project Participation Agreement (70 / 20 / 10).
+4. **Sponsor activations.** Category-exclusive anchor positions, naming rights, royalty-pool participation, Sponsor Activation Lab product stress-tests.
+5. **Cultural convening.** Floor-5 salons, listening sessions, sponsor receptions — sparse, controlled, by invitation only.
+6. **Sam (the operating concierge).** Single conversational surface across the entire resident lifecycle.
 
-## 5. The Operating Model — Agent-Run Club
+## 5. The Operating Model — Cycle-Run, Sam-Orchestrated
 
-5E47's differentiator is operational. **Sam** is the single conversational surface; subagents execute:
+The deck's narrative sells **the factory**. The operating system underneath it — kept internal — is what runs it.
 
-- **Concierge/Membership Agent** — applications, referrals, lifecycle, member Q&A.
-- **Booking Agent** — space and service reservations.
-- **Operations Agent** — day-to-day facility operations and exceptions.
-- **Marketing & Predictive Agent** — demand forecasting, scarcity band, admit/hold/raise recommendations.
-- **Finance Agent** — fees, invoices, dynamic pricing within luxury guardrails.
-- **Access Agent** — credentials and door control.
-- **Sponsorship Agent** — activations and ROI reporting.
+**Sam, the Concierge Agent**, is the single conversational surface. Beneath Sam, specialist subagents execute the building:
 
-This model **decouples member growth from headcount growth**, protecting both margin and the high-touch experience as the club scales across floors and (eventually) cities.
+- **Membership Agent** — invitations, selection logistics, lifecycle, resident Q&A.
+- **Predictive Agent** — pipeline scoring, cycle oversubscription forecasting, committee packaging.
+- **Booking Agent** — suite, render time, Virtual Production Stage, archival convening reservations during cycles.
+- **Access Agent** — credentials, private-entry protocol, vehicle routing, floor grants.
+- **Finance Agent** — $3,500 entry processing, monthly dues, sponsor invoicing, royalty-pool accounting.
+- **Sponsor Agent** — anchor onboarding, royalty pool, ROI reporting, slot scarcity.
+- **IP Catalog Agent** — Project Slate greenlight workflow, chain-of-title, registry, distribution windows.
+- **Programming Agent** — Floor-5 salons, sponsor receptions, listening sessions.
+- **Growth Agent** — referral cultivation, partner-network sourcing, brand-heat amplification.
+- **Operations Agent** — day-to-day facility ops, cycle open/close, exceptions.
+
+This model **decouples resident growth from headcount growth**. Every additional cycle — and every additional Location (Phase II/III) — deploys the same operating system without scaling the human team linearly. The agent layer is the margin engine and the multi-location replication enabler.
 
 ## 6. Marketing & Brand Strategy
 
-**Positioning.** *A members-only home for music, film, mastery, and the people building what's next.* Luxury, discreet, by invitation. The brand never performance-markets; scarcity does the selling.
+**Positioning.** *5E47 is where raw culture becomes luxury IP.* Cultural Infrastructure-as-a-Service. The brand never performance-markets; scarcity, selection, and the deck do the selling. The address is the entry point. The system is the asset.
 
 **Strategic pillars.**
 
-1. **Scarcity as marketing.** The cap and the waitlist are the campaign. Sam's predictive layer ensures we never over-admit, so the waitlist — and therefore desirability — persists.
-2. **Referral-led growth.** Members refer peers; referrals receive priority review. Growth stays curated and on-brand.
-3. **Programming as the engine.** Masterclasses, salons, and premieres are both the retention engine and the discovery surface — prospects experience the room before they apply. Sam's **Curator** agent creates and promotes a continuous calendar across six pillars (below); the **Herald** agent amplifies it externally.
-4. **Partner co-marketing.** Sponsors (Sony, Nike, A24, Bose, Arri, Universal) lend prestige; activations double as brand reach.
-5. **Editorial presence.** A cinematic, restrained landing experience — no discounts, no urgency tactics, no public pricing pages.
+1. **Selection as marketing.** No public-facing application funnel. The waitlist is implied, not advertised. Selection precedes payment; payment precedes entry.
+2. **The deck is the artifact.** A confidential, NDA-gated document distributed to qualified residents, sponsors, capital, media, real-estate, and tech partners. Not a public pricing page.
+3. **Sponsor co-marketing — through the Royalty Pool, not the lobby.** Sponsor relationships are participatory, governed, and auditable quarterly — not banner placements.
+4. **Cultural convening as discovery.** Floor-5 salons preview work and soften deals under archival lighting. Prospects experience the room before they apply.
+5. **Editorial restraint.** No discounts, no urgency tactics, no public pricing. The brand voice is private-bank discretion, not creator-economy noise.
 
-**Programming pillars (Curator agent).** Every masterclass and special event maps to one of six pillars, ensuring the calendar speaks to all four Houses and the brand at large:
+**Acquisition channels (Growth Agent, internal).** Demand sourcing is brand-led and feeds **selection pressure**, never the door:
 
-| Pillar | Examples |
-|---|---|
-| Content Creation | Short-form, audience-building, podcasting |
-| Music | Mixing, vocal production, songwriting |
-| Video | Directing on the volume, editing for emotion |
-| Marketing & Branding | Brand-as-story, positioning, creative direction |
-| Business Operations | Scaling without noise, the quiet founder, fundraising |
-| Creativity | Ideation, multidisciplinary practice, the shape of an idea |
+- **Referrals from existing residents, sponsors, and capital partners** — the primary signal.
+- **Exclusive luxury networks** — A Small World, Quintessentially, Amex Centurion, Sotheby's clientele — for high-fit prospects in trusted, invitation-only contexts.
+- **Editorial social presence** — Instagram, TikTok-style short form, YouTube long form, LinkedIn — cinematic, behind-the-glass, never promotional. Purpose: build cultural gravity, not click-through.
+- **Cultural salons & sponsor receptions** — the highest-signal prospect surface; one room at a time.
 
-Programming is member-first (retention, belonging, peer density) and prospect-facing (a curated taste of the room). It is the single most repeatable demand-generation asset the club owns.
+**Marketing KPIs.** Cycle oversubscription ratio, referral quality, sponsor anchor depth, Project Slate opt-in rate, IP catalog growth, capital partner pipeline.
 
-**Acquisition channels (Herald agent).** Demand generation is brand-led and feeds the *waitlist*, never the door — consistent with the scarcity model. The Herald agent runs two channel classes:
-
-- **Social media** — Instagram, TikTok, YouTube, LinkedIn. Editorial, cinematic, behind-the-glass (never promotional). Purpose: build desire and a qualified waitlist at scale.
-- **Exclusive luxury platforms** — private members' networks and concierge clienteles (e.g., A Small World, Quintessentially, Amex Centurion, Sotheby's network). Purpose: reach high-fit prospects inside trusted, invitation-only contexts.
-
-Channel performance is measured by *qualified waitlist contribution*, not raw reach, and flows directly into the brand-heat input of the predictive scarcity model — so marketing performance and admissions stay on one feedback loop.
-
-**Funnel & the predictive overlay.**
-
-`Awareness (editorial + programming) → Interest (referral/invite) → Application (/apply) → Committee review (Sam-assisted) → Admission within scarcity band → Activation → Retention (programming + concierge) → Advocacy (referrals)`
-
-The **Marketing & Predictive Agent** measures channel momentum (referrals, programming attendance, sponsor-driven reach) and forecasts next-cycle application volume, so admissions are calibrated to *hold* scarcity rather than chase volume.
-
-**Marketing KPIs.** Waitlist depth, referral rate, application quality score, programming attendance, brand-heat index, occupancy band adherence, sponsor reach/ROAS.
-
-**Marketing budget posture.** Deliberately lean and brand-led; spend concentrates on programming, editorial production, and partner co-marketing rather than paid acquisition. The scarcity model makes expensive paid funnels unnecessary — and on-brand to avoid.
+**Marketing budget posture.** Deliberately lean and brand-led; spend concentrates on editorial production, partner co-marketing, and Floor-5 convening — not paid acquisition. Performance-marketing the residency would dilute the brand instantly.
 
 ## 7. Operations Plan
 
-- **Facility:** 6 floors, ~38 rooms/stages; one controlled entry; floor-by-floor access tiers.
-- **Human team (lean):** membership committee, hospitality/front-of-house, technical engineers (audio/video), partnerships lead, finance. The agent system absorbs concierge, scheduling, billing, and analytics load.
-- **Hours & programming:** member access by credential; programming nights curated monthly.
-- **Service levels:** Sam responds instantly; exceptions escalate to humans with full context.
+- **Facility.** 5 East 47th Street; four floors (4–7); one controlled entry; private-entry protocol; floor-by-floor access tiers; no-capture environments in high-value suites.
+- **Cycle cadence.** 4 Production Cycles per year. Each cycle opens with onboarding (Day 0–7), runs production (Day 8–80), and closes with output review and Project Slate opt-in windows (Day 81–90). Inter-cycle transition is ~7 days.
+- **Human team (lean).** Selection committee, hospitality / front-of-house, audio engineers, video / virtual-production engineers, IP & legal lead, partnerships lead, finance, platform engineering. Sam and the subagents absorb concierge, scheduling, dues, access, and analytics load.
+- **Hours & convening.** Resident access by credential, governed by the Closed-Set Policy. Floor-5 salons curated per cycle.
+- **Service levels.** Sam responds instantly; exceptions escalate to humans with full context and an audit trail.
+- **Audit & compliance.** Mutual NDA administration, sponsor royalty accounting (quarterly), Project Slate chain-of-title registry, resident model-weight quarantine.
 
 ## 8. Management & Organization
 
-- **Founders / Holdings** — strategy, brand, capital.
-- **Head of Membership** — chairs the committee; owns curation quality.
-- **Head of Operations** — facility, studios, access, vendors.
-- **Head of Partnerships** — sponsors and activations.
-- **Finance** — billing, reporting, investor relations.
-- **Platform/Engineering** — owns Sam and the agent system.
+- **Hasenpfeffer Ventures LLC — Founders / Board** — strategy, brand, capital, expansion.
+- **Head of Residency** — chairs the selection committee; owns cycle cohort quality.
+- **Head of Operations** — facility, four-floor production, access, vendors.
+- **Head of Partnerships** — sponsor anchors, media partners, real-estate location-readiness.
+- **Head of IP & Legal** — Mutual NDA, Participation Agreement administration, chain-of-title, sync/licensing.
+- **Finance** — entries, dues, royalty pool, investor reporting.
+- **Platform / Engineering** — Sam and the agent operating system.
 
 ## 9. Financial Plan
 
-> Illustrative model. Assumes phased floor activation, steady-state ~210 members held within the 85–92% band, plus usage and sponsorship revenue.
+> Illustrative model. Assumes phased four-floor activation, the Flagship Location reaching 4 full cycles per year at 100 residents/cycle by Year 3, monthly dues blended ~$1,500 during the 90-day cycle, Project Slate opt-in maturing through Years 2–3, and sponsor anchor depth scaling with cycle count.
 
-### 9.1 Revenue assumptions (steady state, annualized)
+### 9.1 Revenue assumptions (steady state, annualized, Year 3)
 
 | Stream | Assumption | Annual (illustrative) |
 |---|---|---|
-| Membership | 210 members, blended ~$1,500/mo | ~$3.8M |
-| Studio & stage bookings | Usage on top of membership | ~$1.6M |
-| Sponsorships & activations | ~6–8 campaigns/yr, blended ~$150K | ~$1.0M |
-| Equipment, hospitality, events | Add-ons & programming | ~$0.5M |
-| **Total** | | **~$6.9M** |
+| Cycle entry fees | 100 residents × $3,500 × 4 cycles | ~$1.4M |
+| Monthly residency dues *(operating layer)* | Blended ~$1,500/mo × 100 residents × 3 mo × 4 cycles | ~$1.8M |
+| Project Slate House share | 20% on greenlit Slate projects (variable, growing with Slate maturity) | ~$1.5M |
+| Sponsor activations | ~6–8 anchor positions per year, blended ~$300K | ~$2.0M |
+| Studio / render / Virtual Production Stage usage (non-bundled) | Add-ons beyond dues tiers | ~$0.4M |
+| Programming, hospitality, convening | Floor-5 receptions, salons | ~$0.2M |
+| **Total** | | **~$7.3M** |
 
-The platform's analytics surface targets **ARR ≈ $4.9M** at current trajectory with **92% occupancy** and **88% retention** — this plan layers usage and sponsorship on top of that recurring base.
+The cycle entry fee is the **financial filter** — not the primary revenue source. Monthly dues and the Project Slate House share are the structural recurring base; sponsor anchors are the lumpy premium; the Project Slate is the long-tail asset that compounds.
 
 ### 9.2 Five-year trajectory (illustrative)
 
-| Year | Members | ARR (membership) | Total revenue | Notes |
-|---|---|---|---|---|
-| 1 | 120 | $2.1M | ~$3.2M | Floors 1–4 active; ramp |
-| 2 | 180 | $3.2M | ~$5.0M | Stage online; sponsorships scale |
-| 3 | 210 | $4.9M | ~$6.9M | Steady-state occupancy band |
-| 4 | 210 + waitlist | $5.3M | ~$7.6M | Pricing rises under scarcity; Location 2 (LA) build-out begins |
-| 5 | Multi-city | $6.0M+ | ~$9.0M+ | Second location (LA) online; London in planning (see §10) |
+| Year | Cycles | Residents/yr | Sponsor anchors | Total revenue | Notes |
+|---|---|---|---|---|---|
+| 1 | 2 (build-up) | 200 | 2–3 | ~$2.5M | Floors 4 & 5 first online; cycles 01–02 onboard. |
+| 2 | 4 | 400 | 4–6 | ~$5.0M | All four floors online; Sponsor Activation Lab live; first Slate projects greenlit. |
+| 3 | 4 | 400 | 6–8 | ~$7.3M | Steady-state Flagship Location; Slate maturing; royalty pool active. |
+| 4 | 4 + LA build | 400 + LA cohort | 8–10 | ~$10.0M | LA location opens (Phase II); cross-location access begins. |
+| 5 | NY + LA + London / Tokyo build | 800+ across locations | 12+ | ~$14.0M+ | Multi-location Slate; format portability proven. |
 
 ### 9.3 Cost structure (steady state, illustrative)
 
 | Category | % of revenue (target) |
 |---|---|
-| Real estate & facilities | ~30% |
-| People (lean team) | ~20% |
-| Equipment depreciation & upkeep | ~10% |
-| Technology & agent platform | ~6% |
-| Programming & hospitality | ~8% |
+| Real estate & facilities (5E47 + buildout amortization) | ~28% |
+| People (lean team) | ~18% |
+| Equipment depreciation & upkeep (Floors 6–7) | ~10% |
+| Technology & agent platform (Sam, compute, on-prem GPUs) | ~8% |
+| IP & legal infrastructure (Mutual NDA, Slate admin) | ~5% |
+| Programming & hospitality | ~6% |
 | Brand & partnerships | ~5% |
 | **Operating margin (target)** | **~20%+** |
 
-The agent operating layer is the margin engine: it holds technology + reduced concierge headcount well below the cost of a human-staffed concierge model at the same service level.
+The agent operating layer is the margin engine: Sam holds technology + reduced concierge headcount well below the cost of a human-staffed concierge model at the same private-bank service level.
 
 ### 9.4 Unit economics
 
-- **ARPU (blended monthly):** ~$1,500 membership + usage.
-- **Retention:** ~88% (platform target); high switching cost (network + access).
-- **LTV:** high, driven by retention and usage; **CAC:** structurally low (referral + scarcity-led).
-- **Contribution per member** improves as Sam absorbs servicing cost.
+- **Per-resident-per-cycle contribution.** $3,500 entry + ~$4,500 dues over 90 days = ~$8,000 gross/resident/cycle, before usage upside and Slate participation.
+- **Per-cycle contribution.** ~$800K gross from residents alone, plus sponsor anchor revenue allocated per cycle.
+- **Project Slate LTV.** Long-tail. A single greenlit Slate project can produce multi-year revenue across syndication, sync, and royalty windows.
+- **CAC.** Structurally low — referral and selection-led; no paid acquisition.
 
 ### 9.5 Funding & use of funds (illustrative)
 
-- **Use:** floor build-out & equipment, agent platform, 18-month operating runway, programming launch.
-- **Path to profitability:** reach steady-state occupancy band by Year 3; operating-margin positive as usage and sponsorship layer onto the recurring base.
+- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
+- **Path to profitability.** Reach 4 cycles/year and Slate maturity by Year 3; operating-margin positive as the Slate compounds and sponsor anchors deepen.
 
-## 10. Geographic Expansion — New Locations
+## 10. Geographic Expansion — The Multi-Location Blueprint
 
-5E47 is designed as a **repeatable, multi-city brand**, not a single building. The flagship at 47 Fifth Avenue proves the model; the agent operating layer makes each subsequent location cheaper and faster to launch, because Sam and the subagents (and the entire admissions/booking/finance/programming/growth playbook) are software that travels.
+5E47 is the **Flagship Location**, not the final form. The deck's Section IX is explicit: the long-term architecture is a global network of private cultural infrastructure locations, each engineered to identify, develop, package, and commercialize institutional-grade IP. Replication is engineered into the original design.
 
-**Expansion thesis.** Each new city is a fresh, capped scarcity market with its own waitlist and its own four Houses, sharing one brand, one membership network, and one operating system. Members gain reciprocal access across locations — a compounding network effect that strengthens the brand globally while each house stays deliberately small locally.
+**Expansion thesis.** Each new Location is a fresh capped scarcity market — its own cycles, its own cohort, its own sponsor anchors — sharing one brand, one Project Slate catalog, one operating system, and one cross-location access standard. Talent follows the factory. The factory exists in every major market.
 
 **Why the agent model de-risks expansion.**
-- The operating system (Sam + subagents) deploys as a new tenant — no linear concierge/ops headcount per city.
-- The predictive scarcity engine recalibrates per-city caps and bands automatically from local demand and marketing performance.
-- The Herald agent localizes acquisition (city-specific social + luxury platforms) while the brand voice stays centrally governed.
-- Programming (Curator) and partnerships travel; sponsors gain multi-market reach.
 
-**Site selection criteria.** Density of working creators; presence of music/film/founder ecosystems; luxury-market depth; suitable six-floor (or comparable) real estate; strong programming and sponsor partner availability.
+- The Sam operating system deploys as a new tenant — no linear concierge/ops headcount per Location.
+- The predictive layer recalibrates per-Location selection pressure and dues tiers from local demand.
+- The Growth Agent localizes acquisition; brand voice stays centrally governed.
+- Sponsor anchors gain multi-market reach without renegotiating per Location.
+- The Project Slate compounds across Locations — one queryable catalog, multiple production engines.
 
-**Roadmap (illustrative).**
+**Roadmap (deck-canonical).**
 
-| Phase | City | Rationale |
+| Phase | Cities | Rationale |
 |---|---|---|
-| Flagship | New York (47 Fifth) | Prove the model; reach steady-state occupancy band |
-| Location 2 (Y3–Y4) | Los Angeles | Music + film + creator density; sponsor overlap |
-| Location 3 (Y4–Y5) | London | Global luxury hub; founders + arts; reciprocal NY/LA network |
-| Location 4+ (Y5+) | Miami / Paris / Tokyo | Brand-led demand; partner-driven site selection |
+| **Phase I — Flagship** | New York (5 East 47th) | Validates the operating model, the intelligence stack, the brand-partner proposition. Operational. |
+| **Phase II — Deployment** | Los Angeles · London · Tokyo | Standardized location deployment, ready upon Flagship stabilization at Production Cycle 03. |
+| **Phase III — Platform** | Atlanta · Dubai · Riyadh · Abu Dhabi | Cross-location access. The talent follows the factory. The factory exists in every major market. |
 
-**Expansion economics.** Each location follows the flagship's blended model (membership + usage + sponsorship) and is underwritten only once local waitlist depth signals durable demand — the same scarcity discipline applied to admissions is applied to *opening doors*. New-city build-out and equipment are the primary capital line; the platform and brand are largely amortized. The Year 5 trajectory in §9.2 assumes the second location is online and contributing; subsequent cities extend the curve.
+**Expansion economics.** Each Location follows the Flagship blueprint (cycle entries + dues + Slate + sponsors) and is underwritten only on proven local selection pressure and partner depth. New-Location buildout is the primary capital line; the platform and the brand are largely amortized.
 
 ## 11. Risk Analysis & Mitigation
 
 | Risk | Mitigation |
 |---|---|
-| Over-admission dilutes brand | Hard caps + Sam's scarcity guardrails (85–92% band, never exceed cap) |
-| Demand softens | Predictive layer flags early; programming + referrals re-prime funnel |
-| Key-person/committee bottleneck | Sam pre-scores applicants; committee ratifies (human-in-loop, not bottleneck) |
-| Technology dependence on agent system | Interface-boundary design; graceful human fallback; full audit log |
-| Sponsorship concentration | Cap slots; diversify partner base |
-| Real-estate cost shock | Long lease terms; usage revenue cushions fixed cost |
-| Privacy/discretion breach | Confidentiality by default; least-privilege access; agent action logging |
-| Expansion dilutes brand | Open a new city only on proven local waitlist depth; per-city caps; central brand governance |
+| Over-admission dilutes brand | Hard cap of 100 residents per cycle; Sam's selection-pressure guardrails; never exceed cohort to chase revenue. |
+| Cycle oversubscription softens | Predictive layer flags early; partner-network sourcing and editorial cultural gravity re-prime demand. |
+| Selection-committee bottleneck | Sam pre-scores and packages applicants; committee ratifies (human-in-loop, not bottleneck). |
+| Technology dependence on Sam | Interface-boundary design (swappable integrations); graceful human fallback; full audit log; on-prem compute reduces external dependency. |
+| Sponsor concentration | Cap anchor slots per cycle; diversify across categories; royalty pool participation, not flat fees, aligns sponsors to the long term. |
+| Real-estate cost shock | Long lease at 5 East 47th; cycle entries + dues + Slate diversify the revenue base. |
+| Privacy / discretion breach | Confidentiality & Security Protocol: Closed-Set Policy, private-entry protocol, Mutual NDA with liquidated damages; least-privilege access; agent action logging. |
+| Chain-of-title dispute on Slate work | Default = resident owns 100%; Project Participation Agreement is project-level, signed before Slate execution; quarterly auditable royalty accounting. |
+| Expansion dilutes brand | Open a new Location only on proven Flagship stabilization (cycle 3+); per-Location caps; central brand & legal governance. |
+| Resident model-weight leakage | Resident SLM weights quarantined from third-party APIs; on-prem inference inside the building. |
 
 ## 12. Milestones
 
-1. **M0–M3:** Agent platform v1 (Sam + subagents incl. Curator & Herald), membership & booking flows live.
-2. **M3–M6:** Predictive scarcity + dynamic pricing in production; programming calendar + social/luxury acquisition running; sponsor portal.
-3. **M6–M12:** Full floor activation; programming cadence across all six pillars; reach 120+ members.
-4. **Y2:** Stage/LED volume monetized; sponsorships scaled; 180 members.
-5. **Y3:** Steady-state occupancy band; investor-grade reporting; profitability path; site selection for Location 2.
-6. **Y4–Y5:** Pricing power under scarcity; Location 2 (LA) online; London in planning (multi-city, §10).
+1. **M0–M3.** Sam platform v1 (Membership, Predictive, Booking, Access, Finance subagents); cycle 01 onboarded; Floors 4 & 5 operational.
+2. **M3–M6.** Floors 6 & 7 online; first Sponsor Activation Lab sprint; cycle 02 closes with measurable output and first Project Slate opt-ins.
+3. **M6–M12.** Confidentiality & Security Protocol fully enforced; first sponsor anchors signed with royalty-pool participation; cycle 03 reaches the 100-resident cap with oversubscription.
+4. **Y2.** 4 cycles/yr cadence; Project Slate registry live; first Slate distribution windows opened; capital partner pipeline established for Phase II.
+5. **Y3.** Flagship Location steady state; Slate compounds into the queryable IP catalog; Phase II site selection (LA first).
+6. **Y4.** LA Location opens; cross-location access standard live; London / Tokyo site work begins.
+7. **Y5.** Multi-location operating system proven; Phase III (Atlanta / Dubai / Riyadh / Abu Dhabi) sequencing begins.
 
 ---
 
-*This plan is intentionally scarcity-disciplined: every growth lever is bounded by the brand's exclusivity, and Sam enforces that boundary operationally.*
+## Reconciliation note (for internal readers)
+
+The investor deck (v5.2) is canonical: 5 East 47th Street, Hasenpfeffer Ventures LLC, four floors, the Volume engine, the 47 Equity Pact, the Sovereignty Protocol, the Genesis Node → multi-location blueprint. This plan honors all of it as fact — just renamed in industry-standard vocabulary for operators, partners, and outside reviewers.
+
+What this plan adds for operators — and what the deck does not disclose externally — is the **Sam-orchestrated agent layer** and the **monthly residency dues** that fund in-cycle service intensity on top of the $3,500 entry fee. Both are confirmed operating choices. They protect margin and discretion without contradicting the deck's positioning that 5E47 is *an asset class, not an amenity*. The deck sells the factory. Sam runs it. The Project Slate compounds it.
+
+*This plan is intentionally scarcity-disciplined: every growth lever is bounded by selection, security, and the Slate. Sam enforces those boundaries operationally.*
