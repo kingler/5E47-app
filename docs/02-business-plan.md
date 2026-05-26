@@ -34,7 +34,7 @@ The investor thesis is simple: *Culture does not have a talent problem. It has a
 - **Category:** Private Cultural Infrastructure / Cultural Infrastructure-as-a-Service. Explicitly **not** a club, coworking space, studio rental, creator house, or social lounge with recording equipment.
 - **The four floors (the vertical engine):**
   - **07 — Recording Studios** *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*. High-fidelity audio fused with botanical design; 2 mirrored suites; the Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*). *This floor turns sound into IP.*
-  - **06 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*. AI Post-Production Lab (on-prem GPU arrays, resident-trained SLMs), **Floor-6 AI Studio** (creative-domain agents — Music, Video, 3D, Animation — running on quarantined GPU compute; open-weight base models DeepSeek-V3 / R1 and Qwen 2.5 / Qwen3 plus domain-specific models for audio, video, 3D, and animation; per-resident SLM fine-tuning on each resident's catalog), Virtual Production Stage (Unreal Engine + LED volume), Sponsor Activation Lab (deck: *Brand Beta Lab* — sponsor product stress-tests, 48-hour beta sprints), Multi-Format Distribution Pipeline (deck: *Synthetic Media Pipeline* — auto-versioning across languages, formats, markets). *This floor turns ideas into visual proof — and houses the AI Studio that executes them.*
+  - **06 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*. AI Post-Production Lab (on-prem GPU arrays, resident-trained SLMs), **Floor-6 AI Studio** (creative-domain agents — Music, Video, 3D, Animation — running on quarantined GPU compute; open-weight base models DeepSeek-V3 / R1 and Qwen3-235B / Qwen2.5-VL plus domain-specific models for audio, video, 3D, and animation (canonical stack: SDP §3A.2); per-resident SLM fine-tuning on each resident's catalog), Virtual Production Stage (Unreal Engine + LED volume), Sponsor Activation Lab (deck: *Brand Beta Lab* — sponsor product stress-tests, 48-hour beta sprints), Multi-Format Distribution Pipeline (deck: *Synthetic Media Pipeline* — auto-versioning across languages, formats, markets). *This floor turns ideas into visual proof — and houses the AI Studio that executes them.*
   - **05 — Listening Lounge & Member Salon** *(deck: Japanese Archival Sanctuary / "the Social Heart")*. Reference Listening Room (deck: *Audio Altar*), 100 Private Member Lockers (one per resident per cycle), sponsor receptions, cultural salons. *This floor turns access into trust.*
   - **04 — Business Operations & Deal Floor** *(deck: Professional Commons / "the War Room")*. Boardroom, glass meeting suites, sponsor presentation rooms, asset registry, chain-of-title, legal, IP admin, licensing & sync intelligence, Project Slate deployment. *This floor turns output into opportunity.*
 - **The Production Cycle engine.** 100 residents per cycle; 90-day cycle; 4 cycles per year; $3,500 non-refundable per-cycle entry; 24-hour acceptance window. Resident mix per cycle: **40% Music · 30% Content / AI · 20% Film / TV · 10% Ops.**
@@ -149,6 +149,8 @@ This model **decouples resident growth from headcount growth**. Every additional
 
 > Illustrative model. Assumes phased four-floor activation, the Flagship Location reaching 4 full cycles per year at 100 residents/cycle by Year 3, monthly dues blended ~$1,500 during the 90-day cycle, Project Slate opt-in maturing through Years 2–3, and sponsor anchor depth scaling with cycle count.
 
+> **Canonical source.** This §9 (with the AI Studio billing model in §4 item 7) is the single source of truth for the **AI Studio as a Service** commercial assumptions: $400/mo baseline subscription per resident during the 90-day cycle, 100 residents × 4 cycles/year, and metered GPU-hours above the included envelope. Other docs (BMC §5 revenue table; SDP §3A.3; DesignThru §3.4) summarize these for in-context reading and reference back here.
+
 ### 9.1 Revenue assumptions (steady state, annualized, Year 3)
 
 | Stream | Assumption | Annual (illustrative) |
@@ -200,13 +202,13 @@ The agent operating layer is the margin engine: Sam holds technology + reduced c
 ### 9.5 Funding & use of funds (illustrative)
 
 - **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
-- **Floor-6 AI Studio hardware tiers (one-time capex, investor-stage selection).** The buildout is sized to the launch ambition — all three are defensible:
+- **Floor-6 AI Studio hardware tiers (one-time capex, investor-stage selection).** The buildout is sized to the launch ambition — all three are defensible. *Canonical specs and capacity per tier: SDP §3A.1.* Summary:
 
-  | Tier | Spec | Capex | Production capacity |
-  |---|---|---|---|
-  | **Conservative** | 2× Mac Studio M3 Ultra or RTX 6000 Ada workstations + 1× 4-GPU L40S inference server; NVMe storage; 10GbE | ~$150K–$250K | ~25 concurrent residents on inference; fine-tuning queued overnight |
-  | **Standard (recommended)** | 4× creator workstations + 2× 8-GPU H100/H200 servers; tiered NVMe + NAS; 25GbE; UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production |
-  | **Aggressive** | 2–4 node H200 cluster + dedicated fine-tuning rig (8× H200) + redundant networking, cooling, and storage | ~$1.2M–$2.5M | Multi-cycle headroom; supports video/3D model serving at production scale; ready for Phase II Location templating |
+  | Tier | Capex | Capacity headline |
+  |---|---|---|
+  | **Conservative** | ~$150K–$250K | ~25 concurrent residents on inference; fine-tuning queued |
+  | **Standard (recommended)** | ~$500K–$900K | All 100 residents per cycle on inference with headroom; parallel fine-tuning |
+  | **Aggressive** | ~$1.2M–$2.5M | Multi-cycle headroom; production-scale video/3D; Phase II templating |
 
 - **Path to profitability.** Reach 4 cycles/year and Slate maturity by Year 3; operating-margin positive as the Slate compounds and sponsor anchors deepen.
 

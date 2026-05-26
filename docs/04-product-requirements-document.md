@@ -190,7 +190,7 @@ The Predictive Agent computes, from the live domain data:
 - **R3 — Finance, Access, Confidentiality & Security:** Finance, Access subagents; Closed-Set Policy enforcement; private-entry protocol; Mutual NDA execution; data-quarantine boundary.
 - **R4 — Project Slate & Sponsorship:** IP Catalog Agent; opt-in workflow; Participation Agreement digital execution; chain-of-title registry; Sponsor Royalty Pool reporting; Sponsor Activation Lab scheduling.
 - **R5 — Programming, Growth & Hardening:** programming + growth subagents; LLM provider swap-in behind the interface; agent evals; analytics polish; audit export; location-readiness review for Phase II.
-- **R6 — AI Studio as a Service:** Music / Video / 3D / Animation agents wired to on-prem model stack (DeepSeek-V3 / R1, Qwen 2.5 / Qwen3, plus domain-specific models); per-resident SLM fine-tune workflow on Floor 6 GPU compute; IP Catalog provenance logging; AI Studio metering, billing, and operator utilization view.
+- **R6 — AI Studio as a Service:** Music / Video / 3D / Animation agents wired to on-prem model stack (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific models — see SDP §3A.2); per-resident SLM fine-tune workflow on Floor 6 GPU compute; IP Catalog provenance logging; AI Studio metering, billing, and operator utilization view.
 
 ## 11. Open Questions
 

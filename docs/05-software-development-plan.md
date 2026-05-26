@@ -77,6 +77,8 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 
 ## 3A. Floor-6 AI Studio — Hardware & Model Stack
 
+> **Canonical source.** This section is the single source of truth for AI Studio hardware tiers (§3A.1), the on-prem model stack (§3A.2), and the AI Studio commercial layer (§3A.3). Other docs (BMC §9, Business Plan §9.5, BRD §5.11, PRD R6, DesignThru §3.4) summarize these for reading-in-context and reference back here for the canonical definition.
+
 The AI Studio is the on-prem creative-compute platform that hosts the Music, Video, 3D, and Animation agents and the per-resident fine-tuned SLMs. Three hardware buildouts are documented; the selection is an investor-stage decision sized to launch ambition.
 
 ### 3A.1 Hardware tiers (one-time capex)
@@ -154,7 +156,7 @@ All models run inside the Floor-6 quarantine boundary. No request or weight cros
 
 ### Phase 6 — AI Studio as a Service
 - Floor-6 hardware install (tier per §3A.1) and rack acceptance test.
-- On-prem model deployment: DeepSeek-V3 / R1, Qwen3 / Qwen2.5-VL, plus domain-specific models (audio, video, 3D, animation).
+- On-prem model deployment: DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific models (audio, video, 3D, animation). See §3A.2 for the canonical model identifiers and roles.
 - **Music, Video, 3D, Animation** agents implemented against the same orchestration interface as the existing subagents.
 - Per-resident SLM fine-tuning pipeline (opt-in at onboarding; trains during the cycle; weights stored on Floor 6 only).
 - AI Studio billing path: baseline subscription + metered GPU-hours via the Finance Agent.
