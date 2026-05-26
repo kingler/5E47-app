@@ -71,6 +71,10 @@ The deck sells the **factory**. Sam runs it.
 | **IP Catalog (Project Slate)** | Key Activities (Slate) | Opt-in workflow, Participation Agreement execution, chain-of-title, distribution windows | "I want to take my cycle 02 EP into the Slate." |
 | **Programming** | Channels — programming | Floor-5 salons, listening sessions, sponsor receptions | "What's on the Floor-5 calendar this week?" |
 | **Growth** | Channels — acquisition | Referral cultivation, partner-network sourcing, brand-heat amplification | (operator) "Generate the cycle 04 referral packet." |
+| **Music** *(AI Studio)* | Activities — creative generation | Production, arrangement, sound design, mastering against on-prem audio models (Stable Audio Open, MusicGen) and the resident's audio SLM | "Draft three vocal-forward arrangement options in my style for the bridge." |
+| **Video** *(AI Studio)* | Activities — creative generation | Shot generation, cut-down, color, editorial assembly against on-prem video models (Wan 2.2, HunyuanVideo, LTX-Video) and the Virtual Production Stage | "Cut a 30-second teaser from today's stage capture, color-matched to my reference." |
+| **3D** *(AI Studio)* | Activities — creative generation | Mesh and scene generation, texturing, render direction against on-prem 3D models (TRELLIS, Hunyuan3D-2) and the LED-volume pipeline | "Generate a photoreal interior set from this floor plan; export for Unreal." |
+| **Animation** *(AI Studio)* | Activities — creative generation | Motion generation, keyframe interpolation, character animation against on-prem motion models (AnimateDiff family) and a motion-style SLM | "Animate this character cycle in my reference style; 24fps, 4 seconds." |
 
 ### 4.3 Orchestration flow
 
@@ -120,6 +124,12 @@ The Predictive Agent computes, from the live domain data:
 ### Resident — Finance & Dues
 - **US-7** As a resident, I can ask Sam my $3,500 entry status, current monthly dues balance, and remaining cycle days.
 - **US-8** As a sponsor, I can ask Sam for my Q[n] Sponsor Royalty Pool distribution.
+
+### Resident — AI Studio as a Service
+- **US-AS-1** As a resident, I can ask Sam to direct the Music / Video / 3D / Animation Agent in natural language (e.g., *"draft three vocal arrangement options in my style"*). Sam routes to the right creative agent, returns the result inline, and logs provenance into the IP Catalog.
+- **US-AS-2** As a resident, I can opt my catalog into a **per-resident SLM fine-tune** at onboarding; the SLM trains during the cycle on Floor 6 and is called by the creative agents to bias generations to my style. I own the weights; they never leave the building.
+- **US-AS-3** As a resident, I can ask Sam for my AI Studio balance: included GPU-hour envelope used, metered overage so far, projected end-of-cycle cost.
+- **US-AS-4** As an operator, I can see AI Studio utilization (per-agent, per-resident, GPU-hour) on the operator console and forecast capex headroom against the active hardware tier.
 
 ### Resident — Project Slate Opt-In
 - **US-9** As a resident at Day 81–90, I can ask Sam to opt my project into the Project Slate; Sam walks me through the project-level Participation Agreement (70/20/10), chain-of-title metadata, and distribution windows.
@@ -180,6 +190,7 @@ The Predictive Agent computes, from the live domain data:
 - **R3 — Finance, Access, Confidentiality & Security:** Finance, Access subagents; Closed-Set Policy enforcement; private-entry protocol; Mutual NDA execution; data-quarantine boundary.
 - **R4 — Project Slate & Sponsorship:** IP Catalog Agent; opt-in workflow; Participation Agreement digital execution; chain-of-title registry; Sponsor Royalty Pool reporting; Sponsor Activation Lab scheduling.
 - **R5 — Programming, Growth & Hardening:** programming + growth subagents; LLM provider swap-in behind the interface; agent evals; analytics polish; audit export; location-readiness review for Phase II.
+- **R6 — AI Studio as a Service:** Music / Video / 3D / Animation agents wired to on-prem model stack (DeepSeek-V3 / R1, Qwen 2.5 / Qwen3, plus domain-specific models); per-resident SLM fine-tune workflow on Floor 6 GPU compute; IP Catalog provenance logging; AI Studio metering, billing, and operator utilization view.
 
 ## 11. Open Questions
 

@@ -34,7 +34,7 @@ The investor thesis is simple: *Culture does not have a talent problem. It has a
 - **Category:** Private Cultural Infrastructure / Cultural Infrastructure-as-a-Service. Explicitly **not** a club, coworking space, studio rental, creator house, or social lounge with recording equipment.
 - **The four floors (the vertical engine):**
   - **07 — Recording Studios** *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*. High-fidelity audio fused with botanical design; 2 mirrored suites; the Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*). *This floor turns sound into IP.*
-  - **06 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*. AI Post-Production Lab (on-prem GPU arrays, resident-trained SLMs), Virtual Production Stage (Unreal Engine + LED volume), Sponsor Activation Lab (deck: *Brand Beta Lab* — sponsor product stress-tests, 48-hour beta sprints), Multi-Format Distribution Pipeline (deck: *Synthetic Media Pipeline* — auto-versioning across languages, formats, markets). *This floor turns ideas into visual proof.*
+  - **06 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*. AI Post-Production Lab (on-prem GPU arrays, resident-trained SLMs), **Floor-6 AI Studio** (creative-domain agents — Music, Video, 3D, Animation — running on quarantined GPU compute; open-weight base models DeepSeek-V3 / R1 and Qwen 2.5 / Qwen3 plus domain-specific models for audio, video, 3D, and animation; per-resident SLM fine-tuning on each resident's catalog), Virtual Production Stage (Unreal Engine + LED volume), Sponsor Activation Lab (deck: *Brand Beta Lab* — sponsor product stress-tests, 48-hour beta sprints), Multi-Format Distribution Pipeline (deck: *Synthetic Media Pipeline* — auto-versioning across languages, formats, markets). *This floor turns ideas into visual proof — and houses the AI Studio that executes them.*
   - **05 — Listening Lounge & Member Salon** *(deck: Japanese Archival Sanctuary / "the Social Heart")*. Reference Listening Room (deck: *Audio Altar*), 100 Private Member Lockers (one per resident per cycle), sponsor receptions, cultural salons. *This floor turns access into trust.*
   - **04 — Business Operations & Deal Floor** *(deck: Professional Commons / "the War Room")*. Boardroom, glass meeting suites, sponsor presentation rooms, asset registry, chain-of-title, legal, IP admin, licensing & sync intelligence, Project Slate deployment. *This floor turns output into opportunity.*
 - **The Production Cycle engine.** 100 residents per cycle; 90-day cycle; 4 cycles per year; $3,500 non-refundable per-cycle entry; 24-hour acceptance window. Resident mix per cycle: **40% Music · 30% Content / AI · 20% Film / TV · 10% Ops.**
@@ -78,6 +78,7 @@ The investor thesis is simple: *Culture does not have a talent problem. It has a
 4. **Sponsor activations.** Category-exclusive anchor positions, naming rights, royalty-pool participation, Sponsor Activation Lab product stress-tests.
 5. **Cultural convening.** Floor-5 salons, listening sessions, sponsor receptions — sparse, controlled, by invitation only.
 6. **Sam (the operating concierge).** Single conversational surface across the entire resident lifecycle.
+7. **AI Studio as a Service.** On-prem creative AI agents — Music, Video, 3D, Animation — that residents direct through Sam to execute generation, editing, mastering, and rendering work. Models run on Floor-6 GPU compute under the quarantine boundary; each resident's catalog is used to fine-tune a personal SLM that the agents call. Sold as a 7th revenue stream: a baseline AI Studio tier ($400/mo per resident during the cycle) plus metered GPU-hours above the included envelope.
 
 ## 5. The Operating Model — Cycle-Run, Sam-Orchestrated
 
@@ -95,6 +96,10 @@ The deck's narrative sells **the factory**. The operating system underneath it �
 - **Programming Agent** — Floor-5 salons, sponsor receptions, listening sessions.
 - **Growth Agent** — referral cultivation, partner-network sourcing, brand-heat amplification.
 - **Operations Agent** — day-to-day facility ops, cycle open/close, exceptions.
+- **Music Agent** — AI Studio domain expert: production, arrangement, sound design, mastering. Drives on-prem audio models (Stable Audio Open, MusicGen) plus the resident's audio SLM.
+- **Video Agent** — AI Studio domain expert: shot generation, cut-down, color, editorial assembly. Drives on-prem video models (Wan 2.2, HunyuanVideo, LTX-Video) plus the Virtual Production Stage.
+- **3D Agent** — AI Studio domain expert: mesh and scene generation, texturing, render direction. Drives on-prem 3D models (TRELLIS, Hunyuan3D-2) and the LED volume pipeline.
+- **Animation Agent** — AI Studio domain expert: motion generation, keyframe interpolation, character animation. Drives on-prem motion models (AnimateDiff family) plus a resident-specific motion-style SLM.
 
 This model **decouples resident growth from headcount growth**. Every additional cycle — and every additional Location (Phase II/III) — deploys the same operating system without scaling the human team linearly. The agent layer is the margin engine and the multi-location replication enabler.
 
@@ -153,8 +158,9 @@ This model **decouples resident growth from headcount growth**. Every additional
 | Project Slate House share | 20% on greenlit Slate projects (variable, growing with Slate maturity) | ~$1.5M |
 | Sponsor activations | ~6–8 anchor positions per year, blended ~$300K | ~$2.0M |
 | Studio / render / Virtual Production Stage usage (non-bundled) | Add-ons beyond dues tiers | ~$0.4M |
+| **AI Studio as a Service** | $400/mo baseline × 100 residents × 3 mo × 4 cycles + metered GPU-hours above envelope | ~$0.6M–$1.2M |
 | Programming, hospitality, convening | Floor-5 receptions, salons | ~$0.2M |
-| **Total** | | **~$7.3M** |
+| **Total** | | **~$7.9M–$8.5M** |
 
 The cycle entry fee is the **financial filter** — not the primary revenue source. Monthly dues and the Project Slate House share are the structural recurring base; sponsor anchors are the lumpy premium; the Project Slate is the long-tail asset that compounds.
 
@@ -162,11 +168,11 @@ The cycle entry fee is the **financial filter** — not the primary revenue sour
 
 | Year | Cycles | Residents/yr | Sponsor anchors | Total revenue | Notes |
 |---|---|---|---|---|---|
-| 1 | 2 (build-up) | 200 | 2–3 | ~$2.5M | Floors 4 & 5 first online; cycles 01–02 onboard. |
-| 2 | 4 | 400 | 4–6 | ~$5.0M | All four floors online; Sponsor Activation Lab live; first Slate projects greenlit. |
-| 3 | 4 | 400 | 6–8 | ~$7.3M | Steady-state Flagship Location; Slate maturing; royalty pool active. |
-| 4 | 4 + LA build | 400 + LA cohort | 8–10 | ~$10.0M | LA location opens (Phase II); cross-location access begins. |
-| 5 | NY + LA + London / Tokyo build | 800+ across locations | 12+ | ~$14.0M+ | Multi-location Slate; format portability proven. |
+| 1 | 2 (build-up) | 200 | 2–3 | ~$2.8M | Floors 4 & 5 first online; cycles 01–02 onboard; AI Studio (Conservative tier) live for early residents. |
+| 2 | 4 | 400 | 4–6 | ~$5.6M | All four floors online; Sponsor Activation Lab live; AI Studio at full tier; first Slate projects greenlit. |
+| 3 | 4 | 400 | 6–8 | ~$7.9M–$8.5M | Steady-state Flagship Location; Slate maturing; royalty pool active; AI Studio at design capacity. |
+| 4 | 4 + LA build | 400 + LA cohort | 8–10 | ~$11.0M | LA location opens (Phase II); cross-location access begins; LA AI Studio templated from NY. |
+| 5 | NY + LA + London / Tokyo build | 800+ across locations | 12+ | ~$15.5M+ | Multi-location Slate; format portability proven; per-Location AI Studio amortizes faster. |
 
 ### 9.3 Cost structure (steady state, illustrative)
 
@@ -185,14 +191,23 @@ The agent operating layer is the margin engine: Sam holds technology + reduced c
 
 ### 9.4 Unit economics
 
-- **Per-resident-per-cycle contribution.** $3,500 entry + ~$4,500 dues over 90 days = ~$8,000 gross/resident/cycle, before usage upside and Slate participation.
-- **Per-cycle contribution.** ~$800K gross from residents alone, plus sponsor anchor revenue allocated per cycle.
+- **Per-resident-per-cycle contribution.** $3,500 entry + ~$4,500 dues + $1,200 AI Studio baseline ($400/mo × 3) = ~$9,200 gross/resident/cycle, before metered GPU-hour usage, suite/render add-ons, and Slate participation.
+- **Per-cycle contribution.** ~$920K gross from residents alone, plus sponsor anchor revenue allocated per cycle.
 - **Project Slate LTV.** Long-tail. A single greenlit Slate project can produce multi-year revenue across syndication, sync, and royalty windows.
 - **CAC.** Structurally low — referral and selection-led; no paid acquisition.
+- **AI Studio gross margin.** After year-1 capex amortization (see §9.5), the marginal cost of an AI Studio GPU-hour is power + depreciation only; metered usage above the baseline runs at ~70–80% gross margin.
 
 ### 9.5 Funding & use of funds (illustrative)
 
-- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
+- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
+- **Floor-6 AI Studio hardware tiers (one-time capex, investor-stage selection).** The buildout is sized to the launch ambition — all three are defensible:
+
+  | Tier | Spec | Capex | Production capacity |
+  |---|---|---|---|
+  | **Conservative** | 2× Mac Studio M3 Ultra or RTX 6000 Ada workstations + 1× 4-GPU L40S inference server; NVMe storage; 10GbE | ~$150K–$250K | ~25 concurrent residents on inference; fine-tuning queued overnight |
+  | **Standard (recommended)** | 4× creator workstations + 2× 8-GPU H100/H200 servers; tiered NVMe + NAS; 25GbE; UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production |
+  | **Aggressive** | 2–4 node H200 cluster + dedicated fine-tuning rig (8× H200) + redundant networking, cooling, and storage | ~$1.2M–$2.5M | Multi-cycle headroom; supports video/3D model serving at production scale; ready for Phase II Location templating |
+
 - **Path to profitability.** Reach 4 cycles/year and Slate maturity by Year 3; operating-margin positive as the Slate compounds and sponsor anchors deepen.
 
 ## 10. Geographic Expansion — The Multi-Location Blueprint

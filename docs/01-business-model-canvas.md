@@ -39,6 +39,7 @@ Beneath that public narrative sits the **operating layer**: a multi-agent AI sys
 - No-capture environments, private-entry protocol, and a Mutual NDA with Liquidated Damages — private-bank-grade discretion for institutional-grade work.
 - 100% ownership of work made on premises by default; the Project Participation Agreement (the deck's *47 Equity Pact*) is opt-in only for projects elected into the Project Slate.
 - One conversation with **Sam** handles selection logistics, booking, access, dues, and introductions — luxury concierge at near-zero marginal cost.
+- **AI Studio as a Service.** On-prem creative AI agents — domain experts in music, video, 3D modeling, and animation — running on Floor 6's quarantined GPU compute, fine-tuned on each resident's own catalog. Residents direct the studio in natural language through Sam; weights and outputs never leave the building.
 
 **For sponsors — *marketing spend becomes asset acquisition.***
 - Sponsors are not buying placement. They are participating in the upside of the cultural assets the building produces — through a governed, auditable **10% Sponsor Royalty Pool** on Project Slate projects.
@@ -78,6 +79,7 @@ Beneath that public narrative sits the **operating layer**: a multi-agent AI sys
 | **Project Slate House share** | 20% House (Hasenpfeffer) cut on greenlit projects that opt into the Participation Agreement | Variable; compounds with Project Slate maturity |
 | **Sponsor activations** | Qualified anchor slots; category-exclusive; royalty-pool participation | $200K–$500K per anchor; capped slots per cycle |
 | **Studio & equipment usage** | Floor-7 mirrored suites (3·3·3 model), Floor-6 GPU/render time, Virtual Production Stage hours | Variable; bundled into dues at higher tiers |
+| **AI Studio as a Service** | On-prem creative-agent access (Music, Video, 3D, Animation) on Floor-6 GPU compute; per-resident SLM fine-tuning; metered GPU-hour + tiered subscription | $400/mo entry tier; usage-based above 40 GPU-hr/mo; ~**$0.6M–$1.2M/yr** at steady state (100 residents × 4 cycles) |
 | **Cross-location licensing (future)** | Format Portability fees as the operating model deploys to LA/London/Tokyo | Layered in from Phase II |
 
 Blended model: **structural recurring base** (cycle entries + monthly dues) + **IP upside** (Project Slate House share) + **lumpy premium** (sponsor anchors). The Project Slate is the asset that compounds; everything else funds the factory that produces it.
@@ -87,7 +89,7 @@ Blended model: **structural recurring base** (cycle entries + monthly dues) + **
 - **The Address.** 5 East 47th Street — Midtown Manhattan gives the project institutional gravity. Proximity to talent, capital, media, and luxury brands is the asset.
 - **The Vertical Engine.** Four floors, each with a defined job:
   - **Floor 7 — Recording Studios** *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*: high-fidelity audio + biological environment design; 2 mirrored suites; a Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*).
-  - **Floor 6 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*: AI Post-Production Lab, Virtual Production Stage, Sponsor Activation Lab (deck name: *Brand Beta Lab*), Multi-Format Distribution Pipeline (deck name: *Synthetic Media Pipeline*); on-prem GPU arrays; resident-trained SLMs deployed inside the building.
+  - **Floor 6 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*: AI Post-Production Lab, Virtual Production Stage, Sponsor Activation Lab (deck name: *Brand Beta Lab*), Multi-Format Distribution Pipeline (deck name: *Synthetic Media Pipeline*); on-prem GPU arrays (Floor-6 AI Studio — see Cost Structure for buildout tiers); resident-trained SLMs and quarantined open-weight base models (DeepSeek-V3 / R1, Qwen 2.5 / Qwen3, plus domain-specific audio, video, 3D, and animation models) deployed inside the building.
   - **Floor 5 — Listening Lounge & Member Salon** *(deck: Japanese Archival Sanctuary / "the Social Heart")*: Reference Listening Room (deck name: *Audio Altar*), 100 Private Member Lockers (one per resident per cycle), sponsor receptions, cultural salons.
   - **Floor 4 — Business Operations & Deal Floor** *(deck: Professional Commons / "the War Room")*: legal, IP admin, asset registry, chain-of-title, deal floor, sponsor presentation rooms, Project Slate deployment.
 - **The Project Slate / The IP Catalog.** A queryable library of original cultural IP that compounds cycle over cycle — the long-tail defensibility layer.
@@ -123,6 +125,7 @@ Blended model: **structural recurring base** (cycle entries + monthly dues) + **
 |---|---|
 | **Real estate & buildout** | 5 East 47th Street lease, four-floor buildout, equipment install, ongoing facilities |
 | **Equipment & studios** | Floor-7 audio (Neve/SSL class, Vocal Isolation Booth, HEPA), Floor-6 GPU arrays + Virtual Production Stage + LED volume, Floor-5 archival lighting + listening systems, Floor-4 secure deal rooms |
+| **Floor-6 AI Studio hardware (capex, see SDP §7)** | Three buildout tiers: **Conservative** (~$150K–$250K — 2 creator workstations + 1× 4-GPU L40S server), **Standard** (~$500K–$900K — 4 workstations + 2× 8-GPU H100/H200 server cluster + NVMe storage), **Aggressive** (~$1.2M–$2.5M — 2–4 node H200 cluster + dedicated fine-tuning rig + redundant networking and cooling). Selected at the investor stage |
 | **People (lean)** | Selection committee, hospitality, audio/video engineers, IP & legal lead, partnerships lead, finance, platform engineering |
 | **Technology** | Sam + agent platform, cloud, on-prem compute, model inference, integrations |
 | **IP & legal infrastructure** | Mutual NDA administration, Project Slate chain-of-title, sponsor royalty accounting, private-entry protocol |
@@ -149,6 +152,10 @@ The public narrative (the deck) sells the factory. The operating layer (Sam) run
 | Channels (acquisition) | **Growth Agent** | Referral cultivation, partner-network sourcing, brand-heat amplification |
 | Key Activities (Project Slate) | **IP Catalog Agent** | Project greenlight workflow, chain-of-title, IP catalog registry, distribution windows |
 | Key Activities (ops) | **Operations Agent** | Day-to-day facility ops, cycle open/close, exceptions |
+| AI Studio — audio | **Music Agent** | Domain expert in production, arrangement, sound design, and audio mastering. Drives on-prem audio models (Stable Audio Open, MusicGen) and the resident's fine-tuned audio SLM to generate stems, score sketches, and mixdown candidates from natural-language direction; outputs are logged into the IP Catalog with provenance |
+| AI Studio — video | **Video Agent** | Domain expert in shot generation, cut-down, color, and edit assembly. Drives on-prem video models (Wan 2.2, HunyuanVideo, LTX-Video) plus the Virtual Production Stage; produces editorial cuts, b-roll, and multi-format versions for the Distribution Pipeline |
+| AI Studio — 3D | **3D Agent** | Domain expert in mesh generation, scene assembly, texturing, and rendering. Drives on-prem 3D models (TRELLIS, Hunyuan3D-2) and the LED volume pipeline; produces assets ready for Unreal Engine scenes |
+| AI Studio — animation | **Animation Agent** | Domain expert in motion generation, keyframe interpolation, and character animation. Drives on-prem motion/animation models (AnimateDiff family) plus a resident-specific motion-style SLM; produces shot-ready animation passes |
 
 **Sam, the Concierge Agent**, is the orchestrator: it classifies intent, delegates to the right subagent, synthesizes a single private-bank-grade response, and runs the predictive layer that keeps the factory inside its scarcity band — cycle after cycle.
 
