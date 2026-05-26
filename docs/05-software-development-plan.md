@@ -71,8 +71,8 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 | Payments | stub | Stripe Billing/Connect (entries, dues, royalty distributions) |
 | Access | stub | Kisi / Openpath / Brivo + private-entry protocol orchestration |
 | Media | n/a | Mux / Cloudflare Stream + on-prem capture restriction |
-| Compute (resident SLMs) | n/a | On-prem GPU node inside 5E47 (Floor 6 Post-Production & AI — see §3 AI Studio hardware) |
-| AI Studio creative agents | n/a | Music / Video / 3D / Animation agents driving on-prem open-weight models (see §3.1) |
+| Compute (resident SLMs) | n/a | On-prem GPU node inside 5E47 (Floor 6 Post-Production & AI — see §3A.1 for hardware tiers) |
+| AI Studio creative agents | n/a | Music / Video / 3D / Animation agents driving on-prem open-weight models (see §3A.2 for the model stack) |
 | Infra | Vercel/edge | + AWS, Cloudflare, Datadog/Grafana; on-prem hybrid for security-bound workloads |
 
 ## 3A. Floor-6 AI Studio — Hardware & Model Stack
