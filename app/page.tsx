@@ -44,12 +44,10 @@ const HOUSES = [
 ];
 
 const FLOORS = [
-  { n: 6, name: "Salons & Events", note: "Programming nights only" },
-  { n: 5, name: "Stage · LED Volume", note: "Closed shoots & premieres" },
-  { n: 4, name: "Edit Bays & Founders' Wing", note: "Resident keys only" },
-  { n: 3, name: "Podcast & Writers' Floor", note: "Quiet — phones face-down" },
-  { n: 2, name: "Audio Rooms", note: "Two control rooms · vocal booth" },
-  { n: 1, name: "Lobby & Lounge", note: "Members and invited guests" },
+  { n: 7, name: "Recording Studios", note: "High-fidelity suites · vocal isolation booth" },
+  { n: 6, name: "Post-Production & AI Studio", note: "LED volume · on-prem model cluster · edit bays" },
+  { n: 5, name: "Listening Lounge & Member Salon", note: "Reference room · lockers · programming nights" },
+  { n: 4, name: "Business & Deal Floor", note: "IP admin · chain-of-title · resident keys" },
 ];
 
 const PROGRAMMING = [
@@ -135,7 +133,7 @@ export default function Landing() {
 
           <Reveal delay={240}>
             <p className="mt-12 max-w-xl text-ink-muted text-[15px] md:text-[17px] leading-[1.7]">
-              Six floors in lower Manhattan. Closed studios, closed salons,
+              Four floors in Midtown Manhattan. Closed studios, closed salons,
               a closed room of peers. Membership is by invitation or referral.
             </p>
           </Reveal>
@@ -226,7 +224,7 @@ export default function Landing() {
             </Reveal>
             <Reveal delay={120} className="md:col-span-8">
               <h2 className="font-serif text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.04] text-balance">
-                Six floors.
+                Four floors.
                 <br />
                 <span className="text-ink-muted italic">Each one earns its quiet.</span>
               </h2>

@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     userId: user.id,
     doorId: body.doorId ?? "door_unknown",
     doorName: body.doorName ?? "Unknown door",
-    floor: body.floor ?? 1,
+    floor: body.floor ?? 4,
     outcome: "granted" as const,
     at: new Date().toISOString(),
     credential: body.credential ?? "mobile",
