@@ -95,11 +95,11 @@ The AI Studio is the on-prem creative-compute platform that hosts the Music, Vid
 
 ### 3A.2 On-prem model stack
 
-All models run inside the Floor-6 quarantine boundary. No request or weight crosses the boundary to a third-party API.
+These open-weight models are the **reasoning core — the "brain" — of the human-facing creative agents** (Music, Video, 3D, Animation): a resident describes what they're making and the agents reason and generate on top of these models. The stack below is **representative and extensible, not a fixed catalog** — it grows with domain-specific models fine-tuned to particular creative-workflow tasks, and the named models are current examples. All models run inside the Floor-6 quarantine boundary; no request or weight crosses the boundary to a third-party API.
 
 | Category | Models | Used by |
 |---|---|---|
-| General reasoning / code | **DeepSeek-V3** (production reasoning); **DeepSeek-R1** (chain-of-thought) | Sam orchestrator (on-prem mode); all subagents for high-discretion workloads |
+| General reasoning / code | **DeepSeek-V3** (production reasoning); **DeepSeek-R1** (chain-of-thought); **Llama 3.x / 4** (general + tool-use) | Sam orchestrator (on-prem mode); all subagents for high-discretion workloads; resident direct-endpoint use |
 | Multimodal + multilingual | **Qwen3-235B** (text); **Qwen2.5-VL** (vision); **Qwen2.5-Coder** | Sam; Music / Video / 3D / Animation agents; Multi-Format Distribution Pipeline |
 | Audio (Music Agent) | **Stable Audio Open**, **MusicGen** | Stem generation, score sketches, sound design, mastering candidates |
 | Video (Video Agent) | **Wan 2.2**, **HunyuanVideo**, **LTX-Video** | Shot generation, cut-down, color, multi-format versioning |
@@ -113,6 +113,7 @@ All models run inside the Floor-6 quarantine boundary. No request or weight cros
 - **Quotas & fairness.** A scheduler enforces per-resident envelopes, per-cycle global capacity, and a fairness queue during peak hours.
 - **Provenance.** Every generation emits an IP Catalog event (resident, agent, base model, SLM hash, prompt, output hash, timestamp). Slate opt-in inherits this provenance chain.
 - **Quarantine.** All inference and fine-tuning happen on Floor 6. Cross-boundary calls are logged via the existing quarantine boundary (see §9 Security).
+- **Direct endpoint access (personal laptops, BYOD).** Distinct from the creative agents, residents may connect their own **personal laptops** to the shared inference server's **OpenAI-compatible model endpoints** (e.g., DeepSeek, Qwen, Llama, and the domain-specific models) while on the Floor-6 network. Endpoints are exposed only inside the quarantine boundary, authenticated per resident, capability-scoped to the resident's AI-Studio tier, metered on the same GPU-hour envelope, and provenance-logged. No endpoint is reachable from outside Floor 6; model weights are **served, not downloadable**, so they never leave the building, while a resident's own prompts and generations may be pulled to their laptop consistent with 100% resident ownership.
 
 ## 4. Delivery Phases & Milestones
 
@@ -158,7 +159,7 @@ All models run inside the Floor-6 quarantine boundary. No request or weight cros
 
 ### Phase 6 — AI Studio as a Service
 - Floor-6 hardware install (tier per §3A.1) and rack acceptance test.
-- On-prem model deployment: DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific models (audio, video, 3D, animation). See §3A.2 for the canonical model identifiers and roles.
+- On-prem model deployment: DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, plus domain-specific models (audio, video, 3D, animation). See §3A.2 for the canonical model identifiers and roles.
 - **Music, Video, 3D, Animation** agents implemented against the same orchestration interface as the existing subagents.
 - Per-resident SLM fine-tuning pipeline (opt-in at onboarding; trains during the cycle; weights stored on Floor 6 only).
 - AI Studio billing path: baseline subscription + metered GPU-hours via the Finance Agent.

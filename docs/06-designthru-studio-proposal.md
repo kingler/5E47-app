@@ -25,7 +25,7 @@ DesignThru Studio proposes to design and build **Sam, the Concierge Agent** — 
 
 Residents hold one conversation with Sam from the moment they're selected into a Production Cycle through alumni status: accept the selection within 24 hours, pay the $3,500 entry, complete the Mutual NDA, onboard, book Floor-7 Recording Studios and Floor-6 render time, manage monthly residency dues, opt projects into the Project Slate at cycle close, and exit clean. Behind Sam, specialist subagents run the building, the cycle engine, the Project Slate, and the Confidentiality & Security Protocol. A predictive layer continuously protects cycle scarcity and reads brand heat across referrals, partner introductions, and sponsor reach.
 
-We propose a **fixed-scope, phased engagement** delivering a production-hardened v1 in **~6 months**, including the **AI Studio as a Service** — on-prem creative-domain agents (Music, Video, 3D, Animation) running against quarantined open-weight models (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific audio, video, 3D, and animation models — full stack: §3.4 below and SDP §3A.2) and per-resident fine-tuned SLMs on Floor 6's GPU cluster.
+We propose a **fixed-scope, phased engagement** delivering a production-hardened v1 in **~6 months**, including the **AI Studio as a Service** — on-prem creative-domain agents (Music, Video, 3D, Animation) running against quarantined open-weight models (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, plus domain-specific audio, video, 3D, and animation models — full stack: §3.4 below and SDP §3A.2) and per-resident fine-tuned SLMs on Floor 6's GPU cluster, with residents able to connect their own personal laptops directly to the on-prem model endpoints.
 
 Total program investment is tier-dependent: **~$1.66M–$2.06M at the recommended Standard hardware tier** (software ~$1.16M + Floor-6 AI Studio cluster $500K–$900K). Conservative and Aggressive buildouts bracket it at ~$1.31M and ~$3.66M. Post-launch run-rate is **~$166K–$712K/year** depending on the selected hardware tier — offset by AI Studio as a Service revenue (a 7th revenue stream baselined at $400/mo per resident plus metered GPU-hours). A working architecture already exists end-to-end; this engagement hardens it into production, implements the deck-canonical Project Slate and Confidentiality & Security primitives, swaps the stubbed integrations for live services, and stands up the AI Studio. The architecture is **location-ready** — the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
 
@@ -72,12 +72,13 @@ Pure, explainable models compute cycle fill per resident-mix slot (Music 40 / Co
 
 A 7th revenue stream and a defensible product surface. Four domain-expert agents — **Music, Video, 3D, Animation** — run on Floor 6's quarantined GPU cluster, directable by any resident through Sam.
 
-**The on-prem model stack** (no third-party API calls):
+**The on-prem model stack** — the open models are the agents' reasoning core; this list is representative and extends with workflow-tuned models (no third-party API calls):
 
-- **General reasoning** — DeepSeek-V3 (production) and DeepSeek-R1 (chain-of-thought).
+- **General reasoning** — DeepSeek-V3 (production), DeepSeek-R1 (chain-of-thought), Llama 3.x / 4 (general + tool-use).
 - **Multimodal + multilingual** — Qwen3-235B (text), Qwen2.5-VL (vision), Qwen2.5-Coder (code).
 - **Domain-specific** — audio (Stable Audio Open, MusicGen); video (Wan 2.2, HunyuanVideo, LTX-Video); 3D (TRELLIS, Hunyuan3D-2); animation (AnimateDiff family).
 - **Per-resident SLMs** — 7B–32B base models fine-tuned during the cycle on each resident's own catalog (opt-in). Called by the creative agents to bias generations to the resident's style. Weights stored on Floor 6 only; resident owns the weights.
+- **Direct access (personal laptops)** — beyond the four agents, residents can connect their own personal laptops to the on-prem model endpoints (OpenAI-compatible API) while on the Floor-6 network; metered and provenance-logged the same way, and the model weights never leave the building.
 
 **Hardware buildout (one-time capex, investor-stage decision).** *Canonical specs and capacity per tier: SDP §3A.1.* Summary:
 
@@ -116,7 +117,7 @@ A 7th revenue stream and a defensible product surface. Four domain-expert agents
 ## 4. Scope & Deliverables
 
 - Sam orchestrator + all subagents (Membership, Predictive, Booking, Access, Finance, Sponsor, IP Catalog, Programming, Growth, Operations — **plus the four AI Studio creative-domain agents: Music, Video, 3D, Animation**), capability-scoped and audited.
-- **AI Studio as a Service** stack: on-prem deployment of DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, and domain-specific models (audio, video, 3D, animation); per-resident SLM fine-tuning pipeline on Floor-6 GPU compute; provenance into the IP Catalog; metered billing through the Finance Agent.
+- **AI Studio as a Service** stack: on-prem deployment of DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, and domain-specific models (audio, video, 3D, animation), served on OpenAI-compatible endpoints residents can call directly from their own personal laptops; per-resident SLM fine-tuning pipeline on Floor-6 GPU compute; provenance into the IP Catalog; metered billing through the Finance Agent.
 - Predictive selection, brand-heat, dues-tier signal, churn, and Slate-readiness models.
 - Project Slate registry: opt-in workflow, project-level Participation Agreement (70/20/10) digital execution, tamper-evident chain-of-title, quarterly Royalty Pool accounting.
 - Confidentiality & Security primitives: Closed-Set enforcement, private-entry protocol orchestration, Mutual NDA digital execution + breach review, resident-SLM quarantine boundary with audit.
