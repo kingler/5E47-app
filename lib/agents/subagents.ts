@@ -147,7 +147,7 @@ export function handleOperations(ctx: AgentContext): AgentTurn {
     agentId: "operations",
     intent: "operations",
     summary: "Reported facility status.",
-    reply: `All systems are nominal across the six floors. There ${
+    reply: `All systems are nominal across the four floors. There ${
       upcoming === 1 ? "is" : "are"
     } ${upcoming} confirmed booking${upcoming === 1 ? "" : "s"} upcoming. If you need a specific room held or have an issue on a floor, tell me and I'll handle it or route it to the house team.`,
   };
@@ -201,7 +201,7 @@ export function handleAccess(ctx: AgentContext): AgentTurn {
     agentId: "access",
     intent: "access",
     summary: `Explained access for Floor ${residency.floor} resident.`,
-    reply: `Your credential opens the lobby, the audio rooms, and your home Floor ${residency.floor}. The LED volume stage on Floor 5 and Salons on Floor 6 open for booked sessions and programming nights. Tap your phone at any door — if something's locked that shouldn't be, tell me and I'll grant it.`,
+    reply: `Your credential opens the entry, the recording studios, and your home Floor ${residency.floor}. The LED volume stage on Floor 6 and the Listening Lounge & Salon on Floor 5 open for booked sessions and programming nights. Tap your phone at any door — if something's locked that shouldn't be, tell me and I'll grant it.`,
   };
 }
 

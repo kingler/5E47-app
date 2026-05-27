@@ -32,7 +32,7 @@ export default async function CreatorAccess() {
             </div>
             <div className="mt-1 text-xs text-ink-soft">{user.name}</div>
             <div className="mt-4 text-[11px] text-ink-soft">
-              Floors 1 · 2 · 3 · 4 (resident areas)
+              Floors 4 · 5 · 6 · 7 (resident areas)
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mt-3">
@@ -95,10 +95,10 @@ export default async function CreatorAccess() {
         <SectionTitle hint="Where you can go right now">Your entitlements</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            ["Floor 1", "Lobby, café, retail"],
-            ["Floor 2", "Audio studios A/B"],
-            ["Floor 3", "Podcast & writers"],
-            ["Floor 4", "Edit bays · resident area"],
+            ["Floor 7", "Recording studios · vocal booth"],
+            ["Floor 6", "AI Studio · LED volume · edit bays"],
+            ["Floor 5", "Listening lounge · member lockers"],
+            ["Floor 4", "Business & deal floor"],
           ].map(([f, d]) => (
             <div key={f} className="surface-soft p-4">
               <div className="text-sm font-medium">{f}</div>

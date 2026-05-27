@@ -1,4 +1,4 @@
-// Architectural elevation: a tall building cross-section with six floors.
+// Architectural elevation: a building cross-section with the four floors (4–7).
 // Used to anchor the §02 building section. Pure SVG, server-rendered.
 
 export function BuildingElevation({
@@ -8,8 +8,8 @@ export function BuildingElevation({
   className?: string;
   highlightFloor?: number;
 }) {
-  const floors = [6, 5, 4, 3, 2, 1];
-  const floorH = 70;
+  const floors = [7, 6, 5, 4];
+  const floorH = 105;
   const top = 60;
   return (
     <svg
