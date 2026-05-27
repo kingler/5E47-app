@@ -85,11 +85,13 @@ The AI Studio is the on-prem creative-compute platform that hosts the Music, Vid
 
 | Tier | Compute | Storage & networking | Capex | Capacity |
 |---|---|---|---|---|
-| **Conservative** | 2× Mac Studio M3 Ultra **or** RTX 6000 Ada workstations (creator seats) + 1× 4-GPU **L40S** inference server | 80TB NVMe + 200TB NAS; 10GbE; rack UPS | ~$150K–$250K | ~25 concurrent residents on inference; per-resident SLM fine-tunes queued overnight; primarily LLM + audio/animation workloads |
-| **Standard (recommended)** | 4× creator workstations + 2× 8-GPU **H100 / H200** servers (one inference, one fine-tuning) | Tiered NVMe (240TB hot) + 500TB NAS; 25GbE; redundant UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production; video and 3D models served at near-real-time |
+| **Conservative** | 2× M5 Mac Studio (Ultra) **or** RTX 6000 Ada workstations (creator seats) + 1× 4-GPU **L40S** inference server | 80TB NVMe + 200TB NAS; 10GbE; rack UPS | ~$150K–$250K | ~25 concurrent residents on inference; per-resident SLM fine-tunes queued overnight; primarily LLM + audio/animation workloads |
+| **Standard (recommended)** | **5× M5 Mac Studio (Ultra) creator seats + cinema displays** + 2× 8-GPU **H100 / H200** servers (one inference, one fine-tuning) | Tiered NVMe (240TB hot) + 500TB NAS; 25GbE; redundant UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production; video and 3D models served at near-real-time |
 | **Aggressive** | 2–4 node **H200** cluster (16–32× H200) + dedicated 8× H200 fine-tuning rig | Multi-PB tiered storage; 100GbE; N+1 cooling and power; redundant networking | ~$1.2M–$2.5M | Multi-cycle headroom; production-scale video and 3D serving; Phase II Location templating built in |
 
 **Recurring (all tiers).** Power, HVAC, hardware support contracts, replacement parts. Standard tier ≈ **$60K–$120K/yr** in run-rate (depreciation + power + support); see §7.2.
+
+**Creator workstation standard.** Each creator seat is an **M5 Mac Studio (Ultra)** paired with a cinema-grade display (Apple Pro Display XDR / Studio Display) for color-accurate editing and grading; the recommended Standard tier provisions **5× M5 Mac Studio seats**. The Mac Studios run the creative suites (DaVinci Resolve, Logic, Adobe, Nuke) and local LLM/image inference via unified memory, while heavy diffusion/video generation and per-resident SLM fine-tuning run on the H100/H200 servers. Workstation capex (5× M5 Mac Studio + cinema displays ≈ $45K–$85K) is included within the Standard tier capex above.
 
 ### 3A.2 On-prem model stack
 
