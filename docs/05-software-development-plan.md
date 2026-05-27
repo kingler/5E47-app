@@ -95,7 +95,7 @@ The AI Studio is the on-prem creative-compute platform that hosts the Music, Vid
 
 ### 3A.2 On-prem model stack
 
-All models run inside the Floor-6 quarantine boundary. No request or weight crosses the boundary to a third-party API.
+These open-weight models are the **reasoning core — the "brain" — of the human-facing creative agents** (Music, Video, 3D, Animation): a resident describes what they're making and the agents reason and generate on top of these models. The stack below is **representative and extensible, not a fixed catalog** — it grows with domain-specific models fine-tuned to particular creative-workflow tasks, and the named models are current examples. All models run inside the Floor-6 quarantine boundary; no request or weight crosses the boundary to a third-party API.
 
 | Category | Models | Used by |
 |---|---|---|
@@ -113,7 +113,7 @@ All models run inside the Floor-6 quarantine boundary. No request or weight cros
 - **Quotas & fairness.** A scheduler enforces per-resident envelopes, per-cycle global capacity, and a fairness queue during peak hours.
 - **Provenance.** Every generation emits an IP Catalog event (resident, agent, base model, SLM hash, prompt, output hash, timestamp). Slate opt-in inherits this provenance chain.
 - **Quarantine.** All inference and fine-tuning happen on Floor 6. Cross-boundary calls are logged via the existing quarantine boundary (see §9 Security).
-- **Direct endpoint access.** Beyond the four creative agents, residents may point their own workstation apps and tools at the shared inference server's **OpenAI-compatible model endpoints** (DeepSeek, Qwen, Llama, and the domain-specific models) over the Floor-6 network. Endpoints are exposed only inside the quarantine boundary, authenticated per resident, capability-scoped to the resident's AI-Studio tier, metered on the same GPU-hour envelope, and provenance-logged. No endpoint is reachable from outside Floor 6.
+- **Direct endpoint access (personal computers).** Distinct from the creative agents, residents may connect their own **personal computers** and tools to the shared inference server's **OpenAI-compatible model endpoints** (e.g., DeepSeek, Qwen, Llama, and the domain-specific models) over the Floor-6 network. Endpoints are exposed only inside the quarantine boundary, authenticated per resident, capability-scoped to the resident's AI-Studio tier, metered on the same GPU-hour envelope, and provenance-logged. No endpoint is reachable from outside Floor 6.
 
 ## 4. Delivery Phases & Milestones
 
