@@ -130,6 +130,7 @@ The Predictive Agent computes, from the live domain data:
 - **US-AS-2** As a resident, I can opt my catalog into a **per-resident SLM fine-tune** at onboarding; the SLM trains during the cycle on Floor 6 and is called by the creative agents to bias generations to my style. I own the weights; they never leave the building.
 - **US-AS-3** As a resident, I can ask Sam for my AI Studio balance: included GPU-hour envelope used, metered overage so far, projected end-of-cycle cost.
 - **US-AS-4** As an operator, I can see AI Studio utilization (per-agent, per-resident, GPU-hour) on the operator console and forecast capex headroom against the active hardware tier.
+- **US-AS-5** As a resident, I can point my own tools and workstation apps at the shared on-prem inference server and call the open-weight models (DeepSeek, Qwen, Llama, and the domain-specific models) directly through a standard API on the Floor-6 network — metered and provenance-logged like the agent calls, and never leaving the building.
 
 ### Resident — Project Slate Opt-In
 - **US-9** As a resident at Day 81–90, I can ask Sam to opt my project into the Project Slate; Sam walks me through the project-level Participation Agreement (70/20/10), chain-of-title metadata, and distribution windows.
@@ -190,7 +191,7 @@ The Predictive Agent computes, from the live domain data:
 - **R3 — Finance, Access, Confidentiality & Security:** Finance, Access subagents; Closed-Set Policy enforcement; private-entry protocol; Mutual NDA execution; data-quarantine boundary.
 - **R4 — Project Slate & Sponsorship:** IP Catalog Agent; opt-in workflow; Participation Agreement digital execution; chain-of-title registry; Sponsor Royalty Pool reporting; Sponsor Activation Lab scheduling.
 - **R5 — Programming, Growth & Hardening:** programming + growth subagents; LLM provider swap-in behind the interface; agent evals; analytics polish; audit export; location-readiness review for Phase II.
-- **R6 — AI Studio as a Service:** Music / Video / 3D / Animation agents wired to on-prem model stack (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific models — see SDP §3A.2); per-resident SLM fine-tune workflow on Floor 6 GPU compute; IP Catalog provenance logging; AI Studio metering, billing, and operator utilization view.
+- **R6 — AI Studio as a Service:** Music / Video / 3D / Animation agents wired to on-prem model stack (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, plus domain-specific models — see SDP §3A.2); resident direct-endpoint access to the on-prem models; per-resident SLM fine-tune workflow on Floor 6 GPU compute; IP Catalog provenance logging; AI Studio metering, billing, and operator utilization view.
 
 ## 11. Open Questions
 
