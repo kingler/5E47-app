@@ -179,6 +179,8 @@ Total: **~5.5 months** to production-hardened v1; **~6 months** with AI Studio (
 | Security review (private-bank grade), evals, legal templates & contingency | $93K |
 | **Software build subtotal** | **~$1.16M** |
 
+**AI/agent share.** Of the ~$1.16M software build, the agent/AI-attributable portion is **~$247K of dedicated AI-specialist labor** (Sam orchestration, the predictive layer, the creative agents, and agent evals), delivered within the AI-weighted phases (2, 5, 6 ≈ $512K — which also carry the operator console, hardening, and metering). *Full breakdown: SDP §7.6.*
+
 ### 7.1b Build — Floor-6 AI Studio hardware (capex, one-time)
 
 Tier-dependent; select at the investor stage. The hardware is the asset that turns Floor 6 into a billable production surface. The cost options below are sized to **realistic expected usage** — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access — and each line is priced at current enterprise rates. *Canonical specs and capacity per tier: SDP §3A.1.*

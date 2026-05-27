@@ -282,6 +282,32 @@ Selected at the investor stage per §3A.1:
 
 **Cost narrative.** The agent operating layer is the **margin engine** — it offsets concierge/ops headcount that would otherwise scale linearly with residents and Locations. The biggest variable cost shifts (vs. v1.0 of this plan) are the **Floor-6 AI Studio buildout** (which adds AI Studio as a Service as a 7th revenue stream — see Business Plan §9) and the on-prem GPU compute required for resident-SLM quarantine and the private-bank-grade security posture. Both are deck-canonical commitments — they protect data sovereignty and turn Floor 6 into a billable production surface rather than pure cost.
 
+### 7.6 AI development cost (attributable view)
+
+This isolates the agent/AI portion of the ~$1.16M software build above. It is a lens on the same figures, not additional spend. Two views, because AI work spans dedicated specialists and shared delivery phases.
+
+**Dedicated AI-specialist labor.**
+
+| Line | From | Cost |
+|---|---|---|
+| AI/agent engineer — orchestration, evals, predictive | §7.1 | ~$120K |
+| ML/AI Studio engineer — creative-domain agents, fine-tune pipeline, on-prem serving | §7.1 | ~$99K |
+| Agent evals & guardrail test suite | §7.3 | ~$28K |
+| **Dedicated AI labor subtotal** | | **~$247K** |
+
+**AI-weighted delivery (by phase).** These phases are substantially AI but also carry the operator-console UI, hardening, and metering/billing delivered alongside the agents:
+
+| Phase | AI content | Phase cost |
+|---|---|---|
+| 2 · Predictive & Console | Selection-pressure, brand-heat, dues-tier, churn, Slate-readiness models | $152K |
+| 5 · LLM & Hardening | LLM integration boundary, on-prem SLM serving, evals, observability | $128K |
+| 6 · AI Studio as a Service | Music / Video / 3D / Animation agents, per-resident fine-tune pipeline, metering | $232K |
+| **AI-weighted phase total** | | **~$512K** |
+
+Sam's orchestrator and subagent framework (delegation, capability scoping, audit) is built incrementally across Phases 1–5 and is captured within the dedicated AI labor above.
+
+**Run-rate (AI portion, annual).** LLM inference for non-quarantined workloads $18K–$60K · on-prem cluster (depreciation + power + support, tier-dependent) $40K–$400K · model ops (vector storage, registry, monitoring) $12K–$30K. See §7.2.
+
 ## 8. Testing & Quality
 
 - **Unit tests** for predictive functions (pure, deterministic) and intent classification.
