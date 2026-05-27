@@ -89,6 +89,19 @@ The AI Studio is the on-prem creative-compute platform that hosts the Music, Vid
 | **Standard (recommended)** | **5× M5 Mac Studio (Ultra) creator seats + cinema displays** + 2× 8-GPU **H100 / H200** servers (one inference, one fine-tuning) | Tiered NVMe (240TB hot) + 500TB NAS; 25GbE; redundant UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production; video and 3D models served at near-real-time |
 | **Aggressive** | 2–4 node **H200** cluster (16–32× H200) + dedicated 8× H200 fine-tuning rig | Multi-PB tiered storage; 100GbE; N+1 cooling and power; redundant networking | ~$1.2M–$2.5M | Multi-cycle headroom; production-scale video and 3D serving; Phase II Location templating built in |
 
+**Itemized capex by tier (current enterprise rates).** Each tier is sized to realistic expected usage — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access. Line items are priced at current enterprise rates (volume/negotiated at the low end of each range, full street at the high end) and sum to the tier capex above.
+
+| Hardware line (sized to expected usage) | Conservative (~25 concurrent) | Standard — recommended (100/cycle + parallel fine-tune) | Aggressive (multi-cycle, prod. video/3D) |
+|---|---|---|---|
+| Creator workstations — M5 Mac Studio (Ultra) + cinema display | 2 seats · $20K–$32K | 5 seats · $42K–$85K | 8 seats · $75K–$135K |
+| GPU compute — inference + per-resident SLM fine-tuning | 1× 4-GPU L40S (192GB VRAM); fine-tunes queued overnight · $65K–$95K | 2× 8-GPU H100/H200 (1.3–2.2TB VRAM); inference + parallel fine-tune · $345K–$540K | 16–32× H200 cluster + dedicated 8× H200 fine-tune rig · $805K–$1.68M |
+| Hot storage — NVMe (active projects, weights, checkpoints) | 80TB · $14K–$28K | 240TB · $30K–$75K | Multi-PB tiered · $90K–$180K |
+| Archive / NAS — catalog & generation-output retention | 200TB · $12K–$24K | 500TB · $20K–$50K | Multi-PB · $58K–$130K |
+| Networking & switching | 10GbE · $8K–$16K | 25GbE redundant · $14K–$38K | 100GbE redundant · $48K–$100K |
+| Power, UPS, cooling & rack | Rack UPS · $12K–$22K | Redundant UPS + HVAC · $22K–$60K | N+1 power & cooling · $80K–$180K |
+| Integration, racking & acceptance test | $19K–$33K | $27K–$52K | $44K–$95K |
+| **Tier capex (one-time)** | **~$150K–$250K** | **~$500K–$900K** | **~$1.2M–$2.5M** |
+
 **Recurring (all tiers).** Power, HVAC, hardware support contracts, replacement parts. Standard tier ≈ **$60K–$120K/yr** in run-rate (depreciation + power + support); see §7.2.
 
 **Creator workstation standard.** Each creator seat is an **M5 Mac Studio (Ultra)** paired with a cinema-grade display (Apple Pro Display XDR / Studio Display) for color-accurate editing and grading; the recommended Standard tier provisions **5× M5 Mac Studio seats**. The Mac Studios run the creative suites (DaVinci Resolve, Logic, Adobe, Nuke) and local LLM/image inference via unified memory, while heavy diffusion/video generation and per-resident SLM fine-tuning run on the H100/H200 servers. Workstation capex (5× M5 Mac Studio + cinema displays ≈ $45K–$85K) is included within the Standard tier capex above.

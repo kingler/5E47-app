@@ -181,13 +181,20 @@ Total: **~5.5 months** to production-hardened v1; **~6 months** with AI Studio (
 
 ### 7.1b Build — Floor-6 AI Studio hardware (capex, one-time)
 
-Tier-dependent; select at the investor stage. The hardware is the asset that turns Floor 6 into a billable production surface. *Canonical specs and capacity per tier: SDP §3A.1.*
+Tier-dependent; select at the investor stage. The hardware is the asset that turns Floor 6 into a billable production surface. The cost options below are sized to **realistic expected usage** — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access — and each line is priced at current enterprise rates. *Canonical specs and capacity per tier: SDP §3A.1.*
 
-| Tier | Hardware capex | Selected by |
-|---|---|---|
-| Conservative | ~$150K–$250K | Capital-disciplined launch; can still serve all 100 residents with queued workloads |
-| **Standard (recommended)** | ~$500K–$900K | Full per-cycle capacity with parallel fine-tuning; comfortable Phase II templating |
-| Aggressive | ~$1.2M–$2.5M | Production-scale video/3D, multi-cycle headroom, multi-Location templating built in |
+| Hardware line (sized to expected usage) | Conservative (~25 concurrent) | Standard — recommended (100/cycle + parallel fine-tune) | Aggressive (multi-cycle, prod. video/3D) |
+|---|---|---|---|
+| Creator workstations — M5 Mac Studio (Ultra) + cinema display | 2 seats · $20K–$32K | 5 seats · $42K–$85K | 8 seats · $75K–$135K |
+| GPU compute — inference + per-resident SLM fine-tuning | 1× 4-GPU L40S (192GB VRAM); fine-tunes queued overnight · $65K–$95K | 2× 8-GPU H100/H200 (1.3–2.2TB VRAM); inference + parallel fine-tune · $345K–$540K | 16–32× H200 cluster + dedicated 8× H200 fine-tune rig · $805K–$1.68M |
+| Hot storage — NVMe (active projects, weights, checkpoints) | 80TB · $14K–$28K | 240TB · $30K–$75K | Multi-PB tiered · $90K–$180K |
+| Archive / NAS — catalog & generation-output retention | 200TB · $12K–$24K | 500TB · $20K–$50K | Multi-PB · $58K–$130K |
+| Networking & switching | 10GbE · $8K–$16K | 25GbE redundant · $14K–$38K | 100GbE redundant · $48K–$100K |
+| Power, UPS, cooling & rack | Rack UPS · $12K–$22K | Redundant UPS + HVAC · $22K–$60K | N+1 power & cooling · $80K–$180K |
+| Integration, racking & acceptance test | $19K–$33K | $27K–$52K | $44K–$95K |
+| **Tier capex (one-time)** | **~$150K–$250K** | **~$500K–$900K** | **~$1.2M–$2.5M** |
+
+**Demand basis.** Conservative serves ~25 residents concurrently on inference and queues per-resident SLM fine-tunes overnight — a capital-disciplined launch that still covers all 100 residents with queued workloads. Standard serves all 100 residents per cycle on inference with headroom and runs fine-tuning in parallel with production — the recommended Flagship sizing, with comfortable Phase II templating. Aggressive adds production-scale video/3D serving and multi-cycle headroom with multi-Location templating built in. Line items are priced at current enterprise rates (volume/negotiated at the low end of each range, full street at the high end) and sum to the tier capex shown.
 
 **Total program investment** (software + hardware):
 
