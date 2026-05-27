@@ -71,8 +71,46 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 | Payments | stub | Stripe Billing/Connect (entries, dues, royalty distributions) |
 | Access | stub | Kisi / Openpath / Brivo + private-entry protocol orchestration |
 | Media | n/a | Mux / Cloudflare Stream + on-prem capture restriction |
-| Compute (resident SLMs) | n/a | On-prem GPU node inside 5E47 (Floor 6 Post-Production & AI) |
+| Compute (resident SLMs) | n/a | On-prem GPU node inside 5E47 (Floor 6 Post-Production & AI — see §3A.1 for hardware tiers) |
+| AI Studio creative agents | n/a | Music / Video / 3D / Animation agents driving on-prem open-weight models (see §3A.2 for the model stack) |
 | Infra | Vercel/edge | + AWS, Cloudflare, Datadog/Grafana; on-prem hybrid for security-bound workloads |
+
+## 3A. Floor-6 AI Studio — Hardware & Model Stack
+
+> **Canonical source.** This section is the single source of truth for AI Studio hardware tiers (§3A.1), the on-prem model stack (§3A.2), and the AI Studio commercial layer (§3A.3). Other docs (BMC §9, Business Plan §9.5, BRD §5.11, PRD R6, DesignThru §3.4) summarize these for reading-in-context and reference back here for the canonical definition.
+
+The AI Studio is the on-prem creative-compute platform that hosts the Music, Video, 3D, and Animation agents and the per-resident fine-tuned SLMs. Three hardware buildouts are documented; the selection is an investor-stage decision sized to launch ambition.
+
+### 3A.1 Hardware tiers (one-time capex)
+
+| Tier | Compute | Storage & networking | Capex | Capacity |
+|---|---|---|---|---|
+| **Conservative** | 2× Mac Studio M3 Ultra **or** RTX 6000 Ada workstations (creator seats) + 1× 4-GPU **L40S** inference server | 80TB NVMe + 200TB NAS; 10GbE; rack UPS | ~$150K–$250K | ~25 concurrent residents on inference; per-resident SLM fine-tunes queued overnight; primarily LLM + audio/animation workloads |
+| **Standard (recommended)** | 4× creator workstations + 2× 8-GPU **H100 / H200** servers (one inference, one fine-tuning) | Tiered NVMe (240TB hot) + 500TB NAS; 25GbE; redundant UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production; video and 3D models served at near-real-time |
+| **Aggressive** | 2–4 node **H200** cluster (16–32× H200) + dedicated 8× H200 fine-tuning rig | Multi-PB tiered storage; 100GbE; N+1 cooling and power; redundant networking | ~$1.2M–$2.5M | Multi-cycle headroom; production-scale video and 3D serving; Phase II Location templating built in |
+
+**Recurring (all tiers).** Power, HVAC, hardware support contracts, replacement parts. Standard tier ≈ **$60K–$120K/yr** in run-rate (depreciation + power + support); see §7.2.
+
+### 3A.2 On-prem model stack
+
+All models run inside the Floor-6 quarantine boundary. No request or weight crosses the boundary to a third-party API.
+
+| Category | Models | Used by |
+|---|---|---|
+| General reasoning / code | **DeepSeek-V3** (production reasoning); **DeepSeek-R1** (chain-of-thought) | Sam orchestrator (on-prem mode); all subagents for high-discretion workloads |
+| Multimodal + multilingual | **Qwen3-235B** (text); **Qwen2.5-VL** (vision); **Qwen2.5-Coder** | Sam; Music / Video / 3D / Animation agents; Multi-Format Distribution Pipeline |
+| Audio (Music Agent) | **Stable Audio Open**, **MusicGen** | Stem generation, score sketches, sound design, mastering candidates |
+| Video (Video Agent) | **Wan 2.2**, **HunyuanVideo**, **LTX-Video** | Shot generation, cut-down, color, multi-format versioning |
+| 3D (3D Agent) | **TRELLIS**, **Hunyuan3D-2** | Mesh and scene generation, texturing, LED-volume asset prep |
+| Animation (Animation Agent) | **AnimateDiff** family | Motion generation, keyframe interpolation, character animation |
+| **Per-resident SLMs** | 7B–32B base (Qwen2.5 or Llama derivatives) fine-tuned during the cycle on each resident's catalog | Called by Music / Video / 3D / Animation agents to bias generations to the resident's style. Weights stored on Floor 6 only; resident owns the weights. |
+
+### 3A.3 AI Studio as a Service (commercial layer)
+
+- **Billing model.** Baseline subscription **$400/mo per resident** during the 90-day cycle (covers a fixed GPU-hour envelope, the per-resident SLM fine-tune, and Music / Video / 3D / Animation agent access). Metered GPU-hours above the envelope are billed through the Finance Agent at a published rate.
+- **Quotas & fairness.** A scheduler enforces per-resident envelopes, per-cycle global capacity, and a fairness queue during peak hours.
+- **Provenance.** Every generation emits an IP Catalog event (resident, agent, base model, SLM hash, prompt, output hash, timestamp). Slate opt-in inherits this provenance chain.
+- **Quarantine.** All inference and fine-tuning happen on Floor 6. Cross-boundary calls are logged via the existing quarantine boundary (see §9 Security).
 
 ## 4. Delivery Phases & Milestones
 
@@ -116,6 +154,15 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 - Audit export; observability; security review.
 - Location-readiness gate for Phase II (LA).
 
+### Phase 6 — AI Studio as a Service
+- Floor-6 hardware install (tier per §3A.1) and rack acceptance test.
+- On-prem model deployment: DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, plus domain-specific models (audio, video, 3D, animation). See §3A.2 for the canonical model identifiers and roles.
+- **Music, Video, 3D, Animation** agents implemented against the same orchestration interface as the existing subagents.
+- Per-resident SLM fine-tuning pipeline (opt-in at onboarding; trains during the cycle; weights stored on Floor 6 only).
+- AI Studio billing path: baseline subscription + metered GPU-hours via the Finance Agent.
+- Provenance logging into the IP Catalog for every generation.
+- Operator console adds an AI Studio utilization view (per-agent, per-resident, GPU-hour, capacity headroom).
+
 ## 5. Schedule (indicative)
 
 | Phase | Duration | Cumulative |
@@ -126,8 +173,9 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 | 3 — Finance/Access/Security | 4 weeks | ~15 wks |
 | 4 — Project Slate & Sponsorship | 3–4 weeks | ~18.5 wks |
 | 5 — LLM & hardening | 3–4 weeks | ~22 wks |
+| 6 — AI Studio (parallelizable with 4–5) | 4–6 weeks (overlaps) | ~24–26 wks |
 
-~5.5 months to a production-hardened v1 with a small senior team, including the Project Slate and Confidentiality & Security primitives that distinguish 5E47 from a generic concierge platform.
+~5.5 months to a production-hardened v1 (Phases 0–5). Phase 6 (AI Studio as a Service) runs partially in parallel with Phases 4–5 once Floor-6 hardware is racked; total wall-clock with AI Studio is ~6 months.
 
 ## 6. Team & Roles
 
@@ -136,11 +184,12 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 | Tech lead / architect | 1.0 |
 | Full-stack engineers (Next.js/TS) | 2.0 |
 | AI/agent engineer (orchestration, evals, predictive) | 1.0 |
+| ML/AI Studio engineer (creative-domain agents, on-prem model serving, fine-tune pipeline) | 0.75 |
 | Backend / data engineer (events, Slate registry, compute boundary) | 1.0 |
 | Product designer | 0.5 |
 | Product manager | 0.5 |
 | QA / SDET | 0.5 (ramping) |
-| DevOps / platform (cloud + on-prem GPU node) | 0.5 |
+| DevOps / platform (cloud + Floor-6 GPU cluster) | 0.6 |
 | IP & legal liaison (Mutual NDA, Participation Agreement templates) | 0.25 (advisory) |
 
 ## 7. Cost Estimate
@@ -151,16 +200,17 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 
 | Role | Person-months | Blended monthly | Cost |
 |---|---|---|---|
-| Tech lead/architect | 5.5 | $22K | ~$121K |
-| Full-stack ×2 | 11.0 | $18K | ~$198K |
-| AI/agent engineer | 5.5 | $20K | ~$110K |
-| Backend/data engineer | 5.5 | $19K | ~$105K |
-| Designer | 2.75 | $15K | ~$41K |
-| PM | 2.75 | $16K | ~$44K |
+| Tech lead/architect | 6.0 | $22K | ~$132K |
+| Full-stack ×2 | 12.0 | $18K | ~$216K |
+| AI/agent engineer | 6.0 | $20K | ~$120K |
+| **ML/AI Studio engineer** (creative-domain agents, fine-tune pipeline, on-prem model serving) | 4.5 | $22K | ~$99K |
+| Backend/data engineer | 6.0 | $19K | ~$114K |
+| Designer | 3.0 | $15K | ~$45K |
+| PM | 3.0 | $16K | ~$48K |
 | QA/SDET | 2.5 | $14K | ~$35K |
-| DevOps | 2.5 | $16K | ~$40K |
+| DevOps / on-prem platform (cloud + Floor-6 cluster) | 3.5 | $16K | ~$56K |
 | IP/legal liaison (advisory) | 1.4 | $20K | ~$28K |
-| **Subtotal (labor)** | | | **~$722K** |
+| **Subtotal (labor)** | | | **~$893K** |
 
 ### 7.2 Run-rate / infrastructure (annual, at steady state)
 
@@ -168,15 +218,16 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 |---|---|
 | Hosting (Vercel/AWS/Cloudflare) | $24K–$48K |
 | Database (Supabase/Postgres + pgvector) | $18K–$36K |
-| LLM inference (Claude/OpenAI, resident-scale) | $30K–$108K |
-| On-prem GPU node (Floor 6, depreciation + power) | $60K–$120K |
+| LLM inference (Claude/OpenAI fallback for non-quarantined workloads) | $18K–$60K |
+| **AI Studio on-prem cluster — depreciation + power + support** (tier-dependent: Conservative $40K–$70K; Standard $90K–$160K; Aggressive $200K–$400K) | $40K–$400K |
+| **AI Studio model licensing & ops** (open-weight models are free to run; line covers vector storage, model registry, monitoring) | $12K–$30K |
 | Identity (Clerk/Auth0) | $6K–$18K |
-| Payments (Stripe % of volume — entries, dues, royalties) | volume-based |
+| Payments (Stripe % of volume — entries, dues, royalties, AI Studio metering) | volume-based |
 | Access (Kisi/Openpath + private-entry protocol) | $12K–$30K |
 | Media (Mux/Cloudflare Stream + capture restriction systems) | $12K–$36K |
 | Observability (Datadog/Grafana) | $12K–$30K |
 | Slate / IP registry, chain-of-title infrastructure | $12K–$24K |
-| **Subtotal (annual run-rate)** | **~$186K–$450K** |
+| **Subtotal (annual run-rate)** | **~$166K–$712K** *(low end = Conservative AI Studio tier; high end = Aggressive)* |
 
 ### 7.3 One-time & contingency
 
@@ -184,21 +235,36 @@ Infra         →  Next.js 15 · Tailwind · edge-ready · on-prem GPU node for 
 |---|---|
 | Design system polish & brand assets | ~$18K |
 | Security review / pen test (private-bank grade) | ~$35K |
-| Agent evals & guardrail test suite | ~$20K |
+| Agent evals & guardrail test suite (incl. creative-agent evals) | ~$28K |
 | Mutual NDA / Participation Agreement legal template work | ~$25K |
-| Contingency (~15% of labor) | ~$108K |
-| **Subtotal** | **~$206K** |
+| AI Studio install, rack, network, and acceptance test | ~$25K |
+| Contingency (~15% of labor) | ~$134K |
+| **Subtotal** | **~$265K** |
 
-### 7.4 Total (illustrative)
+### 7.4 Floor-6 AI Studio hardware (capex, one-time)
+
+Selected at the investor stage per §3A.1:
+
+| Tier | Hardware capex |
+|---|---|
+| Conservative | ~$150K–$250K |
+| Standard (recommended) | ~$500K–$900K |
+| Aggressive | ~$1.2M–$2.5M |
+
+### 7.5 Total (illustrative)
 
 | Bucket | Estimate |
 |---|---|
-| Build (labor) | ~$722K |
-| One-time & contingency | ~$206K |
-| **Total build** | **~$928K** |
-| Annual run-rate (post-launch) | **~$186K–$450K/yr** |
+| Build (labor) | ~$893K |
+| One-time & contingency | ~$265K |
+| **Software build subtotal** | **~$1.16M** |
+| AI Studio hardware capex (tier-dependent) | $150K–$2.5M |
+| **Total build — Conservative tier** | **~$1.31M–$1.41M** |
+| **Total build — Standard tier (recommended)** | **~$1.66M–$2.06M** |
+| **Total build — Aggressive tier** | **~$2.36M–$3.66M** |
+| Annual run-rate (post-launch, tier-dependent) | **~$166K–$712K/yr** |
 
-**Cost narrative:** the agent operating layer is the **margin engine** — it offsets concierge/ops headcount that would otherwise scale linearly with residents and Locations. The biggest variable cost shifts (vs. v1.0 of this plan) are the on-prem GPU node required for resident-SLM quarantine (security by construction) and the private-bank-grade security posture. Both are deck-canonical commitments, not optional features.
+**Cost narrative.** The agent operating layer is the **margin engine** — it offsets concierge/ops headcount that would otherwise scale linearly with residents and Locations. The biggest variable cost shifts (vs. v1.0 of this plan) are the **Floor-6 AI Studio buildout** (which adds AI Studio as a Service as a 7th revenue stream — see Business Plan §9) and the on-prem GPU compute required for resident-SLM quarantine and the private-bank-grade security posture. Both are deck-canonical commitments — they protect data sovereignty and turn Floor 6 into a billable production surface rather than pure cost.
 
 ## 8. Testing & Quality
 

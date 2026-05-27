@@ -28,13 +28,14 @@ The existing platform is a Next.js multi-tenant codebase with role-scoped worksp
 | BO-5 | Enforce the Confidentiality & Security Protocol | Closed-Set Policy, private-entry protocol, Mutual NDA, and data quarantine enforced in code |
 | BO-6 | Administer the Project Slate cleanly | 100% chain-of-title integrity; quarterly auditable Sponsor Royalty Pool accounting |
 | BO-7 | Maintain margin as the Flagship Location scales and replicates | Cycle + Location growth decoupled from concierge/ops headcount |
+| BO-8 | Offer **AI Studio as a Service** — on-prem creative-domain agents (Music, Video, 3D, Animation) directable through Sam | Baseline AI Studio adoption by ≥75% of cycle residents; ≥70% gross margin on metered GPU-hours above baseline |
 
 ## 3. Scope
 
 ### 3.1 In scope
 
 - **Sam orchestration agent** — intent classification, delegation, single synthesized response, guardrail enforcement.
-- **Subagents** — Membership, Predictive, Booking, Access, Finance, Sponsor, IP Catalog (Project Slate), Programming, Growth, Operations.
+- **Subagents** — Membership, Predictive, Booking, Access, Finance, Sponsor, IP Catalog (Project Slate), Programming, Growth, Operations, and the **AI Studio creative-domain agents** (Music, Video, 3D, Animation).
 - **Resident-facing conversational interface** ("Talk to Sam") covering the full cycle lifecycle: selection acceptance → onboarding → in-cycle bookings → close + Project Slate opt-in.
 - **Predictive layer** — selection-pressure modeling, cycle oversubscription forecasting, brand-heat measurement, sponsor-anchor pipeline, dues-tier signal within scarcity guardrails.
 - **Operator-facing agent console** — Production Cycle control panel, agent roster, live delegation/activity, predictive dashboard, human-in-the-loop committee ratification.
@@ -126,7 +127,16 @@ The existing platform is a Next.js multi-tenant codebase with role-scoped worksp
 - **BR-31** The Growth Agent shall cultivate referrals, partner-network introductions, and editorial brand-heat signals that feed selection pressure for upcoming cycles — never the door.
 - **BR-32** All acquisition channels shall measure **qualified prospect contribution** (not raw reach) and flow into the brand-heat input of the predictive layer.
 
-### 5.11 Oversight & governance (cross-cutting)
+### 5.11 AI Studio as a Service (Music / Video / 3D / Animation Agents)
+
+- **BR-AS-1** Residents shall be able to direct on-prem creative-domain agents — Music, Video, 3D, and Animation — through Sam in natural language, scoped to their cycle and dues/AI-Studio tier.
+- **BR-AS-2** Each agent shall execute against the on-prem model stack: open-weight base models (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL) plus domain-specific models (audio: Stable Audio Open, MusicGen; video: Wan 2.2, HunyuanVideo, LTX-Video; 3D: TRELLIS, Hunyuan3D-2; animation: AnimateDiff family). No request shall reach a third-party API. *(Canonical model identifiers and roles: SDP §3A.2.)*
+- **BR-AS-3** A **per-resident SLM** shall be fine-tuned during the cycle on the resident's own catalog and creative work, with explicit opt-in, and called by the creative agents to bias generations toward the resident's style. The resident owns the weights; the weights never leave Floor 6.
+- **BR-AS-4** Every AI Studio generation shall be logged into the IP Catalog with provenance (resident, agent, base model, SLM hash, prompt, timestamp) so chain-of-title remains intact when work enters the Project Slate.
+- **BR-AS-5** AI Studio access shall be billed as a **separate revenue stream**: a baseline subscription ($400/mo per resident during the cycle) covering a GPU-hour envelope, plus metered GPU-hours above the envelope. Sam shall surface balance, envelope remaining, and projected overage on request.
+- **BR-AS-6** Outputs shall default to **100% resident ownership** (consistent with BR-28); inclusion in the Project Slate remains an explicit opt-in.
+
+### 5.12 Oversight & governance (cross-cutting)
 
 - **BR-33** Operators shall have a console showing cycle state, the agent roster, live delegations, predictive outputs, and Slate pipeline status.
 - **BR-34** Every agent message, delegation, decision, Slate transaction, and security event shall be recorded as an auditable domain event.
@@ -178,7 +188,8 @@ The existing platform is a Next.js multi-tenant codebase with role-scoped worksp
 - **5E47** — the brand and the address: **5 E**ast **47**th Street, New York City.
 - **Hasenpfeffer Ventures LLC** — the operating entity.
 - **Sam, the Concierge Agent** — the orchestration agent; the single resident-facing conversational surface.
-- **Subagent** — a specialist agent Sam delegates to (Membership, Predictive, Booking, Access, Finance, Sponsor, IP Catalog, Programming, Growth, Operations).
+- **Subagent** — a specialist agent Sam delegates to (Membership, Predictive, Booking, Access, Finance, Sponsor, IP Catalog, Programming, Growth, Operations) — and the four creative-domain agents in the AI Studio: Music, Video, 3D, Animation.
+- **AI Studio as a Service** — the on-prem creative-agent offering on Floor 6. Music / Video / 3D / Animation agents run against quarantined open-weight models (DeepSeek, Qwen, plus domain-specific) and per-resident fine-tuned SLMs. Sold as a separate revenue stream; outputs default to 100% resident ownership.
 - **Production Cycle** — a 90-day production period of 100 residents; 4 cycles per year. *(Deck term: Volume.)*
 - **Project Slate** — the opt-in IP pipeline for projects produced inside a cycle. *(Deck term: 47 Slate.)*
 - **Project Participation Agreement** — the project-level rights instrument for Slate projects: 70 Resident / 20 House / 10 Sponsor Royalty Pool. *(Deck term: 47 Equity Pact.)*
