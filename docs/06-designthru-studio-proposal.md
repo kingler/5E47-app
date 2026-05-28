@@ -4,7 +4,7 @@
 
 **Prepared by:** DesignThru Studio
 **Prepared for:** Hasenpfeffer Ventures LLC (5 East 47th Street · New York City)
-**Date:** 25 May 2026 · **Validity:** 60 days · **Document:** Statement of Work & Investment Proposal · **Version:** 2.1
+**Date:** 28 May 2026 · **Validity:** 60 days · **Document:** Statement of Work & Equity Partnership Proposal · **Version:** 3.0
 **Aligned to:** 5E47 Investor Deck v5.2 (2026); operational vocabulary in plain industry-standard terms
 
 > **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Genesis Node, etc.). This proposal uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA, Flagship Location, etc.). See the canvas (doc 01) for the full glossary.
@@ -25,9 +25,9 @@ DesignThru Studio proposes to design and build **Sam, the Concierge Agent** — 
 
 Residents hold one conversation with Sam from the moment they're selected into a Production Cycle through alumni status: accept the selection within 24 hours, pay the $3,500 entry, complete the Mutual NDA, onboard, book Floor-7 Recording Studios and Floor-6 render time, manage monthly residency dues, opt projects into the Project Slate at cycle close, and exit clean. Behind Sam, specialist subagents run the building, the cycle engine, the Project Slate, and the Confidentiality & Security Protocol. A predictive layer continuously protects cycle scarcity and reads brand heat across referrals, partner introductions, and sponsor reach.
 
-We propose a **fixed-scope, phased engagement** delivering a production-hardened v1 in **~6 months**, including the **AI Studio as a Service** — on-prem creative-domain agents (Music, Video, 3D, Animation) running against quarantined open-weight models (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, plus domain-specific audio, video, 3D, and animation models — full stack: §3.4 below and SDP §3A.2) and per-resident fine-tuned SLMs on Floor 6's GPU cluster, with residents able to connect their own personal laptops directly to the on-prem model endpoints.
+We propose an **equity partnership, not a build fee**: DesignThru designs, builds, and implements the platform in exchange for **[__]% equity** in Hasenpfeffer Ventures LLC, delivering a production-hardened v1 in **~6 months** — including the **AI Studio as a Service** (on-prem creative-domain agents — Music, Video, 3D, Animation — running against quarantined open-weight models and per-resident fine-tuned SLMs on Floor 6's GPU cluster, with residents able to connect their own personal laptops directly to the on-prem model endpoints; full model stack: §3.4 below and SDP §3A.2).
 
-Total program investment is tier-dependent: **~$1.66M–$2.06M at the recommended Standard hardware tier** (software ~$1.16M + Floor-6 AI Studio cluster $500K–$900K). Conservative and Aggressive buildouts bracket it at ~$1.31M and ~$3.66M. Post-launch run-rate is **~$166K–$712K/year** depending on the selected hardware tier — offset by AI Studio as a Service revenue (a 7th revenue stream baselined at $400/mo per resident plus metered GPU-hours). A working architecture already exists end-to-end; this engagement hardens it into production, implements the deck-canonical Project Slate and Confidentiality & Security primitives, swaps the stubbed integrations for live services, and stands up the AI Studio. The architecture is **location-ready** — the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
+The build is delivered with **AI-assisted development** — an AI-based IDE driving a lean, founder-scale team — so the platform ships at software economics, not agency headcount. Because of that there is **no cash build fee**; DesignThru is compensated in equity and aligned to the platform's long-term value. The only real cash 5E47 commits is for the assets and operations it owns directly: the **Floor-6 AI Studio hardware** (one-time capex, **$150K–$2.5M** tier-dependent — an investor-stage decision) and **production run-rate** (**~$166K–$712K/year**, tier-dependent, offset by AI Studio as a Service revenue — a 7th stream baselined at $400/mo per resident plus metered GPU-hours). The out-of-pocket cost to build the software itself — AI-IDE/LLM usage, dev infra, sandbox services — is **~$5K–$20K**. A working architecture already exists end-to-end; this engagement hardens it into production, implements the deck-canonical Project Slate and Confidentiality & Security primitives, swaps the stubbed integrations for live services, and stands up the AI Studio. The architecture is **location-ready** — the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
 
 ## 2. Our Understanding of 5E47
 
@@ -146,44 +146,54 @@ We work in tight, demonstrable increments. Each phase ends with something real y
 
 Total: **~5.5 months** to production-hardened v1; **~6 months** with AI Studio (Phase 6) live and metered. Phase 6 runs partially in parallel once Floor-6 hardware is racked.
 
-## 6. Team
+## 6. Team & Build Method
 
-| Role | Allocation |
+DesignThru delivers this as a **lean, AI-accelerated build**: an AI-based IDE drives the engineering, so a founder-scale team covers the surface a conventional agency would staff with eight-plus full-time roles. The capabilities below are all present — concentrated, not headcount.
+
+| Capability | How it's covered |
 |---|---|
-| Engagement lead / architect (DesignThru) | 1.0 |
-| Full-stack engineers (Next.js / TS) | 2.0 |
-| AI / agent engineer (orchestration, evals, predictive) | 1.0 |
-| ML / AI Studio engineer (creative-domain agents, on-prem model serving, fine-tune pipeline) | 0.75 |
-| Backend / data engineer (events, Slate registry, compute boundary) | 1.0 |
-| Product designer (luxury / private-bank brand) | 0.5 |
-| Product manager | 0.5 |
-| QA / SDET | 0.5 |
-| DevOps / platform (cloud + on-prem GPU node) | 0.5 |
-| IP & legal liaison (Mutual NDA, Participation Agreement templates) | 0.25 |
+| Architecture & engagement lead | DesignThru founder/lead, hands-on |
+| Full-stack, agent, backend & data engineering | AI-IDE-driven build (one builder pair-engineering across the stack with the AI IDE) |
+| ML / AI Studio (creative-domain agents, on-prem serving, fine-tune pipeline) | DesignThru, with on-prem GPU vendor support |
+| Product design (luxury / private-bank brand) | DesignThru |
+| QA, evals & security review | Automated guardrail + eval suites with targeted manual review |
+| IP & legal templates (Mutual NDA, Participation Agreement) | 5E47 counsel; DesignThru integrates |
 
-## 7. Investment
+The point of the equity model: a small, senior, AI-leveraged team has more upside aligning to the platform's value than billing hours against it.
 
-> Fixed-scope, phased. Invoiced per phase on acceptance. Figures align with the Software Development Plan (doc 05).
+## 7. Deal Structure, Cost & Terms
 
-### 7.1 Build — software (one-time)
+> DesignThru builds the 5E47 AI platform in exchange for **equity** — there is no cash build fee. This section states the deal, what the build actually costs to stand up (out-of-pocket), and the real costs 5E47 funds directly.
 
-| Phase | Investment |
+### 7.1 The deal — equity for build
+
+DesignThru designs, builds, and implements the multi-agent operating system — Sam + all subagents, the predictive layer, the Project Slate, the Confidentiality & Security primitives, and the AI Studio as a Service software — in exchange for **[__]% equity** in Hasenpfeffer Ventures LLC. No cash build fee.
+
+Equity mechanics (to finalize with counsel):
+
+- **Stake:** **[__]%** of Hasenpfeffer Ventures LLC (or the designated 5E47 operating entity).
+- **Vesting:** earned against the Phase 0–6 delivery milestones in §5 — a **[__]-month** schedule with a cliff at production-hardened v1.
+- **Clawback / acceleration:** delivery-failure clawback and change-of-control acceleration **[to define]**.
+- **What it buys 5E47:** a delivered, production-hardened, location-ready platform — plus the IP in the delivered system — with DesignThru aligned to the platform's long-term value rather than billable hours.
+
+### 7.2 What the build actually costs (out-of-pocket)
+
+The platform is built with an AI-based IDE, not an eight-person agency team, so the real cash cost to produce the software is **tooling and infrastructure, not labor**:
+
+| Out-of-pocket line (build phase, ~6 months) | Estimate |
 |---|---|
-| 0 · Discovery & Design | $92K |
-| 1 · Concierge & Booking | $148K |
-| 2 · Predictive & Console | $152K |
-| 3 · Finance / Access / Confidentiality & Security | $172K |
-| 4 · Project Slate & Sponsorship | $148K |
-| 5 · LLM Swap-in & Hardening | $128K |
-| 6 · AI Studio as a Service (creative agents, model stack, fine-tune pipeline, metering) | $232K |
-| Security review (private-bank grade), evals, legal templates & contingency | $93K |
-| **Software build subtotal** | **~$1.16M** |
+| AI-IDE + LLM API usage (agentic coding, evals) | $3K–$12K |
+| Dev / staging cloud, database, preview hosting | $1K–$5K |
+| Third-party sandbox / dev accounts (Stripe, Clerk, Mux, Supabase test tiers) | $0–$3K |
+| **Software-build out-of-pocket total** | **~$5K–$20K** |
 
-**AI/agent share.** Of the ~$1.16M software build, the agent/AI-attributable portion is **~$247K of dedicated AI-specialist labor** (Sam orchestration, the predictive layer, the creative agents, and agent evals), delivered within the AI-weighted phases (2, 5, 6 ≈ $512K — which also carry the operator console, hardening, and metering). *Full breakdown: SDP §7.6.*
+This is the true cash cost of the build under the equity model — orders of magnitude below a conventional agency build, which would price this scope near seven figures in labor alone. That gap is exactly why the engagement is structured as equity-for-build rather than fee-for-service.
 
-### 7.1b Build — Floor-6 AI Studio hardware (capex, one-time)
+### 7.3 Real costs 5E47 funds directly (separate from the equity-for-build scope)
 
-Tier-dependent; select at the investor stage. The hardware is the asset that turns Floor 6 into a billable production surface. The cost options below are sized to **realistic expected usage** — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access — and each line is priced at current enterprise rates. *Canonical specs and capacity per tier: SDP §3A.1.*
+These are genuine cash commitments that 5E47 contracts and pays for directly — they are **not** part of DesignThru's equity-for-build scope. DesignThru specs, procures, and integrates them; 5E47 owns the assets and the vendor relationships.
+
+**(a) Floor-6 AI Studio hardware — one-time capex (investor-stage decision).** Tier-dependent. The hardware is the asset that turns Floor 6 into a billable production surface. The cost options below are sized to **realistic expected usage** — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access — and each line is priced at current enterprise rates. *Canonical specs and capacity per tier: SDP §3A.1.*
 
 | Hardware line (sized to expected usage) | Conservative (~25 concurrent) | Standard — recommended (100/cycle + parallel fine-tune) | Aggressive (multi-cycle, prod. video/3D) |
 |---|---|---|---|
@@ -198,15 +208,17 @@ Tier-dependent; select at the investor stage. The hardware is the asset that tur
 
 **Demand basis.** Conservative serves ~25 residents concurrently on inference and queues per-resident SLM fine-tunes overnight — a capital-disciplined launch that still covers all 100 residents with queued workloads. Standard serves all 100 residents per cycle on inference with headroom and runs fine-tuning in parallel with production — the recommended Flagship sizing, with comfortable Phase II templating. Aggressive adds production-scale video/3D serving and multi-cycle headroom with multi-Location templating built in. Line items are priced at current enterprise rates (volume/negotiated at the low end of each range, full street at the high end) and sum to the tier capex shown.
 
-**Total program investment** (software + hardware):
+**Total cash 5E47 commits to launch** (hardware capex + the §7.2 software-build out-of-pocket — no build fee):
 
 | Tier | Total |
 |---|---|
-| Conservative | **~$1.31M–$1.41M** |
-| **Standard (recommended)** | **~$1.66M–$2.06M** |
-| Aggressive | **~$2.36M–$3.66M** |
+| Conservative | **~$155K–$270K** |
+| **Standard (recommended)** | **~$505K–$920K** |
+| Aggressive | **~$1.21M–$2.52M** |
 
-### 7.2 Post-launch run-rate (annual)
+The platform software itself adds only the ~$5K–$20K out-of-pocket from §7.2 on top of the hardware tier — it is delivered for equity, not cash.
+
+**(b) Production run-rate — annual.** Operational cost once live; 5E47-funded. No DesignThru labor is embedded here.
 
 | Item | Annual |
 |---|---|
@@ -220,14 +232,15 @@ Tier-dependent; select at the investor stage. The hardware is the asset that tur
 
 The AI Studio cluster is the dominant new cost line — and the only one that earns its keep through a paired revenue stream (AI Studio as a Service, Business Plan §9).
 
-### 7.3 Optional retainer
+### 7.4 Ongoing partnership
 
-Ongoing product partnership (feature work, model tuning, Phase II location-readiness, Slate distribution intelligence): from **$22K/month**.
+DesignThru's continued involvement beyond v1 — feature work, model tuning, Phase II location-readiness, Slate distribution intelligence — is aligned through the equity stake rather than a monthly cash retainer. Any defined ongoing scope is agreed separately; no fixed retainer is assumed under this proposal.
 
 ## 8. Why DesignThru
 
 - **We've already de-risked it.** A working end-to-end architecture exists and is proven; we're hardening, implementing the Slate and security primitives, and location-readying — not exploring.
 - **Design and AI under one roof.** No handoff gap between the experience and the system beneath it.
+- **AI-accelerated, equity-aligned.** We build with an AI-based IDE and take equity, not fees — the platform ships at software economics and our incentive is its long-term value, exactly aligned with yours.
 - **Deterministic-first engineering.** Auditable, testable, vendor-neutral — the deck's guardrails are enforced in code.
 - **Private-bank sensibility.** We protect scarcity, security, and chain-of-title as first principles, not afterthoughts.
 - **Built to replicate.** The architecture is location-ready; Phase II is a tenant deployment, not a rewrite.
@@ -237,8 +250,10 @@ Ongoing product partnership (feature work, model tuning, Phase II location-readi
 - Hasenpfeffer Ventures LLC provides timely access to deck v5.2 brand guidelines, committee decision rules, IP/legal templates (Mutual NDA, Project Participation Agreement), and accounts for the production integrations (Stripe, Clerk/Auth0, Kisi, Mux, Supabase, LLM provider, on-prem GPU vendor).
 - Cycle cap (100), resident-mix slots (40/30/20/10), 24-hour acceptance window, $3,500 entry, and the Project Participation Agreement split (70/20/10) are deck-canonical business inputs.
 - Selection committee ratification is retained.
-- IP in the delivered system transfers to Hasenpfeffer Ventures LLC on final payment.
-- Pricing valid 60 days from the date above.
+- DesignThru's compensation is **[__]% equity** in Hasenpfeffer Ventures LLC (§7.1); there is no cash build fee. 5E47 funds the Floor-6 hardware capex, production run-rate, and the ~$5K–$20K software-build out-of-pocket directly.
+- The equity grant, vesting schedule, valuation basis, and clawback/acceleration terms are set in a definitive equity (contribution) agreement executed alongside this Statement of Work; this proposal states the commercial intent.
+- IP in the delivered system transfers to Hasenpfeffer Ventures LLC as DesignThru's equity vests; on full vesting Hasenpfeffer owns the delivered platform IP outright.
+- Terms valid 60 days from the date above.
 
 ## 10. Next Steps
 
