@@ -27,6 +27,7 @@ browsable site at the **`/docs` route** (statically generated, on-brand):
 - [Business Requirements Document](./docs/03-business-requirements-document.md)
 - [Product Requirements Document](./docs/04-product-requirements-document.md)
 - [Software Development Plan & Cost](./docs/05-software-development-plan.md)
+- [SPV Capitalization Strategy](./docs/07-spv-capitalization-strategy.md) — entity architecture, capital stacks, waterfalls & the per-location SPV template
 
 ## The agent system
 

@@ -68,6 +68,14 @@ export const DOCS: DocMeta[] = [
     category: "Engineering",
     order: 5,
   },
+  {
+    slug: "spv-capitalization-strategy",
+    title: "SPV Capitalization Strategy",
+    subtitle: "Entity architecture, capital stacks, waterfalls, and the per-location SPV template.",
+    file: "07-spv-capitalization-strategy.md",
+    category: "Business",
+    order: 6,
+  },
 ];
 
 export const CATEGORY_ORDER: DocCategory[] = ["Proposal", "Business", "Product", "Engineering"];
