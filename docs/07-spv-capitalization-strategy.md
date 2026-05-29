@@ -150,7 +150,93 @@ Sequencing: **HoldCo and OpCo first** (so the brand, platform, and operating run
 | Slate underperforms and Slate SPV can't service its facility | Borrowing-base sized only to contracted/greenlit receivables; equity, not debt, carries the long-tail bet |
 | Non-US / tax-exempt capital creates UBTI/ECI | Blocker corps built into the template from day one |
 
-## 10. How this maps to the rest of `/docs`
+## 10. Document checklist — what we need to draft
+
+Standing up the structure in §2 is a paperwork exercise as much as a financing one. The documents fall into eight groups. The **"Per"** column says how many copies you draft: **once** (network-wide), **per SPV** (every vehicle gets its own), or **per raise** (every capital event). Bankruptcy remoteness is *created by these documents* — the separateness covenants and arm's-length intercompany agreements are what make the SPV map in §2 real rather than decorative.
+
+### A. Entity formation — *per SPV*
+
+| Document | Purpose |
+|---|---|
+| Certificate of Formation / Articles of Organization | Files the SPV into existence (Delaware LLC is the usual default) |
+| **Operating Agreement** (LLC) or **Limited Partnership Agreement** (LP) | The core governance + economics doc: unit classes, waterfall, GP authority, transfer restrictions, separateness covenants |
+| Initial member/manager consent & organizational resolutions | Authorizes the bank account, the manager, the opening transactions |
+| EIN / tax registration | Federal tax ID for each entity |
+| Foreign qualification | Registers the SPV to do business in NY (and each Location's state/country) |
+| Registered-agent appointment | Required for service of process in the state of formation |
+
+### B. Securities & offering — *per raise*
+
+| Document | Purpose |
+|---|---|
+| **Private Placement Memorandum (PPM)** | Discloses the opportunity, terms, and risk factors to prospective LPs |
+| Term sheet | The headline economics before full docs are drawn |
+| **Subscription Agreement** | The contract by which an LP commits capital and makes reps |
+| Accredited-investor questionnaire / verification | Establishes Reg D eligibility (verification is mandatory under 506(c)) |
+| **Form D** (SEC) + blue-sky / state notice filings | The federal exemption notice and per-state filings |
+| Side letters | Bespoke terms for anchor or strategic LPs (fee, co-invest, MFN) |
+
+### C. Capital structure & governance — *once (templates) + per SPV*
+
+| Document | Purpose |
+|---|---|
+| Cap table | Live record of units, classes, and ownership per SPV |
+| Unit/class designations | Defines Class A preferred vs Class B common rights (§3) |
+| Distribution-waterfall schedule | The four-tier waterfall (§4) as an exhibit to the Operating Agreement |
+| **Management Agreement** | HoldCo's authority, scope, and management fee for running each SPV |
+| Carried-interest / GP economics terms | How carry vests and is paid to HoldCo (§3) |
+
+### D. Intercompany agreements — *per SPV (these create the ring-fence)*
+
+| Document | Between |
+|---|---|
+| **Brand & IP License** | HoldCo → each OpCo (market royalty for the 5E47 marks) |
+| **Sam Platform / Technology License** (or SaaS agreement) | HoldCo → each OpCo |
+| **Master Lease / Sublease** | PropCo → OpCo (market rent) |
+| **Equipment use / AI-Studio-as-a-Service agreement** | AI Studio Equipment SPV → OpCo, billed at the §9 rate |
+| Management Services Agreement | HoldCo → SPVs (shared back-office) |
+| Separateness / non-recourse covenants | Embedded in each agreement and Operating Agreement |
+
+### E. Debt & financing — *per leveraged SPV (PropCo, Equipment, Slate)*
+
+| Document | Purpose |
+|---|---|
+| Loan / Credit Agreement | Senior debt terms |
+| Promissory Note | The borrower's promise to repay |
+| Security Agreement + UCC-1 / Mortgage or Deed of Trust | Pledges the SPV's assets as collateral |
+| Limited (non-recourse, "bad-boy" carve-out) Guaranty | Keeps debt non-recourse to the network while deterring fraud |
+| Intercreditor / subordination agreement | Orders senior vs mezzanine claims where both exist |
+
+### F. Project Slate & Sponsor Royalty Pool — *per project / per pool*
+
+| Document | Purpose |
+|---|---|
+| **Project Participation Agreement** (the deck's *47 Equity Pact*) | Project-level 70/20/10 split; opt-in only on greenlit Slate projects |
+| Chain-of-title / IP assignment docs | Clean title on each Slate asset (already required by the canvas) |
+| Slate financing / borrowing-base facility | Production financing against contracted receivables |
+| Royalty distribution & accounting agreement | How the Slate SPV accounts and pays out |
+| **Sponsor Royalty Pool participation / unit agreement** | How a sponsor converts spend into auditable pool units (the 10%) |
+
+### G. Tax — *as needed*
+
+| Document | Purpose |
+|---|---|
+| Blocker-corp formation + tax elections | For non-US / tax-exempt LPs to avoid ECI / UBTI |
+| Entity-classification & other elections | Confirm pass-through (or blocker) treatment per entity |
+| Cost-segregation study | Accelerates depreciation on the PropCo buildout |
+
+### H. Ongoing & compliance — *per period, per SPV*
+
+| Document | Purpose |
+|---|---|
+| Quarterly LP statements + waterfall position | Surfaced through the `/investor` experience and the Finance Agent |
+| Schedule K-1s | Annual pass-through tax reporting to each LP |
+| Annual report / franchise-tax filings | Keeps each entity in good standing |
+| Audited or reviewed financials | Per LP information rights / side-letter requirements |
+
+**Sequencing.** Draft the **once** items as templates first (master Operating Agreement, Management Agreement, intercompany forms, subscription/PPM shells). Then each new SPV — and especially each Phase II Location — is a *fill-in-the-template* close rather than a bespoke legal project, which is exactly what makes the §5 replication template cheap to repeat.
+
+## 11. How this maps to the rest of `/docs`
 
 - **Business Model Canvas (doc 01):** this strategy is the *Key Partnerships / Cost Structure* mechanics for the line *"Capital partners — LPs in Hasenpfeffer Ventures LLC: buildout, operations, expansion."*
 - **Business Plan (doc 02) §9 & §10:** the §9.5 use-of-funds and the §10 multi-location blueprint are *what* gets financed; this doc is *how* — the vehicles and the stack.
