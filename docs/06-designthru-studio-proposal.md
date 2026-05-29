@@ -25,7 +25,7 @@ DesignThru Studio proposes to design and build **Sam, the Concierge Agent** — 
 
 Residents hold one conversation with Sam from the moment they're selected into a Production Cycle through alumni status: accept the selection within 24 hours, pay the $3,500 entry, complete the Mutual NDA, onboard, book Floor-7 Recording Studios and Floor-6 render time, manage monthly residency dues, opt projects into the Project Slate at cycle close, and exit clean. Behind Sam, specialist subagents run the building, the cycle engine, the Project Slate, and the Confidentiality & Security Protocol. A predictive layer continuously protects cycle scarcity and reads brand heat across referrals, partner introductions, and sponsor reach.
 
-We propose an **equity partnership, not a build fee**: DesignThru designs, builds, and implements the platform in exchange for **[__]% equity** in Hasenpfeffer Ventures LLC, delivering a production-hardened v1 in **~6 months** — including the **AI Studio as a Service** (on-prem creative-domain agents — Music, Video, 3D, Animation — running against quarantined open-weight models and per-resident fine-tuned SLMs on Floor 6's GPU cluster, with residents able to connect their own personal laptops directly to the on-prem model endpoints; full model stack: §3.4 below and SDP §3A.2).
+We propose an **equity partnership, not a build fee**: DesignThru designs, builds, and implements the platform in exchange for **25% equity** in Hasenpfeffer Ventures LLC, delivering a production-hardened v1 in **~6 months** — including the **AI Studio as a Service** (on-prem creative-domain agents — Music, Video, 3D, Animation — running against quarantined open-weight models and per-resident fine-tuned SLMs on Floor 6's GPU cluster, with residents able to connect their own personal laptops directly to the on-prem model endpoints; full model stack: §3.4 below and SDP §3A.2).
 
 The build is delivered with **AI-assisted development** — an AI-based IDE driving a lean, founder-scale team — so the platform ships at software economics, not agency headcount. Because of that there is **no cash build fee**; DesignThru is compensated in equity and aligned to the platform's long-term value. The only real cash 5E47 commits is for the assets and operations it owns directly: the **Floor-6 AI Studio hardware** (one-time capex, **$150K–$2.5M** tier-dependent — an investor-stage decision) and **production run-rate** (**~$166K–$712K/year**, tier-dependent, offset by AI Studio as a Service revenue — a 7th stream baselined at $400/mo per resident plus metered GPU-hours). The out-of-pocket cost to build the software itself — AI-IDE/LLM usage, dev infra, sandbox services — is **~$5K–$20K**. A working architecture already exists end-to-end; this engagement hardens it into production, implements the deck-canonical Project Slate and Confidentiality & Security primitives, swaps the stubbed integrations for live services, and stands up the AI Studio. The architecture is **location-ready** — the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
 
@@ -167,11 +167,11 @@ The point of the equity model: a small, senior, AI-leveraged team has more upsid
 
 ### 7.1 The deal — equity for build
 
-DesignThru designs, builds, and implements the multi-agent operating system — Sam + all subagents, the predictive layer, the Project Slate, the Confidentiality & Security primitives, and the AI Studio as a Service software — in exchange for **[__]% equity** in Hasenpfeffer Ventures LLC. No cash build fee.
+DesignThru designs, builds, and implements the multi-agent operating system — Sam + all subagents, the predictive layer, the Project Slate, the Confidentiality & Security primitives, and the AI Studio as a Service software — in exchange for **25% equity** in Hasenpfeffer Ventures LLC. No cash build fee.
 
 Equity mechanics (to finalize with counsel):
 
-- **Stake:** **[__]%** of Hasenpfeffer Ventures LLC (or the designated 5E47 operating entity).
+- **Stake:** **25%** of Hasenpfeffer Ventures LLC (or the designated 5E47 operating entity).
 - **Vesting:** earned against the Phase 0–6 delivery milestones in §5 — a **[__]-month** schedule with a cliff at production-hardened v1.
 - **Clawback / acceleration:** delivery-failure clawback and change-of-control acceleration **[to define]**.
 - **What it buys 5E47:** a delivered, production-hardened, location-ready platform — plus the IP in the delivered system — with DesignThru aligned to the platform's long-term value rather than billable hours.
@@ -250,7 +250,7 @@ DesignThru's continued involvement beyond v1 — feature work, model tuning, Pha
 - Hasenpfeffer Ventures LLC provides timely access to deck v5.2 brand guidelines, committee decision rules, IP/legal templates (Mutual NDA, Project Participation Agreement), and accounts for the production integrations (Stripe, Clerk/Auth0, Kisi, Mux, Supabase, LLM provider, on-prem GPU vendor).
 - Cycle cap (100), resident-mix slots (40/30/20/10), 24-hour acceptance window, $3,500 entry, and the Project Participation Agreement split (70/20/10) are deck-canonical business inputs.
 - Selection committee ratification is retained.
-- DesignThru's compensation is **[__]% equity** in Hasenpfeffer Ventures LLC (§7.1); there is no cash build fee. 5E47 funds the Floor-6 hardware capex, production run-rate, and the ~$5K–$20K software-build out-of-pocket directly.
+- DesignThru's compensation is **25% equity** in Hasenpfeffer Ventures LLC (§7.1); there is no cash build fee. 5E47 funds the Floor-6 hardware capex, production run-rate, and the ~$5K–$20K software-build out-of-pocket directly.
 - The equity grant, vesting schedule, valuation basis, and clawback/acceleration terms are set in a definitive equity (contribution) agreement executed alongside this Statement of Work; this proposal states the commercial intent.
 - IP in the delivered system transfers to Hasenpfeffer Ventures LLC as DesignThru's equity vests; on full vesting Hasenpfeffer owns the delivered platform IP outright.
 - Terms valid 60 days from the date above.
