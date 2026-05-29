@@ -201,7 +201,7 @@ The agent operating layer is the margin engine: Sam holds technology + reduced c
 
 ### 9.5 Funding & use of funds (illustrative)
 
-- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
+- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the **Sam operating platform** *(built by DesignThru in exchange for equity per proposal §7 — only ~$5K–$20K software-build out-of-pocket plus ~$60K external security/legal on the cash side; not a $1M+ cash item)*, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
 - **Floor-6 AI Studio hardware tiers (one-time capex, investor-stage selection).** The buildout is sized to the launch ambition — all three are defensible. *Canonical specs and capacity per tier: SDP §3A.1.* Summary:
 
   | Tier | Capex | Capacity headline |
