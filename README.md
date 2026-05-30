@@ -1,5 +1,12 @@
 # 5E47 · Agent-Operated Creator Residency
 
+> **Pivot in progress → Hit House.** The original single-building premise (5 East 47th
+> Street) has been replaced by an asset-light, **lease-led, location-interchangeable**
+> model under the new name **Hit House**. The strategy and the updated business docs live in
+> [Leased Network Pivot Strategy](./docs/08-leased-network-pivot-strategy.md) (doc 08),
+> with docs 01, 02, and 07 updated to match. Product/engineering docs (03–06) and the app
+> UI still carry the legacy "5E47" name pending a full rebrand pass.
+
 The 5E47 platform — an invitation-only luxury creator residency run by a
 **multi-agent system** orchestrated by **Sam, the 5E47 Agent**. Members hold
 one conversation with Sam to become members, book space and services, and
@@ -22,11 +29,13 @@ Business and product docs live in [`/docs`](./docs) and are published as a
 browsable site at the **`/docs` route** (statically generated, on-brand):
 
 - [DesignThru Studio Proposal](./docs/06-designthru-studio-proposal.md) — SOW & investment to build Sam
+- [Leased Network Pivot Strategy](./docs/08-leased-network-pivot-strategy.md) — **the pivot to Hit House**: an asset-light, lease-led, location-interchangeable membership network
 - [Business Model Canvas](./docs/01-business-model-canvas.md)
-- [Business Plan](./docs/02-business-plan.md) (marketing strategy + financials + multi-city)
+- [Business Plan](./docs/02-business-plan.md) (marketing strategy + lease-led financials + multi-city network)
 - [Business Requirements Document](./docs/03-business-requirements-document.md)
 - [Product Requirements Document](./docs/04-product-requirements-document.md)
 - [Software Development Plan & Cost](./docs/05-software-development-plan.md)
+- [SPV Capitalization Strategy](./docs/07-spv-capitalization-strategy.md) — lease-led entity architecture, capital stacks, waterfalls & the per-market Leasehold SPV template
 
 ## The agent system
 

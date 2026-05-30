@@ -1,17 +1,19 @@
-# 5E47 — Business Model Canvas
+# Hit House — Business Model Canvas
 
-**Entity:** Hasenpfeffer Ventures LLC · **Property:** 5 East 47th Street, New York City · **Category:** Private Cultural Infrastructure — a four-story vertical engine that turns raw talent into institutional-grade luxury IP.
-**Version:** 2.1 · **Status:** Aligned to investor deck v5.2; operational vocabulary in plain industry-standard terms · **Owner:** Hasenpfeffer Ventures LLC
+**Entity:** Hasenpfeffer Ventures LLC (operating as **Hit House**) · **Model:** Asset-light, lease-led, multi-location creator membership network — interchangeable leased spaces that turn raw talent into institutional-grade luxury IP.
+**Version:** 3.0 · **Status:** Pivoted to the leased network model (see doc 08); operational vocabulary in plain industry-standard terms · **Owner:** Hasenpfeffer Ventures LLC
 
-> **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Dark Floor Policy, Genesis Node, and the poetic floor identities). This document — and the rest of the operating documentation (02–06) — uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA with Liquidated Damages, Closed-Set Policy, Flagship Location, and plain floor names). The brand terms appear parenthetically on first reference for traceability to the deck.
+> **Pivot note (v3.0).** The single owned building at 5 East 47th Street is no longer available. The project is renamed **Hit House** and pivoted to a **lease-led, location-interchangeable** model: the same Production Cycles run in leased spaces across cities, fit out to a portable **House Standard**, sourced continuously by the **Location Sourcing Engine** ("Scout"). The **Leased Network Pivot Strategy (doc 08) governs** wherever this canvas still reads as a single four-floor building. References to "Floors 4–7" below now denote the four portable House-Standard **zones** (Sound · Production & AI · Salon · Deal Floor), not fixed floors at one address.
+
+> **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Dark Floor Policy, Genesis Node, and the poetic floor identities). This document — and the rest of the operating documentation — uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA with Liquidated Damages, Closed-Set Policy, Location, and the House-Standard zones). The brand terms appear parenthetically on first reference for traceability to the deck.
 
 ---
 
 ## How to read this canvas
 
-5E47 is not a club, not a coworking space, and not a studio rental business. It is a **physical IP factory**: four floors (Floors 4–7) in Midtown Manhattan, each with a defined job, operated as a structured 90-day **Production Cycle** (the deck calls each cycle a *Volume*). The deck's investor thesis — *Culture has a supply chain problem. We built the factory.* — is the public positioning.
+Hit House is not a club, not a coworking space, and not a studio rental business. It is a **portable IP factory**: an invitation-only membership network that runs a structured 90-day **Production Cycle** (the deck calls each cycle a *Volume*) inside **leased, interchangeable spaces** fit out to the four-zone **House Standard** (Sound · Production & AI · Salon · Deal Floor). The deck's investor thesis — *Culture has a supply chain problem. We built the factory.* — is the public positioning; the factory is now portable rather than bound to one address.
 
-The defining strategic constraint is **measured output under enforced scarcity**: 100 residents per Production Cycle, 4 cycles per year, selection precedes payment, payment precedes entry. The brand's value is a direct function of the **Project Slate** (the deck's *47 Slate*) — the IP catalog the building produces, cycle after cycle.
+The defining strategic constraint is **measured output under enforced scarcity**: 100 residents per Production Cycle, 4 cycles per year, selection precedes payment, payment precedes entry. The brand's value is a direct function of the **Project Slate** (the deck's *47 Slate*) — the IP catalog the network produces, cycle after cycle, wherever those cycles are hosted.
 
 Beneath that public narrative sits the **operating layer**: a multi-agent AI system fronted by **Sam, the Concierge Agent** — the single conversational surface residents interact with — and a continuous monthly residency dues structure that funds in-cycle access to services and space. Sam absorbs concierge, scheduling, billing, access, and analytics load so the building scales output, not headcount.
 
@@ -35,11 +37,11 @@ Beneath that public narrative sits the **operating layer**: a multi-agent AI sys
 ## 2. Value Propositions
 
 **For residents — *raw culture becomes luxury IP.***
-- A four-story vertical production system compressed into one Midtown address.
+- A four-zone vertical production system (the House Standard) delivered in leased, interchangeable spaces — the same standard in any city.
 - No-capture environments, private-entry protocol, and a Mutual NDA with Liquidated Damages — private-bank-grade discretion for institutional-grade work.
 - 100% ownership of work made on premises by default; the Project Participation Agreement (the deck's *47 Equity Pact*) is opt-in only for projects elected into the Project Slate.
 - One conversation with **Sam** handles selection logistics, booking, access, dues, and introductions — luxury concierge at near-zero marginal cost.
-- **AI Studio as a Service.** On-prem creative AI agents — domain experts in music, video, 3D modeling, and animation — running on Floor 6's quarantined GPU compute, fine-tuned on each resident's own catalog. Residents direct the studio in natural language through Sam; weights and outputs never leave the building.
+- **AI Studio as a Service.** Creative AI agents — domain experts in music, video, 3D modeling, and animation — running on the shared central compute core plus portable on-site inference rigs (doc 08 §7), fine-tuned on each resident's own catalog. Residents direct the studio in natural language through Sam; weights and outputs stay within Hit House's private, sovereign environment and never reach third-party APIs.
 
 **For sponsors — *marketing spend becomes asset acquisition.***
 - Sponsors are not buying placement. They are participating in the upside of the cultural assets the building produces — through a governed, auditable **10% Sponsor Royalty Pool** on Project Slate projects.
@@ -86,9 +88,9 @@ Blended model: **structural recurring base** (cycle entries + monthly dues) + **
 
 ## 6. Key Resources
 
-- **The Address.** 5 East 47th Street — Midtown Manhattan gives the project institutional gravity. Proximity to talent, capital, media, and luxury brands is the asset.
-- **The Vertical Engine.** Four floors, each with a defined job:
-  - **Floor 7 — Recording Studios** *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*: high-fidelity audio + biological environment design; 2 mirrored suites; a Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*).
+- **The Location Sourcing Engine.** The core relocatable asset: the **Scout** capability that continuously sources, scores, secures, and winds down leased spaces against the House Standard — so a cycle can be placed in the right city at the right cost, and no single landlord or lease can hold the network hostage. Proximity to talent, capital, media, and luxury brands is selected for per location, not fixed to one address.
+- **The House Standard (four portable zones).** Each leased space is fit out lightly to provide four functional zones, each with a defined job (the legacy "Floors 4–7" — now portable, not fixed at one address):
+  - **Zone A — Recording Studios** *(was Floor 7)* *(deck: Botanical Recording Laboratory / "the Pressure Chamber")*: high-fidelity audio + biological environment design; 2 mirrored suites; a Danish-engineered, HEPA-filtered Vocal Isolation Booth (deck name: *Superman Booth*).
   - **Floor 6 — Post-Production & AI** *(deck: Generative Media Factory / "the Force Multiplier")*: AI Post-Production Lab, Virtual Production Stage, Sponsor Activation Lab (deck name: *Brand Beta Lab*), Multi-Format Distribution Pipeline (deck name: *Synthetic Media Pipeline*); on-prem GPU arrays (Floor-6 AI Studio — see Cost Structure for buildout tiers); resident-trained SLMs and quarantined open-weight base models (DeepSeek-V3 / R1, Qwen3-235B / Qwen2.5-VL, Llama 3.x / 4, plus domain-specific audio, video, 3D, and animation models — see SDP §3A.2 for the canonical model stack) deployed inside the building; residents may also connect their own personal laptops directly to these on-prem model endpoints while on-site.
   - **Floor 5 — Listening Lounge & Member Salon** *(deck: Japanese Archival Sanctuary / "the Social Heart")*: Reference Listening Room (deck name: *Audio Altar*), 100 Private Member Lockers (one per resident per cycle), sponsor receptions, cultural salons.
   - **Floor 4 — Business Operations & Deal Floor** *(deck: Professional Commons / "the War Room")*: legal, IP admin, asset registry, chain-of-title, deal floor, sponsor presentation rooms, Project Slate deployment.
@@ -114,7 +116,7 @@ Blended model: **structural recurring base** (cycle entries + monthly dues) + **
 - **Capital partners** — LPs in Hasenpfeffer Ventures LLC: buildout, operations, expansion.
 - **Brand partners (anchor sponsors)** — category-exclusive participants in the Sponsor Royalty Pool.
 - **Media partners** — distribution networks with first-look windows on the Project Slate.
-- **Real-estate partners** — location-ready premium spaces in LA, London, Tokyo, Atlanta, Dubai, Riyadh, Abu Dhabi.
+- **Real-estate partners** — landlords, flexible/managed-office operators, and brokers supplying lease-ready premium spaces across target markets (NY, LA, London, Tokyo, Atlanta, Dubai, Riyadh, Abu Dhabi); the lease is the relationship, not ownership.
 - **Tech partners** — compute, model, and platform providers embedded inside the production environment.
 - **Technology providers (interface-boundary stubs, swappable):** Clerk/Auth0 (identity), Stripe (payments), Kisi/Openpath (access), Mux/Cloudflare (media), Supabase/Postgres (data), Temporal (workflow), OpenAI/Anthropic (agent reasoning).
 - **Legal & IP partners** — Mutual NDA administration, chain-of-title, sync/licensing counsel.
@@ -123,9 +125,9 @@ Blended model: **structural recurring base** (cycle entries + monthly dues) + **
 
 | Category | Drivers |
 |---|---|
-| **Real estate & buildout** | 5 East 47th Street lease, four-floor buildout, equipment install, ongoing facilities |
-| **Equipment & studios** | Floor-7 audio (Neve/SSL class, Vocal Isolation Booth, HEPA), Floor-6 GPU arrays + Virtual Production Stage + LED volume, Floor-5 archival lighting + listening systems, Floor-4 secure deal rooms |
-| **Floor-6 AI Studio hardware (capex)** | Three buildout tiers, sized at investor stage: **Conservative** ~$150K–$250K · **Standard (recommended)** ~$500K–$900K · **Aggressive** ~$1.2M–$2.5M. *Canonical specs and capacity per tier: SDP §3A.1.* |
+| **Real estate (lease opex)** | Per-location rent across leased markets, lease deposits, light/portable fit-out to House Standard, make-good/restoration reserves — opex, not buildout capex (see doc 08 §8) |
+| **Equipment & studios (portable)** | Mobile recording rigs + portable Vocal Isolation Booths, demountable acoustic treatment, portable virtual-production kit, listening/lounge dressing, secure deal-room kit — redeployable across locations |
+| **Central compute (shared)** | One colocation/cloud GPU core serving all locations + portable on-site inference rigs for data sovereignty. Capex→opex; one core amortized across markets (replaces per-building AI Studio buildout — see doc 08 §7) |
 | **People (lean)** | Selection committee, hospitality, audio/video engineers, IP & legal lead, partnerships lead, finance, platform engineering |
 | **Technology** | Sam + agent platform, cloud, on-prem compute, model inference, integrations |
 | **IP & legal infrastructure** | Mutual NDA administration, Project Slate chain-of-title, sponsor royalty accounting, private-entry protocol |
@@ -151,7 +153,8 @@ The public narrative (the deck) sells the factory. The operating layer (Sam) run
 | Channels (programming) | **Programming Agent** | Cultural salons, sponsor receptions, listening sessions on Floor 5 |
 | Channels (acquisition) | **Growth Agent** | Referral cultivation, partner-network sourcing, brand-heat amplification |
 | Key Activities (Project Slate) | **IP Catalog Agent** | Project greenlight workflow, chain-of-title, IP catalog registry, distribution windows |
-| Key Activities (ops) | **Operations Agent** | Day-to-day facility ops, cycle open/close, exceptions |
+| Key Activities (ops) | **Operations Agent** | Day-to-day multi-location venue ops, lease administration, cycle open/close, exceptions |
+| Key Resources (location) | **Scout (Location Agent)** | Candidate-space pipeline, scoring against the House Standard, lease negotiation support, fit-out & make-good tracking, placement recommendations to Sam (see doc 08 §10) |
 | AI Studio — audio | **Music Agent** | Domain expert in production, arrangement, sound design, and audio mastering. Drives on-prem audio models (Stable Audio Open, MusicGen) and the resident's fine-tuned audio SLM to generate stems, score sketches, and mixdown candidates from natural-language direction; outputs are logged into the IP Catalog with provenance |
 | AI Studio — video | **Video Agent** | Domain expert in shot generation, cut-down, color, and edit assembly. Drives on-prem video models (Wan 2.2, HunyuanVideo, LTX-Video) plus the Virtual Production Stage; produces editorial cuts, b-roll, and multi-format versions for the Distribution Pipeline |
 | AI Studio — 3D | **3D Agent** | Domain expert in mesh generation, scene assembly, texturing, and rendering. Drives on-prem 3D models (TRELLIS, Hunyuan3D-2) and the LED volume pipeline; produces assets ready for Unreal Engine scenes |
