@@ -1,11 +1,13 @@
-# 5E47 — SPV Capitalization Strategy
+# Hit House — SPV Capitalization Strategy
 
-**Company:** Hasenpfeffer Ventures LLC · **Property:** 5 East 47th Street, New York City
-**Document type:** Capital structure & special-purpose-vehicle (SPV) financing strategy for a multi-location private cultural infrastructure network
-**Version:** 1.0 · **Horizon:** 5 years · **Aligned to:** 5E47 Investor Deck v5.2 (2026) · Business Plan (doc 02) §9 · Business Model Canvas (doc 01)
+**Company:** Hasenpfeffer Ventures LLC (operating as **Hit House**)
+**Document type:** Capital structure & special-purpose-vehicle (SPV) financing strategy for an asset-light, lease-led, multi-location creator membership network
+**Version:** 2.0 · **Horizon:** 5 years · **Aligned to:** the Leased Network Pivot Strategy (doc 08) · Business Plan (doc 02) §9 · Business Model Canvas (doc 01)
 **Prepared for:** Founders, the board, prospective capital partners (private equity, family offices, strategic capital), and counsel
 
-> **Terminology note.** Like the rest of `/docs`, this document uses industry-standard vocabulary. Where the investor deck uses brand-coined names (Volume, 47 Slate, 47 Equity Pact, Genesis Node), the operating equivalents are used here (Production Cycle, Project Slate, Project Participation Agreement, Flagship Location). See the canvas (doc 01) glossary.
+> **Pivot note (v2.0).** Hit House leases rather than owns. There is no real-estate-owning **PropCo**: the building at 5 East 47th Street is gone, and real estate is now an operating lease expense, not an owned asset. This version replaces the PropCo with **per-market Leasehold/OpCo SPVs** (which hold each market's leases and run its cycles) and replaces the per-building **AI Studio Equipment SPV** with a single shared **Central Compute SPV** (colo/cloud core + portable rigs). The Leased Network Pivot Strategy (doc 08) governs the model; this document is how it is capitalized.
+
+> **Terminology note.** Like the rest of `/docs`, this document uses industry-standard vocabulary. Where the investor deck uses brand-coined names (Volume, 47 Slate, 47 Equity Pact, Genesis Node), the operating equivalents are used here (Production Cycle, Project Slate, Project Participation Agreement, Location). See the canvas (doc 01) glossary.
 
 > **Illustrative & not advice.** Every structure, percentage, and term below is an illustrative planning model anchored to the deck's operating constants (100 residents/cycle, 4 cycles/year, $3,500 entry, 70/20/10 Project Participation split, the AI Studio capex tiers in business-plan §9.5). Nothing here is legal, tax, securities, or investment advice. Final entity, securities-exemption, and tax structuring must be set with qualified counsel and the company's accountants before any capital is raised.
 
@@ -15,13 +17,13 @@
 
 5E47 is not one asset. It is a **stack of distinguishable assets with different risk, duration, and investor profiles**, all currently implied to sit inside a single operating LLC:
 
-- **Real estate / leasehold** — the four-floor vertical engine at 5 East 47th Street. Long-duration, low-volatility, debt-friendly.
-- **The operating business** — Production Cycles, dues, the Sam agent platform, hospitality. Medium-duration, cash-generative, scarcity-capped.
-- **Heavy capex equipment** — the Floor-6 AI Studio (GPU hardware) and Floor-7 recording infrastructure. Depreciating, leasable, financeable on its own.
+- **Leaseholds** — the leased, interchangeable House-Standard spaces in each market. Medium-duration, opex-driven; the liability is the lease commitment, not an owned building.
+- **The operating business** — Production Cycles, dues, the Sam + Scout agent platform, hospitality. Medium-duration, cash-generative, scarcity-capped.
+- **Shared compute** — the central colo/cloud GPU core plus portable on-site inference rigs that serve every location. Depreciating/leasable, financeable on its own, amortized across the network.
 - **The IP catalog** — the Project Slate. Long-tail, optionality-heavy, uncorrelated to the operating business; behaves like a film/music slate.
-- **Per-location expansion** — LA, London, Tokyo, then Atlanta / Dubai / Riyadh / Abu Dhabi. Each a fresh capped scarcity market with its own underwriting.
+- **Per-location expansion** — NY, LA, London, Tokyo, then Atlanta / Dubai / Riyadh / Abu Dhabi. Each a fresh capped scarcity market with its own lease and its own underwriting.
 
-Forcing all of these into one balance sheet does three bad things: it **commingles risk** (a Slate write-down bleeds into the real-estate covenant; a location that underperforms drags the catalog), it **forces every investor into the same instrument** when a family office wants the building and a strategic wants the IP, and it **caps replication** because every new city has to be financed off the parent's balance sheet.
+Forcing all of these into one balance sheet does three bad things: it **commingles risk** (a Slate write-down bleeds into a lease covenant; a location that underperforms drags the catalog), it **forces every investor into the same instrument** when a family office wants a market's leasehold-backed operating cash flow and a strategic wants the IP, and it **caps replication** because every new city has to be financed off the parent's balance sheet.
 
 SPVs solve all three. Each SPV is a **bankruptcy-remote, single-purpose entity** that ring-fences one asset, carries its own capital stack, and lets the right capital meet the right risk. This is the same architecture used in real estate (PropCo/OpCo), film slate financing, and infrastructure project finance — applied to a cultural-infrastructure network.
 
@@ -33,37 +35,38 @@ The recommended structure is a **HoldCo / ManagementCo over a family of asset SP
 
 ```
                     Hasenpfeffer Ventures LLC  (HoldCo / ManagementCo, GP)
-                    · brand & IP licensor · Sam platform owner · GP / manager
+                    · brand & IP licensor · Sam + Scout platform owner · GP / manager
                     · holds carried interest & management contracts
                                        │
-        ┌──────────────┬───────────────┼────────────────┬──────────────────┐
-        │              │               │                │                  │
-   ┌─────────┐   ┌──────────┐    ┌───────────┐    ┌────────────┐     ┌──────────────┐
-   │ NY       │   │ AI Studio│    │ Project    │    │ Sponsor    │     │ Location SPVs │
-   │ PropCo   │   │ Equipment│    │ Slate      │    │ Royalty    │     │ (LA / London  │
-   │ SPV      │   │ SPV      │    │ Finance    │    │ Pool SPV   │     │  / Tokyo …)   │
-   │ (5E47    │   │ (GPU/    │    │ SPV(s)     │    │ (10% pool, │     │ PropCo+OpCo   │
-   │ lease/   │   │ Floor-7  │    │ (IP catalog│    │ sponsor    │     │ per node      │
-   │ building)│   │ capex)   │    │ + slate $) │    │ LPs)       │     │               │
-   └─────────┘   └──────────┘    └───────────┘    └────────────┘     └──────────────┘
-        │                                                                    │
-   NY OpCo (Flagship operating co.) ──── licenses brand + Sam from HoldCo ────┘
+        ┌───────────────────┬──────────┼───────────────┬─────────────────────┐
+        │                   │          │               │                     │
+  ┌───────────────┐  ┌────────────┐ ┌───────────┐ ┌────────────┐   ┌─────────────────┐
+  │ Leasehold/OpCo │  │ Central     │ │ Project    │ │ Sponsor    │   │ more Leasehold/  │
+  │ SPV — NY       │  │ Compute     │ │ Slate      │ │ Royalty    │   │ OpCo SPVs        │
+  │ · holds lease  │  │ SPV         │ │ Finance    │ │ Pool SPV   │   │ (LA / London /   │
+  │ · runs cycles  │  │ (colo/cloud │ │ SPV(s)     │ │ (10% pool, │   │  Tokyo …) —      │
+  │ · light fit-out│  │  core +     │ │ (IP catalog│ │ sponsor    │   │  one per market  │
+  │   to House Std │  │  rigs)      │ │ + slate $) │ │ LPs)       │   │                  │
+  └───────────────┘  └────────────┘ └───────────┘ └────────────┘   └─────────────────┘
+        │
+   leases space from a 3rd-party landlord; licenses brand + Sam + Scout from HoldCo;
+   buys compute as a service from the Central Compute SPV
 ```
 
 | SPV | Holds / does | Why it is separate | Typical capital |
 |---|---|---|---|
-| **HoldCo / ManagementCo** (Hasenpfeffer Ventures LLC) | Brand, trademarks, the Sam platform IP, management & licensing contracts, carry | Apex value accrual; keeps brand/platform out of any single asset's creditors | Founder equity + a small strategic/platform round |
-| **NY PropCo SPV** | The lease (or fee interest) and tenant-improvement buildout at 5E47 | Real-estate risk and any mortgage/TI debt ring-fenced from operations | LP equity + senior real-estate debt; sale-leaseback optional |
-| **NY OpCo** | The Flagship operating business — cycles, dues, hospitality, bookings | Operating risk separated from the asset it operates in | Operating equity; licenses brand/Sam from HoldCo, leases space from PropCo |
-| **AI Studio Equipment SPV** | Floor-6 GPU buildout + Floor-7 capture infrastructure (business-plan §9.5 tiers) | Depreciating capex is financeable/leasable on its own; isolates obsolescence risk | Equipment debt / lease + equity; bills OpCo per the §9 AI-Studio-as-a-Service model |
+| **HoldCo / ManagementCo** (Hasenpfeffer Ventures LLC) | Brand, trademarks, the Sam + Scout platform IP, management & licensing contracts, carry | Apex value accrual; keeps brand/platform out of any single asset's creditors | Founder equity + a small strategic/platform round |
+| **Leasehold / OpCo SPV** (one per market) | That market's lease(s), light fit-out, and the operating business — cycles, dues, hospitality, bookings | Ring-fences the **lease liability** and operating risk per city, so a bad lease or soft market can't cross to other markets or the HoldCo | Mostly LP + network equity, plus a working-capital line; licenses brand/Sam/Scout from HoldCo; **no mortgage** |
+| **Central Compute SPV** | The shared colo/cloud GPU core + portable on-site inference rigs serving every location (doc 08 §7) | Depreciating compute is financeable/leasable on its own and amortizes across all markets; isolates obsolescence risk | Equipment debt / lease + equity; bills each Leasehold/OpCo per the §9 AI-Studio-as-a-Service model |
 | **Project Slate Finance SPV(s)** | Greenlit Slate projects' production financing, chain-of-title, and royalty receivables | Slate is uncorrelated, long-tail, and the prime upside; isolates IP from operating creditors | Slate equity, revolving production facility, possible securitization later |
 | **Sponsor Royalty Pool SPV** | The 10% Sponsor Royalty Pool and its quarterly distributions | Gives sponsors an auditable, bankruptcy-remote claim on Slate output | Sponsor capital → pool units; no leverage |
-| **Location SPVs** (one per node) | Each new market's PropCo + OpCo (LA, London, Tokyo, …) | Each city is underwritten and capitalized on its own selection pressure | Local + network LP equity, local real-estate debt |
+
+Each new market is simply another **Leasehold/OpCo SPV** spun from the same template — underwritten and capitalized on its own selection pressure, sharing the brand, Sam + Scout, the Central Compute SPV, and the Slate catalog.
 
 The two non-negotiable design rules that make this a real SPV structure and not just nested LLCs:
 
-1. **Bankruptcy remoteness / non-recourse ring-fencing.** Each SPV's debt is recourse only to that SPV's assets. A separateness covenant (own books, own bank account, no commingling, independent decision on insolvency filing) keeps a creditor of one SPV from reaching another or the HoldCo.
-2. **Arm's-length intercompany terms.** HoldCo licenses brand + Sam to each OpCo at a market royalty; PropCo charges OpCo market rent; the AI Studio SPV bills OpCo at the §9 AI-Studio-as-a-Service rate. These flows are how value moves up to HoldCo *and* how each SPV's standalone economics stay legible to its own investors.
+1. **Bankruptcy remoteness / non-recourse ring-fencing.** Each SPV's obligations — including its **lease guaranty** — are recourse only to that SPV's assets. A separateness covenant (own books, own bank account, no commingling, independent decision on insolvency filing) keeps a creditor or landlord of one SPV from reaching another or the HoldCo.
+2. **Arm's-length intercompany terms.** HoldCo licenses brand + Sam + Scout to each Leasehold/OpCo SPV at a market royalty; the Central Compute SPV bills each market at the §9 AI-Studio-as-a-Service rate. (There is no intercompany rent — each Leasehold SPV leases directly from a third-party landlord.) These flows are how value moves up to HoldCo *and* how each SPV's standalone economics stay legible to its own investors.
 
 ## 3. The capital stack, per SPV
 
@@ -71,12 +74,10 @@ Different assets justify different stacks. The strategy matches instrument to as
 
 | SPV | Senior debt | Mezz / preferred | Common equity | Rationale |
 |---|---|---|---|---|
-| **NY PropCo** | 50–65% LTV mortgage or TI loan | optional | 35–50% LP equity | Hard asset + lease support carries leverage cheaply; lowest cost of capital in the structure |
-| **AI Studio Equipment** | Equipment lease / loan, 60–75% of capex | — | 25–40% equity | Hardware is collateral; lease aligns cost with the depreciation curve and avoids stranding obsolete GPUs on the operating books |
-| **NY OpCo** | Minimal / working-capital line only | — | Mostly equity | Cash-generative but scarcity-capped; don't lever the brand engine |
+| **Leasehold / OpCo (per market)** | Working-capital line only — **no mortgage** | optional bridge | Mostly network + local LP equity | Leases (not owns); the obligations are the lease deposit, light fit-out, and make-good. Don't lever the operating/brand engine; keep each market's lease liability ring-fenced |
+| **Central Compute** | Equipment lease / loan, 60–75% of cost | — | 25–40% equity | Compute is collateral; lease aligns cost with the depreciation curve and avoids stranding obsolete GPUs; one core amortizes across all markets |
 | **Project Slate Finance** | Revolving production facility (borrowing-base on greenlit projects) | Slate preferred | Slate common / carry | Mirrors film-slate finance: debt against contracted receivables, equity for the long-tail upside |
 | **Sponsor Royalty Pool** | None | — | Pool units | Sponsors convert marketing spend to asset participation; leverage would defeat the auditable-claim purpose |
-| **Location SPVs** | Local real-estate debt at PropCo | optional bridge | Network + local LP equity | Each node replicates the NY PropCo/OpCo split on its own underwriting |
 
 Equity inside each SPV is itself tiered so that the GP, founders, early capital, and later capital sit in the right place:
 
@@ -87,7 +88,7 @@ Equity inside each SPV is itself tiered so that the GP, founders, early capital,
 
 ## 4. The distribution waterfall
 
-Each cash-generating SPV distributes on a standard four-tier waterfall. Illustrative for a Location or PropCo SPV:
+Each cash-generating SPV distributes on a standard four-tier waterfall. Illustrative for a Leasehold/OpCo SPV:
 
 1. **Return of capital** — 100% to Class A LPs until they have their invested capital back.
 2. **Preferred return** — to Class A LPs until the cumulative hurdle (e.g. 8%/yr) is met.
@@ -102,12 +103,12 @@ This two-level design is the point: **investors buy into the House and Sponsor s
 
 The business plan's expansion thesis (doc 02 §10) is that *"each new Location is a fresh capped scarcity market … underwritten only on proven local selection pressure and partner depth."* SPVs are what make that financeable without betting the parent:
 
-- **One template, many closings.** The NY PropCo/OpCo split is the blueprint. Each new city is a new pair of SPVs spun from the same documents — same waterfall, same brand/Sam license from HoldCo, same separateness covenants — so legal and underwriting cost amortizes across the network.
-- **Underwrite locally, raise on the network.** A Location SPV is greenlit only on its own selection pressure (the Oracle/predictive layer recalibrates per node), but capital is sourced from both local partners and the network's existing LPs, who get **per-deal allocation** rather than a blind pool.
-- **Capital follows proof, not ambition.** Phase II (LA / London / Tokyo) SPVs are raised "ready upon Flagship stabilization at Production Cycle 03" (doc 02 §10) — i.e. each SPV's close is gated on the prior node's stabilization, so a slow market can't drain the network.
-- **HoldCo compounds across all of them.** Every Location SPV pays brand + Sam license fees and carry up to HoldCo. The catalog (Project Slate) is one queryable asset across nodes, so the Slate SPV's value compounds with each new production engine while each PropCo/OpCo risk stays local.
+- **One template, many closings.** The NY Leasehold/OpCo SPV is the blueprint. Each new city is a single SPV spun from the same documents — same waterfall, same brand/Sam/Scout license from HoldCo, same lease-guaranty and separateness covenants — so legal and underwriting cost amortizes across the network, and **Scout's pipeline (doc 08 §4) feeds the space into the SPV**.
+- **Underwrite locally, raise on the network.** A Leasehold/OpCo SPV is greenlit only on its own selection pressure (the predictive layer recalibrates per market) and a signed-or-sourced lease, but capital is sourced from both local partners and the network's existing LPs, who get **per-deal allocation** rather than a blind pool.
+- **Capital follows proof, not ambition.** New-market SPVs close only once selection pressure and a House-Standard lease are in hand — so a slow market can't drain the network, and an opportunistic space can be taken quickly because the raise is light (no buildout).
+- **HoldCo compounds across all of them.** Every Leasehold/OpCo SPV pays brand + Sam + Scout license fees and carry up to HoldCo, and buys compute from the Central Compute SPV. The catalog (Project Slate) is one queryable asset across markets, so the Slate SPV's value compounds with each new production engine while each market's lease risk stays local.
 
-This is the deck's *Genesis Node → global blueprint* expressed as a capital structure: **the building is local and levered, the operating company is local and equity-funded, the brand/platform/IP is global and compounds at the top.**
+This is the deck's *Genesis Node → global blueprint* expressed as a capital structure: **the leasehold is local and unlevered, the operating company is local and equity-funded, and the brand/platform/IP/compute is shared and compounds at the top** — interchangeable by design.
 
 ## 6. Securities, investor eligibility & governance
 
@@ -123,7 +124,7 @@ This is the deck's *Genesis Node → global blueprint* expressed as a capital st
 
 - **Pass-through by default.** LLC SPVs are pass-through for US tax, so income is taxed once at the investor level — efficient for the PE/family-office base.
 - **Blocker corporations** where needed. Tax-exempt LPs (endowments, foundations) avoiding UBTI, and non-US LPs avoiding ECI/US filing, invest through a **C-corp blocker** above the SPV. The deck's Phase III markets (Dubai, Riyadh, Abu Dhabi, Tokyo, London) make non-US capital likely, so build the blocker option into the template.
-- **Real estate.** The PropCo SPVs carry the depreciation and any interest shield; cost-segregation on the buildout accelerates it. A future **sale-leaseback** of the building is a clean liquidity event for PropCo LPs without disturbing OpCo.
+- **Leases.** Rent is currently deductible operating expense at each Leasehold/OpCo SPV; light fit-out / leasehold improvements are depreciated (or expensed where eligible) at the SPV that incurs them. There is no owned building to carry depreciation or a mortgage-interest shield — the trade-off for the lower capital intensity and flexibility of the leased model.
 - **IP.** Centralize trademarks and the Sam platform in HoldCo as the licensor so brand royalties accrue at the apex; keep Slate chain-of-title clean at the Slate SPV (the canvas already requires per-project chain-of-title registration).
 
 ## 8. Illustrative inaugural raise
@@ -132,11 +133,11 @@ Mapping to business-plan §9.5 *use of funds* (four-floor buildout, the Floor-6 
 
 | Vehicle | Funds | Rough size (illustrative) | Instrument |
 |---|---|---|---|
-| **NY PropCo SPV** | Lease/buildout of the four floors + TI | Buildout-led; the heaviest line | LP equity + real-estate/TI debt at 50–65% |
-| **AI Studio Equipment SPV** | Floor-6 GPU buildout (Standard tier ~$500K–$900K per §9.5) + Floor-7 capture | ~$0.6M–$1.0M | Equipment lease/loan + equity |
-| **NY OpCo (+ HoldCo platform)** | Sam platform, Slate legal & registry, security protocol, 18-month operating runway | Operating raise | Mostly equity; light working-capital line |
+| **HoldCo (platform)** | Sam + Scout platform, brand, Slate legal & registry, security protocol, 18-month operating runway | Operating raise | Founder + strategic equity |
+| **NY Leasehold/OpCo SPV** | Lease deposit + light/portable fit-out to House Standard + working capital for the first cycles | Light — deposit + fit-out, not a buildout | Mostly equity; working-capital line; **no mortgage** |
+| **Central Compute SPV** | Shared colo/cloud GPU core (Standard tier ~$500K–$900K per §9.5) + portable on-site inference rigs | ~$0.6M–$1.0M | Equipment lease/loan + equity |
 
-Sequencing: **HoldCo and OpCo first** (so the brand, platform, and operating runway exist), **PropCo alongside the lease**, **Equipment SPV at fit-out**, and the **Project Slate Finance SPV and Sponsor Royalty Pool SPV stood up in Year 2** when the first projects are greenlit (matching the §9.2 trajectory where the Slate matures and the royalty pool goes active in Years 2–3). Phase II **Location SPVs** open only after Flagship stabilization.
+Sequencing: **HoldCo first** (so the brand, Sam + Scout, and operating runway exist), the **NY Leasehold/OpCo SPV once Scout has a House-Standard lease**, the **Central Compute SPV at fit-out**, and the **Project Slate Finance SPV and Sponsor Royalty Pool SPV stood up in Year 2** when the first projects are greenlit (matching the §9.2 trajectory where the Slate matures and the royalty pool goes active in Years 2–3). Additional **Leasehold/OpCo SPVs** open per market as Scout sources leases and selection pressure proves out — no longer gated as a distant "Phase II."
 
 ## 9. Risks specific to the SPV structure
 
@@ -145,7 +146,8 @@ Sequencing: **HoldCo and OpCo first** (so the brand, platform, and operating run
 | Separateness breaks (veil-pierce) and ring-fencing fails | Strict separateness covenants: own books/accounts, arm's-length intercompany agreements, independent insolvency decision-maker, no commingling |
 | Intercompany terms challenged as non-arm's-length | Benchmark brand royalty, rent, and AI-Studio billing to third-party comps; document and review annually |
 | Cap-table sprawl across many SPVs | One master template + the `/investor` reporting surface; standardized waterfall and docs so every SPV reads the same |
-| Over-leverage at PropCo or Equipment SPV | Conservative LTV caps; debt is non-recourse to the network; OpCo is kept largely unlevered |
+| Lease liability / over-commitment at a Leasehold SPV | Ladder short-to-medium leases with break options; ring-fence the lease guaranty in the market's own SPV; keep operations unlevered (see doc 08 §9) |
+| Compute obsolescence / over-leverage at Central Compute SPV | Conservative financing; lease (don't buy) where possible; one shared core kept utilized across markets |
 | Investment Company Act / fund-status exposure | Stay within 3(c)(1)/qualifying-venture thresholds per SPV, or structure deliberately as a fund with counsel |
 | Slate underperforms and Slate SPV can't service its facility | Borrowing-base sized only to contracted/greenlit receivables; equity, not debt, carries the long-tail bet |
 | Non-US / tax-exempt capital creates UBTI/ECI | Blocker corps built into the template from day one |
@@ -190,22 +192,22 @@ Standing up the structure in §2 is a paperwork exercise as much as a financing 
 
 | Document | Between |
 |---|---|
-| **Brand & IP License** | HoldCo → each OpCo (market royalty for the 5E47 marks) |
-| **Sam Platform / Technology License** (or SaaS agreement) | HoldCo → each OpCo |
-| **Master Lease / Sublease** | PropCo → OpCo (market rent) |
-| **Equipment use / AI-Studio-as-a-Service agreement** | AI Studio Equipment SPV → OpCo, billed at the §9 rate |
+| **Brand & IP License** | HoldCo → each Leasehold/OpCo SPV (market royalty for the Hit House marks) |
+| **Sam + Scout Platform / Technology License** (or SaaS agreement) | HoldCo → each Leasehold/OpCo SPV |
+| **AI-Studio-as-a-Service agreement** | Central Compute SPV → each Leasehold/OpCo SPV, billed at the §9 rate |
 | Management Services Agreement | HoldCo → SPVs (shared back-office) |
 | Separateness / non-recourse covenants | Embedded in each agreement and Operating Agreement |
 
-### E. Debt & financing — *per leveraged SPV (PropCo, Equipment, Slate)*
+### E. Real estate (lease) & financing — *per leased location / per leveraged SPV (Compute, Slate)*
 
 | Document | Purpose |
 |---|---|
-| Loan / Credit Agreement | Senior debt terms |
-| Promissory Note | The borrower's promise to repay |
-| Security Agreement + UCC-1 / Mortgage or Deed of Trust | Pledges the SPV's assets as collateral |
-| Limited (non-recourse, "bad-boy" carve-out) Guaranty | Keeps debt non-recourse to the network while deterring fraud |
-| Intercreditor / subordination agreement | Orders senior vs mezzanine claims where both exist |
+| **Commercial lease** (or managed-office / turnkey agreement) | The third-party lease for each House-Standard location; favor flexibility, break options, percentage-rent where available |
+| **Lease guaranty** (entity-level, ring-fenced) | Limits landlord recourse to the market's own Leasehold SPV — keeps the lease off the network's neck |
+| **Fit-out / contractor & make-good agreements** | Light fit-out to House Standard and the restoration/reinstatement obligation at exit |
+| Loan / Credit Agreement + Promissory Note | Senior debt terms for the Central Compute SPV / Slate facility |
+| Security Agreement + UCC-1 | Pledges compute or Slate receivables as collateral (no mortgage in the leased model) |
+| Limited (non-recourse, "bad-boy" carve-out) Guaranty | Keeps any debt non-recourse to the network while deterring fraud |
 
 ### F. Project Slate & Sponsor Royalty Pool — *per project / per pool*
 
@@ -234,10 +236,11 @@ Standing up the structure in §2 is a paperwork exercise as much as a financing 
 | Annual report / franchise-tax filings | Keeps each entity in good standing |
 | Audited or reviewed financials | Per LP information rights / side-letter requirements |
 
-**Sequencing.** Draft the **once** items as templates first (master Operating Agreement, Management Agreement, intercompany forms, subscription/PPM shells). Then each new SPV — and especially each Phase II Location — is a *fill-in-the-template* close rather than a bespoke legal project, which is exactly what makes the §5 replication template cheap to repeat.
+**Sequencing.** Draft the **once** items as templates first (master Operating Agreement, Management Agreement, intercompany forms, subscription/PPM shells). Then each new market's Leasehold/OpCo SPV is a *fill-in-the-template* close rather than a bespoke legal project, which is exactly what makes the §5 replication template cheap to repeat as Scout sources each new lease.
 
 ## 11. How this maps to the rest of `/docs`
 
+- **Leased Network Pivot Strategy (doc 08):** the governing model for this version — the lease-led, interchangeable-location business this capital structure finances. Read it first.
 - **Business Model Canvas (doc 01):** this strategy is the *Key Partnerships / Cost Structure* mechanics for the line *"Capital partners — LPs in Hasenpfeffer Ventures LLC: buildout, operations, expansion."*
 - **Business Plan (doc 02) §9 & §10:** the §9.5 use-of-funds and the §10 multi-location blueprint are *what* gets financed; this doc is *how* — the vehicles and the stack.
 - **Product (docs 03–04):** the Finance Agent (royalty-pool accounting, investor reporting) and the `/investor` experience are the operating surface for SPV LP reporting and distributions.
@@ -245,4 +248,4 @@ Standing up the structure in §2 is a paperwork exercise as much as a financing 
 
 ---
 
-*Document 07 of the 5E47 documentation set. Illustrative planning model only — not legal, tax, securities, or investment advice. Final structuring requires qualified counsel and the company's accountants.*
+*Document 07 of the Hit House documentation set. Illustrative planning model only — not legal, tax, securities, or investment advice. Final structuring requires qualified counsel and the company's accountants.*
