@@ -174,7 +174,7 @@ Equity mechanics (to finalize with counsel):
 - **Stake:** **25%** of Hasenpfeffer Ventures LLC (or the designated 5E47 operating entity).
 - **Vesting:** earned against the Phase 0–6 delivery milestones in §5 — a **24-month** schedule with a cliff at production-hardened v1 (≈ Month 6). At the cliff, ~25% of the grant vests; the remaining ~75% vests linearly month-by-month over the subsequent 18 months.
 - **Clawback / acceleration:** unvested equity reverts to Hasenpfeffer if DesignThru fails to deliver production-hardened v1 within the agreed milestone deadline plus a 60-day cure period (delivery-failure clawback). Unvested equity fully accelerates on a change-of-control or qualifying liquidity event affecting Hasenpfeffer Ventures LLC before vesting completes (single-trigger acceleration).
-- **What it buys 5E47:** a delivered, production-hardened, location-ready platform — plus the IP in the delivered system — with DesignThru aligned to the platform's long-term value rather than billable hours.
+- **What it buys 5E47:** a delivered, production-hardened, location-ready platform with a **perpetual, exclusive license** to operate Sam at 5E47 — including 5-year geographic exclusivity in NYC (see §9) — and DesignThru aligned to the platform's long-term value rather than billable hours. The 5E47 deployment + 5E47-specific customizations belong to Hasenpfeffer; the underlying Sam platform remains DesignThru's product.
 
 ### 7.2 What the build actually costs (out-of-pocket)
 
@@ -252,7 +252,7 @@ DesignThru's continued involvement beyond v1 — feature work, model tuning, Pha
 - Selection committee ratification is retained.
 - DesignThru's compensation is **25% equity** in Hasenpfeffer Ventures LLC (§7.1); there is no cash build fee. 5E47 funds the Floor-6 hardware capex, production run-rate, and the ~$5K–$20K software-build out-of-pocket directly.
 - The equity grant, vesting schedule, valuation basis, and clawback/acceleration terms are set in a definitive equity (contribution) agreement executed alongside this Statement of Work; this proposal states the commercial intent.
-- IP in the delivered system transfers to Hasenpfeffer Ventures LLC as DesignThru's equity vests; on full vesting Hasenpfeffer owns the delivered platform IP outright.
+- **IP & license.** DesignThru retains the IP in the underlying **Sam platform** (code, models, architecture). In exchange for the equity grant (§7.1), Hasenpfeffer Ventures LLC receives a **perpetual, exclusive license** to deploy and operate Sam at 5E47, with **5-year geographic exclusivity in New York City** from the production-hardened v1 milestone. 5E47-specific deployment artifacts (operational data, configurations, brand assets, Operator-specific customizations) belong to Hasenpfeffer. DesignThru may deploy Sam to non-competing Operators outside the NYC exclusivity window — including additional Locations for Hasenpfeffer under separate agreement (see Business Plan §10).
 - Terms valid 60 days from the date above.
 
 ## 10. Next Steps
