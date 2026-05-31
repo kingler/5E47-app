@@ -172,8 +172,8 @@ DesignThru designs, builds, and implements the multi-agent operating system — 
 Equity mechanics (to finalize with counsel):
 
 - **Stake:** **25%** of Hasenpfeffer Ventures LLC (or the designated 5E47 operating entity).
-- **Vesting:** earned against the Phase 0–6 delivery milestones in §5 — a **[__]-month** schedule with a cliff at production-hardened v1.
-- **Clawback / acceleration:** delivery-failure clawback and change-of-control acceleration **[to define]**.
+- **Vesting:** earned against the Phase 0–6 delivery milestones in §5 — a **24-month** schedule with a cliff at production-hardened v1 (≈ Month 6). At the cliff, ~25% of the grant vests; the remaining ~75% vests linearly month-by-month over the subsequent 18 months.
+- **Clawback / acceleration:** unvested equity reverts to Hasenpfeffer if DesignThru fails to deliver production-hardened v1 within the agreed milestone deadline plus a 60-day cure period (delivery-failure clawback). Unvested equity fully accelerates on a change-of-control or qualifying liquidity event affecting Hasenpfeffer Ventures LLC before vesting completes (single-trigger acceleration).
 - **What it buys 5E47:** a delivered, production-hardened, location-ready platform — plus the IP in the delivered system — with DesignThru aligned to the platform's long-term value rather than billable hours.
 
 ### 7.2 What the build actually costs (out-of-pocket)
