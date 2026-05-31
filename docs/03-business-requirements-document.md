@@ -1,9 +1,10 @@
-# 5E47 — Business Requirements Document (BRD)
+# Sam — Business Requirements Document (BRD)
 
-**Project:** 5E47 Multi-Agent Operating System (Sam, the Concierge Agent)
-**Document type:** Business Requirements Document
-**Version:** 2.1 · **Status:** Aligned to deck v5.2; operational vocabulary in plain industry-standard terms · **Owner:** Hasenpfeffer Ventures LLC (Product & Operations)
-**Related docs:** Business Model Canvas (01), Business Plan (02), PRD (04), Software Development Plan (05)
+**Product:** Sam — Multi-Agent Operating System for Private Cultural Infrastructure · *a DesignThru Studio product*
+**Document type:** Business Requirements Document (platform — with 5E47 as Flagship Operator instance)
+**Version:** 3.0 · **Status:** Platform-abstracted (5E47 = Flagship Operator instance); aligned to deck v5.2; operational vocabulary in plain industry-standard terms
+**Owner:** DesignThru Studio (Platform) · **Flagship Operator:** Hasenpfeffer Ventures LLC (5E47 · 5 East 47th Street, NYC)
+**Related docs:** BMC (01 — 5E47 instance), Business Plan (02 — 5E47 instance), PRD (04 — platform), SDP (05 — platform), Proposal (06 — 5E47 build deal)
 
 > **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Dark Floor Policy, Genesis Node). This document uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA with Liquidated Damages, Closed-Set Policy, Flagship Location). See the canvas (doc 01) for the full glossary.
 
@@ -11,11 +12,11 @@
 
 ## 1. Purpose & Background
 
-5E47 operates **Private Cultural Infrastructure** at 5 East 47th Street, New York City — a four-story vertical engine (Floors 4–7) that turns raw talent into institutional-grade luxury IP. The building runs as 90-day **Production Cycles** (100 residents per cycle, 4 cycles per year, $3,500 non-refundable per-resident entry, 24-hour acceptance window).
+**Sam** is a multi-agent operating system for **Private Cultural Infrastructure Operators** — buildings (or building systems) that produce institutional-grade IP under enforced scarcity and private-bank-grade discretion. Built and maintained by **DesignThru Studio**. This BRD specifies the platform's business requirements; **5E47** at 5 East 47th Street, NYC (Hasenpfeffer Ventures LLC) is the **Flagship Operator instance** used throughout as the concrete configuration. 5E47 runs as 90-day **Production Cycles** (Flagship configuration: 100 residents/cycle, 4 cycles/year, $3,500 non-refundable per-resident entry, 24-hour acceptance window — all Operator-configurable for future deployments).
 
-The investor narrative (deck v5.2) sells the factory. This BRD specifies the **operating layer** beneath it: a multi-agent system fronted by **Sam, the Concierge Agent** — the single conversational surface every resident interacts with throughout their cycle. Sam delegates to specialist subagents that run selection logistics, in-cycle bookings, dues, access, sponsor activations, Project Slate administration, and ongoing facility operations — at near-zero marginal concierge cost.
+The investor narrative (deck v5.2) sells the 5E47 factory. This BRD specifies the **operating layer** beneath it: a multi-agent platform fronted by **Sam, the Concierge Agent** — the single conversational surface every resident interacts with throughout their cycle. Sam delegates to specialist subagents that run selection logistics, in-cycle bookings, dues, access, sponsor activations, Project Slate administration, and ongoing facility operations — at near-zero marginal concierge cost.
 
-The existing platform is a Next.js multi-tenant codebase with role-scoped workspaces (resident, operator, sponsor, capital partner), RBAC, an event bus, and a mock data layer designed to swap to production services. This BRD defines the requirements to evolve it into the production operating system for the Flagship Location.
+The existing platform is a Next.js multi-tenant codebase with role-scoped workspaces (resident, operator, sponsor, capital partner), RBAC, an event bus, and a mock data layer designed to swap to production services. This BRD defines the requirements to harden it into the production operating system; the 5E47 deployment is the first Operator instance, licensed under the equity-for-build deal in proposal §7.
 
 ## 2. Business Objectives
 

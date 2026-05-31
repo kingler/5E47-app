@@ -4,6 +4,7 @@
 **Plan type:** Operating & growth plan for the Flagship Location of a multi-location private cultural infrastructure network
 **Version:** 2.1 · **Horizon:** 5 years · **Aligned to:** 5E47 Investor Deck v5.2 (2026)
 **Prepared for:** Founders, operators, and prospective capital, brand, media, real-estate, and tech partners
+**Scope:** 5E47 Flagship instance · **Operating platform:** Sam (DesignThru Studio — licensed to Hasenpfeffer per proposal §9; platform specs in SDP/BRD/PRD)
 
 > **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Genesis Node, etc.). This plan uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA, Flagship Location, etc.) so the document reads cleanly for operators, partners, and outside reviewers. See the canvas (doc 01) for the full glossary.
 
@@ -201,7 +202,7 @@ The agent operating layer is the margin engine: Sam holds technology + reduced c
 
 ### 9.5 Funding & use of funds (illustrative)
 
-- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the Sam operating platform, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
+- **Use.** Four-floor buildout & equipment (Floors 6–7 the heaviest line), the **Floor-6 AI Studio hardware buildout** (see tiers below), Confidentiality & Security Protocol infrastructure (identity, capture restriction, secure suites), the **Sam operating platform** *(built by DesignThru in exchange for equity per proposal §7 — only ~$5K–$20K software-build out-of-pocket plus ~$60K external security/legal on the cash side; not a $1M+ cash item)*, Project Slate legal & registry setup, 18-month operating runway through the first three cycles.
 - **Floor-6 AI Studio hardware tiers (one-time capex, investor-stage selection).** The buildout is sized to the launch ambition — all three are defensible. *Canonical specs and capacity per tier: SDP §3A.1.* Summary:
 
   | Tier | Capex | Capacity headline |
@@ -215,6 +216,8 @@ The agent operating layer is the margin engine: Sam holds technology + reduced c
 ## 10. Geographic Expansion — The Multi-Location Blueprint
 
 5E47 is the **Flagship Location**, not the final form. The deck's Section IX is explicit: the long-term architecture is a global network of private cultural infrastructure locations, each engineered to identify, develop, package, and commercialize institutional-grade IP. Replication is engineered into the original design.
+
+The operating layer — **Sam** — is DesignThru's platform, licensed exclusively to Hasenpfeffer for 5E47 with 5-year NYC geographic exclusivity (proposal §9). Additional Hasenpfeffer Locations (Phase II: LA / London / Tokyo) deploy under a separate licensing agreement with DesignThru — the platform is amortized; per-Location buildout remains the primary capital line.
 
 **Expansion thesis.** Each new Location is a fresh capped scarcity market — its own cycles, its own cohort, its own sponsor anchors — sharing one brand, one Project Slate catalog, one operating system, and one cross-location access standard. Talent follows the factory. The factory exists in every major market.
 

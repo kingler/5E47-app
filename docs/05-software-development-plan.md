@@ -1,8 +1,9 @@
-# 5E47 — Software Development Plan & Cost Estimate
+# Sam — Software Development Plan & Cost Estimate
 
-**Project:** 5E47 Multi-Agent Operating System (Sam, the Concierge Agent)
-**Version:** 2.1 · **Status:** Aligned to deck v5.2; operational vocabulary in plain industry-standard terms · **Owner:** Platform / Engineering · **Entity:** Hasenpfeffer Ventures LLC
-**Related:** BMC (01), Business Plan (02), BRD (03), PRD (04)
+**Product:** Sam — Multi-Agent Operating System for Private Cultural Infrastructure · *a DesignThru Studio product*
+**Version:** 3.0 · **Status:** Platform-abstracted (5E47 = Flagship Operator instance); aligned to deck v5.2 and to DesignThru proposal v3.0 (equity-for-build); operational vocabulary in plain industry-standard terms
+**Owner:** DesignThru Studio (Platform) · **Flagship Operator:** Hasenpfeffer Ventures LLC (5E47 · 5 East 47th Street, NYC)
+**Related:** BMC (01 — 5E47 instance), Business Plan (02 — 5E47 instance), BRD (03 — platform), PRD (04 — platform), Proposal (06 — 5E47 build deal)
 
 > **Terminology note.** The investor deck uses brand-coined names. This document uses industry-standard equivalents (Production Cycle, Project Slate, Mutual NDA, etc.). See doc 01 for the full glossary.
 
@@ -10,9 +11,11 @@
 
 ## 1. Overview
 
-This plan describes how Hasenpfeffer Ventures LLC evolves its existing Next.js platform into the production operating system for the Flagship Location at 5 East 47th Street. The system is orchestrated by **Sam, the Concierge Agent** — the single resident-facing conversational surface — and a team of subagents that run the Production Cycle engine, the four-floor production system, the Project Slate, and the Confidentiality & Security Protocol.
+**Sam** is a multi-agent operating system for **Private Cultural Infrastructure Operators** — buildings (or building systems) that produce institutional-grade IP under enforced scarcity and private-bank-grade discretion. Built and maintained by **DesignThru Studio**. The first deployment — the **Flagship Operator instance** used throughout this plan as the concrete configuration — is **5E47** at 5 East 47th Street, NYC (Hasenpfeffer Ventures LLC), licensed under the equity-for-build deal in proposal §7.
 
-The guiding engineering principle inherited from the existing codebase: **stub at the interface boundary.** External services (Stripe, Clerk/Auth0, Kisi, Mux, OpenAI/Anthropic, on-prem GPU compute) are accessed through interfaces so the demo runs deterministically today and production providers swap in without changing call sites. The agent system follows the same discipline — Sam's reasoning sits behind an `LLMProvider` boundary with a deterministic local provider as the default. The architecture is **location-ready**: the same operating system will deploy to LA, London, and Tokyo in Phase II without refactor.
+The platform is orchestrated by **Sam, the Concierge Agent** — the single resident-facing conversational surface — and a team of subagents that run the Production Cycle engine, the floor-by-floor production system, the Project Slate, and the Confidentiality & Security Protocol. Brand-canonical values (cycle cap, monthly dues, entry fee, Slate split) are **Operator-configured**; 5E47 Flagship values are called out where they ground the example.
+
+The guiding engineering principle: **stub at the interface boundary.** External services (Stripe, Clerk/Auth0, Kisi, Mux, OpenAI/Anthropic, on-prem GPU compute) are accessed through interfaces so the demo runs deterministically today and production providers swap in without changing call sites. The agent system follows the same discipline — Sam's reasoning sits behind an `LLMProvider` boundary with a deterministic local provider as the default. The architecture is **multi-tenant and location-ready**: additional Operators or additional Locations for the same Operator can be deployed without refactor.
 
 ## 2. Architecture
 
@@ -88,6 +91,19 @@ The AI Studio is the on-prem creative-compute platform that hosts the Music, Vid
 | **Conservative** | 2× M5 Mac Studio (Ultra) **or** RTX 6000 Ada workstations (creator seats) + 1× 4-GPU **L40S** inference server | 80TB NVMe + 200TB NAS; 10GbE; rack UPS | ~$150K–$250K | ~25 concurrent residents on inference; per-resident SLM fine-tunes queued overnight; primarily LLM + audio/animation workloads |
 | **Standard (recommended)** | **5× M5 Mac Studio (Ultra) creator seats + cinema displays** + 2× 8-GPU **H100 / H200** servers (one inference, one fine-tuning) | Tiered NVMe (240TB hot) + 500TB NAS; 25GbE; redundant UPS | ~$500K–$900K | All 100 residents per cycle on inference with headroom; fine-tuning runs in parallel with production; video and 3D models served at near-real-time |
 | **Aggressive** | 2–4 node **H200** cluster (16–32× H200) + dedicated 8× H200 fine-tuning rig | Multi-PB tiered storage; 100GbE; N+1 cooling and power; redundant networking | ~$1.2M–$2.5M | Multi-cycle headroom; production-scale video and 3D serving; Phase II Location templating built in |
+
+**Itemized capex by tier (current enterprise rates).** Each tier is sized to realistic expected usage — 100 residents per 90-day cycle, the four creative agents (Music, Video, 3D, Animation), per-resident SLM fine-tuning, and BYOD endpoint access. Line items are priced at current enterprise rates (volume/negotiated at the low end of each range, full street at the high end) and sum to the tier capex above.
+
+| Hardware line (sized to expected usage) | Conservative (~25 concurrent) | Standard — recommended (100/cycle + parallel fine-tune) | Aggressive (multi-cycle, prod. video/3D) |
+|---|---|---|---|
+| Creator workstations — M5 Mac Studio (Ultra) + cinema display | 2 seats · $20K–$32K | 5 seats · $42K–$85K | 8 seats · $75K–$135K |
+| GPU compute — inference + per-resident SLM fine-tuning | 1× 4-GPU L40S (192GB VRAM); fine-tunes queued overnight · $65K–$95K | 2× 8-GPU H100/H200 (1.3–2.2TB VRAM); inference + parallel fine-tune · $345K–$540K | 16–32× H200 cluster + dedicated 8× H200 fine-tune rig · $805K–$1.68M |
+| Hot storage — NVMe (active projects, weights, checkpoints) | 80TB · $14K–$28K | 240TB · $30K–$75K | Multi-PB tiered · $90K–$180K |
+| Archive / NAS — catalog & generation-output retention | 200TB · $12K–$24K | 500TB · $20K–$50K | Multi-PB · $58K–$130K |
+| Networking & switching | 10GbE · $8K–$16K | 25GbE redundant · $14K–$38K | 100GbE redundant · $48K–$100K |
+| Power, UPS, cooling & rack | Rack UPS · $12K–$22K | Redundant UPS + HVAC · $22K–$60K | N+1 power & cooling · $80K–$180K |
+| Integration, racking & acceptance test | $19K–$33K | $27K–$52K | $44K–$95K |
+| **Tier capex (one-time)** | **~$150K–$250K** | **~$500K–$900K** | **~$1.2M–$2.5M** |
 
 **Recurring (all tiers).** Power, HVAC, hardware support contracts, replacement parts. Standard tier ≈ **$60K–$120K/yr** in run-rate (depreciation + power + support); see §7.2.
 
@@ -195,11 +211,13 @@ These open-weight models are the **reasoning core — the "brain" — of the hum
 | DevOps / platform (cloud + Floor-6 GPU cluster) | 0.6 |
 | IP & legal liaison (Mutual NDA, Participation Agreement templates) | 0.25 (advisory) |
 
-## 7. Cost Estimate
+## 7. Engineering Effort & Cost
 
-> Blended planning estimate for a ~5.5-month build to production-hardened v1, including Project Slate and Confidentiality & Security implementation. Ranges reflect seniority mix and region. Figures are illustrative.
+> Sizes the engineering effort for a ~5.5-month build to production-hardened v1, and the real cash cost to deliver it. **Under the equity-for-build deal in proposal §7, DesignThru's labor is delivered for equity — not as cash to 5E47.** Labor figures are kept as the **notional build value** — the reference an equivalent agency build would cost, used to size the equity grant. The real cash 5E47 commits is the ~$5K–$20K software-build out-of-pocket, external services (security review, legal templates), Floor-6 AI Studio hardware capex, and production run-rate. Ranges reflect seniority mix and region; figures are illustrative.
 
-### 7.1 Engineering labor (build)
+### 7.1 Engineering labor — notional build value (DesignThru equity-comp, not 5E47 cash)
+
+These figures size the conventional agency cost of the same scope. Under proposal §7.1 this labor is delivered by DesignThru in exchange for equity — 5E47 does not pay it as cash. Kept here as the reference the equity grant is sized against.
 
 | Role | Person-months | Blended monthly | Cost |
 |---|---|---|---|
@@ -232,19 +250,20 @@ These open-weight models are the **reasoning core — the "brain" — of the hum
 | Slate / IP registry, chain-of-title infrastructure | $12K–$24K |
 | **Subtotal (annual run-rate)** | **~$166K–$712K** *(low end = Conservative AI Studio tier; high end = Aggressive)* |
 
-### 7.3 One-time & contingency
+### 7.3 One-time work — split by who pays
 
-| Item | Cost |
-|---|---|
-| Design system polish & brand assets | ~$18K |
-| Security review / pen test (private-bank grade) | ~$35K |
-| Agent evals & guardrail test suite (incl. creative-agent evals) | ~$28K |
-| Mutual NDA / Participation Agreement legal template work | ~$25K |
-| AI Studio install, rack, network, and acceptance test | ~$25K |
-| Contingency (~15% of labor) | ~$134K |
-| **Subtotal** | **~$265K** |
+| Item | Cost | Borne by |
+|---|---|---|
+| Design system polish & brand assets | ~$18K | DesignThru (equity-comp) |
+| Security review / pen test (private-bank grade) | ~$35K | 5E47 (cash, external firm) |
+| Agent evals & guardrail test suite (incl. creative-agent evals) | ~$28K | DesignThru (equity-comp) |
+| Mutual NDA / Participation Agreement legal template work | ~$25K | 5E47 (cash, external counsel) |
+| AI Studio install, rack, network, and acceptance test | ~$25K | 5E47 (cash, vendor — already inside hardware §7.4) |
+| Contingency (~15% of labor) | ~$134K | Notional — equity-comp |
+| **Equity-comp one-time subtotal** | **~$180K** | DesignThru equity |
+| **5E47 cash one-time subtotal** (pen test + legal; install is inside §7.4) | **~$60K** | 5E47 |
 
-### 7.4 Floor-6 AI Studio hardware (capex, one-time)
+### 7.4 Floor-6 AI Studio hardware (capex, one-time — 5E47-funded)
 
 Selected at the investor stage per §3A.1:
 
@@ -254,20 +273,55 @@ Selected at the investor stage per §3A.1:
 | Standard (recommended) | ~$500K–$900K |
 | Aggressive | ~$1.2M–$2.5M |
 
-### 7.5 Total (illustrative)
+### 7.5 Total — split by who pays
+
+**Notional build value (DesignThru equity-comp; not 5E47 cash).** What the equity stake in proposal §7.1 is buying — the reference cost of an equivalent agency build.
 
 | Bucket | Estimate |
 |---|---|
-| Build (labor) | ~$893K |
-| One-time & contingency | ~$265K |
-| **Software build subtotal** | **~$1.16M** |
-| AI Studio hardware capex (tier-dependent) | $150K–$2.5M |
-| **Total build — Conservative tier** | **~$1.31M–$1.41M** |
-| **Total build — Standard tier (recommended)** | **~$1.66M–$2.06M** |
-| **Total build — Aggressive tier** | **~$2.36M–$3.66M** |
-| Annual run-rate (post-launch, tier-dependent) | **~$166K–$712K/yr** |
+| Engineering labor (§7.1) | ~$893K |
+| Equity-comp one-time — design polish, evals, contingency (§7.3) | ~$180K |
+| **Notional build value subtotal** | **~$1.07M** |
 
-**Cost narrative.** The agent operating layer is the **margin engine** — it offsets concierge/ops headcount that would otherwise scale linearly with residents and Locations. The biggest variable cost shifts (vs. v1.0 of this plan) are the **Floor-6 AI Studio buildout** (which adds AI Studio as a Service as a 7th revenue stream — see Business Plan §9) and the on-prem GPU compute required for resident-SLM quarantine and the private-bank-grade security posture. Both are deck-canonical commitments — they protect data sovereignty and turn Floor 6 into a billable production surface rather than pure cost.
+**Real cash 5E47 commits.**
+
+| Bucket | Estimate |
+|---|---|
+| Software-build out-of-pocket (AI-IDE/LLM, dev infra, sandbox tiers) | ~$5K–$20K |
+| 5E47-funded one-time — pen test, legal templates (§7.3) | ~$60K |
+| Floor-6 AI Studio hardware capex (tier-dependent, §7.4) | $150K–$2.5M |
+| **Total cash to launch — Conservative tier** | **~$215K–$330K** |
+| **Total cash to launch — Standard tier (recommended)** | **~$565K–$980K** |
+| **Total cash to launch — Aggressive tier** | **~$1.265M–$2.58M** |
+| Annual run-rate (post-launch, tier-dependent, §7.2) | **~$166K–$712K/yr** |
+
+**Cost narrative.** Under the equity-for-build deal in proposal §7, the software build is delivered by DesignThru for equity rather than cash — so 5E47's real cash commitments concentrate in Floor-6 hardware, run-rate, and a thin layer of external services. The agent operating layer is the **margin engine** — it offsets concierge/ops headcount that would otherwise scale linearly with residents and Locations. The biggest variable cost shifts (vs. v1.0 of this plan) are the **Floor-6 AI Studio buildout** (which adds AI Studio as a Service as a 7th revenue stream — see Business Plan §9) and the on-prem GPU compute required for resident-SLM quarantine and the private-bank-grade security posture. Both are deck-canonical commitments — they protect data sovereignty and turn Floor 6 into a billable production surface rather than pure cost.
+
+### 7.6 AI portion of the notional build value (equity-comp view)
+
+This isolates the agent/AI portion of the ~$1.07M notional build value above. Under proposal §7 it is what the AI-specific scope contributes to the equity grant — not a cash cost to 5E47. Two views, because AI work spans dedicated specialists and shared delivery phases.
+
+**Dedicated AI-specialist labor (equity-comp).**
+
+| Line | From | Cost |
+|---|---|---|
+| AI/agent engineer — orchestration, evals, predictive | §7.1 | ~$120K |
+| ML/AI Studio engineer — creative-domain agents, fine-tune pipeline, on-prem serving | §7.1 | ~$99K |
+| Agent evals & guardrail test suite | §7.3 | ~$28K |
+| **Dedicated AI labor subtotal** | | **~$247K** |
+
+**AI-weighted delivery (by phase) — equity-comp.** These phases are substantially AI but also carry the operator-console UI, hardening, and metering/billing delivered alongside the agents:
+
+| Phase | AI content | Phase cost |
+|---|---|---|
+| 2 · Predictive & Console | Selection-pressure, brand-heat, dues-tier, churn, Slate-readiness models | $152K |
+| 5 · LLM & Hardening | LLM integration boundary, on-prem SLM serving, evals, observability | $128K |
+| 6 · AI Studio as a Service | Music / Video / 3D / Animation agents, per-resident fine-tune pipeline, metering | $232K |
+| **AI-weighted phase total** | | **~$512K** |
+
+Sam's orchestrator and subagent framework (delegation, capability scoping, audit) is built incrementally across Phases 1–5 and is captured within the dedicated AI labor above.
+
+**Run-rate (AI portion, annual — 5E47-funded).** LLM inference for non-quarantined workloads $18K–$60K · on-prem cluster (depreciation + power + support, tier-dependent) $40K–$400K · model ops (vector storage, registry, monitoring) $12K–$30K. See §7.2.
 
 ## 8. Testing & Quality
 

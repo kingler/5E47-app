@@ -2,6 +2,7 @@
 
 **Entity:** Hasenpfeffer Ventures LLC · **Property:** 5 East 47th Street, New York City · **Category:** Private Cultural Infrastructure — a four-story vertical engine that turns raw talent into institutional-grade luxury IP.
 **Version:** 2.1 · **Status:** Aligned to investor deck v5.2; operational vocabulary in plain industry-standard terms · **Owner:** Hasenpfeffer Ventures LLC
+**Scope:** 5E47 Flagship instance · **Operating platform:** Sam (DesignThru Studio — licensed to Hasenpfeffer per proposal §9; platform specs in SDP/BRD/PRD)
 
 > **Terminology note.** The investor deck uses brand-coined names (Volume, 47 Slate, Sovereignty Protocol, Circle of Trust, Dark Floor Policy, Genesis Node, and the poetic floor identities). This document — and the rest of the operating documentation (02–06) — uses industry-standard equivalents (Production Cycle, Project Slate, Confidentiality & Security Protocol, Mutual NDA with Liquidated Damages, Closed-Set Policy, Flagship Location, and plain floor names). The brand terms appear parenthetically on first reference for traceability to the deck.
 

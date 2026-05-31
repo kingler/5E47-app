@@ -1,8 +1,9 @@
-# 5E47 — Product Requirements Document (PRD)
+# Sam — Product Requirements Document (PRD)
 
-**Product:** 5E47 Multi-Agent Operating System — **Sam, the Concierge Agent**
-**Version:** 2.1 · **Status:** Baseline for build, aligned to deck v5.2; operational vocabulary in plain industry-standard terms · **Owner:** Product · **Entity:** Hasenpfeffer Ventures LLC
-**Related:** BMC (01), Business Plan (02), BRD (03), Software Development Plan (05)
+**Product:** Sam — Multi-Agent Operating System for Private Cultural Infrastructure · *a DesignThru Studio product*
+**Version:** 3.0 · **Status:** Platform-abstracted (5E47 = Flagship Operator instance); baseline for build, aligned to deck v5.2; operational vocabulary in plain industry-standard terms
+**Owner:** DesignThru Studio (Platform) · **Flagship Operator:** Hasenpfeffer Ventures LLC (5E47 · 5 East 47th Street, NYC)
+**Related:** BMC (01 — 5E47 instance), Business Plan (02 — 5E47 instance), BRD (03 — platform), SDP (05 — platform), Proposal (06 — 5E47 build deal)
 
 > **Terminology note.** The investor deck uses brand-coined names. This document uses industry-standard equivalents (Production Cycle, Project Slate, Mutual NDA, etc.). See doc 01 for the full glossary.
 
@@ -10,11 +11,11 @@
 
 ## 1. Product Vision
 
-> *5E47 runs itself like a private bank that produces culture — instant, discreet, with chain-of-title on every artifact.*
+> *A Private Cultural Infrastructure Operator runs itself like a private bank that produces culture — instant, discreet, with chain-of-title on every artifact. Sam is the operating system that makes that possible.*
 
-Sam is the single face of 5E47's operating layer. Residents talk to Sam from the moment they're selected into a Production Cycle through to alumni status: accept the selection, pay the $3,500 entry, onboard, book suites and render time, manage dues, opt projects into the Project Slate, and exit clean. Sam orchestrates a team of specialist subagents that run the four-floor production system, and continuously runs predictive models so each cycle stays at — or above — full selection pressure.
+**Sam** is the single resident-facing surface of a Private Cultural Infrastructure Operator's operating layer — built and maintained by **DesignThru Studio**, deployed first at **5E47** (the Flagship Operator instance used throughout this PRD as the concrete configuration). Residents talk to Sam from the moment they're selected into a Production Cycle through to alumni status: accept the selection, pay the entry fee, onboard, book suites and render time, manage dues, opt projects into the Project Slate, and exit clean. Sam orchestrates a team of specialist subagents that run the Operator's production floors, and continuously runs predictive models so each cycle stays at — or above — full selection pressure.
 
-The deck sells the **factory**. Sam runs it.
+The investor deck sells the 5E47 factory. Sam runs it — at 5E47, and at any future Private Cultural Infrastructure Operator that licenses the platform.
 
 ## 2. Goals & Non-Goals
 
