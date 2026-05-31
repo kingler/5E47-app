@@ -1,32 +1,38 @@
-# 5E47 · Agent-Operated Creator Residency
+# 5E47 · the Flagship deployment of Sam
 
-The 5E47 platform — an invitation-only luxury creator residency run by a
-**multi-agent system** orchestrated by **Sam, the 5E47 Agent**. Members hold
-one conversation with Sam to become members, book space and services, and
-manage their membership. Sam delegates day-to-day operations to specialist
-subagents and runs predictive models that hold the brand inside its scarcity
-band.
+**Sam** is a **DesignThru Studio** multi-agent operating system for Private
+Cultural Infrastructure Operators. **5E47** is the Flagship Operator instance
+— an invitation-only luxury creator residency at 5 East 47th Street, NYC,
+run by Sam (the concierge agent). Members hold one conversation with Sam to
+become members, book space and services, and manage their membership. Sam
+delegates day-to-day operations to specialist subagents and runs predictive
+models that hold the brand inside its scarcity band.
 
-Underneath, it remains a multi-tenant creator infrastructure operating system
+Underneath, Sam is a multi-tenant creator infrastructure operating system
 covering identity, residencies, payments, bookings, smart access, sponsor
-analytics, and investor reporting.
+analytics, and investor reporting — multi-Operator and multi-Location by
+design.
 
 This repo is a working Next.js 15 app scaffold that demonstrates the
-architecture end-to-end. Real integrations (Stripe, Clerk/Auth0, Kisi,
-Supabase, Mux, Temporal, and the LLM behind Sam) are stubbed at the interface
-boundary and can be swapped in without changing call sites.
+architecture end-to-end against the 5E47 Flagship configuration. Real
+integrations (Stripe, Clerk/Auth0, Kisi, Supabase, Mux, Temporal, and the
+LLM behind Sam) are stubbed at the interface boundary and can be swapped
+in without changing call sites.
 
 ## Documentation
 
 Business and product docs live in [`/docs`](./docs) and are published as a
 browsable site at the **`/docs` route** (statically generated, on-brand):
 
-- [DesignThru Studio Proposal](./docs/06-designthru-studio-proposal.md) — SOW & investment to build Sam
-- [Business Model Canvas](./docs/01-business-model-canvas.md)
-- [Business Plan](./docs/02-business-plan.md) (marketing strategy + financials + multi-city)
-- [Business Requirements Document](./docs/03-business-requirements-document.md)
-- [Product Requirements Document](./docs/04-product-requirements-document.md)
-- [Software Development Plan & Cost](./docs/05-software-development-plan.md)
+**5E47 instance docs** (the Flagship Operator)
+- [DesignThru Studio Proposal](./docs/06-designthru-studio-proposal.md) — equity-for-build SOW between DesignThru & Hasenpfeffer (5E47)
+- [Business Model Canvas](./docs/01-business-model-canvas.md) — 5E47 BMC
+- [Business Plan](./docs/02-business-plan.md) — 5E47 BP (marketing, financials, multi-Location)
+
+**Sam platform docs** (DesignThru product, with 5E47 as Flagship Operator instance)
+- [Sam — Business Requirements Document](./docs/03-business-requirements-document.md)
+- [Sam — Product Requirements Document](./docs/04-product-requirements-document.md)
+- [Sam — Software Development Plan & Cost](./docs/05-software-development-plan.md)
 
 ## The agent system
 
